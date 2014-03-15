@@ -16,3 +16,5 @@ domains/
 stats/
 
 teamviewer/TeamViewerQS.zip
+
+*.php
