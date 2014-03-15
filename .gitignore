@@ -18,3 +18,5 @@ stats/
 teamviewer/TeamViewerQS.zip
 
 *.php
+
+wp-content/plugins/pagemash/saveList.php
