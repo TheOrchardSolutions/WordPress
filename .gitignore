@@ -14,9 +14,3 @@ wp-content/backups/
 sitemap.xml.gz
 domains/
 stats/
-
-teamviewer/TeamViewerQS.zip
-
-*.php
-
-wp-content/plugins/pagemash/saveList.php
