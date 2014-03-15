@@ -211,7 +211,7 @@ class TC_header_main {
 	 * @package Customizr
 	 * @since Customizr 3.0.10
 	 */
-	function tc_navbar_display() {
+	/** function tc_navbar_display() {
 		
 		ob_start();
 		do_action( 'before_navbar' ); 
@@ -249,7 +249,7 @@ class TC_header_main {
 
 
 	
-
+*/
 
 	/**
 	 * Displays the social networks block in the header
