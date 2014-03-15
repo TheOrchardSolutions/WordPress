@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta charset="utf-8">
+	<title>plum.Shop - A jQuery shopping cart</title>
+
+	<link rel="stylesheet" href="style.css">
+
+	<script src="../../js/jquery.js"></script>
+	<script src="../../js/jquery.plum.shop.js"></script>
+
+</head>
+<body>
+
+<div id="body" class="clear">
+	<div id="header">
+		<h1>Introducing <span>plum.Shop</span></h1>
+		<h2>The unbelievably easy-to-use, feature-rich shopping cart powered by jQuery</h2>
+	</div>
+	<div id="aside" class="left">
+		<h3>
+			plum.Shop is eCommerce at its roots. It’s designed to be completely
+			hassle-free and still offer enough options to get into the nitty
+			gritty of your online store.
+		</h3>
+		<p>
+			Plum has over 30 configuration options, including multiple checkout
+			methods, currency locales, discount codes, tax exempt and shipping
+			exempt settings, callback functions and more. It sports a rich API
+			to create a flawless integration with any layout.
+		</p>
+		<p>
+			It’s fast, it’s powerful, and it’s exquisitly packaged into a file
+			that's under 20 Kb. And if you use gzip, it’s under 6 Kb.
+		</p>
+
+		<hr>
+
+		<h3>
+			Design your cart the way <em>you</em> want it to appear. There are no
+			restrictions on HTML or required class selectors. You tell Plum
+			what you want it to do.
+		</h3>
+		<p>
+			plum.Shop is pure JavaScript; it doesn’t need a database or server
+			scripting (though you can of course use such if you need). That means it’s
+			lightning fast and can be used with flat HTML files. If Amazon FPS, Google
+			Checkout, PayPal, and Moneybookers aren’t enough for you, you can use the
+			custom checkout method to define your own.
+		</p>
+	</div>
+	<div id="main" class="right">
+		<div>
+
+			<div class="clear">
+				<div class="left button">
+					<a id="shop" href="index.html">Continue shopping</a>
+				</div>
+				<div class="empty button">
+					<button type="button"><span title="Empty cart"></span></button>
+				</div>
+				<div class="cart-mini button big">
+					<a id="cart" href="cart.html">
+						<span>
+							<span class="cart-quantity">0</span> items in your cart<br>
+							<span class="cart-subtotal">$0.00</span> subtotal
+						</span>
+					</a>
+				</div>
+			</div>
+			<div id="page">
+
+			<p>
+				plum.Shop is self-aware, so you can load your cart display via
+				AJAX without needing to call the plugin again.
+			</p>
+			<div class="cart"></div>
+			<div class="cart-details clear">
+				<div class="right">
+					<input class="right discount">
+					<label title="You can use 10PERCENT or 10DOLLARS on the demo">Apply a discount code</label>
+				</div>
+				<div class="clear"></div>
+				<div class="right">
+					<div class="clear">
+						<span class="price"><span class="cart-subtotal">$0.00</span></span>
+						<label>Subtotal</label>
+					</div>
+					<div class="clear">
+						<span class="price"><span class="cart-discount">$0.00</span></span>
+						<label>Discount</label>
+					</div>
+					<div class="clear">
+						<span class="price"><span class="cart-tax">$0.00</span></span>
+						<label title="The demo is set up to have 4.5% tax on subtotals over $55">Tax</label>
+					</div>
+					<div class="clear">
+						<span class="price"><span class="cart-shipping">$0.00</span></span>
+						<div class="right" style="margin-right:4px" title="Shipping is free on subtotals over $300">
+							<select class="right shipping">
+								<option></option>
+							</select>
+							<label>Shipping</label>
+						</div>
+					</div>
+					<div class="clear">
+						<span class="price"><span class="cart-total">$0.00</span></span>
+						<label>Total</label>
+					</div>
+				</div>
+				<div class="clear"></div>
+				<div>
+					<div class="button"><button type="button" class="checkout">Custom checkout</button></div>
+					<div class="button"><button type="button" class="paypal">PayPal</button></div>
+					<div class="button"><button type="button" class="moneybookers">Moneybookers</button></div>
+					<div class="button"><button type="button" class="google">Google</button></div>
+					<div class="button"><button type="button" class="amazon">Amazon</button></div>
+				</div>
+			</div>
+
+			</div>
+		</div>
+	</div>
+	<div id="footer">
+		<p>&copy; 2011 RoboCréatif. Created for humans by humans.</p>
+	</div>
+</div>
+
+<script src="demo.js"></script>
+
+</body>
+</html>

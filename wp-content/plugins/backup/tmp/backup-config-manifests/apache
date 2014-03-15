@@ -1,0 +1,9 @@
+/etc/httpd/conf/httpd.conf
+/etc/httpd/conf.d/php.conf
+/etc/httpd/conf.d/proxy_ajp.conf
+/etc/httpd/conf.d/welcome.conf
+/etc/httpd/etc/srm.conf
+/etc/httpd/etc/access.conf
+/etc/mime.types
+/etc/httpd/conf/magic
+/etc/webmin/apache/config

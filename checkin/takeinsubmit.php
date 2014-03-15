@@ -1,0 +1,275 @@
+<?php
+	require ('class-phpmailer.php');
+
+	function getVCard ($company, $name, $phone, $email, $add1, $add2, $city, $state, $zip) {
+		$name_str = explode(' ', $name);
+		
+		$v_card = "BEGIN:VCARD\n";
+		$v_card .= "VERSION:3.0\n";
+		$v_card .= "N:" . $name_str[1] . ";" . $name_str[0] . ";;;\n";
+		$v_card .= "FN:" . $name . "\n";
+		
+		if ($company != '') {
+			$v_card .= "ORG:" . $company . "\n";
+			$locale = "WORK";
+		} else {
+			$locale = "HOME";
+		}
+		
+		$v_card .= "EMAIL;type=INTERNET;type=" . $locale . ":" . $email . "\n";
+		$v_card .= "TEL;type=" . $locale . ";type=pref:" . $phone . "\n";
+		$v_card .= "item1.ADR;type=" . $locale . ";type=pref:;;" . $add1 . " " . $add2 . ";" . $city . ";" . $state . ";" . $zip . ";\n";
+		$v_card .= "item1.X-ABADR:us\n";
+		$v_card .= "END:VCARD";
+		
+		return $v_card;
+	}
+	
+	function writeVCardToFile ($data) {
+		$fileName = "/tmp/tmp.vcf";
+		$fileHandle = fopen ($fileName, 'w');
+		fwrite ($fileHandle, $data);
+		fclose ($fileHandle);
+		
+		return $fileName;
+	}
+
+	function writeSensitiveDataToFile ($data) {
+		$fileName = "/tmp/sensitive.txt";
+		$fileHandle = fopen ($fileName, 'w');
+		fwrite ($fileHandle, $data);
+		fclose ($fileHandle);
+
+		return $fileName;
+	}
+	
+	function getHTMLBody ($company, $name, $phone, $email, $add1, $add2, $city, $state, $zip, $problem, $eqName, $eqSerial, $accessories, $privacy, $internal) {
+		$body = "<div class=\"infoblock\">\n\t\t\t";
+		$body .= "<div class=\"date span-24\">\n\t\t\t";
+		if ($internal == "yes") {
+			$body .= "THIS REPORT WAS CREATED BY A STAFF MEMBER.\n\n";
+		} else {
+			$body .= "";
+		}
+		$body .= "<small>Date/Time: " . date ('Y m/d, H:i') . "\n";
+# 		$body .= "<br />\nOur Time Zone: " . date ('e');
+		$body .= "\n\t\t</small><br /><br /></div>\n\t\t";
+		$body .= "<div class=\"span-10\">";
+		
+		$body .= "<div class=\"info\">\n\t\t\t";
+		$body .= "<h4><strong>Contact Info</strong></h4>" . "\n";
+		$body .= "<div class=\"name\">" . $company . "</div>\n";
+		$body .= "<div class=\"company\">" . $name . "</div>\n";
+		$body .= "<div class=\"phone\">" . $phone . "</div>\n";
+		$body .= "<div class=\"email\">" . $email . "</div>\n";
+		$body .= "<div class=\"privacy\">" . $privacy . "</div>\n";
+		$body .= "<div class=\"add1\">" . $add1 . "</div>\n";
+		$body .= "<div class=\"city\">" . $city . " " . $state . "</div>\n";
+		$body .= "<div class=\"zip\">" . $zip . "</div>\n";
+		$body .= "</div>\n";
+		$body .= "<br />\n";
+		$body .= "<div class=\"address\">\n";
+		$body .= "\n</div>\n";
+		$body .= "</div> <!-- close: left_side span-8 -->";
+		
+		$body .= "<div class=\"span-12 last\">";
+		$body .= "<div class=\"problem\">\t\t\t";
+		$body .= "<h4><strong>Description of the Problem</strong></h4>" . "<br />\n\t\t\t";
+		$body .= $problem;
+		$body .= "\n\t\t</div>\n\t\t";
+		$body .= "<br />\n\t\t";
+		
+		$body .= "<div class=\"equipment\">\n\t\t\t";
+		$body .= "<h4><strong>Equipment dropped off</strong></h4>" . "\n\t\t\t";
+		$body .= $eqName . "\n\t\t\t" . "<br />";
+		$body .= $eqSerial . "\n\t\t\t" . "<br />";
+		$body .= $eqUser . "<br />";
+		$body .= "\n\t\t</div>\n\t\t";
+		$body .= "<br />\n\t\t";
+		
+		$body .= "<div class=\"accessories\">\n\t\t\t";
+		$body .= "<h4><strong>Accessories dropped off</strong></h4>" . "\t\t\t";
+		$body .= $accessories;
+		$body .= "\n\t\t</div>\n\t\t";
+		$body .= "<br>\n\t\t";
+		$body .= "</div> <!-- close: right_side span-12 -->";
+		$body .= "<div class=\"clear\"> &nbsp;</div>";
+		
+		$body .= "</div> <!-- close: infoblock -->";
+				
+		return $body;
+	}
+	
+	function getTextBody ($company, $name, $phone, $email, $add1, $add2, $city, $state, $zip, $problem, $eqName, $eqSerial, $accessories, $privacy, $internal) {
+		if ($internal == "yes") {
+			$message = "THIS REPORT WAS CREATED BY A STAFF MEMBER\n";
+		} else {
+			$message = "";
+		}
+		$message .= "Date: " . date ('Y m/d, H:i') . "Time Zone" . date ('e');
+		$message .= "Customer Information:\n";
+		$message .= $company . "\n";
+		$message .= $name . "\n";
+		$message .= $email . "\n";
+		$message .= $phone . "\n";
+		$message .= $add1 . ", " . $add2 . "\n";
+		$message .= $city . ", " . $state . " " . $zip . "\n";
+
+		$message .= "Problem Description:\n";
+		$message .= $problem . "\n";
+
+		$message .= "Equipment:\n";
+		$message .= $equname . "\n";
+		$message .= $eqserial . "\n";
+		$message .= $equser . "\n";
+
+		$message .= "Accessories:\n";
+		$message .= $accessories . "\n";
+
+		$message .= "\n" . $privacy . "\n";
+		
+		return $message;
+		if ($internal == "yes") {
+			$message = "THIS REPORT WAS CREATED BY A STAFF MEMBER\n";
+		} else {
+			$message = "";
+		}
+
+	}
+	
+	function sendMail ($fromName, $fromAddress, $to, $html, $text, $vcfFile, $dataFile, $serial, $internal) {
+		$subject = "";
+		$vcfName = $fromName . ".vcf";
+		$dataName = "User Info.txt";
+
+		$mailer = new PHPMailer ();
+		$mailer->IsSMTP();
+		$mailer->Host = "localhost";
+		$mailer->SMTPAuth = false;
+		$mailer->IsHTML(true);
+		
+		$mailer->FromName = $fromName;
+		$mailer->From = $fromAddress;
+		$mailer->AddAddress ($to);
+
+		$subject = "Web Checkin Form - $fromName - $serial";
+		if ($internal == "yes") {
+			$subject .= " - Internal";
+		}
+		$mailer->Subject = $subject;
+		$mailer->Body = $html;
+		$mailer->AltText = $text;
+		
+		$mailer->AddAttachment ($vcfFile, $vcfName, '8bit', 'text/x-vcard');
+		$mailer->AddAttachment ($dataFile, $dataName, '8bit', 'text/plain');
+
+		return $mailer->Send ();
+	}
+	
+	$company = $_POST['company'];
+	$name = $_POST['name'];
+	$email = $_POST['email'];
+	$phone = $_POST['phone'];
+	$add1 = $_POST['address1'];
+	$add2 = $_POST['address2'];
+	$city = $_POST['city'];
+	$state = $_POST['state'];
+	$zip = $_POST['zip'];
+	$problem = $_POST['problem'];
+	$eqName = $_POST['equipment1-name'];
+	$eqSerial = $_POST['equipment1-serial'];
+	$eqUser = $_POST['equipment1-user'];
+	$accessories = $_POST['accessories'];
+	$internal = $_POST['internal'];
+	
+	if (isset ($_POST['privacy'])) {
+		$privacy = "<i>Please send refused@apple.com to Apple instead of my email address.</i>";
+	} else {
+		$privacy = '';
+	}
+	
+	$htmlHead  = "";
+	?><!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+	"http://www.w3.org/TR/html4/strict.dtd">
+	<html lang="en">
+		<head>
+			<title>
+				Thanks for Your Information
+			</title><!-- Framework CSS -->
+			<link rel="stylesheet" href="jquery.tooltip.css" type="text/css" media="screen, projection">
+			<link rel="stylesheet" href="screen.css" type="text/css" media="all">
+			<link rel="stylesheet" href="print.css" type="text/css" media="print"><!--[if lt IE 8]><link rel="stylesheet" href="ie.css" type="text/css" media="screen, projection"><![endif]-->
+
+			<script src="jquery.min.js" type="text/javascript"></script>
+			<script src="jquery.dimensions.min.js" type="text/javascript"></script>
+			<script src="jquery.tooltip.js" type="text/javascript"></script>
+			<script type="text/javascript" charset="utf-8">
+				$(document).ready(function() {
+				});	
+			</script>
+		</head>
+	<?php 
+	$htmlHead .= "<body id=\"submitted\">\n\t\t";
+
+	$htmlBody = getHTMLBody ($company, $name, $phone, $email, $add1, $add2, $city, $state, $zip, $problem, $eqName, $eqSerial, $accessories, $privacy, $internal);
+	$message = getTextBody ($company, $name, $phone, $email, $add1, $add2, $city, $state, $zip, $problem, $eqName, $eqSerial, $accessories, $privacy, $internal);
+	$vCardInfo = getVCard ($company, $name, $phone, $email, $add1, $add2, $city, $state, $zip);
+	$vCardFile = writeVCardToFile ($vCardInfo);
+
+	$sensData = $name . "\n" . $eqName . "\n" . $eqSerial . "\n" . $eqUser;
+	$sensDataFile = writeSensitiveDataToFile ($sensData);
+	
+	$vCardArr = explode ('\n', $vCardInfo);
+	$vCardInfo = implode ("<br />", $vCardArr);
+	
+	$htmlFoot  = "</body>\n";
+	$htmlFoot .= "</html>";
+	
+	if (sendMail ($name, "dropoff@mcghosting.com", "support@theorchardsolutions.com", $htmlHead . $htmlBody . $htmlFoot, $message, $vCardFile, $sensDataFile, $eqSerial, $internal)) {
+		echo $htmlHead; ?>
+		<div class="container">
+			<!-- inactive class - showgrid -->
+			<h4 class="printme">The Orchard<br />662 Jefferson Highway<br />Baton Rouge, LA 70806<br />225-933-5311</h4>
+			<h2 id="mcglogo">
+				<img src="/checkin/logo.png" alt="Mac Consulting Group, Inc." />
+				<i>The Orchard</i><br>
+				<small>Equipment Drop-Off Form</small>
+			</h2>
+			<hr>
+			<h3 class="success print_success"><a href="javascript:window.print()">We have received your service request, you may print this page for your records.</a></h3>
+			<p>
+				In most cases, we ask you to leave only your computer. Unless you think an accessory is related to the problem, your cases, cables, and adapters are best kept in your possession.
+
+			</p>
+
+<?php echo $htmlBody; ?>
+
+				
+		<div class="directions_to_mcg">
+			<div class="span-10">
+			<br />
+				<p>
+				<h4 id=""><strong>Thank you for choosing the Orchard for your computer repair.</strong></h4>
+			
+				<ul>
+					<li>The Orchard currently charges $120 per hour for our services. There is also a <strong>one hour minimum charge</strong>, which covers our time spent in diagnosis, our collective years of experience, and operating expenses. For computers brought in <strong>outside of their warranty period, we require a pre-payment of charges in the amount of $60</strong>.</li>
+
+					<li>It is important to note that we do not charge for any service covered by your AppleCare warranty.</li>
+
+					<li>We will diagnose the computer shortly after drop off, and can provide <strong>same-day diagnosis for computers brought in before 3PM</strong>. Once we have diagnosed the issue, we will contact you with a quote detailing the expected charges.</li>
+				</ul>
+				<p/>
+			</div> <!-- close: span-10 -->
+			<div id="span-12 last">
+				<h3><a href="/directions" TARGET="_blank"> Directions to The Orchard Baton Rouge</a></h3>
+				<a href="/directions" TARGET="_blank"><img src="MCG_take_in_map.png" width="343" height="230" alt="Directions"></a>
+			</div> <!-- close: span-12 last -->
+		</div> <!-- close: directions_to_mcg -->
+<?php echo $htmlFoot;
+	} else {
+		echo $htmlHead;
+		echo "<div class=\"error\"><h3>There was an error submitting your information. please try again.</h3></div>";
+		echo $htmlFoot;
+	}
+	
+?>

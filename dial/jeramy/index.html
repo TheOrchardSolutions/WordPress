@@ -1,0 +1,29 @@
+<title>Quick Dialer</title>
+<script type="text/javascript">
+function select_text()
+{
+var content=eval("document.myform.n");
+content.focus();
+content.setSelectionRange(0, 9999);
+}
+</script>
+<style>
+body, input {
+	font-family:Helvetica, sans;
+	font-size:53px;
+}
+input {
+	cursor:pointer;
+}
+</style>
+<FORM NAME="myform" METHOD="LINK" ACTION="http://www.webfones.com/phpscripts/webfones_dial.php?p=passcode&n=number">
+<INPUT TYPE="hidden" Name="p" Value="Jp7xLb9j28490"/>
+Phone Number: <INPUT onClick="select_text();" TYPE="text" NAME="n" SIZE="10"/>
+<INPUT TYPE="submit" VALUE="Dial">
+	
+</FORM>
+To have our phone system connect you via our office line:<p>
+Enter the number you wish to reach, and click dial.<p>
+You will be connected once you answer your extension and press 1<p>
+
+Non-numeric characters will automatically be stripped, making this tool copy/paste friendly.

@@ -1,0 +1,105 @@
+/******************************************************************************
+*                                                                             *
+*       Copyright (c) 2005-2009 Xsilva Systems Inc. All rights reserved.      *
+*                                                                             *
+*******************************************************************************
+*                                                                             *
+* LightSpeed Web Store™ is commercial software. Only users who have purchased *
+* a valid license through  http://www.xsilva.com/  and  accept  the terms of  *
+* this License Agreement may install this product.                            *
+*                                                                             *
+*******************************************************************************
+* THIS LightSpeed Web Store™ END-USER LICENSE AGREEMENT CONSISTING OF THIS    * 
+* DOCUMENT TOGETHER WITH THE FULL TEXT OF THE SOFTWARE LICENSE AGREEMENT SET  *
+* FORTH HEREINBELOW (THE “AGREEMENT”) IS A LEGAL AGREEMENT BETWEEN            *
+* YOU AND YOUR COMPANY (COLLECTIVELY, "YOU") AND Xsilva ( THE "AUTHOR")       *  
+* FOR THE SOFTWARE PRODUCT IDENTIFIED ABOVE (THE “SOFTWARE”),                 *
+* WHICH INCLUDES COMPUTER SOFTWARE AND MAY INCLUDE ASSOCIATED MEDIA, PRINTED  *
+* MATERIALS, AND "ONLINE" OR ELECTRONIC DOCUMENTATION (COLLECTIVELY, THE      *
+* "SOFTWARE").  BY USING THE SOFTWARE, YOU SIGNIFY YOUR AGREEMENT TO ALL      *
+* TERMS, CONDITIONS, AND NOTICES CONTAINED OR REFERENCED HEREIN. IF YOU ARE   *
+* NOT WILLING TO  BE  BOUND  BY  THIS  AGREEMENT, DO NOT INSTALL OR USE THE   *
+* SOFTWARE.                                                                   *
+*                                                                             *
+* PLEASE READ THE FULL TEXT OF SOFTWARE LICENSE AGREEMENT IN THE "COPYRIGHT"  *
+* FILE PROVIDED WITH THIS DISTRIBUTION. THE AGREEMENT TEXT IS ALSO AVAILABLE  *
+* AT THE FOLLOWING URL: http://www.xsilva.com/webstore_license.html           *
+******************************************************************************/
+
+img{behavior:url(iepngfix.htc);}
+
+body{background-image:none;color:#fff;margin-bottom:0;}
+
+#login .right{margin:0 8px 0 -55px;}
+#loginpane{margin:15px 0 0 -235px;padding:8px 0 10px;position:absolute;top:25px;}
+	.login{background-color:#010101;background-image:none;background-repeat:no-repeat; color: #999;}
+	.box_close{display: none;}
+	/*.login h1{position:relative;top:10px;}*/
+	.login a:link, .login a:visited, .login a:hover, .login a:active {color: #999; border-bottom: 1px solid #color: #999;}
+	.login p, #loginEmail_ctl {color: #999;}
+.login_input{font-size:14px;padding:0;}
+.logout_button{left:95px;position:relative;top:-15px;}
+
+#customer_registration label,label,#checkout label,legend{color:#000;}
+#customer_registration legend{display:block;float:left;margin-top:15px;}
+	#shipcity_ctl, .city2 {position: relative; left: 35px; top: -28px;}
+	#shipstreet2_ctl {position: relative; top: -28px;}
+	#htmlmail_ctl, .opt {margin-left: 25px; position: releative; top: 15px;}
+	#billcity_ctl, .city, #billzip_ctl, .zip, #shipzip_ctl, .zip2, #c30_ctl {position: relative; left: -15px;}
+	#c27_ctl, .cbtext {display: none;}
+	.cbhtml {position: relative; top: 15px;}
+	.shipping {position: relative; top: 15px;}
+
+#header{display:block;float:left;height:50px;margin:0 0 -49px;padding:10px 0 75px;position:relative;text-align:left;width:100%;}
+
+#nav_products{margin:-4px 0 15px;padding:15px 0 0 4px;}
+.contact label{border:none;}
+#nav{margin-top:-5px;}
+#nav_products ul li ul li img{margin:-12px 0 0;}
+#nav a{height:26px;margin-top:-5px;padding:12px 0 0;}
+	.arrow {right: 10px; padding-top: 13px;}
+li#search{display: block; float: right; position: relative; top: -5px; left: 0; padding:8px 10px 0 18px;width:180px;}
+	#applesearch .sbox input{background:#fff;border:1px solid #222;height:12px;padding:0 0 -10px;position: relative; top: -5px;}
+#applesearch .sbox_l,#applesearch .sbox_r,.wishlist img{display:none;}
+
+#pagination li{padding-top:8px;width:10px;}
+#pagination .active {margin: 5px;padding: 0 8px 10px 7px;color:#000;background: #EFEFEF;background-image: url(images/breadcrumbs_sep.png) top right no-repeat;height: 20px;width: 20px;}
+#pagination img{position: relative; top: -5px;}
+
+#breadcrumbs img{margin-top:-4px;}
+
+.product_cell_price{display:block;max-width:75px;}
+.product_cell_price a:link,.product_cell_price a:visited,.product_cell_price a:hover,.product_cell_price a:active{color:#dadada;padding:15px;}
+
+#rightside{display:block;float:right;left:-5px;position:relative;width:234px;}
+#shoppingcarttop{margin:-5px 0 0;}
+#shoppingcartbottom{margin:0 0 -5px;}
+#shoppingcart .title{margin-top:9px;}
+.review{font-size:16px;height:33px;margin:55px 0 0 5px;padding:9px 0 15px;width:100px;}
+.gocheckout{font-size:16px;height:33px;padding:9px 0 15px;width:112px;}
+
+#sidebar h1{border:none;height:36px;}
+#sidebar li{height:36px;}
+#sidebar .containers{width:236px;}
+
+#footer{height:33px;width:1013px;}
+
+.cart{max-width:743px;min-width:743px;overflow:hidden;width:743px;}
+	.receipt_titles{width:250px; height: 55px;}
+.receipt_titles p{margin:5px 14px;}
+.receipt_subtotals{margin:0;width:235px;}
+.receipt_total{position:relative; top: -5px; left: -487px; padding-bottom: 10px; width: 250px;}
+	.receipt_checkout{height:56px;margin:-5px 0 50px 247px;padding:20px 0 20px 5px;width:250px;z-index:900;}
+.receipt_row{margin:-50px 0 0 1px;}
+.receipt_row .qty input{height:13px;}
+.receipt_row img{float:right;margin:-12px -38px 0 0;max-height:15px;max-width:15px;}
+	img.minus_icon{position:relative;top:-11px; left: -10px; max-height: 0; max-width: 0;}
+
+.addcart{height:23px;margin:-26px 0 0;padding:10px 0 4px;width:115px;}
+.addcart img{display:none;height:12px;}
+	a:link.wishlist, a:visited.wishlist, a:hover.wishlist, a:active.wishlist{height:23px;margin:56px 155px 0 0;width:115px; color: #fff;}
+	
+	.cwl {position: relative; top: -6px; border: none;}
+	.search {position: relative; top: -25px; right: -155px;}
+	.psubmit {position: relative; top: -25px; right: -225px; height: 25px; width: 75px; display: block;}
+	.grl {width: 500px;}

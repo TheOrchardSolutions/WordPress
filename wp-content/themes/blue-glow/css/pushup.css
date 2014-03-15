@@ -1,0 +1,39 @@
+/******************************************************************************
+*                                                                             *
+*       Copyright (c) 2005-2009 Xsilva Systems Inc. All rights reserved.      *
+*                                                                             *
+*******************************************************************************
+*                                                                             *
+* LightSpeed Web Store™ is commercial software. Only users who have purchased *
+* a valid license through  http://www.xsilva.com/  and  accept  the terms of  *
+* this License Agreement may install this product.                            *
+*                                                                             *
+*******************************************************************************
+* THIS LightSpeed Web Store™ END-USER LICENSE AGREEMENT CONSISTING OF THIS    * 
+* DOCUMENT TOGETHER WITH THE FULL TEXT OF THE SOFTWARE LICENSE AGREEMENT SET  *
+* FORTH HEREINBELOW (THE “AGREEMENT”) IS A LEGAL AGREEMENT BETWEEN            *
+* YOU AND YOUR COMPANY (COLLECTIVELY, "YOU") AND Xsilva ( THE "AUTHOR")       *  
+* FOR THE SOFTWARE PRODUCT IDENTIFIED ABOVE (THE “SOFTWARE”),                 *
+* WHICH INCLUDES COMPUTER SOFTWARE AND MAY INCLUDE ASSOCIATED MEDIA, PRINTED  *
+* MATERIALS, AND "ONLINE" OR ELECTRONIC DOCUMENTATION (COLLECTIVELY, THE      *
+* "SOFTWARE").  BY USING THE SOFTWARE, YOU SIGNIFY YOUR AGREEMENT TO ALL      *
+* TERMS, CONDITIONS, AND NOTICES CONTAINED OR REFERENCED HEREIN. IF YOU ARE   *
+* NOT WILLING TO  BE  BOUND  BY  THIS  AGREEMENT, DO NOT INSTALL OR USE THE   *
+* SOFTWARE.                                                                   *
+*                                                                             *
+* PLEASE READ THE FULL TEXT OF SOFTWARE LICENSE AGREEMENT IN THE "COPYRIGHT"  *
+* FILE PROVIDED WITH THIS DISTRIBUTION. THE AGREEMENT TEXT IS ALSO AVAILABLE  *
+* AT THE FOLLOWING URL: http://www.xsilva.com/webstore_license.html           *
+******************************************************************************/
+
+
+#pushup{background:#ffffc6;border:1px solid #b0dfc8;border-left:none;border-right:none;border-top:none;font-family:Arial, Helvetica, sans-serif;margin:0;padding:4px 0 10px 25px;position:fixed;right:0;text-decoration:none;top:0;width:100%;z-index:9999;}
+* html #pushup{position:absolute;top:expression(_pushupIETop = 10 + (document.documentElement.scrollTop || 0) 0 'px');}
+#pushup *{background:none;border:0;margin:0;padding:0;}
+.withReminder{padding-bottom:6px;}
+#pushup a{outline-style:none;text-decoration:none;}
+#pushup .pushup_messageLink{color:#4293cd;cursor:pointer;float:left;font-size:12px;position:relative;}
+#pushup .pushup_icon{float:left;height:22px;margin:5px 5px 15px 25px;overflow:hidden;position:relative;vertical-align:middle;width:22px;}
+#pushup .pushup_message{float:left;line-height:22px;margin:5px 3px 0 0;position:relative;vertical-align:middle;}
+#pushup .pushup_reminder{clear:both;color:#84a2ac;cursor:pointer;float:left;font-size:10px;margin-left:27px;}
+#pushup .pushup_messageLink:hover,#pushup .pushup_reminder:hover{text-decoration:underline;}

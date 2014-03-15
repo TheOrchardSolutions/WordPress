@@ -1,0 +1,6 @@
+After updating the theme, paste lines 4-6 into the Header.php 
+		before <head>
+		
+<!-- List Expander reference -->
+<link href="https://macconsultinggroup.com/listexpander/listexpander.css" rel="stylesheet" type="text/css" media="screen" />
+<script type="text/javascript" src="https://macconsultinggroup.com/listexpander/listexpander.js"></script>

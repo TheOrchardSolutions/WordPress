@@ -1,0 +1,661 @@
+/* 
+WOO CUSTOM STYLESHEET
+---------------------
+
+Instructions:
+
+Add your custom styles in this file instead of style.css so it 
+is easier to update the theme. Simply copy an existing style 
+from style.css to this file, and modify it to your liking. */
+
+body, h1, h2, h3, h4, h5, h6, .widget h3, .post .title, .section .post .title, .archive_header, .entry, .entry p, .post-meta {
+font-family: Helvetica, sans-serif;
+}
+
+body {
+background:url('/media/backgrounds/backgroundTile.jpg') #F1F1F1;
+}
+
+img {
+	border:none;
+}
+
+h1 a:hover, h1 a:hover, h2 a:hover, h2 a:hover, h3 a:hover, h3 a:hover, h4 a:hover, h4 a:hover, h5 a:hover, h5 a:hover, h6 a:hover, h6 a:hover {
+color:#6DB3C5;
+}
+
+.entry a {
+text-decoration:underline;
+}
+
+a:hover {
+color:#777777;
+}
+
+.post, .entry {
+font-size:14px;
+}
+
+#wrapper {
+background:none;
+}
+
+#breadcrumbs {
+visbility:hidden;
+height:0px;
+}
+
+
+#title-container {
+visibility:hidden;
+height:0px;
+padding:10px 0px;
+}
+
+#content-header {
+visibility:hidden;
+height:0px;
+padding:0px;
+}
+
+.fix {
+margin-top:-15px;
+}
+
+#content {
+background:#FAFAFA;
+margin-top:-10px;
+}
+
+#content #inner {
+	background:white;
+}
+
+.feedback blockquote p, #post-entries, #breadcrumbs {
+font-family: Arial, sans-serif;
+font-decoration:none;
+font-size:14px;
+}
+
+a {
+color:#06266F;
+}
+
+img {
+border:none!important;
+}
+
+.entry img, img.thumbnail{
+	padding:none!important;
+	border:none!important;
+	background:none!important;
+	-moz-box-shadow:none!important;
+	box-shadow:none!important;
+}
+
+.nav a {
+background:#F1F1F1;
+color:#333333;
+padding: 2px 5px 5px;
+font-size:20px;
+text-shadow:none;
+-moz-border-radius:3px;
+-webkit-border-radius:3px;
+}
+
+.nav a:hover, .nav .current_page_item a, .nav .current_page_parent a, .nav .current-menu-ancestor a, .nav .current-cat a, .nav .current-menu-item a, .nav .sfHover {
+color:#FFFFFF!important;
+/*padding: 2px 5px 5px;*/
+text-shadow:none;
+background-color:#3F454B;
+-moz-border-radius:3px;
+-webkit-border-radius:3px;
+}
+
+.nav li, nav li:hover, .page_item sfHover {
+background:none!important;
+padding:none!important;
+margin:none!important;
+}
+
+.nav .sf-sub-indicator {
+	visibility:hidden;
+top:60%;
+}
+
+.nav li ul .sf-sub-indicator {
+top:60%
+}
+
+.page_item {
+padding:2px 5px 5px;
+}
+
+.children {
+background:#3F454B!important;
+color:#FFFFFF!important;
+border:none!important;
+padding:none!important;
+margin:none!important;
+}
+
+.children a {
+color:#FFFFFF!important;
+padding:none!important;
+margin:none!important;
+border:none!important;
+font-size:16px!important;
+}
+
+.children a:hover {
+color:#AAAAAA!important;
+padding:none:important;
+margin:none!important;
+}
+
+children sfHover {
+padding:none!important;
+margin:none!important;
+border:none!important;
+}
+
+#navigation .nav li ul li a:hover {
+padding:none!important;
+margin:none!important;
+}
+
+#navigation{
+padding-top:30px;
+font-size: 14px;
+}
+
+.btn_event_form_submit {
+color:#06266F;
+background-color:#CCCCCC;
+border:1px solid #AAAAAA;
+-webkit-box-shadow:#DDDDDD 3px 3px 2px;
+-moz-box-shadow:#DDDDDD 3px 3px 2px;
+}
+
+.btn_event_form_submit:hover {
+background-color:#AAA;
+color:#777;
+}
+
+
+#header-container {
+background:white;
+}
+
+.slide .entry, .slide .entry p {
+font-size: 14px;
+padding-left:15px;
+}
+
+.slide .entry strong {
+padding-left:15px;
+}
+
+
+#event_espresso_registration_form input {
+float:right;
+margin-right:250px;
+}
+
+#event_espresso_registration_form li {
+list-style:none;
+}
+
+#event_espresso_registration_form .entry img, img.thumbnail{
+border:none!important;
+}
+
+.add img {
+border: none;
+margin-left: 525px;
+}
+
+.remove img {
+border:none;
+}
+
+
+.slide {
+background:#fff;
+-moz-border-radius:20px;
+-webkit-border-radius:20px;
+}
+
+#landing-sidebar {
+visibility:hidden;
+}
+
+#main {
+width:665px;
+}
+
+#sidebar {
+width:200px;
+}
+
+#slider_pag {
+
+}
+
+#footer, footer a {
+font-size:19px;
+font-weight:bold;
+color:#3F454B;
+position:fixed;
+bottom:0;
+height: 0px;
+padding: 10px 0 30px;
+width:100%;
+background-color:white;
+border-top:1px solid #AAAAAA;
+text-align:center;
+z-index:1000;
+}
+
+#footer a:hover {
+color:#AAAAAA;
+}
+
+#copyright {
+width:100%;
+margin: 0px auto;
+}
+
+
+#espresso_calendar {
+width: 910px;
+}
+
+.event_description {
+width:920px;
+}
+
+input, textarea {
+border-color: #999 #AAA #AAA #999;
+}
+
+.entry, .entry p {
+font: normal normal normal 16px/normal sans-serif;
+line-height: 22px;
+}
+
+#siteinfo {
+font-size:10px;
+}
+
+.post-meta {
+	display:none!important;
+	
+}
+
+ #comments {
+} 
+
+/*Event Espresso styling*/
+
+/*creates a button for the "Register for this Event" link*/
+.a_register_link {
+background-color:#EEEEEE;
+height:30px;
+text-decoration:none!important;
+padding:5px 15px;
+border:1px solid #AAAAAA;
+-moz-border-radius:15px;
+-webkit-border-radius:15px;
+-moz-box-shadow: 3px 3px 2px #DDDDDD;
+-webkit-box-shadow:3px 3px 2px #DDDDDD;
+}
+
+/*Changes button background on hover*/
+.a_register_link:hover {
+background-color:#AAAAAA;
+}
+
+#confirm, #confirm2 {
+color:#06266F;
+text-decoration:underline;
+background-color:#CCCCCC;
+padding:5px;
+border:1px solid #AAAAAA;
+-moz-border-radius:5px;
+-webkit-border-radius:5px;
+-moz-box-shadow: 3px 3px 2px #DDDDDD;
+-webkit-box-shadow:3px 3px 2px #DDDDDD;
+}
+
+
+#confirm:hover, #confirm2:hover {
+color:#777777;
+background-color:#AAAAAA;
+}
+
+#form1 {
+width:910px;
+}
+
+
+/*Puts border on bottom and space between events listed in series*/
+.event_data {
+border-bottom:1px solid #CCCCCC;
+margin-bottom:30px;
+}
+
+/*Hides Event Category Title */
+.events_category_name {
+height:0px;
+visibility:hidden;
+}
+
+.entry ul{
+padding-left:20px;
+}
+
+/* Hide Event Espresso Calendar borders*/
+#espresso_calendar td, #espresso_calendar table {
+border:none;
+}
+
+/*Color coding for calendars*/
+.iphoto201 a, .imovie201 a, .garageband201 a, .iweb201 a, .keynote201 a, .numbers201 a {
+color:#333333!important;
+background-color:#B6DBD1!important;
+border-color:#B6DBD1!important;
+}
+
+.snow100 a, .snow101 a, .snow201 a {
+color:#333333!important;
+background-color:#D3CCA4!important;
+border-color:#D3CCA4!important;
+}
+
+.aperture101 a, .aperture201 a, .finalcut101 a, .finalcutx-intro a {
+color:#333333!important;
+background-color:#91A2B6!important;
+border-color:#91A2B6!important;
+}
+
+[title="Mac 101 - Introduction to Mac "]{
+color:#333333!important;
+background-color:#B8CADA!important;
+border-color:#B8CADA!important;
+}
+
+[title="Mac 101 - Introduction to Mac"]{
+color:#333333!important;
+background-color:#B8CADA!important;
+border-color:#B8CADA!important;
+}
+
+[title="iLife '11-Garageband 201"] {color:#333333!important;
+background-color:#B6DBD1!important;
+border-color:#B6DBD1!important;
+}
+
+[title="iLife '11-iPhoto 201"] {color:#333333!important;
+background-color:#B6DBD1!important;
+border-color:#B6DBD1!important;
+}
+[title="iOS for Business"] {color:#333333!important;
+background-color:#B6DBD1!important;
+border-color:#B6DBD1!important;
+}
+
+[title="iLife 101 "]{
+color:#333333!important;
+background-color:#B8CADA!important;
+border-color:#B8CADA!important;
+}
+
+[title="iOS 101 - Introduction to iPhone and iPad"]{
+color:#333333!important;
+background-color:#B8CADA!important;
+border-color:#B8CADA!important;
+}
+
+[title="Final Cut X  Presentation"]{
+color:#333333!important;
+background-color:#B8CADA!important;
+border-color:#B8CADA!important;
+}
+
+
+.iphoto201 .a_event_title, .imovie201 .a_event_title, .garageband201 .a_event_title, 
+.iweb201 .a_event_title, .pages201 .a_event_title, .keynote201 .a_event_title, 
+.numbers201 .a_event_title, .snow100 .a_event_title, .snow101 .a_event_title,
+.snow201 .a_event_title, .aperture101 .a_event_title, .aperture201 .a_event_title
+.finalcut101 .a_event_title, .mac101 .a_event_title, .ilife101 .a_event_title, .iwork101 .a_event_title {
+	background-color:#FFF!important;
+}
+[title="iWork '09-Pages 201"] {
+	color:#333333!important;
+	background-color:#B6DBD1!important;
+	border-color:#B6DBD1!important;
+}
+
+[title="iWork '09-Keynote 201"].everyone {
+	color:#333333!important;
+	background-color:#B6DBD1!important;
+	border-color:#B6DBD1!important;
+}
+
+[title="iWork '09-Numbers 201"].everyone {
+	color:#333333!important;
+	background-color:#B6DBD1!important;
+	border-color:#B6DBD1!important;
+}
+
+[title="iLife '11-iWeb 201"].everyone, [title="iLife '11-iMovie 201"].everyone, [title="Lion 101"].everyone {
+	color:#333333!important;
+	background-color:#B6DBD1!important;
+	border-color:#B6DBD1!important;
+}
+
+[title="iWork 101"]{
+color:#333333!important;
+background-color:#B8CADA!important;
+border-color:#B8CADA!important;
+}
+
+/*Calendar styling*/
+
+#espresso_calendar {
+margin-top:20px;
+}
+.fc-button-agendaDay {
+visibility:hidden;
+width:0px;
+}
+.fc-event, .fc-agenda .fc-event-time, .fc-event a {
+border:none!important;
+}
+
+.fc-header .fc-state-default, .fc-header .fc-state-default a{
+border-right: 2px solid #777!important;
+}
+
+#ittech, #proapps, #intro, #indepth {
+display:inline;
+margin-right:5px;
+}
+
+#ittech a, #proapps a, #intro a, #indepth a {
+
+}
+#ittech a{
+color:#333333;
+background-color:#D3CCA4;
+padding:5px;
+text-decoration:none;
+}
+#ittech a:hover{
+color:#EEEEEE;
+background-color:#8C8040;
+padding:5px;
+text-decoration:none;
+}
+#proapps a, .proapps a{
+color:#333333;
+background-color:#91A2B6;
+padding:5px;
+text-decoration:none;
+}
+#proapps a:hover, .proapps a:hover;{
+color:#EEEEEE;
+background-color:#2D425B;
+padding:5px;
+text-decoration:none;
+}
+#intro a{
+color:#333333;
+background-color:#B8CADA;
+padding:5px;
+text-decoration:none;
+}
+#intro a:hover{
+color:#EEEEEE;
+background-color:#2E475D;
+padding:5px;
+text-decoration:none;
+}
+#indepth a{
+color:#333333;
+background-color:#B6DBD1;
+padding:5px;
+text-decoration:none;
+}
+#indepth a:hover{
+color:#EEEEEE;
+background-color:#285A4C;
+padding:5px;
+text-decoration:none;
+}
+
+form li.focused {
+	background:none!important;
+}
+
+.nol form li, .altinstruct form li {
+width:900px!important;
+}
+
+.nav li a.sf-with-ul {
+	padding-right:10px;
+}
+#gforms_confirmation_message {
+	background-color:transparent;
+	border:none;
+}
+
+.button {
+	height:30px;
+	width:100px;
+	-webkit-border-radius:15px;
+	-moz-border-radius:15px;
+	color:#06266F; 
+	font-size:16px;
+	background:#EEEEEE!important;
+	-webkit-box-shadow:#DDDDDD 3px 3px 2px;
+	-moz-box-shadow:#DDDDDD 3px 3px 2px;
+}
+#lightbox{	position: absolute;	left: 0; width: 100%; z-index: 100; text-align: center; line-height: 0; z-index:100;}
+#lightbox img{ width: auto; height: auto;}
+#lightbox a img{ border: none; }
+
+#outerImageContainer{ position: relative; background-color: #fff; width: 250px; height: 250px; margin: 0 auto; }
+#imageContainer{ padding: 10px; }
+
+#loading{ position: absolute; top: 40%; left: 0%; height: 25%; width: 100%; text-align: center; line-height: 0; }
+#hoverNav{ position: absolute; top: 0; left: 0; height: 100%; width: 100%; z-index: 10; }
+#imageContainer>#hoverNav{ left: 0;}
+#hoverNav a{ outline: none;}
+
+#prevLink, #nextLink{ width: 49%; height: 100%; background-image: url(data:image/gif;base64,AAAA); /* Trick IE into showing hover */ display: block; }
+#prevLink { left: 0; float: left;}
+#nextLink { right: 0; float: right;}
+#prevLink:hover, #prevLink:visited:hover { background: url(/images/prevlabel.gif) left 15% no-repeat; }
+#nextLink:hover, #nextLink:visited:hover { background: url(/images/nextlabel.gif) right 15% no-repeat; }
+
+#imageDataContainer{ font: 10px Verdana, Helvetica, sans-serif; background-color: #fff; margin: 0 auto; line-height: 1.4em; overflow: auto; width: 100%	; }
+
+#imageData{	padding:0 10px; color: #666; }
+#imageData #imageDetails{ width: 70%; float: left; text-align: left; }	
+#imageData #caption{ font-weight: bold;	}
+#imageData #numberDisplay{ display: block; clear: left; padding-bottom: 1.0em;	}			
+#imageData #bottomNavClose{ width: 66px; float: right;  padding-bottom: 0.7em; outline: none;}	 	
+
+#overlay{ position: absolute; top: 0; left: 0; z-index: 90; width: 100%; height: 500px; background-color: #000; }
+
+
+ .gfield_description {
+	padding-top:0px!important;
+}
+
+.gform_wrapper .top_label li.gfield.gf_right_half {
+	width:39%;
+}
+.nocomments {
+	display:none;
+}
+[id="field_10_2"] {
+	float:none!important;
+}
+a.button, button.button, input.button, #review_form #submit {
+	background-color:#333;
+}
+a.button:hover, button.button:hover, input.button:hover, #review_form #submit:hover {
+	background-color:#DDD;
+}
+#field_4_7 {
+	margin-bottom:60px!important;
+}
+.gform_wrapper .gfield_description {
+	width:80%;
+}
+#field_5_2 {
+float: left;
+}
+
+.google-button{
+	width:100px;
+	margin-left:100px;
+	margin-top:-18px;
+	clear:none;
+	display:block;
+	position:relative;
+}
+
+.facebook-button{
+	margin-left:180px;
+	margin-top:-16px;
+	clear:none;
+	display:block;
+	position:relative;
+}
+
+.ee-social-media-buttons {
+	padding-bottom:10px;
+}
+
+.event_form_field [type="checkbox"] {
+	margin-left: -20px;
+	position: absolute;
+	margin-top: -39px;
+}
+
+[name="num_people"] {
+	margin-left:10px;
+}
+
+.comment-link {
+display:none;
+}
+
+.comment-excerpt {
+border-bottom:1px solid #aaaaaa;
+margin: 0 0 10px 0;
+}

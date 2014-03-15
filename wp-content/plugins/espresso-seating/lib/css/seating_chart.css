@@ -1,0 +1,315 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* Front End Lighbox */
+#seating_chart_page
+{
+	position:absolute;
+	top:0;
+	left:0;
+	z-index:99999;
+	height:100%;
+	width:100%;
+	background-color: #999999;
+	background-color:rgba(0, 0, 0, 0.66);
+	display:none;
+}
+
+#seating_wrp { 
+	position:absolute;
+	width: 800px;
+	top:100px;/* This needs to be measured on page load */
+	left:150px;/* This needs to be measured on page load */
+	background:#FFFFFF;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	border-radius: 8px;
+	-moz-box-shadow: 0 0 5px 5px rgba(0,0,0,0.2); 
+	-webkit-box-shadow: 0 0 5px 5px rgba(0,0,0,0.2); 
+	box-shadow: 0 0 5px 5px rgba(0,0,0,0.2); 
+}
+
+#seating_wrp h2 {
+	padding: 20px;
+	background: #f2eeee;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	border-radius: 8px;
+}
+
+#seating_wrp p {
+	padding: 0 20px;
+
+}
+
+#seating_chart_close_button
+{
+	position:absolute;
+	top:-10px;
+	right:-10px;
+	height:20px;
+	width:20px;
+	padding:4px;
+	background:#cc3333;
+	color:#000000;
+	cursor:pointer;
+	display:none;
+	z-index: 20;
+	text-indent: -9000px;
+	-moz-border-radius: 20px;
+	-webkit-border-radius: 20px;
+	border-radius: 20px;
+	-moz-box-shadow: 0 0 2px 2px rgba(0,0,0,0.2); 
+	-webkit-box-shadow: 0 0 2px 2px rgba(0,0,0,0.2); 
+	box-shadow: 0 0 2px 2px rgba(0,0,0,0.2); 
+}
+
+#seating_chart_content
+{
+	position:relative;
+	/*height:600px;*/
+	/*width:800px;*/
+	/*padding-top:20px;*/
+	display:none;
+
+}
+
+#seating_chart_info
+{
+	position:absolute;
+	top:0;
+	left:0;
+	z-index:102;
+	height:100%;
+	width:100%;
+	padding:5px 20px;
+	background:#FFFFFF;
+	border:1px solid #468ca3;
+	display:none;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+}
+.ee_s_seat_placeholder,
+.ee_s_seat_reserved,
+.ee_s_seat
+{
+	width:20px;
+	height:20px;
+	display:block;
+	margin:2px;
+	float:left;
+}
+
+.ee_s_available
+{
+	background:#bfdee8;	
+}
+
+.ee_s_seat_reserved.ee_s_unavailable
+{ background-image: none; }
+
+.ee_s_unavailable
+{
+	background: url(../../images/bg-reserve.png) 0 0 no-repeat #53c447;
+}
+
+.ee_s_clear
+{
+	clear:both;
+	margin:0px;
+	height:2px;
+}
+
+#ee_s_layout {
+    overflow-x: auto;
+    overflow-y: hidden;
+    margin: 20px;
+}
+.ee_s_level
+{
+	clear:both;
+	margin:10px auto 0px auto;
+	width:98%;
+    /*overflow-x: auto;
+    overflow-y: hidden;*/
+}
+
+.level_head,
+.section_head
+{
+	/*text-align:center;*/
+	margin-right:20px;
+}
+
+.ee_s_section
+{
+	margin:5px;
+	width:200px;
+}
+
+.ee_s_section, 
+.ee_s_row
+{
+	float:left;
+}
+.ee_section_name{
+	font-weight:bold;
+}
+.ee_s_row
+{
+	clear:both;
+}
+
+#new_seat div,
+#edit_seat div,
+#edit_seating_chart div,
+#new_seating_chart div
+{
+	clear:both;
+	margin-bottom:8px;
+}
+
+#new_seat label,
+#edit_seat label,
+#edit_seating_chart label,
+#new_seating_chart label
+{
+	display:block;
+}
+
+#new_seat input,
+#edit_seat input,
+#edit_seating_chart input,
+#new_seating_chart input
+{
+	
+}
+
+#new_seating_chart input.text { width:99%; }
+
+#new_seat textarea,
+#edit_seat textarea,
+#edit_seating_chart textarea,
+#new_seating_chart textarea
+{
+	width:99%;
+	height:50px;
+}
+
+/* Step 1: Custom */
+.postbox h3 { 
+	font-family: Georgia,"Times New Roman","Bitstream Charter",Times,serif;
+    font-size: 15px;
+    font-weight: normal;
+    line-height: 1;
+    margin: 0;
+    padding: 7px 10px;
+}
+
+.widget-liquid-left {
+	clear: left; 
+	float: left; 
+	margin-right: -325px; 
+	width: 100%; 
+	overflow: hidden;
+}
+.form-holder {
+	padding: 10px; 
+	border-radius: 3px; 
+	background-color: #F9F9F9;
+}
+
+/* How to */
+.right-holder {
+	border: 1px solid #DFDFDF; 
+	border-radius: 3px;
+}
+.widget-liquid-right { 
+	clear: right; 
+	float: right; 
+	width: 300px;
+}	
+.how-to h3 { 
+	margin-top: 10px; 
+	margin-bottom: 2px; 
+}
+.how-to .step { 
+	border-bottom: 1px solid #DFDFDF;  
+	padding: 10px; 
+	background-color: #F9F9F9; 
+	color: #AAAAAA;
+}
+.how-to .step.active { 
+	color: #333;
+}
+.how-to .step.last { 
+	border: 0;
+}
+.how-to p { 
+	margin-top: 2px;
+}
+
+/* Step 2: Edit */
+.thumb { 
+	display: block; 
+	height: 60px; 
+	width: 60px; 
+	background-color: #ccc; 
+	text-indent: -9000px; 
+	margin-bottom: 3px; 
+}
+
+.prev {  
+	padding: 10px; 
+	color: #AAAAAA; 
+}
+
+.map { 
+	display: block; 
+	width: 280px; 
+	height: 280px;}
+
+/* forms */
+.widthx2 { 
+	width: 49%; 
+	float: left; 
+}
+.widthx2.right { 
+	float: right;
+	clear: right;
+}
+	
+.input-text-wrap, .textarea-wrap { }
+
+.bulk_seat {
+    float:left;
+    width: 335px;
+}
+
+.bulk_seat_head .type0,
+.bulk_seat_head .type1,
+.bulk_seat_head .type2 {
+    font-weight: bold;
+}
+
+.bulk_seat .type0 {
+    float:left;
+    width:5px;
+}
+
+.bulk_seat .type1 {
+    float:left;
+    width:42px;
+    text-align: center;
+}
+
+.bulk_seat .type2 {
+    float:left;
+    width:120px;
+    text-align: left;
+}
+
+#icon-options-event {
+	background:url(../../images/events_icon_32.png) no-repeat;
+}

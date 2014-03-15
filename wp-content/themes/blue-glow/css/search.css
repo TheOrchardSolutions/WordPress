@@ -1,0 +1,32 @@
+/******************************************************************************
+*                                                                             *
+*       Copyright (c) 2005-2009 Xsilva Systems Inc. All rights reserved.      *
+*                                                                             *
+*******************************************************************************
+*                                                                             *
+* LightSpeed Web Store™ is commercial software. Only users who have purchased *
+* a valid license through  http://www.xsilva.com/  and  accept  the terms of  *
+* this License Agreement may install this product.                            *
+*                                                                             *
+*******************************************************************************
+* THIS LightSpeed Web Store™ END-USER LICENSE AGREEMENT CONSISTING OF THIS    * 
+* DOCUMENT TOGETHER WITH THE FULL TEXT OF THE SOFTWARE LICENSE AGREEMENT SET  *
+* FORTH HEREINBELOW (THE “AGREEMENT”) IS A LEGAL AGREEMENT BETWEEN            *
+* YOU AND YOUR COMPANY (COLLECTIVELY, "YOU") AND Xsilva ( THE "AUTHOR")       *  
+* FOR THE SOFTWARE PRODUCT IDENTIFIED ABOVE (THE “SOFTWARE”),                 *
+* WHICH INCLUDES COMPUTER SOFTWARE AND MAY INCLUDE ASSOCIATED MEDIA, PRINTED  *
+* MATERIALS, AND "ONLINE" OR ELECTRONIC DOCUMENTATION (COLLECTIVELY, THE      *
+* "SOFTWARE").  BY USING THE SOFTWARE, YOU SIGNIFY YOUR AGREEMENT TO ALL      *
+* TERMS, CONDITIONS, AND NOTICES CONTAINED OR REFERENCED HEREIN. IF YOU ARE   *
+* NOT WILLING TO  BE  BOUND  BY  THIS  AGREEMENT, DO NOT INSTALL OR USE THE   *
+* SOFTWARE.                                                                   *
+*                                                                             *
+* PLEASE READ THE FULL TEXT OF SOFTWARE LICENSE AGREEMENT IN THE "COPYRIGHT"  *
+* FILE PROVIDED WITH THIS DISTRIBUTION. THE AGREEMENT TEXT IS ALSO AVAILABLE  *
+* AT THE FOLLOWING URL: http://www.xsilva.com/webstore_license.html           *
+******************************************************************************/
+
+
+#applesearch{border:none;margin:2px 0 0;}
+#applesearch .sbox input{float:left;margin:0 0 0 -3px;padding:3px;width:150px;}
+#content{clear:both;}

@@ -1,0 +1,108 @@
+/*
+	List Expander 
+*/
+
+.listexpander{width:100%; display:inline-block;}
+.listexpander, .listexpander ul, .listexpander li{
+	margin:0;
+	padding:0;
+	list-style:none;
+	font-size: 14px;
+}
+.listexpander ul{
+	/*
+	Uncomment this if you want to initially hide the child lists. 
+	If you do, Javascript disabled and CSS enabled browsers will not be able to use this list.
+	display:none;
+	*/ 
+}
+.listexpander li{
+	line-height:200%;
+	margin-top:1px;
+	cursor:default;
+	text-indent:30px;
+	font-weight:bold;
+	width:100%;
+}
+
+.listexpander li.collapsed, .listexpander li.expanded{cursor:pointer;} 
+
+/* first level */
+
+.listexpander li, .listexpander li.collapsed{background:#eee url(collapsed.gif) no-repeat 5px .4em;} 
+.listexpander li.expanded{background:#eee url(expanded.gif) no-repeat 5px .4em;}
+
+	.listexpander li.expanded ul {
+		padding-top: 12px;
+	}
+	.listexpander li.expanded ul li {
+		text-indent: 0px;
+		padding: 0px 20px 8px 30px;
+		width: auto;
+		line-height: 20px;
+	}
+		.listexpander li.expanded ul li p {
+			display: none;
+		}
+/* second level */
+
+.listexpander li ul, .listexpander li li{background:#f8f8f8;font-weight:normal;}
+.listexpander li li.collapsed{background:#f8f8f8 url(collapsed.gif) no-repeat 5px .4em;} 
+.listexpander li li.expanded{background:#f8f8f8 url(expanded.gif) no-repeat 5px .4em;}
+
+/* third level */
+
+.listexpander li li ul, .listexpander li li li{background:#fff;}
+.listexpander li li li.collapsed{background:#fff url(collapsed.gif) no-repeat 5px .4em;} 
+.listexpander li li li.expanded{background:#fff url(expanded.gif) no-repeat 5px .4em;}
+
+/* fourth level */
+
+.listexpander li li li li{text-indent:0;margin-left:30px;width:auto;}
+
+/* etc. */
+
+/* buttons */
+
+div#content p.listexpander{
+	height:1.5em;
+	margin:1em 0 1em 29px;
+	margin-bottom: 1px;
+}
+p.listexpander a{
+	float:left;
+	height:1.5em;
+	line-height:1.5em;
+	padding:0 10px;
+	border:1px solid #eee;
+	margin-right:5px;
+	cursor:pointer;
+	color: #1464F4;
+}
+	p.listexpander a:visited {
+		color: #1464F4;
+	}
+p.listexpander a:hover{
+	background:#CCCCCC;
+}
+
+/* float fix */
+.listexpander li:after{
+    content: "."; 
+    display: block; 
+    height: 0; 
+    clear: both; 
+    visibility: hidden;
+}
+.listexpander li{
+	display: inline-block;
+}
+/* Hides from IE-mac \*/
+* html .listexpander li{
+	height: 1%;
+}
+.listexpander li{
+	display: block;
+}
+/* End hide from IE-mac */
+/* end float fix */

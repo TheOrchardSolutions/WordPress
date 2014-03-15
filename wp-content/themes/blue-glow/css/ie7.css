@@ -1,0 +1,93 @@
+/******************************************************************************
+*                                                                             *
+*       Copyright (c) 2005-2009 Xsilva Systems Inc. All rights reserved.      *
+*                                                                             *
+*******************************************************************************
+*                                                                             *
+* LightSpeed Web Store™ is commercial software. Only users who have purchased *
+* a valid license through  http://www.xsilva.com/  and  accept  the terms of  *
+* this License Agreement may install this product.                            *
+*                                                                             *
+*******************************************************************************
+* THIS LightSpeed Web Store™ END-USER LICENSE AGREEMENT CONSISTING OF THIS    * 
+* DOCUMENT TOGETHER WITH THE FULL TEXT OF THE SOFTWARE LICENSE AGREEMENT SET  *
+* FORTH HEREINBELOW (THE “AGREEMENT”) IS A LEGAL AGREEMENT BETWEEN            *
+* YOU AND YOUR COMPANY (COLLECTIVELY, "YOU") AND Xsilva ( THE "AUTHOR")       *  
+* FOR THE SOFTWARE PRODUCT IDENTIFIED ABOVE (THE “SOFTWARE”),                 *
+* WHICH INCLUDES COMPUTER SOFTWARE AND MAY INCLUDE ASSOCIATED MEDIA, PRINTED  *
+* MATERIALS, AND "ONLINE" OR ELECTRONIC DOCUMENTATION (COLLECTIVELY, THE      *
+* "SOFTWARE").  BY USING THE SOFTWARE, YOU SIGNIFY YOUR AGREEMENT TO ALL      *
+* TERMS, CONDITIONS, AND NOTICES CONTAINED OR REFERENCED HEREIN. IF YOU ARE   *
+* NOT WILLING TO  BE  BOUND  BY  THIS  AGREEMENT, DO NOT INSTALL OR USE THE   *
+* SOFTWARE.                                                                   *
+*                                                                             *
+* PLEASE READ THE FULL TEXT OF SOFTWARE LICENSE AGREEMENT IN THE "COPYRIGHT"  *
+* FILE PROVIDED WITH THIS DISTRIBUTION. THE AGREEMENT TEXT IS ALSO AVAILABLE  *
+* AT THE FOLLOWING URL: http://www.xsilva.com/webstore_license.html           *
+******************************************************************************/
+
+body{margin-bottom:0;}
+
+#login .right{margin:0 8px 0 -55px;}
+#loginpane{margin:15px 0 0 -235px;padding:8px 0 10px;position:absolute;top:25px;}
+.login a:link, .login a:visited, .login a:hover, .login a:active {color: #999; border-bottom: 1px solid #color: #999;}
+.box_close {position: relative; left: 15px;}
+
+#customer_registration legend{display:block;float:left;margin-top:15px;}
+	#shipstreet2_ctl {clear: both;}
+	#htmlmail_ctl, .opt {margin-left: 25px; position: releative; top: 15px;}
+	.cbtext {position: relative; top: -25px; left: 25px;}
+	.cbhtml {position: relative; top: 15px;}
+	.shipping {position: relative; top: 15px;}
+
+#nav{margin-top:-5px;}
+#nav_products ul li ul li img{margin:-12px 0 0;}
+#nav a{height:26px;margin-top:-5px;padding:12px 0 0;}
+	.arrow {padding-top: 13px;}
+li#search{padding:4px 10px 0 18px;width:180px;}
+	#applesearch .sbox input{background:#fff;border:1px solid #222;height:12px;padding:0 0 -10px;position: relative; top: -5px;}
+#applesearch .sbox_l,#applesearch .sbox_r{display:none;}
+
+#breadcrumbs img{margin-top:-4px;}
+
+	#pagination li{padding-top:8px;width:10px;}
+	#pagination .active {margin: 5px;padding: 0 8px 10px 7px;color:#000;background: #EFEFEF;background-image: url(images/breadcrumbs_sep.png) top right no-repeat;height: 20px;width: 20px;}
+	#pagination img{position: relative; top: -5px;}
+
+.product_cell_price{display:block;max-width:75px;}
+
+#shoppingcarttop{margin:-5px 0 0;}
+#shoppingcartbottom{margin:0 0 -5px;}
+#shoppingcart .title{margin-top:9px;}
+.review{font-size:16px;height:33px;margin:55px 0 0 5px;padding:9px 0 15px;width:100px;}
+.gocheckout{font-size:16px;height:33px;padding:9px 0 15px;width:112px;}
+
+#sidebar h1{border:none;height:36px;}
+#sidebar li{height:36px;}
+#sidebar .containers{width:236px;}
+
+#footer{height:33px;width:1013px;}
+
+.receipt_titles{height:65px;}
+.receipt_row{margin:-46px 0 0 1px;}
+.receipt_row .qty input{height:13px;}
+.minus_icon{position:relative;top:-11px;}
+	.receipt_total{height:45px;margin:10px 0 -45px 490px;padding:16px 15px 10px 0;width:250px;z-index:100; border: none;}
+.receipt_checkout{height:56px;margin:45px 0 50px 490px;padding:20px 0 20px 5px;width:250px;z-index:900;}
+	.receipt_subtotals{margin:0 0 -5px 1px;width:250px;}
+
+
+.addcart {height:26px;margin: 56px 0 0 275px;}
+.addcart img {margin:-6px -5px 0 8px;padding:3px 7px 3px 0;border: none;}
+a.wishlist {height:26px;margin: 56px 0 0 100px;}
+.wishlist img {margin:-7px -5px 0 0;padding:3px 7px 3px 0;border: none;}
+
+	.cwl {position: relative; top: -6px; border: none;}
+	.search {display: block; width: 78px; position: relative; top: -25px; right: -155px;}
+	.psubmit {position: relative; top: -25px; right: -225px; height: 24px; width: 78px; display: block;}
+	.grl {width: 500px;}
+	
+	.button {border: none;}
+	
+#checkout #c32 fieldset {width: 93%;}
+.receipt_total {margin-top: 5px;}

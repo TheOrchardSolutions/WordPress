@@ -1,0 +1,16 @@
+#! /usr/bin/perl -w
+
+use strict;
+
+my ($fileName, $fin);
+
+$fileName = 'index.pl';
+open ($fin, '<', $fileName);
+
+while (<$fin>) {
+	if ($_ =~ /name=\"[^\"]\".*value=\1/) {
+		print "$1\n";
+	}
+}
+
+

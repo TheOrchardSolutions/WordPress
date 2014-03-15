@@ -1,0 +1,143 @@
+<div class="wrap">
+<h2>iTunes Affiliate Link Maker</h2>
+
+<div class="updated" ><p>If you uninstall this plugin through WordPress, all it's setting will be removed.</p></div>
+
+<form method="post" action="options.php">
+<?php settings_fields( 'ita-options' ); ?>
+<table class="form-table">
+	<?php
+		$maskChecked = '';
+		$maskDisabled = ' READONLY';
+		if( ita::setting('ita-maskenable') == 1)
+		{
+			$maskDisabled = '';
+			$maskChecked = ' CHECKED';
+		}
+	?>
+    <tr valign="top">
+        <th scope="row"><?php _e('Masking URL'); ?></th>
+        <td><input type="text" name="ita-maskurl" id="ita-maskurl" value="<?php echo ita::setting('ita-maskurl'); ?>"<?php echo $maskDisabled; ?>/><br/>
+			<input type="checkbox" name="ita-maskenable" id="ita-maskenable" value="1"<?php echo $maskChecked; ?>/>
+			<span class="setting-description"><?php _e('Mask links to your domain?'); ?><code>ie. /<?php echo ita::setting('ita-maskurl'); ?>/%linkname%</code></span></td>
+    </tr>
+
+    <tr valign=top">
+        <th scope="row"><?php _e('iTMS Link Generator URL'); ?></th>
+        <td><input type="text" name="ita-itmslm" id="ita-itmslm" class="regular-text code" value="<?php echo ita::setting('ita-itmslm'); ?>" />
+			<a onclick="document.getElementById('ita-itmslm').value='<?php echo ita::$defaultSettings['ita-itmslm']; ?>';">Reset Link</a>
+			<br/>
+            <span class="setting-description"><?php _e('This is the URL for the iTunes Link maker'); ?></span></td>
+    </tr>
+
+    <tr valign="top">
+        <th scope="row"><?php _e('Affiliate Network'); ?></th>
+        <td>
+            <select name="ita-affiliateNetwork" class="regular-text">
+                <option value="" DEFAULT>None</option>
+                <option value="at"<?php echo ita::setting('ita-affiliateNetwork') == "at" ? " SELECTED" : ""; ?>>PHG</option>
+                <option value="tdar"<?php echo ita::setting('ita-affiliateNetwork') == "tdar" ? " SELECTED" : ""; ?>>Tradedoubler</option>
+            </select>
+            <br/><span class="setting-desription"><?php _e("The affiliate network you're signed up to"); ?></span>
+        </td>
+    </tr>
+
+    <tr valign="top">
+        <th scope="row"><?php _e('Affiliate ID'); ?></th>
+        <td><input type="text" name="ita-partner" class="regular-text code" value="<?php echo ita::setting('ita-partner'); ?>"/><br/>
+			<span class="setting-desription"><?php printf( __("The affiliate id, will be meged on the end of the link as <code>&%s=%s</code> <em>(The affiliate ID is unique to each affiliate)</em>"),ita::setting('ita-affiliateNetwork'),ita::setting('ita-partner') ); ?></span></td>
+    </tr>
+
+	<tr valign="top">
+		<th scope="row"><?php _e('Search Limit'); ?></th>
+		<td>
+			<select name="ita-searchlimit" class="regular-text">
+                <?php
+                    $selectedLimit = ita::setting('ita-searchlimit');
+                    foreach(itabase::$searchLimits as $limit)
+                    {
+                        ?>
+                <option <?php echo($selectedLimit == $limit ? 'SELECTED ': ''); ?>value="<?php echo $limit; ?>"><?php echo $limit; ?></option>
+                        <?php
+                    }
+                ?>
+			</select><span class="setting-description"> <?php _e('The number of results to return from iTMS Link Generator'); ?></span></td>
+	</tr>
+
+    <tr valign="top">
+        <th scope="row"><?php _e('Default Link Image'); ?></th>
+        <td><input type="text" name="ita-linkimage" class="regular-text code" value="<?php echo ita::setting('ita-linkimage'); ?>"/><br/>
+            <span class="setting-description"><?php _e('URL of the image that will be used to link to the store when no text is selected.'); ?></span></td>
+    </tr>
+
+    <tr valign="top">
+        <th scope="row"><?php _e('Default Media Category'); ?></th>
+        <td><select name="ita-defaultmedia" id="ita-defaultmedia" tabindex="21">
+                <?php
+                    $selectedMedia = ita::setting('ita-defaultmedia');
+                    foreach(itms::$media as $code=>$media)
+                    {
+                        ?>
+                <option <?php echo($selectedMedia == $code ? 'SELECTED ': ''); ?>value="<?php echo $code; ?>"><?php echo $media; ?></option>
+                        <?php
+                    }
+                ?>
+            </select><br/><span class="setting-description"><?php _e('The popup window will default to this media type everytime it loads.'); ?></span>
+        </td>
+    </tr>
+
+    <tr valign="top">
+        <th scope="row"><?php _e('Default Country'); ?></th>
+        <td>
+            <select name="ita-defaultcountry" id="ita-defaultcountry" tabindex="21" >
+            <?php
+                $selectedCountry = ita::setting('ita-defaultcountry');
+                foreach(itms::$countries as $code=>$country)
+                {
+                    ?>
+                <option <?php echo($selectedCountry == $code ? 'SELECTED ': ''); ?>value="<?php echo $code; ?>"><?php echo $country; ?></option>
+                    <?php
+                }
+            ?>
+            </select><br/><span class="setting-description"><?php _e('The popup window will default to this country everytime it loads.'); ?></span>
+        </td>
+    </tr>
+
+    <tr valign="top">
+        <th scope="row"><?php _e('Fix Album URL By Default?'); ?></th>
+        <?php
+            $checked = '';
+            if( ita::setting('ita-defaultalbfix') == 1)
+                $checked = ' CHECKED';
+        ?>
+        <td><input type="checkbox" name="ita-defaultalbfix" value="1"<?php echo $checked; ?>/> <span class="setting-description"><?php _e('Normally the links returned on the album line of iTMS Link Generator are directly to the song, this ensures the link is directly to the album.'); ?></span></td>
+    </tr>
+
+    <tr valign="top">
+        <th scope="row"><?php _e('Clean up on de-activate?'); ?></th>
+        <?php
+            $cleanupChecked = '';
+            if( ita::setting('ita-cleanup') == 1)
+                $cleanupChecked = ' CHECKED';
+        ?>
+        <td><input type="checkbox" name="ita-cleanup" value="1"<?php echo $cleanupChecked; ?>/> <span class="setting-description"><?php _e('If this checkbox is active iTALM will remove all settings when de-activated. <strong><em>(Not Recommended)</em></strong>'); ?></span></td>
+    </tr>
+
+</table>
+
+<p class="submit">
+<input type="submit" class="button-primary" value="<?php _e('Save Changes') ?>" />
+</p>
+</form>
+
+<div  style="text-align:center;">
+<p>I've put alot of time into this plugin, if it's helping you make money, share the love below.</p>
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="XSWXDPRV7G77J">
+<input type="image" src="https://www.paypalobjects.com/en_AU/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal — The safer, easier way to pay online.">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_AU/i/scr/pixel.gif" width="1" height="1">
+</form>
+</div>
+
+</div>

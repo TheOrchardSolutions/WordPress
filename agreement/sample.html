@@ -1,0 +1,203 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+	<head>
+		<title></title>
+	<script type="text/javascript" src="jquery.min.js"></script>
+	<script type="text/javascript" src="jquery.field.js"></script>
+	<script type="text/javascript" src="jquery.calculation.js"></script>
+
+	<script type="text/javascript">
+
+	$(document).ready(
+		function (){
+			
+			// bind the recalc function to the quantity fields
+			$("input[name^=qty_item_]").bind("keyup", recalc);
+			// run the calculation function now
+			recalc();
+
+			// automatically update the "#totalSum" field every time
+			// the values are changes via the keyup event
+			$("input[name^=sum]").sum("keyup", "#totalSum");
+			
+			// automatically update the "#totalAvg" field every time
+			// the values are changes via the keyup event
+			$("input[name^=avg]").avg({
+				bind:"keyup"
+				, selector: "#totalAvg"
+				// if an invalid character is found, change the background color
+				, onParseError: function(){
+					this.css("backgroundColor", "#cc0000")
+				}
+				// if the error has been cleared, reset the bgcolor
+				, onParseClear: function (){
+					this.css("backgroundColor", "");
+				}
+			});
+
+			// automatically update the "#minNumber" field every time
+			// the values are changes via the keyup event
+			$("input[name^=min]").min("keyup", "#numberMin");
+
+			// automatically update the "#minNumber" field every time
+			// the values are changes via the keyup event
+			$("input[name^=max]").max("keyup", {
+				selector: "#numberMax"
+				, oncalc: function (value, options){
+					// you can use this to format the value
+					$(options.selector).val(value);
+				}
+			});
+
+			// this calculates the sum for some text nodes
+			$("#idTotalTextSum").click(
+				function (){
+					// get the sum of the elements
+					var sum = $(".textSum").sum();
+
+					// update the total
+					$("#totalTextSum").text("$" + sum.toString());
+				}
+			);
+
+			// this calculates the average for some text nodes
+			$("#idTotalTextAvg").click(
+				function (){
+					// get the average of the elements
+					var avg = $(".textAvg").avg();
+
+					// update the total
+					$("#totalTextAvg").text(avg.toString());
+				}
+			);
+		}
+	);
+	
+	function recalc(){
+		$("[id^=total_item]").calc(
+			// the equation to use for the calculation
+			"qty * price",
+			// define the variables used in the equation, these can be a jQuery object
+			{
+				qty: $("input[name^=qty_item_]"),
+				price: $("[id^=price_item_]")
+			},
+			// define the formatting callback, the results of the calculation are passed to this function
+			function (s){
+				// return the number as a dollar amount
+				return "$" + s.toFixed(2);
+			},
+			// define the finish callback, this runs after the calculation has been complete
+			function ($this){
+				// sum the total of the $("[id^=total_item]") selector
+				var sum = $this.sum();
+				
+				$("#grandTotal").val(
+					// round the results to 2 digits
+					"$" + sum.toFixed(2)
+				);
+			}
+		);
+	}
+	</script>
+
+	</head>
+	<body>
+<form action="" method="post" id="frmCreateCheckboxRange" onsubmit="return false;">
+		<div id="formContent">
+
+
+			<table width="400">
+				<col style="width: 300px;" />
+				<col />
+				<col style="width: 40px;" />
+				<col style="width: 60px;" />
+
+				<tr>
+					<th align="left">
+						Product
+					</th>
+					<th align="right" style="padding-right: 10px;">
+						Qty
+					</th>
+					<th>
+						
+					</th>
+					<th align="right">
+						Total
+					</th>
+				</tr>
+				<tr>
+					<td valign="top">
+						<strong>Monitored Computers</strong><br>
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+					</td>
+					<td valign="top" align="right" style="padding-right: 10px;">
+						[<span id="price_item_1">10</span>]
+					</td>
+					<td valign="top" align="center">
+						<input type="text" name="qty_item_1" id="qty_item_1" value="0" size="2" style="text-align: right;"/>
+					</td>
+					<td valign="top" style="text-align: right;" align="right" id="total_item_1">
+						
+					</td>
+				</tr>
+				<tr>
+					<td valign="top">
+						<strong>On Demand Users</strong>
+					</td>
+					<td valign="top" align="right" style="padding-right: 10px;">
+						[<span id="price_item_2">35</span>]
+					</td>
+					<td valign="top" align="center">
+						<input type="text" name="qty_item_2" id="qty_item_2" value="0" size="2" style="text-align: right;"/>
+					</td>
+					<td valign="top" style="text-align: right;" align="right" id="total_item_2">
+						
+					</td>
+				</tr>
+				<tr>
+					<td valign="top">
+						<strong>Monitored Servers</strong>
+					</td>
+					<td valign="top" align="right" style="padding-right: 10px;">
+						[<span id="price_item_3">100</span>]
+					</td>
+					<td valign="top" align="center">
+						<input type="text" name="qty_item_3" id="qty_item_3" value="0" size="2" style="text-align: right;"/>
+					</td>
+					<td valign="top" style="text-align: right;" align="right" id="total_item_3">
+						
+					</td>
+				</tr>
+				<tr>
+					<td valign="top">
+						<strong>Monthly Prepaid Hours</strong>
+					</td>
+					<td valign="top" align="right" style="padding-right: 10px;">
+						[<span id="price_item_4">100</span>]
+					</td>
+					<td valign="top" align="center">
+						<input type="text" name="qty_item_4" id="qty_item_4" value="0" size="2" style="text-align: right;"/>
+					</td>
+					<td valign="top" style="text-align: right;" align="right" id="total_item_4">
+						
+					</td>
+				</tr>
+				<tr>
+					<td valign="top" colspan="3" align="right">
+						<strong style="margin-right: 20px">Grand Total:</strong>
+
+					</td>
+					<td valign="top" align="right" >
+						<input type="text" style="width: 60px; text-align: right; border: none; background-color: transparent!important;" READONLY name="grandTotal" value="" id="grandTotal"/>
+					</td>
+				</tr>
+			</table>
+		</div>
+</form>
+
+
+
+	</body>
+</html>

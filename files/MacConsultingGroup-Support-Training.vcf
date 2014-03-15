@@ -1,0 +1,22 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Support;MCG;;;
+FN:Mac Consulting Group\, Inc.
+ORG:Mac Consulting Group\, Inc.;
+EMAIL;type=INTERNET;type=WORK;type=pref:support@macconsultinggroup.com
+TEL;type=WORK;type=pref:225-933-5311
+TEL;type=WORK;type=FAX:815-425-8641
+item1.ADR;type=WORK;type=pref:;;662 Jefferson Highway;Baton Rouge;LA;70806;
+item1.X-ABADR:us
+item2.URL;type=pref:http\://macconsultinggroup.com
+item2.X-ABLabel:_$!<HomePage>!$_
+item3.URL:http\://macconsultinggroup.com/checkin
+item3.X-ABLabel:Drop Off Form
+item4.URL:http\://macconsultinggroup.com/terms
+item4.X-ABLabel:Terms
+item5.URL:http\://macconsultinggroup.com/comments
+item5.X-ABLabel:Word of Mouth
+X-ABShowAs:COMPANY
+CATEGORIES:MCG-Staff
+X-ABUID:77ED96D2-44AF-4DAD-8F4B-C6FCCFE150BB\:ABPerson
+END:VCARD

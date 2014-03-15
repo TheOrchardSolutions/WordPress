@@ -1,0 +1,9 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{HTTPS} ^off$
+RewriteRule (.*) https://macconsultinggroup.com/agreement/$1 [R,L]
+</IfModule>
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule ^/$ https://macconsultinggroup.com/agreement/index.pl [R,L]
+</IfModule>

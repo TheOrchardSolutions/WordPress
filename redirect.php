@@ -1,0 +1,1 @@
+<?header ("Location: http://macconsultinggroup.com/index.php");?>

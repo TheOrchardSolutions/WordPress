@@ -1,0 +1,7 @@
+level,section,row,seat,custom_tag,description,price,member_price
+upper,a,1,1,Seat A-1-1 [upper],just test,10,8
+upper,a,1,2,Seat A-1-2 [upper],just test,10,8
+upper,a,1,3,Seat A-1-3 [upper],just test,10,8
+upper,a,2,1,Seat A-2-1 [upper],just test,10,8
+upper,a,2,2,Seat A-2-2 [upper],just test,10,8
+upper,a,2,3,Seat A-2-3 [upper],just test,10,8

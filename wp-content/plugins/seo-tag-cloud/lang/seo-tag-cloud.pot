@@ -1,0 +1,117 @@
+# Copyright (C) 2012 SEO Tag Cloud Widget
+# This file is distributed under the same license as the SEO Tag Cloud Widget package.
+msgid ""
+msgstr ""
+"Project-Id-Version: SEO Tag Cloud Widget 1.7.1\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/seo-tag-cloud\n"
+"POT-Creation-Date: 2012-03-19 15:55:10+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2012-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: seo-tag-cloud.php:223
+msgid "%s: %s topic"
+msgid_plural "%s: %s topics"
+msgstr[0] ""
+msgstr[1] ""
+
+#: seo-tag-cloud.php:235
+msgid "Tag Cloud"
+msgstr ""
+
+#: seo-tag-cloud.php:252
+msgid "Powered by %s"
+msgstr ""
+
+#: seo-tag-cloud.php:252
+msgid "SEO Tag Cloud Widget Plugin for Wordpress"
+msgstr ""
+
+#: seo-tag-cloud.php:252 seo-tag-cloud.php:370 seo-tag-cloud.php:371
+msgid "SEO Tag Cloud"
+msgstr ""
+
+#: seo-tag-cloud.php:289
+msgid "Preview"
+msgstr ""
+
+#: seo-tag-cloud.php:297
+msgid "Title"
+msgstr ""
+
+#: seo-tag-cloud.php:300
+msgid "Number of tags to show"
+msgstr ""
+
+#: seo-tag-cloud.php:303
+msgid "Text transform"
+msgstr ""
+
+#: seo-tag-cloud.php:304
+msgid "none"
+msgstr ""
+
+#: seo-tag-cloud.php:305
+msgid "uppercase"
+msgstr ""
+
+#: seo-tag-cloud.php:306
+msgid "capitalize"
+msgstr ""
+
+#: seo-tag-cloud.php:307
+msgid "lowercase"
+msgstr ""
+
+#: seo-tag-cloud.php:310
+msgid "Format"
+msgstr ""
+
+#: seo-tag-cloud.php:311
+msgid "flat"
+msgstr ""
+
+#: seo-tag-cloud.php:312
+msgid "ball"
+msgstr ""
+
+#: seo-tag-cloud.php:315
+msgid "Target for links"
+msgstr ""
+
+#: seo-tag-cloud.php:317
+msgid "Hide credit"
+msgstr ""
+
+#: seo-tag-cloud.php:318
+msgid "Donate"
+msgstr ""
+
+#: seo-tag-cloud.php:369
+msgid "Your most used tags in SEO-friendly cloud format"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "SEO Tag Cloud Widget"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "http://blog.fleischer.hu/wordpress/seo-tag-cloud/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"SEO Tag Cloud Widget displays the tag cloud in a SEO-friendly way, using a "
+"search engine optimized html markup."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Gavriel Fleischer"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://blog.fleischer.hu/author/gavriel/"
+msgstr ""

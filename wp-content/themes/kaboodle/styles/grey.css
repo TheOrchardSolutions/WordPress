@@ -1,0 +1,63 @@
+body {
+	background: #f8f8f8;
+}
+
+body,
+h1, h2, h3, h4, h5, h6,
+.nav a:hover,
+.nav li.current_page_item a, 
+.nav li.current_page_parent a,
+.nav li.current-menu-ancestor a,
+.nav li.current-cat a,
+.nav li.current-menu-item a,
+.nav li.sfHover,
+#navigation .nav li ul li a:hover,  
+#mini-features h3,
+#latest-blog-posts .post h2.title a,
+.post .title a, .portfolio .title a,
+.widget h3,
+#tabs .inside li a,
+#comments .comment-head a,
+h3.archive_year,
+.ie6 .button, .ie6 .button:visited,
+.reply a,
+.slide .entry h2,
+.port-cat a:hover, .port-cat a.current { 
+	color: #4b4b4b; 
+}
+
+#header-container, #content {
+    border-color: #dbdbdb;
+}
+
+.nav a ,
+#navigation .nav li ul li a,
+#footer,
+.post-meta,
+.ico-cal,
+.widget a,
+#tabs ul.wooTabs li a,
+#tabs .inside li span.meta,
+#comments .comment-head .date, #comments .comment-head .edit, #comments .comment-head .perma,
+.port-cat a {
+	color:#989898;
+}
+
+#commentform input.txt,
+#commentform textarea,
+#connect .newsletter-form,
+#post-author
+{
+	color: #7d7d7d; 
+	background-color: #f9f9f9;
+    border-color: #e4e4e4;
+}
+
+.meta-nav,
+#breadcrumbs,
+#post-entries a,
+#title-container .blog-title-sep,
+#title-container .description,
+.searchform input.s { 
+	color: #cecece; 
+}

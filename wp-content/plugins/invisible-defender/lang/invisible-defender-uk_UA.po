@@ -1,0 +1,111 @@
+# Polish translation for Invisible Defender plugin.
+# Copyright (C) 2009 Daniel Frużyński
+# This file is distributed under the same license as the Invisible Defender package.
+# Daniel Frużyński <daniel [A-T] poradnik-webmastera.com>, 2009.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Invisible Defender\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/invisible-defender\n"
+"POT-Creation-Date: 2010-01-05 22:51+0000\n"
+"PO-Revision-Date: 2010-07-26 19:51+0200\n"
+"Last-Translator: kostya <adduakiev@gmail.com>\n"
+"Language-Team: Farmline.com.ua <adduakiev@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Ukrainian\n"
+"X-Poedit-Country: UKRAINE\n"
+"X-Poedit-SourceCharset: iso-8859-15\n"
+
+#: invisible-defender.php:79
+msgid "Please leave these two fields as-is:"
+msgstr "Залиште ці два поля як є:"
+
+#: invisible-defender.php:85
+#, php-format
+msgid "Protected by %s."
+msgstr "Захищено %s."
+
+#: invisible-defender.php:94
+#, php-format
+msgid "Showed <strong>403</strong> to <strong>%s</strong> bad guys."
+msgstr "Показувати <strong>403</strong> для <strong>%s</strong> поганих хлопців."
+
+#: invisible-defender.php:173
+#, php-format
+msgid "<strong>Invisible Defender</strong> showed <strong>403</strong> to <strong>%1$s</strong> bad guys (<strong>%2$s</strong> was blacklisted, <strong>%3$s</strong> on register form, <strong>%4$s</strong> on login form, <strong>%5$s</strong> on comments form)."
+msgstr "<strong>Invisible Defender</strong> показав <strong>403</strong> для <strong>%1$s</strong> поганих хлопців (<strong>%2$s</strong> було занесено до чорного списку, <strong>%3$s</strong> у формі реєстрації, <strong>%4$s</strongу формі для входу, <strong>%5$s</strong> у формі коментарів."
+
+#: invisible-defender.php:190
+msgid "Configuration has been saved."
+msgstr "Конфігурація була збережена."
+
+#: invisible-defender.php:195
+msgid "Invisible Defender - Options"
+msgstr "Invisible Defender - Налаштування "
+
+#: invisible-defender.php:201
+msgid "Forms protection:"
+msgstr "Захист форм:"
+
+#: invisible-defender.php:205
+msgid "Protect registration form:"
+msgstr "Захист форми реєстрації:"
+
+#: invisible-defender.php:214
+msgid "Protect login form:"
+msgstr "Захист форми для входу:"
+
+#: invisible-defender.php:223
+msgid "Protect comments form:"
+msgstr "Захист форми для коментарів:"
+
+#: invisible-defender.php:230
+msgid "Stats and \"Protected by\" link:"
+msgstr "Статистика і посилання \"Захищено \":"
+
+#: invisible-defender.php:234
+msgid "Show stats in Dashboard:"
+msgstr "Показувати статистику в Панелі управління:"
+
+#: invisible-defender.php:243
+msgid "Show \"Protected by\" link:"
+msgstr "Показувати посилання \"Захищено \":"
+
+#: invisible-defender.php:246
+msgid "If you think that this plugin is great and want to tell others about it, please check this option. Invisible Defender will show small \"Protected by\" link under your forms. This way you can also credit me for my work."
+msgstr "Якщо ви вважаєте, що цей плагін класний і ви хочете розповісти про це іншим, будь ласка, відзначте цю опцію. Invisible Defender буде показувати невелике посилання \"Захищено \" під вашими формами. Таким чином, ви можете відплатити мені за мою роботу."
+
+#: invisible-defender.php:252
+msgid "Show number of blocked bots under forms:"
+msgstr "Показувати кількість заблокованих через форму ботів:"
+
+#: invisible-defender.php:255
+msgid "Note: this will be shown only when \"Protected by\" link is enabled too."
+msgstr "Зауваження: це буде відображатися, коли посилання \"Захищено \" буде активована."
+
+#: invisible-defender.php:263
+msgid "Save settings"
+msgstr "Зберегти налаштування "
+
+#. Plugin Name of an extension
+msgid "Invisible Defender"
+msgstr "Invisible Defender"
+
+#. Plugin URI of an extension
+msgid "http://www.poradnik-webmastera.com/projekty/invisible_defender/"
+msgstr "http://www.poradnik-webmastera.com/projekty/invisible_defender/"
+
+#. Description of an extension
+msgid "This plugin protects your registration, login and comment forms against spambots."
+msgstr "Цей плагін захищає ваші форми реєстрації, входу і коментування від спам-ботів."
+
+#. Author of an extension
+msgid "Daniel Frużyński"
+msgstr "Daniel Fruyski"
+
+#. Author URI of an extension
+msgid "http://www.poradnik-webmastera.com/"
+msgstr "http://www.poradnik-webmastera.com/ "
+

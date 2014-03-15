@@ -1,0 +1,159 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Hebert;Ethan;;;
+FN:Ethan Hebert
+ORG:Mac Consulting Group\, Inc.;
+EMAIL;type=INTERNET;type=WORK:ethan@macconsultinggroup.com
+EMAIL;type=INTERNET;type=HOME;type=pref:ethanhebert@me.com
+TEL;type=CELL;type=pref:337-517-5363
+X-JABBER;type=HOME;type=pref:ethan@tech.macconsultinggroup.com
+X-JABBER;type=HOME:ethan@macconsultinggroup.com
+CATEGORIES:MCG-Staff
+X-ABUID:9682CC1F-1F69-46CC-87F3-190B8E627CC9\:ABPerson
+END:VCARD
+BEGIN:VCARD
+VERSION:3.0
+N:Hollier;Seth;;;
+FN:Seth Hollier
+ORG:Mac Consulting Group\, Inc.;
+TITLE:OnSite Technician
+EMAIL;type=INTERNET;type=WORK;type=pref:seth@macconsultinggroup.com
+EMAIL;type=INTERNET;type=HOME:cajun1689@me.com
+TEL;type=CELL;type=pref:337-254-8786
+item1.ADR;type=WORK:;;13675 Coursey Blvd;Baton Rouge;LA;70817;
+item1.X-ABADR:us
+item2.ADR;type=HOME;type=pref:;;13201 Eastside Acres;Erath;LA;70533;
+item2.X-ABADR:us
+X-AIM;type=HOME;type=pref:cajun1689@me.com
+X-JABBER;type=WORK;type=pref:seth@tech.macconsultinggroup.com
+X-JABBER;type=HOME:seth@macconsultinggroup.com
+CATEGORIES:MCG-Staff
+X-ABUID:70FABD5D-4AC3-48DD-843C-F0E130E647E2\:ABPerson
+END:VCARD
+BEGIN:VCARD
+VERSION:3.0
+N:Hancock;Allen;;;
+FN:Allen Hancock
+ORG:Mac Consulting Group\, Inc.;
+TITLE:President
+EMAIL;type=INTERNET;type=WORK;type=pref:allen@macconsultinggroup.com
+EMAIL;type=INTERNET;type=HOME:allenhancock@gmail.com
+TEL;type=WORK;type=pref:225-933-5311
+TEL;type=CELL:225-933-0804
+TEL;type=WORK;type=FAX:815-425-8641
+item1.ADR;type=WORK:;;8568 Goodwood Blvd\, Ste B;Baton Rouge;LA;70806-7910;
+item1.X-ABADR:us
+item2.ADR;type=HOME;type=pref:;;1152 Aurora Pl;Baton Rouge;LA;70806-7840;
+item2.X-ABADR:us
+item3.URL;type=pref:http\://macconsultinggroup.com
+item3.X-ABLabel:_$!<HomePage>!$_
+X-AIM;type=HOME;type=pref:allenhancock@mac.com
+X-AIM;type=WORK:allen@macconsultinggroup.com
+X-JABBER;type=HOME;type=pref:allen@tech.macconsultinggroup.com
+CATEGORIES:MCG-Staff
+X-ABUID:9133E4A0-E1F8-4C1B-9E16-D0A740DC0F0F\:ABPerson
+END:VCARD
+BEGIN:VCARD
+VERSION:3.0
+N:Felix;Richard;;;
+FN:Richard Felix
+ORG:Mac Consulting Group\, Inc.;
+EMAIL;type=INTERNET;type=WORK;type=pref:richard@macconsultinggroup.com
+EMAIL;type=INTERNET;type=HOME:rfelix@gmail.com
+TEL;type=CELL;type=pref:225-931-7129
+item1.ADR;type=HOME;type=pref:;;8550 E Cypress Point Ct;Baton Rouge;LA;70809-2279;
+item1.X-ABADR:us
+X-AIM;type=WORK;type=pref:xilef2121away
+X-JABBER;type=HOME;type=pref:richard@macconsultinggroup.com
+X-JABBER;type=WORK:richard@tech.macconsultinggroup.com
+CATEGORIES:MCG-Staff
+X-ABUID:64E2D158-135B-4327-8D2E-447EB5D1AC07\:ABPerson
+END:VCARD
+BEGIN:VCARD
+VERSION:3.0
+N:Jensen;Preston;;;
+FN:Preston Jensen
+ORG:Mac Consulting Group\, Inc.;
+EMAIL;type=INTERNET;type=WORK;type=pref:preston@macconsultinggroup.com
+EMAIL;type=INTERNET;type=HOME:prestonjensen@mac.com
+TEL;type=CELL;type=pref:303-875-6057
+item1.ADR;type=HOME;type=pref:;;15580 Riverdale Ave E;Baton Rouge;LA;70816-1576;
+item1.X-ABADR:us
+X-AIM;type=WORK;type=pref:prestonjensen@mac.com
+X-JABBER;type=WORK;type=pref:preston@tech.macconsultinggroup.com
+X-JABBER;type=HOME:preston@macconsultinggroup.com
+CATEGORIES:MCG-Staff
+X-ABUID:D151B922-C170-430D-8EE4-D379CE23DB3F\:ABPerson
+END:VCARD
+BEGIN:VCARD
+VERSION:3.0
+N:Support;MCG;;;
+FN:Mac Consulting Group\, Inc.
+ORG:Mac Consulting Group\, Inc.;
+EMAIL;type=INTERNET;type=WORK;type=pref:support@macconsultinggroup.com
+TEL;type=WORK;type=pref:225-933-5311
+TEL;type=WORK;type=FAX:815-425-8641
+item1.ADR;type=WORK;type=pref:;;662 Jefferson Highway;Baton Rouge;LA;70806;
+item1.X-ABADR:us
+item2.URL;type=pref:http\://macconsultinggroup.com
+item2.X-ABLabel:_$!<HomePage>!$_
+item3.URL:http\://macconsultinggroup.com/checkin
+item3.X-ABLabel:Drop Off Form
+item4.URL:http\://macconsultinggroup.com/terms
+item4.X-ABLabel:Terms
+item5.URL:http\://macconsultinggroup.com/comments
+item5.X-ABLabel:Word of Mouth
+X-ABShowAs:COMPANY
+CATEGORIES:MCG-Staff
+X-ABUID:77ED96D2-44AF-4DAD-8F4B-C6FCCFE150BB\:ABPerson
+END:VCARD
+BEGIN:VCARD
+VERSION:3.0
+N:Bettencourtt;Ryan;;;
+FN:Ryan Bettencourtt
+ORG:Mac Consulting Group\, Inc.;
+EMAIL;type=INTERNET;type=HOME;type=pref:rbettencourtt@gmail.com
+item1.EMAIL;type=INTERNET:ryan@macconsultinggroup.com
+item1.X-ABLabel:_$!<Other>!$_
+TEL;type=CELL;type=pref:225-572-4432
+item2.ADR;type=HOME;type=pref:;;15371 Summerwood Dr;Baton Rouge;LA;70817;
+item2.X-ABADR:us
+BDAY;value=date:1977-07-19
+X-JABBER;type=HOME;type=pref:ryan@tech.macconsultinggroup.com
+X-JABBER;type=WORK:ryan@macconsultinggroup.com
+CATEGORIES:MCG-Staff
+X-ABUID:823FA5BF-B004-46CB-B0B8-5BC3D7A89161\:ABPerson
+END:VCARD
+BEGIN:VCARD
+VERSION:3.0
+N:Graphia;John;;;
+FN:John Graphia
+ORG:Mac Consulting Group\, Inc.;
+TITLE:Enterprise Lead
+EMAIL;type=INTERNET;type=HOME;type=pref:jgraphia@mac.com
+EMAIL;type=INTERNET;type=HOME:john@macconsultinggroup.com
+TEL;type=HOME;type=pref:210-745-1157
+TEL;type=CELL:210-748-5753
+item1.X-AIM;type=pref:macrig
+item1.X-ABLabel:_$!<Other>!$_
+X-JABBER;type=HOME;type=pref:john@tech.macconsultinggroup.com
+X-JABBER;type=WORK:john@macconsultinggroup.com
+CATEGORIES:MCG-Staff
+X-ABUID:B9BEB944-F931-4314-AFDF-16B4D9A2D6EA\:ABPerson
+END:VCARD
+BEGIN:VCARD
+VERSION:3.0
+N:Gresham;Thomas;;;
+FN:Thomas Gresham
+ORG:Mac Consulting Group;
+EMAIL;type=INTERNET;type=WORK;type=pref:thomas@macconsultinggroup.com
+EMAIL;type=INTERNET;type=HOME:thomas.gresham@me.com
+TEL;type=CELL;type=pref:225-933-5945
+item1.ADR;type=HOME;type=pref:;;1803 Tulip St;Baton Rouge;LA;70802-4073;
+item1.X-ABADR:us
+X-AIM;type=WORK;type=pref:thomas.gresham@me.com
+X-JABBER;type=HOME;type=pref:thomas@tech.macconsultinggroup.com
+X-JABBER;type=HOME:thomas@macconsultinggroup.com
+CATEGORIES:MCG-Staff
+X-ABUID:D62F8FB4-A93B-4E99-857A-0FD89A9EC7A8\:ABPerson
+END:VCARD

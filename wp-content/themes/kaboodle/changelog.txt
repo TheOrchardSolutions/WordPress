@@ -1,0 +1,62 @@
+*** Kaboodle Changelog ***
+
+2011.06.30 - version 1.3
+ * /includes/js/portfolio.js - Added hash-based portfolio navigation JavaScript.
+ * template-portfolio.php - changed the link for the tags to include hash tag so it is easier to copy the URL
+
+2011.06.26 - version 1.2.4
+ * includes/theme-functions.php - made functions pluggable
+
+2011.06.11 - version 1.2.3
+ * style.css - Adjusted single portfolio item gallery to work with narrow images and centre the images.
+ * /includes/theme-options.php - Added options to enable pagination and pagination settings for homepage blog posts.
+ * index.php - Added logic for pagination of blog posts on homepage. Main "number of entries" field is overridden if pagination is in use.
+
+2011.06.09 - version 1.2.2
+ * style.css - added .layout-full #main to line 158
+ * includes/gallery.php - added [portfolio] to rel="lightbox" to show gallery on single portfolio items
+
+2011.06.08 - version 1.2.1
+ * /includes/gallery.php - Changed rel="prettyPhoto" to rel="lightbox" to fix intermittent lightbox.
+ * /includes/js/portfolio.js - Changed rel^='prettyPhoto' rel^='lightbox' to fix intermittent lightbox.
+ * /includes/portfolio-carousel.php - Changed rel="prettyPhoto" to rel="lightbox" to fix intermittent lightbox.
+
+2011.05.24 - version 1.2
+ * index.php - Added Homepage Fullwidth option.
+ * /includes/theme-actions.php - Added slider "Auto Height" option.
+ * /includes/theme-options.php - Added Homepage Fullwidth option & slider "Auto Height" option.
+
+2011.05.09 - version 1.1.4
+ * /includes/theme-actions.php - Added Animation Speed, Auto Start, Auto Slide Interval for single portfolio gallery.
+ * /includes/theme-options.php - Added Animation Speed, Auto Start, Auto Slide Interval for single portfolio gallery.
+
+2011.05.09 - version 1.1.3
+ * /includes/portfolio-carousel.php - Added support for "embed-url" custom field.
+ * /includes/theme-options.php - Added "embed-url" custom field to "portfolio" entries, for use in the homepage portfolio lightbox.
+
+2011.05.03 - version 1.1.2
+ * style.css - fixed line 892 to be from .portfolio .video to .single-portfolio .video to fix bug in portfolio gallery with videos
+
+2011.05.03 - version 1.1.1
+ * includes/theme-js.php - Added conditional code to include prettyPhoto on single portfolio page (lines 52 & 71)
+
+2011.05.03 - version 1.1
+ * style.css - Added 6.8.1 Single Portfolio & Added #main.col-full (line 158) & Added .portfolio p.tags (line 374)
+ * includes/theme-options.php - Added "Enable Single Portfolio Gallery"
+ * includes/theme-js.php - Added jcarousel & loopedslider (lines 60-63)
+ * includes/theme-actions.php - Added "Single Portfolio Gallery Settings" & "Single Portfolio Gallery"
+ * includes/gallery.php - Added
+ * includes/js/loopedSlider.js - Added
+ * single-portfolio.php - Added support for Portfolio Gallery and Testimonial
+ * images/ico-gallery-prev.png - Added
+ * images/ico-gallery-next.png - Added
+ 
+
+2011.05.03 - version 1.0.2
+ * single-portfolio.php - removed "The Blog" title and moved the portfolio title to this location.
+
+2011.04.29 - version 1.0.1
+ * includes/theme-actions.php - fixed custom typography bug
+	
+2011.04.28 - version 1.0
+ * First release!
