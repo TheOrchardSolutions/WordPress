@@ -68,7 +68,15 @@ class TC_featured_pages {
 
         <?php ob_start(); ?>
 
+
+
   			<div class="container marketing">
+
+
+            <center><h1>
+              Mavericks Classes<br>
+            </h1></center>
+
 
           <?php 
             do_action ('__before_fp') ;
