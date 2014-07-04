@@ -67,7 +67,7 @@ class TC_init {
         
         //Default images sizes
         $this -> tc_thumb_size      = array('width' => 270 , 'height' => 250, 'crop' => true );
-        $this -> slider_full_size   = array('width' => 99999 , 'height' => 500, 'crop' => true );
+        $this -> slider_full_size   = array('width' => 9999 , 'height' => 500, 'crop' => true );
         $this -> slider_size        = array('width' => 1170 , 'height' => 500, 'crop' => true );
 
         //Default skins array
@@ -88,7 +88,7 @@ class TC_init {
         //Default social networks
         $this -> socials            = array(
                                     'tc_rss'            => array(
-                                                            'link_title'    => __( 'Suscribe to my rss feed' , 'customizr' ),
+                                                            'link_title'    => __( 'Subscribe to my rss feed' , 'customizr' ),
                                                             'option_label'  => __( 'RSS feed (default is the wordpress feed)' , 'customizr' ),
                                                             'default'       => get_bloginfo( 'rss_url' )
                                                           ),
@@ -478,7 +478,7 @@ class TC_init {
               <?php do_action( '__before_main_container' ); ##hook of the featured page (priority 10) and breadcrumb (priority 20)...and whatever you need! ?>
               
               <div class="container" role="main">
-                  <div class="row">
+                  <div class="<?php echo tc__f( 'tc_column_content_wrapper_classes' , 'row column-content-wrapper' ) ?>">
 
                       <?php do_action( '__before_article_container'); ##hook of left sidebar?>
                           

@@ -6,7 +6,7 @@ Author URI: http://www.sedlex.fr/
 Plugin URI: http://wordpress.org/plugins/backup-scheduler/
 Tags: backup, schedule, plugin, save, database, zip
 Requires at least: 3.0
-Tested up to: 3.8.1
+Tested up to: 3.9
 Stable tag: trunk
 
 With this plugin, you may plan the backup of your entire website (folders, files and/or database).
@@ -28,22 +28,24 @@ This plugin is under GPL licence
 
 This plugin is compatible with Multisite installation. 
 
-Each blog administrator may save their own data. The super-admin may save either its data or the whole website.
+Each blog administrator may save their own data. 
+
+The super-admin may save either its data or the whole website. By saving the whole site, the admin may create different SQL files for the subsite in order to ease the restoration of a single sub-site.
 
 = Localization =
 
 * German (Switzerland) translation provided by PeterDbbert, BernhardKnab, scream
-* German (Germany) translation provided by agent-test, agent, bartdev2000
+* German (Germany) translation provided by agent-test, agent, bartdev2000, Ditoran
 * English (United States), default language
 * Spanish (Spain) translation provided by Javier, AVfoto, charliechin, IgnacioCalvo, JordiVives, FelipeJAG
-* Farsi (Iran) translation provided by 
+* Farsi (Iran) translation provided by sehrama.ir
 * Finnish (Finland) translation provided by AnttiSilvola
 * French (France) translation provided by SedLex, wkpixearts, Matthieu, mutmut, anonymous, noaneo
 * Indonesian (Indonesia) translation provided by ceceparif
 * Indonesian (Indonesia) translation provided by Faleddo
 * Italian (Italy) translation provided by PuntoCon
 * Dutch (Netherlands) translation provided by Matrix, WybAnema, Jay
-* Polish (Poland) translation provided by Opti, Lukasz, pablo, Misiek, MarekMackiewicz
+* Polish (Poland) translation provided by Opti, Lukasz, pablo, Misiek, MarekMackiewicz, Darbo
 * Portuguese (Brazil) translation provided by RainilsonRodriguis, GuiBeloto
 * Portuguese (Portugal) translation provided by FranciscoRocha
 * Russian (Russia) translation provided by GerinG, Slawka
@@ -54,14 +56,9 @@ Each blog administrator may save their own data. The super-admin may save either
 
 = Features of the framework =
 
-This plugin uses the SL framework. This framework eases the creation of new plugins by providing incredible tools and frames.
+This plugin uses the SL framework. This framework eases the creation of new plugins by providing tools and frames (see dev-toolbox plugin for more info).
 
-For instance, a new created plugin comes with
-
-* A translation interface to simplify the localization of the text of the plugin ; 
-* An embedded SVN client (subversion) to easily commit/update the plugin in wordpress.org repository ; 
-* A detailled documentation of all available classes and methodes ; 
-* etc.
+You may easily translate the text of the plugin and submit it to the developer, send a feedback, or choose the location of the plugin in the admin panel.
 
 Have fun !
 
@@ -79,6 +76,22 @@ Have fun !
 2. The configuration page of the plugin
 
 == Changelog ==
+
+= 1.5.7 =
+* NEW: Exclusion folder enabled
+* NEW: Detailed HOW TO
+
+= 1.5.6 =
+* BUG : Problem of activation with version of PHP below 5.2
+
+= 1.5.5 =
+* NEW : Take into account blogs.dir and site
+
+= 1.5.4 =
+* NEW : By saving the whole site, the admin may create different SQL files for the subsite in order to ease the restoration of a single sub-site.
+
+= 1.5.3 =
+* BUG: On some configuration, &lt;? is not supported 
 
 = 1.5.2 =
 * NEW: You may now create subfolder in the FTP directory
@@ -201,4 +214,4 @@ If you have still this issue, please try with Winzip software.
 Visit http://www.sedlex.fr/cote_geek/
  
  
-InfoVersion:1422d2d1f2cab782592453369f8dae44
+InfoVersion:65a15bc4a4d02bad5491fadd0e644004cc07f175

@@ -1,5 +1,5 @@
 /*
- * Customizr v3.1.6
+ * Customizr v3.1.10
  *
  * Licensed under the GNU General Public License v2 or later
  * http://www.gnu.org/licenses/gpl-2.0.html
@@ -4232,6 +4232,75 @@ input[type="submit"].btn.btn-mini {
   background-color: transparent;
   cursor: default;
 }
+
+
+.nav1 ul ul {
+  display: none;
+}
+
+  .nav1 ul li:hover > ul {
+    display: block;
+  }
+
+
+.nav1 ul {
+  background: #efefef; 
+  background: linear-gradient(top, #efefef 0%, #bbbbbb 100%);  
+  background: -moz-linear-gradient(top, #efefef 0%, #bbbbbb 100%); 
+  background: -webkit-linear-gradient(top, #efefef 0%,#bbbbbb 100%); 
+  box-shadow: 0px 0px 9px rgba(0,0,0,0.15);
+  padding: 0 5px;
+  border-radius: 10px;  
+  list-style: none;
+  position: relative;
+  display: inline-table;
+  z-index: 1000;
+}
+  .nav1 ul:after {
+    content: ""; clear: both; display: block;
+  }
+
+.nav1 ul li {
+  float: left;
+}
+  .nav1 ul li:hover {
+    background: #4b545f;
+    background: linear-gradient(top, #4f5964 0%, #5f6975 40%);
+    background: -moz-linear-gradient(top, #4f5964 0%, #5f6975 40%);
+    background: -webkit-linear-gradient(top, #4f5964 0%,#5f6975 40%);
+  }
+    .nav1 ul li:hover a {
+      color: #fff;
+    }
+  
+  .nav1 ul li a {
+    display: block; padding: 25px 40px;
+    color: #757575; text-decoration: none;
+  }
+
+  .nav1 ul ul {
+  background: #5f6975; border-radius: 0px; padding: 0;
+  position: absolute; top: 10;
+}
+  .nav1 ul ul li {
+    float: none; 
+    border-top: 1px solid #6b727c;
+    border-bottom: 1px solid #575f6a;
+    position: relative;
+  
+  }
+    .nav1 ul ul li a {
+      padding: 15px 50px;
+      color: #fff;
+    } 
+      .nav1 ul ul li a:hover {
+        background: #4b545f;
+
+      }
+
+      .nav1 ul ul ul {
+  position: absolute; left: 130px; top:0;
+}
 .navbar {
   overflow: visible;
   margin-bottom: 20px;
@@ -5813,15 +5882,11 @@ td {
   font-family: 'genericons';
   src: url('fonts/fonts/genericons-regular-webfont.eot');
   src: url('fonts/fonts/genericons-regular-webfont.eot?#iefix') format('embedded-opentype'), url('fonts/fonts/genericons-regular-webfont.woff') format('woff'), url('fonts/fonts/genericons-regular-webfont.ttf') format('truetype'), url('fonts/fonts/genericons-regular-webfont.svg#genericonsregular') format('svg');
-  font-weight: normal;
-  font-style: normal;
 }
 @font-face {
   font-family: 'entypo';
   src: url('fonts/fonts/entypo.eot');
   src: url('fonts/fonts/entypo.eot?#iefix') format('embedded-opentype'), url('fonts/fonts/entypo.woff') format('woff'), url('fonts/fonts/entypo.ttf') format('truetype'), url('fonts/fonts/entypo.svg#genericonsregular') format('svg');
-  font-weight: normal;
-  font-style: normal;
 }
 [data-icon]:before {
   font-family: 'genericons';
@@ -5924,7 +5989,8 @@ td {
 }
 /* hack for safari, uses the browser body.class added with a script */
 
-.safari .widget_categories h3:before {
+.safari .widget_categories h3:before,
+.chrome .widget_categories h3:before {
   font-family: 'genericons';
   top: 8px;
   font-size: 1.5em;
@@ -5947,7 +6013,8 @@ td {
 }
 /* hack for safari, uses the browser body.class added with a script */
 
-.safari .widget_recent_entries h3:before {
+.safari .widget_recent_entries h3:before,
+.chrome .widget_recent_entries h3:before {
   font-family: 'genericons';
   top: 8px;
   font-size: 1.5em;
@@ -5975,7 +6042,8 @@ td {
 }
 /* hack for safari, uses the browser body.class added with a script */
 
-.safari .widget_pages h3:before {
+.safari .widget_pages h3:before,
+.chrome .widget_pages h3:before {
   font-family: 'genericons';
   top: 8px;
   font-size: 1.5em;
@@ -6033,11 +6101,12 @@ article.page .format-icon:before {
   position: relative;
   top: 14px;
 }
-/* hack for safari, uses the browser body.class added with a script */
+/* hack for chrome and safari, uses the browser body.class added with a script */
 
-.safari article.page .format-icon:before {
+.safari article.page .format-icon:before,
+.chrome article.page .format-icon:before {
   font-family: 'genericons';
-  content: "\f425";
+  content: "\f443";
   font-size: 1.8em;
   line-height: 0px;
   position: relative;
@@ -6059,7 +6128,9 @@ article.attachment .format-icon:before {
 /* hack for safari, uses the browser body.class added with a script */
 
 .safari article.format-gallery .format-icon:before,
-.safari article.attachment .format-icon:before {
+.safari article.attachment .format-icon:before,
+.chrome article.format-gallery .format-icon:before,
+.chrome article.attachment .format-icon:before {
   font-family: 'genericons';
   content: '\f102';
   font-size: 1.8em;
@@ -6071,7 +6142,8 @@ article.format-aside .format-icon:before {
 }
 /* hack for safari, uses the browser body.class added with a script */
 
-.safari article.format-aside .format-icon:before {
+.safari article.format-aside .format-icon:before,
+.chrome article.format-aside .format-icon:before {
   content: '\f308';
   font-family: 'genericons';
   font-size: 3.5em;
@@ -6095,7 +6167,8 @@ article.format-video .format-icon:before {
 }
 /* hack for safari, uses the browser body.class added with a script */
 
-.safari article.format-video .format-icon:before {
+.safari article.format-video .format-icon:before,
+.chrome article.format-video .format-icon:before {
   content: '\f104';
   font-size: 2em;
   line-height: 0px;
@@ -6121,7 +6194,8 @@ article.format-image .format-icon:before {
 }
 /* hack for safari, uses the browser body.class added with a script */
 
-.safari article.format-image .format-icon:before {
+.safari article.format-image .format-icon:before,
+.chrome article.format-image .format-icon:before {
   font-family: 'genericons';
   content: '\f102';
   font-size: 1.8em;
@@ -6134,7 +6208,8 @@ article.format-link .format-icon:before {
 }
 /* hack for safari, uses the browser body.class added with a script */
 
-.safari article.format-link .format-icon:before {
+.safari article.format-link .format-icon:before,
+.chrome article.format-link .format-icon:before {
   font-family: 'genericons';
   content: "\f107";
   top: 7px;
@@ -6602,6 +6677,7 @@ footer#footer .colophon .social-block a {
   height: 80px;
   top: 44%;
   margin-top: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 120px;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
   background-color: transparent;

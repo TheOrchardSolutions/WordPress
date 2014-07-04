@@ -19,11 +19,15 @@
  * @since decent-comments 1.0.0
  */
 
+if ( !defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
  * Comment Renderer.
  */
 class Decent_Comments_Renderer {
-	
+
 	/**
 	 * Default rendering options:
 	 * ellipsis
@@ -65,15 +69,17 @@ class Decent_Comments_Renderer {
 		'post_type'    => null,
 
 		'pingback'     => true,
-		'trackback'    => true
+		'trackback'    => true,
+
+		'exclude_post_author' => false
 	);
-	
+
 	/**
 	 * Allowed sort criteria and labels.
 	 * @var array
 	 */
 	static $orderby_options;
-	
+
 	/**
 	 * Allowed sort direction and labels.
 	 * @var array
@@ -97,7 +103,7 @@ class Decent_Comments_Renderer {
 			'DESC' => __( 'Descending', DC_PLUGIN_DOMAIN )
 		);
 	}
-	
+
 	/** 
 	 * Renders a comment according to the $options given.
 	 * 
@@ -107,7 +113,7 @@ class Decent_Comments_Renderer {
 	 * @see Decent_Comments_Renderer::$defaults
 	 */
 	static function get_comment( $comment_ID = 0, $options = array() ) {
-		
+
 		$ellipsis = self::$defaults['ellipsis'];
 		if ( isset( $options["ellipsis"] ) ) {
 			$ellipsis = wp_filter_kses( addslashes( $options["ellipsis"] ) );
@@ -128,23 +134,23 @@ class Decent_Comments_Renderer {
 		if ( isset( $options["strip_tags"] ) ) {
 			$strip_tags =  $options["strip_tags"] !== false;
 		}
-		
+
 		$output = "";
-		
+
 		$comment = get_comment( $comment_ID );
-		
+
 		if ( $comment ) {
-			
+
 			if ( $strip_tags ) {
 				$content = strip_tags( $comment->comment_content );
 			} else {
 				$content = $comment->comment_content;
 			}
-			
+
 			// guard against shortcodes in comments
 			$content = str_replace( "[", "&#91;", $content );
 			$content = str_replace( "]", "&#93;", $content );
-			
+
 			if ( $excerpt ) {
 				// word limit
 				$content = preg_replace( "/\s+/", " ", $content );
@@ -181,7 +187,7 @@ class Decent_Comments_Renderer {
 		}
 		return $output;
 	}
-	
+
 	/**
 	 * Renders comments.
 	 * 
@@ -198,7 +204,7 @@ class Decent_Comments_Renderer {
 		$output = '';
 
 		extract( self::$defaults );
-				
+
 		// comment selection options
 		if ( isset( $options['number'] ) ) {
 			$number = intval( $options['number'] );
@@ -223,7 +229,7 @@ class Decent_Comments_Renderer {
 				$post_type = null;
 			}
 		}
-		
+
 		// Any chosen terms? - Needs taxonomy to be given as well.
 		if ( isset( $options['terms'] ) ) {
 			$terms = $options['terms'];
@@ -258,7 +264,11 @@ class Decent_Comments_Renderer {
 		if ( isset( $options['trackback'] ) ) {
 			$trackback = ( $options['trackback'] === 'false' && $options['pingback'] !== false );
 		}
-		
+
+		if ( isset( $options['exclude_post_author'] ) ) {
+			$exclude_post_author = $options['exclude_post_author'] === 'true' || $options['exclude_post_author'] === true;
+		}
+
 		// basic options: number, sort, comments must be approved
 		$comment_args = array(
 			'number'  => $number,
@@ -290,12 +300,15 @@ class Decent_Comments_Renderer {
 		if ( isset( $trackback ) ) {
 			$comment_args['trackback'] = $trackback;
 		}
+		if ( isset( $exclude_post_author ) ) {
+			$comment_args['exclude_post_author'] = $exclude_post_author;
+		}
 
 		require_once( dirname( __FILE__ ) . '/class-decent-comment.php' );
 		$comments = Decent_Comment::get_comments( $comment_args );
-		
+
 		if ( !empty( $comments ) ) {
-			
+
 			// display options
 			if ( isset( $options['avatar_size'] ) ) {
 				$avatar_size = intval( $options['avatar_size'] );
@@ -330,13 +343,13 @@ class Decent_Comments_Renderer {
 
 			$output .= '<div class="decent-comments">';
 			$output .= '<ul>';
-			
+
 			foreach ( $comments as $comment) {
-				
+
 				$output .= '<li>';
-				
+
 				$output .= '<div class="comment">';
-				
+
 				if ( $show_avatar ) {
 					$output .= '<span class="comment-avatar">';
 					$comment_author_url = get_comment_author_url( $comment->comment_ID );
@@ -349,7 +362,7 @@ class Decent_Comments_Renderer {
 					}
 					$output .= '</span>'; // .comment-avatar
 				}
-				
+
 				if ( $show_author ) {
 					$output .= '<span class="comment-author">';
 					if ( $link_author ) {
@@ -359,8 +372,8 @@ class Decent_Comments_Renderer {
 					}
 					$output .= '</span>'; // .comment-author
 				}
-				
-				if ( $show_link ) {				
+
+				if ( $show_link ) {
 					$output .= '<span class="comment-link">';
 					$output .= sprintf(
 						_x( ' on %s', 'comment-link', DC_PLUGIN_DOMAIN ),
@@ -374,12 +387,12 @@ class Decent_Comments_Renderer {
 					$output .= self::get_comment( $comment, array( "ellipsis" => $ellipsis, "excerpt" => $excerpt, "max_excerpt_words" => $max_excerpt_words, "max_excerpt_characters" => $max_excerpt_characters ) );
 					$output .= '</span>'; // .comment-body or .comment-excerpt
 				}
-				
+
 				$output .= '</div>'; // .comment
-				
+
 				$output .= '</li>';
 			}
-			
+
 			$output .= '</ul>';
 			$output .= '</div>'; // .decent-comments
  		}
@@ -388,4 +401,3 @@ class Decent_Comments_Renderer {
 } // class Decent_Comments_Renderer
 
 Decent_Comments_Renderer::init();
-?>

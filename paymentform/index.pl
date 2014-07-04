@@ -46,7 +46,7 @@ $output = qq|
 	<body id="index" class="index" onload="document.forms.pay.company.focus()">
 		<div class="container">
 			<!-- inactive class - showgrid -->
-			<h4 class="printme">Orchard Solutions<br />662 Jefferson Highway<br />Baton Rouge, LA 70806<br />225-933-5311</h4>
+			<h4 class="printme">Orchard Solutions<br />234 Rue Beauregard Ste 200<br />Lafayette, LA 70508<br />225-933-5311</h4>
 			<h2 id="mcglogo">
 				<br>
 				<small>Payment Form</small>
@@ -54,13 +54,10 @@ $output = qq|
 			<hr>
 			<div>
 				<h4 id=""><strong>Thank you for choosing the Orchard Solutions</strong></h4>
-
 				<p><strong>Please take a moment to read our credit card authorization form.</strong></p>
 				<ul>
 					<li> By filling out and submitting this form, you authorize the Orchard Solutions to charge your credit card.</li>
-					<li> If desired, we can store your payment information on file for future use.</li>
-					<li> We will charge your card 3 days after you receive the invoice for work completed.</li>
-					<li> Orders over \$1000 will be charged to your card once the purchase is approved.</li>
+					<li> We will charge your card three (3) days after you receive the invoice for work completed.</li>
 				</ul>
 				<p><strong>Please print, sign, and return this form. Either in person, mail, or fax to 815-425-8641</strong></p>
 				<p><strong>At the Orchard Solutions we take your privacy very seriously. All credit card information is encrypted during all transmissions. We store all client data on fully encrypted hard drives. Our credit card billing process:</strong></p>
@@ -95,7 +92,6 @@ $output = qq|
 							<label class="form-label" for="email">Email</label><br>
 							<input type="text" name="email" value="$vars{'email'}" id="email" class="text">
 							
-					
 							<label class="span-2" for="address1">Address</label><br>
 							<input type="text" name="address1" value="$vars{'address1'}" id="address1" class="text"><br>
 					
@@ -118,8 +114,6 @@ $output = qq|
 					<fieldset>
 						<legend><span class="order_num">2</span> Payment</legend>
 						<p class="right">
-								<label class="span-2" for="docid">Document Number (ie Q-8888 or I-12345): <br> <font size="1">(We review this manually)</font>  </label><br>
-								<input type="text" name="docid" value="$vars{'docid'}" id="docid" class="text"><br>
 
 								<div style="float: left; width: 40%">
 									<label class="form-label" for="cardtype">Card Type</label><br>
@@ -176,12 +170,6 @@ $output = qq|
 								<input type="radio" name="amt" value="other" id="amt" class="radio" $otherAmtChecked>Other Amount:
 								<input type="text" name="amount" value="$vars{'amount'}" id="amount" class="text"><br>
 								
-								<p><label class="form-label">May we store your payment information?</label><br>
-								<input type="radio" name="storeinfo" value="yes" id="dostoreinfo" class="radio">
-								<label for="dostoreinfo" style="font-weight: normal;">Yes, I authorize you to store this payment method.</label><br />
-								
-								<input type="radio" name="storeinfo" value="no" id="dontstoreinfo" class="radio">
-								<label for="dontstoreinfo" style="font-weight: normal;">No, do not store this information at this time.</label></p>
 								<p>
 									<input type="submit" value="Submit Payment Information &rarr;" class="order">
 								</p>

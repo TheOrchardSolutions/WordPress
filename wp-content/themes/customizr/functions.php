@@ -214,7 +214,6 @@ class TC___ {
                 }
             }
         }
-
         return $instances[ $classname ];
     }
 

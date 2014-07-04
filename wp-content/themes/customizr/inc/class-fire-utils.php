@@ -135,7 +135,7 @@ class TC_utils {
 
         //$options            = array_intersect_key( $saved , $defaults);
 
-      return $__options[$option_name];
+      return apply_filters( 'tc_get_option' , $__options[$option_name] , $option_name , $option_group );
     }
 
 

@@ -19,6 +19,10 @@
  * @since decent-comments 1.1.0
  */
 
+if ( !defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
  * Based on WP_Comment_Query - the WordPress Comment Query class defined
  * in wp-includes/comment.php
@@ -27,7 +31,7 @@
  * @since 1.1.0
  */
 class Decent_Comment {
-	
+
 	/**
 	 * Retrieve a list of comments.
 	 *
@@ -93,7 +97,9 @@ class Decent_Comment {
 			'term_ids' => '',
 
 			'pingback' => true,
-			'trackback' => true
+			'trackback' => true,
+
+			'exclude_post_author' => false
 
 		);
 
@@ -211,10 +217,15 @@ class Decent_Comment {
 		}
 
 		$post_fields = array_filter( compact( array( 'post_author', 'post_name', 'post_parent', 'post_status', 'post_type', ) ) );
-		if ( ! empty( $post_fields ) ) {
+		if ( ! empty( $post_fields ) || $exclude_post_author ) {
 			$join = "JOIN $wpdb->posts ON $wpdb->posts.ID = $wpdb->comments.comment_post_ID";
-			foreach( $post_fields as $field_name => $field_value ) {
-				$where .= $wpdb->prepare( " AND {$wpdb->posts}.{$field_name} = %s", $field_value );
+			if ( ! empty( $post_fields ) ) {
+				foreach( $post_fields as $field_name => $field_value ) {
+					$where .= $wpdb->prepare( " AND {$wpdb->posts}.{$field_name} = %s", $field_value );
+				}
+			}
+			if ( $exclude_post_author ) {
+				$where .= " AND $wpdb->comments.user_id != $wpdb->posts.post_author ";
 			}
 		}
 
@@ -223,7 +234,7 @@ class Decent_Comment {
 		foreach ( $pieces as $piece ) {
 			$$piece = isset( $clauses[ $piece ] ) ? $clauses[ $piece ] : '';
 		}
-		
+
 		// terms - check the term_ids and limit comments to those on posts related to these terms
 		// If the list of term_ids is empty, there won't be any comments displayed.
 		if ( !empty( $taxonomy ) ) {

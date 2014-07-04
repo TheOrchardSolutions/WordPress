@@ -73,6 +73,9 @@ class TC_header_main {
 
 
 
+
+
+
 	 /**
       * Render favicon from options
       *
@@ -143,8 +146,8 @@ class TC_header_main {
 
 	          	printf( '<a class="site-logo" href="%1$s" title="%2$s | %3$s"><img src="%4$s" alt="%5$s" width="%6$s" height="%7$s" %8$s /></a>',
 	          		apply_filters( 'tc_logo_link_url', esc_url( home_url( '/' ) ) ) ,
-	          		apply_filters( 'tc_site_name_text ', __( esc_attr( get_bloginfo( 'name' ) ) ) ),
-	          		apply_filters( 'tc_tagline_text ', __( esc_attr( get_bloginfo( 'description' ) ) ) ),
+	          		apply_filters( 'tc_site_name_text', __( esc_attr( get_bloginfo( 'name' ) ) ) ),
+	          		apply_filters( 'tc_tagline_text', __( esc_attr( get_bloginfo( 'description' ) ) ) ),
 	          		$logo_src,	
 	          		__( 'Back Home' , 'customizr' ),
 					$width,
@@ -176,8 +179,6 @@ class TC_header_main {
 	        	<?php
 	        	do_action( '__before_logo' );
 
-	          	
-	            
 		          	printf('<%1$s><a class="site-title" href="%2$s" title="%3$s | %4$s">%3$s</a></%1$s>',
 		          		apply_filters( 'tc_site_title_tag', 'h1' ) ,
 		          		apply_filters( 'tc_logo_link_url', esc_url( home_url( '/' ) ) ) ,
@@ -198,11 +199,29 @@ class TC_header_main {
 
 	   <?php endif; ?>
 
+
+<div class="nav1"> 
+	
+		<ul id="main-nav" class="nav fl">
+			<?php 
+			if ( get_option('woo_custom_nav_menu') == 'true' ) {
+				if ( function_exists('woo_custom_navigation_output') )
+					woo_custom_navigation_output("name=Woo Menu 1");
+	
+			} else { ?>
+				
+				<?php if ( is_page() ) $highlight = "page_item"; else $highlight = "page_item current_page_item"; ?>
+				<li class="<?php echo $highlight; ?>"><a href="<?php bloginfo('url'); ?>"><?php _e('Home', 'woothemes') ?></a></li>
+				<?php wp_list_pages('sort_column=menu_order&depth=6&title_li=&exclude='); ?>
+	
+			<?php } ?>
+		</ul><!-- /#nav -->
+	</div>
 	   
 	   <?php 
 	}
 
-	
+
 	/**
 	 * Displays what's inside the navbar of the website. Uses the resp parameter for __navbar action.
 	 *
@@ -210,7 +229,7 @@ class TC_header_main {
 	 * @package Customizr
 	 * @since Customizr 3.0.10
 	 */
-	function tc_navbar_display() {
+/*	function tc_navbar_display() {
 		
 		ob_start();
 		do_action( 'before_navbar' ); 
@@ -246,7 +265,7 @@ class TC_header_main {
        	echo apply_filters( 'tc_navbar_display', $html );
 	}
 
-
+*/
 	
 
 

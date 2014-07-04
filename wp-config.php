@@ -1,4 +1,7 @@
 <?php
+/** Enable W3 Total Cache */
+define('WP_CACHE', true); // Added by W3 Total Cache
+
 // ** MySQL settings ** //
 define('DB_NAME', 'wordpress');    // The name of the database
 define('DB_USER', 'wordpress');     // Your MySQL username

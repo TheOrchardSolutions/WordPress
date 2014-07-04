@@ -1,0 +1,137 @@
+.post-author{
+    padding-right: 20px;
+    padding-top: 20px;
+}
+.comment-separator{    
+    font-size: 16px;   
+    font-weight: bold;    
+    padding: 5px 5px 5px 0px;
+}
+.author-about{
+    padding-left: 80px;
+}
+.single-comment-holder
+{
+	float: left;
+	width: 70%;
+}
+.comments-holder{
+    padding-top: 20px;
+	padding-bottom: 65px;
+}
+.comments-holder ol, .no-comments {
+    border-top-width: 1px;    
+    border-style: solid;
+    padding-top: 50px;
+	list-style-type: none;
+}
+.comment{
+    padding: 10px 0;
+}
+.avatar{  
+    border-width: 5px;
+    border-style: solid;
+    margin-right: 15px;
+}
+.comment-author
+{
+    text-decoration: none;
+	font-size: 14px;
+	text-transform: uppercase;
+}
+.comment-date
+{
+    text-transform: uppercase;
+	font-size: 14px;
+}
+.comment-line-separator{
+    padding: 0 5px;
+	font-size: 14px;
+}
+.comment-text {
+
+}
+.comment-text p
+{
+    padding-top: 30px;
+	font-size: 14px;
+}
+.comment-reply-link{
+	display: inline-block;	
+	text-align: center;
+	font-size: 12px;
+	font-weight: 300;
+	padding: 7px 30px;
+	cursor: pointer;	
+	vertical-align: middle;
+	text-decoration: none;
+	margin-top: 25px;
+	text-transform: uppercase;
+}
+.children{
+    padding: 0 0 0 50px !important;
+    list-style-type: none !important;
+}
+#commentform input#author, #commentform input#email {
+    width: 445px;
+	border: 0;
+	padding-top: 13px;
+	padding-bottom: 13px;
+	margin: 10px 0;
+	height: 28px;
+	padding-left: 10px;
+	font-size: 16px;
+	font-family: 'PT Sans',sans-serif,Arial;
+	font-weight: 300;
+}
+#commentform input#submit
+{       
+    border: none;		
+	text-align: center;
+	font-size: 12px;
+	font-weight: 300;
+	padding: 17px 30px;
+	cursor: pointer;
+	vertical-align: middle;
+	text-decoration: none;
+	text-transform: uppercase;
+	height: 50px;
+	border-radius: 30px;
+}
+#commentform textarea{
+    width: 443px;
+	margin-left: 0;
+	border: 0;
+	padding-top: 13px;
+	padding-bottom: 0;
+	margin: 10px 0;
+	padding-left: 10px;
+	overflow: auto;
+	font-size: 16px;
+	font-family: 'PT Sans',sans-serif,Arial;
+	font-weight: 300;
+}
+.logged-in-as a{
+    text-decoration: none;	
+	font-weight: bold;
+}
+#comment-status
+{
+    margin: 3px 0 5px 0;
+    font-style: italic;
+    height: 12px;
+    line-height: 12px;
+}
+input#author, input#email
+{
+    width: 151px;
+}
+#reply-title
+{
+    font-size: 13px;
+}
+ul.children li
+{
+	background: none;
+	padding: none;
+}

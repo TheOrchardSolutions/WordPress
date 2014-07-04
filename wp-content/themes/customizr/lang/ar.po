@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: * Customizr v3.1.6\n"
-"POT-Creation-Date: 2013-12-27 11:13+0100\n"
-"PO-Revision-Date: 2013-12-27 11:13+0100\n"
-"Last-Translator: Nico <contact@themesandco.com>\n"
+"Project-Id-Version: * Customizr v3.1.10\n"
+"POT-Creation-Date: 2014-03-14 16:16+0100\n"
+"PO-Revision-Date: 2014-03-14 16:17+0100\n"
+"Last-Translator: Nicolas <contact@themesandco.com>\n"
 "Language-Team: Nicolas G. <contact@themesandco.com>\n"
 "Language: Français\n"
 "MIME-Version: 1.0\n"
@@ -69,7 +69,8 @@ msgid "Black"
 msgstr "أسود"
 
 #: ../inc/class-fire-init.php:91
-msgid "Suscribe to my rss feed"
+#, fuzzy
+msgid "Subscribe to my rss feed"
 msgstr "اشترك بالتغذية الخاصة بي "
 
 #: ../inc/class-fire-init.php:92
@@ -654,29 +655,29 @@ msgstr ""
 "ملف style.css: أنه لن يتم حذف أثناء إجراء تحديثات على الموضوع. يمكنك أيضا "
 "لصق  css  المخصص الخاص بك في ملف style.css ."
 
-#: ../inc/admin/class-admin-meta_boxes.php:89
+#: ../inc/admin/class-admin-meta_boxes.php:92
 msgid "Layout Options"
 msgstr "خيارات التصميم"
 
-#: ../inc/admin/class-admin-meta_boxes.php:97
-#: ../inc/admin/class-admin-meta_boxes.php:470
+#: ../inc/admin/class-admin-meta_boxes.php:100
+#: ../inc/admin/class-admin-meta_boxes.php:471
 msgid "Slider Options"
 msgstr "خيارات عارض الشرائح"
 
-#: ../inc/admin/class-admin-meta_boxes.php:166
+#: ../inc/admin/class-admin-meta_boxes.php:169
 #, php-format
 msgid "Default %1$s layout is set to : %2$s"
 msgstr "Default %1$s طريقة العرض الافتراضية لـ:  %2$s"
 
-#: ../inc/admin/class-admin-meta_boxes.php:166
+#: ../inc/admin/class-admin-meta_boxes.php:169
 msgid "pages"
 msgstr "صفحات"
 
-#: ../inc/admin/class-admin-meta_boxes.php:166
+#: ../inc/admin/class-admin-meta_boxes.php:169
 msgid "posts"
 msgstr "تدوينات"
 
-#: ../inc/admin/class-admin-meta_boxes.php:171
+#: ../inc/admin/class-admin-meta_boxes.php:174
 msgid ""
 "You have checked the <i>\"Force global default layout for all posts and pages"
 "\"</i>, you must unchecked this option to enable a specific layout for this "
@@ -685,11 +686,11 @@ msgstr ""
 " انت علمت على  <i>\"الوضع الاجبار لتصميم الصفحات والتدوينات\"</i>, يجب عليك "
 "ان تزيل التعليم عن هذا الخيار لتفعيل تصميم معين لهذه التدوينة."
 
-#: ../inc/admin/class-admin-meta_boxes.php:172
+#: ../inc/admin/class-admin-meta_boxes.php:175
 msgid "Change layout options"
 msgstr "تغيير اعدلدلت العرض"
 
-#: ../inc/admin/class-admin-meta_boxes.php:176
+#: ../inc/admin/class-admin-meta_boxes.php:179
 #, php-format
 msgid ""
 "You can define a specific layout for %1$s by using the pre-defined left and "
@@ -699,45 +700,45 @@ msgstr ""
 "يمكنك اختيار تصميم معين لـ  %1$s باستخدام المربعات الجانبية اليمنى واليسرى. "
 "ويمكن تعريف تخطيطات الافتراضي في الشاشة وورد مخصص %2$s.<br />"
 
-#: ../inc/admin/class-admin-meta_boxes.php:177
-#: ../inc/admin/class-admin-meta_boxes.php:182
+#: ../inc/admin/class-admin-meta_boxes.php:180
+#: ../inc/admin/class-admin-meta_boxes.php:185
 msgid "this page"
 msgstr "هذه الصفحة"
 
-#: ../inc/admin/class-admin-meta_boxes.php:177
-#: ../inc/admin/class-admin-meta_boxes.php:182
+#: ../inc/admin/class-admin-meta_boxes.php:180
+#: ../inc/admin/class-admin-meta_boxes.php:185
 msgid "this post"
 msgstr "هذه التدوينة"
 
-#: ../inc/admin/class-admin-meta_boxes.php:178
+#: ../inc/admin/class-admin-meta_boxes.php:181
 msgid "here"
 msgstr "هنا"
 
-#: ../inc/admin/class-admin-meta_boxes.php:181
+#: ../inc/admin/class-admin-meta_boxes.php:184
 #, php-format
 msgid "Select a specific layout for %1$s"
 msgstr "حدد تصميم معين لـ  %1$s"
 
-#: ../inc/admin/class-admin-meta_boxes.php:185
+#: ../inc/admin/class-admin-meta_boxes.php:188
 #, php-format
 msgid "Default layout %1s"
 msgstr "التصميم الافتراضي %1s"
 
-#: ../inc/admin/class-admin-meta_boxes.php:227
+#: ../inc/admin/class-admin-meta_boxes.php:230
 msgid "Add a slider to this post/page"
 msgstr "اضف عارض الشرائح لهذه الصفحة/التدوينة"
 
-#: ../inc/admin/class-admin-meta_boxes.php:291
-#: ../inc/admin/class-admin-meta_boxes.php:677
+#: ../inc/admin/class-admin-meta_boxes.php:294
+#: ../inc/admin/class-admin-meta_boxes.php:678
 msgid "Choose a slider"
 msgstr "اختر عارض الشرائح"
 
-#: ../inc/admin/class-admin-meta_boxes.php:298
-#: ../inc/admin/class-admin-meta_boxes.php:692
+#: ../inc/admin/class-admin-meta_boxes.php:301
+#: ../inc/admin/class-admin-meta_boxes.php:693
 msgid "&mdash; Select a slider &mdash; "
 msgstr "&mdash; اختر عارض الشرائح&mdash; "
 
-#: ../inc/admin/class-admin-meta_boxes.php:303
+#: ../inc/admin/class-admin-meta_boxes.php:306
 msgid ""
 "To create a new slider : open the media library, edit your images and add "
 "them to your new slider."
@@ -745,21 +746,21 @@ msgstr ""
 "لعمل عارض شرائح جديد: افتح مكتبة الوسائط, عدل صورك وقم بإضافتهم إلى عرض "
 "الشرائح الجديد."
 
-#: ../inc/admin/class-admin-meta_boxes.php:307
+#: ../inc/admin/class-admin-meta_boxes.php:310
 msgid "Delay between each slides in milliseconds (default : 5000 ms)"
 msgstr "تأخير بين كل الشرائح في ميلي ثانية  (الإفتراضي : 5000 ms)"
 
-#: ../inc/admin/class-admin-meta_boxes.php:314
+#: ../inc/admin/class-admin-meta_boxes.php:317
 msgid "Slider Layout : set the slider in full width"
 msgstr "تصميم عارض الشرائح: تعيين عارض الشرائح بالعرض الكامل"
 
-#: ../inc/admin/class-admin-meta_boxes.php:331
-#: ../inc/admin/class-admin-meta_boxes.php:701
+#: ../inc/admin/class-admin-meta_boxes.php:334
+#: ../inc/admin/class-admin-meta_boxes.php:702
 msgid "Delete this slider"
 msgstr "حذف عارض الشرائح هذا"
 
-#: ../inc/admin/class-admin-meta_boxes.php:336
-#: ../inc/admin/class-admin-meta_boxes.php:705
+#: ../inc/admin/class-admin-meta_boxes.php:339
+#: ../inc/admin/class-admin-meta_boxes.php:706
 msgid ""
 "The slider will be deleted permanently (images, call to actions and link "
 "will be kept)."
@@ -767,12 +768,12 @@ msgstr ""
 "سيتم حذف عارض الشرائح بشكل دائم (سوف تبقى الصور، والإجراءات والروابط "
 "الموجودة)."
 
-#: ../inc/admin/class-admin-meta_boxes.php:339
-#: ../inc/admin/class-admin-meta_boxes.php:708
+#: ../inc/admin/class-admin-meta_boxes.php:342
+#: ../inc/admin/class-admin-meta_boxes.php:709
 msgid "Delete slider"
 msgstr "حذف عارض الشرائح"
 
-#: ../inc/admin/class-admin-meta_boxes.php:347
+#: ../inc/admin/class-admin-meta_boxes.php:350
 #: ../inc/admin/class-controls.php:137
 msgid ""
 "You haven't create any slider yet. Go to the media library, edit your images "
@@ -781,44 +782,44 @@ msgstr ""
 "لم تكن قد تقوم بإنشاء أي عارض شرائح حتى الآن. قم الذهاب إلى مكتبة الوسائط، "
 "تحرير الصور الخاصة بك وإضافتها إلى عارض الشرائح الخاص بك."
 
-#: ../inc/admin/class-admin-meta_boxes.php:499
+#: ../inc/admin/class-admin-meta_boxes.php:500
 msgid "Add to a slider"
 msgstr "أضف لعارض الشرائح"
 
-#: ../inc/admin/class-admin-meta_boxes.php:501
+#: ../inc/admin/class-admin-meta_boxes.php:502
 msgid "Add to a slider (create one if needed)"
 msgstr "أضف إلى عارض الشرائح (عمل واحد اذا تطلب الأمر)"
 
-#: ../inc/admin/class-admin-meta_boxes.php:634
+#: ../inc/admin/class-admin-meta_boxes.php:635
 msgid "Title text (80 car. max length)"
 msgstr "نص العنوان (80 car. max length)"
 
-#: ../inc/admin/class-admin-meta_boxes.php:641
+#: ../inc/admin/class-admin-meta_boxes.php:642
 msgid "Description text (below the title, 250 car. max length)"
 msgstr "نص الوصف (below the title, 250 car. max length)"
 
-#: ../inc/admin/class-admin-meta_boxes.php:648
+#: ../inc/admin/class-admin-meta_boxes.php:649
 msgid "Title and text color"
 msgstr "لون العنوان والنص"
 
-#: ../inc/admin/class-admin-meta_boxes.php:656
+#: ../inc/admin/class-admin-meta_boxes.php:657
 msgid "Button text (80 car. max length)"
 msgstr "نص الزر (80 car. max length)"
 
-#: ../inc/admin/class-admin-meta_boxes.php:663
+#: ../inc/admin/class-admin-meta_boxes.php:664
 msgid "Choose a linked page or post (among the last 100)."
 msgstr "اختر صفحة او تدوينة مرتبطة (من بين اخر 100)"
 
-#: ../inc/admin/class-admin-meta_boxes.php:668
+#: ../inc/admin/class-admin-meta_boxes.php:669
 msgid "No link"
 msgstr "لا رابط"
 
-#: ../inc/admin/class-admin-meta_boxes.php:698
-#: ../inc/admin/class-admin-meta_boxes.php:729
+#: ../inc/admin/class-admin-meta_boxes.php:699
+#: ../inc/admin/class-admin-meta_boxes.php:730
 msgid "Add a slider"
 msgstr "أضف عارض شرائح"
 
-#: ../inc/admin/class-admin-meta_boxes.php:727
+#: ../inc/admin/class-admin-meta_boxes.php:728
 msgid ""
 "You haven't create any slider yet. Write a slider name and click on the "
 "button to add you first slider."
@@ -826,53 +827,53 @@ msgstr ""
 ". لم تقم بعمل اي عارض شرائح حتى الآن اكتب اسم العارض واضغط على الزر لإضافة "
 "أول عارض شرائح لك "
 
-#: ../inc/admin/class-admin-meta_boxes.php:844
+#: ../inc/admin/class-admin-meta_boxes.php:845
 msgid ""
 "This slider has not slides to show. Go to the media library and start adding "
 "images to it."
 msgstr ""
 "هذا العارض غير جاهز للعرض. قم بالذهاب لمكتبة الوسائط وابدأ بإضافة الصور له."
 
-#: ../inc/admin/class-admin-meta_boxes.php:854
+#: ../inc/admin/class-admin-meta_boxes.php:855
 msgid "Slide Image"
 msgstr "شريحة الصورة"
 
-#: ../inc/admin/class-admin-meta_boxes.php:855
+#: ../inc/admin/class-admin-meta_boxes.php:856
 msgid "Title"
 msgstr "العنوان"
 
-#: ../inc/admin/class-admin-meta_boxes.php:856
+#: ../inc/admin/class-admin-meta_boxes.php:857
 msgid "Slide Text"
 msgstr "شريحة النص"
 
-#: ../inc/admin/class-admin-meta_boxes.php:857
+#: ../inc/admin/class-admin-meta_boxes.php:858
 msgid "Button Text"
 msgstr "نص الزر"
 
-#: ../inc/admin/class-admin-meta_boxes.php:858
+#: ../inc/admin/class-admin-meta_boxes.php:859
 msgid "Button Link"
 msgstr "رابط الزر"
 
-#: ../inc/admin/class-admin-meta_boxes.php:859
+#: ../inc/admin/class-admin-meta_boxes.php:860
 #: ../parts/class-content-breadcrumb.php:595
 #: ../parts/class-content-breadcrumb.php:628
 #: ../parts/class-content-breadcrumb.php:643
 #: ../parts/class-content-breadcrumb.php:671
-#: ../parts/class-content-comments.php:159
-#: ../parts/class-content-headings.php:243
-#: ../parts/class-content-slider.php:238
+#: ../parts/class-content-comments.php:157
+#: ../parts/class-content-headings.php:247
+#: ../parts/class-content-slider.php:243
 msgid "Edit"
 msgstr "تعديل"
 
-#: ../inc/admin/class-admin-meta_boxes.php:900
+#: ../inc/admin/class-admin-meta_boxes.php:901
 msgid "No Image Selected"
 msgstr "لم يتم اختيار صورة"
 
-#: ../inc/admin/class-admin-meta_boxes.php:926
+#: ../inc/admin/class-admin-meta_boxes.php:927
 msgid "Edit this slide"
 msgstr "تعديل هذه الشريحة"
 
-#: ../inc/admin/class-admin-meta_boxes.php:928
+#: ../inc/admin/class-admin-meta_boxes.php:929
 msgid "Current slide"
 msgstr "الشريحة الحالية"
 
@@ -1163,49 +1164,49 @@ msgstr "تقسيم"
 msgid "Merge"
 msgstr "Merge"
 
-#: ../parts/class-content-comments.php:65
+#: ../parts/class-content-comments.php:63
 #, php-format
 msgid "One thought on &ldquo;%2$s&rdquo;"
 msgstr "اعتقاد واحد على  &ldquo;%2$s&rdquo;"
 
-#: ../parts/class-content-comments.php:123
+#: ../parts/class-content-comments.php:121
 msgid "Pingback:"
 msgstr "بينج باك:"
 
-#: ../parts/class-content-comments.php:123
+#: ../parts/class-content-comments.php:121
 msgid "(Edit)"
 msgstr "(تعديل)"
 
-#: ../parts/class-content-comments.php:151
+#: ../parts/class-content-comments.php:149
 msgid "Reply"
 msgstr "رد"
 
-#: ../parts/class-content-comments.php:158
+#: ../parts/class-content-comments.php:156
 msgid "Post author"
 msgstr "الكاتب "
 
-#: ../parts/class-content-comments.php:165
+#: ../parts/class-content-comments.php:163
 #, php-format
 msgid "%1$s at %2$s"
 msgstr "%1$s  على%2$s"
 
-#: ../parts/class-content-comments.php:170
+#: ../parts/class-content-comments.php:168
 msgid "Your comment is awaiting moderation."
 msgstr "تعليقك يحتاج لموافقة الإدارة."
 
-#: ../parts/class-content-comments.php:204
+#: ../parts/class-content-comments.php:202
 msgid "Comment navigation"
 msgstr "تنبيه التعليق."
 
-#: ../parts/class-content-comments.php:210
+#: ../parts/class-content-comments.php:208
 msgid "<span class=\"meta-nav\">&larr;</span> Older Comments"
 msgstr "<span class=\"meta-nav\">&larr;</span> التعليقات الأقدم"
 
-#: ../parts/class-content-comments.php:218
+#: ../parts/class-content-comments.php:216
 msgid "Newer Comments <span class=\"meta-nav\">&rarr;</span>"
 msgstr "التعليقات الأحدث <span class=\"meta-nav\">&rarr;</span>"
 
-#: ../parts/class-content-comments.php:250
+#: ../parts/class-content-comments.php:248
 msgid "Comments are closed."
 msgstr "التعليقات مغلقة."
 
@@ -1282,17 +1283,17 @@ msgstr "الأرشيف الشهري: %s"
 msgid "Yearly Archives: %s"
 msgstr "الأرشيف السنوي: %s"
 
-#: ../parts/class-content-headings.php:213
-#: ../parts/class-content-headings.php:219
+#: ../parts/class-content-headings.php:217
+#: ../parts/class-content-headings.php:223
 msgid "{no title} Read the post &raquo;"
 msgstr "{لا يوجد عنوان} اقرأ التدوينة &raquo;"
 
-#: ../parts/class-content-headings.php:218
+#: ../parts/class-content-headings.php:222
 #, php-format
 msgid "Permalink to %s"
 msgstr "رابط ثابت لـ  %s"
 
-#: ../parts/class-content-headings.php:236
+#: ../parts/class-content-headings.php:240
 msgid "Comment(s) on"
 msgstr ""
 
@@ -1376,7 +1377,7 @@ msgstr "<span class=\"meta-nav\">&larr;</span> المشاركات الأقدم"
 msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
 msgstr "المشاركات الأحدث <span class=\"meta-nav\">&rarr;</span>"
 
-#: ../parts/class-footer-footer_main.php:177
+#: ../parts/class-footer-footer_main.php:179
 msgid "Back to top"
 msgstr "للأعلى"
 

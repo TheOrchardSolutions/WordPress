@@ -50,8 +50,8 @@ class TC_footer_main {
 		if ( !$status )
 			return;
 		
-		//hack to render white color icons if skin is grey
-		$skin_class 	= ( 'grey.css' == tc__f('__get_option' , 'tc_skin') ) ? 'white-icons' : '';
+		//hack to render white color icons if skin is grey or black
+		$skin_class 	= ( in_array( tc__f('__get_option' , 'tc_skin') , array('grey.css' , 'black.css')) ) ? 'white-icons' : '';
 
 		ob_start();
 		?>
@@ -62,9 +62,13 @@ class TC_footer_main {
 
 						<?php if ( is_active_sidebar( $key ) ) : ?>
 							
-							<div id="<?php echo $key; ?>" class="<?php echo apply_filters( $key . '_widget_class', 'span4' ) ?>">
-								<?php dynamic_sidebar( $key ); ?>
+							<div id="<?php echo $key; ?>" class="<?php echo apply_filters( "{$key}_widget_class", "span4" ) ?>">
+								<?php do_action("__before_{$key}_widgets"); ?>
+									<?php dynamic_sidebar( $key ); ?>
+								<?php do_action("__after_{$key}_widgets"); ?>
 							</div>
+
+
 
 						<?php endif; ?>
 
@@ -74,7 +78,7 @@ class TC_footer_main {
 		<?php
 		$html = ob_get_contents();
         if ($html) ob_end_clean();
-        echo apply_filters( 'tc_widgets_footer', $html );
+        echo apply_filters( 'tc_widgets_footer', $html , $footer_widgets );
 	}//end of function
 
 
@@ -146,7 +150,9 @@ class TC_footer_main {
     	
     	echo apply_filters(
     		'tc_credits_display',
-    		sprintf('<div class="%1$s">%2$s</div>',
+    		sprintf('<div id="copyright" class="col-left">
+		<a href="/directions"><img src="/media/icons/i-12-icon.jpg"/> Directions</a> | <a href="/takein"><img src="/media/icons/form.jpg"/> Drop Off Form</a> | <a href="/service/remote-support"><img src="/media/icons/teamviewer.jpg"/> Remote Support</a> | <a href="/paymentform"><img src="/media/icons/payments.jpg"/> Payment Form</a> | <a href="http://help.theorchardsolutions.com"><img src="/media/icons/webhelpdesk.jpg"/> Support Site</a> | <a href="https://mail.mcghosting.com/"> <img src="/media/icons/webmail-icon.jpg"> Web Mail</a>
+	</div>',
 	    		apply_filters( 'tc_colophon_center_block_class', 'span4 credits' ),
 	    		sprintf( '<p> &middot; &copy; %1$s <a href="%2$s" title="%3$s" rel="bookmark">%3$s</a> &middot; Designed by %4$s &middot;</p>',
 					    esc_attr( date( 'Y' ) ),
@@ -180,5 +186,8 @@ class TC_footer_main {
 	}
 
  }//end of class
+
+
+ 
 
 

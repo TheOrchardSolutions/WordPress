@@ -25,19 +25,15 @@ my $pubMsg;
 my $pubData;
 my $privMsg;
 my $smtpServer = 'localhost';
-my $privRecip = 'allen@theorchardsolutions.com';
+my $privRecip = 'smonroe@theorchardsolutions.com';
 my $pubRecip = 'accounting@theorchardsolutions.com';
-my $sender = 'service@theorchardsolutions.com';
+my $sender = 'support@theorchardsolutions.com';
 my $subject = "Payment Posted for " . ($vars{'docid'} or $vars{'company'} or "$vars{'firstname'} $vars{'lastname'}" or "Unknown");
 my $time = strftime "%a %b %e, %Y %H:%M:%S", localtime;
 MIME::Lite->send ('smtp', $smtpServer, Timeout => 60);
 
 # Determine the amount they wish to pay
-if ($vars{'amt'} eq 'full') {
-	$vars{'payamount'} = 'Pay in full';
-} else {
-	$vars{'payamount'} = "Other Amount: $vars{'amount'}";
-}
+
 
 # Convert the card number into an array, and otherwise sort out card info
 $vars{'cardnum'} =~ s/[- ]+//g or "0000000000000000";
@@ -57,12 +53,7 @@ State: $vars{'state'}
 Zip: $vars{'zip'}
 Phone: $vars{'phone'}
 
-Keep card information on file?  
-$vars{'storeinfo'}
-
-
 --Invoice Information--
-Doc-ID: $vars{'docid'}
 Amount Paid: $vars{'payamount'}
 Expiration: $vars{'expmonth'}$vars{'expyear'}
 
@@ -179,7 +170,7 @@ my $output = qq|<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
 	<body id="index" class="index" onload="document.forms.pay.company.focus()">
 		<div class="container">
 			<!-- inactive class - showgrid -->
-			<h4 class="printme">Orchard Solutions<br />662 Jefferson Highway<br />Baton Rouge, LA 70806<br />225-933-5311</h4>
+			<h4 class="printme">Orchard Solutions<br />234 Rue Beauregard Ste 200<br />Lafayette, LA 70508<br />225-933-5311</h4>
 			<h2 id="mcglogo">
 				<img src="logo.png" alt="Orchard Solutions" class="imageo" />
 				<br>
@@ -192,9 +183,7 @@ my $output = qq|<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
 				<p><strong>Please take a moment to read our credit card authorization form.</strong></p>
 				<ul>
 					<li> By filling out and submitting this form, you authorize the Orchard Solutions to charge your credit card.</li>
-					<li> If desired, we can store your payment information on file for future use.</li>
 					<li> We will charge your card 3 days after you receive the invoice for work completed.</li>
-					<li> Orders over \$1000 will be charged to your card once the purchase is approved.</li>
 				</ul>
 				<p><strong>At the Orchard Solutions we take your privacy very seriously. All credit card information is encrypted during all transmissions. We store all client data on fully encrypted hard drives. Our credit card billing process:</strong></p>
 				<ul>
@@ -239,8 +228,6 @@ my $output = qq|<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
 					<fieldset>
 						<legend>Payment Information</legend>
 						<p class="right" style="margin-bottom: 0.7em; height: 175px;">
-							<label class="span-2" for="docid">Document ID/Invoice #: </label> - $vars{'docid'}<br>
-
 							<label class="form-label" for="cardtype">Card Type</label> - $vars{'cardtype'}<br>
 						
 							<label class="form-label" for="cardnum">Card Number</label> - **** **** **** $vars{'cardpub'}<br>
@@ -251,7 +238,6 @@ my $output = qq|<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
 							
 							<label class="form-label">Amount</label> - $vars{'payamount'}<br>
 							
-							<label class="form-label">Save my payment info</label> - $vars{'storeinfo'}
 						</p>
 					</fieldset>
 				</div>

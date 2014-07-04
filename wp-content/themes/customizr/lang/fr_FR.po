@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: * Customizr v3.1.6\n"
-"POT-Creation-Date: 2013-12-27 11:16+0100\n"
-"PO-Revision-Date: 2013-12-27 11:24+0100\n"
-"Last-Translator: Nico <contact@themesandco.com>\n"
+"Project-Id-Version: * Customizr v3.1.10\n"
+"POT-Creation-Date: 2014-03-14 16:20+0100\n"
+"PO-Revision-Date: 2014-03-14 16:20+0100\n"
+"Last-Translator: Nicolas <contact@themesandco.com>\n"
 "Language-Team: Nicolas G. <contact@themesandco.com>\n"
 "Language: Français\n"
 "MIME-Version: 1.0\n"
@@ -69,7 +69,7 @@ msgid "Black"
 msgstr "Noir"
 
 #: ../inc/class-fire-init.php:91
-msgid "Suscribe to my rss feed"
+msgid "Subscribe to my rss feed"
 msgstr "Abonnez-vous au flux rss"
 
 #: ../inc/class-fire-init.php:92
@@ -670,29 +670,29 @@ msgstr ""
 "mises à jour. Vous pouvez également créer un thème enfant et y copier votre "
 "css dans le fichier style.css."
 
-#: ../inc/admin/class-admin-meta_boxes.php:89
+#: ../inc/admin/class-admin-meta_boxes.php:92
 msgid "Layout Options"
 msgstr "Options de structure"
 
-#: ../inc/admin/class-admin-meta_boxes.php:97
-#: ../inc/admin/class-admin-meta_boxes.php:470
+#: ../inc/admin/class-admin-meta_boxes.php:100
+#: ../inc/admin/class-admin-meta_boxes.php:471
 msgid "Slider Options"
 msgstr "Options du diaporama"
 
-#: ../inc/admin/class-admin-meta_boxes.php:166
+#: ../inc/admin/class-admin-meta_boxes.php:169
 #, php-format
 msgid "Default %1$s layout is set to : %2$s"
 msgstr "La structure par défaut des %1$s est : %2$s"
 
-#: ../inc/admin/class-admin-meta_boxes.php:166
+#: ../inc/admin/class-admin-meta_boxes.php:169
 msgid "pages"
 msgstr "pages"
 
-#: ../inc/admin/class-admin-meta_boxes.php:166
+#: ../inc/admin/class-admin-meta_boxes.php:169
 msgid "posts"
 msgstr "billets"
 
-#: ../inc/admin/class-admin-meta_boxes.php:171
+#: ../inc/admin/class-admin-meta_boxes.php:174
 msgid ""
 "You have checked the <i>\"Force global default layout for all posts and pages"
 "\"</i>, you must unchecked this option to enable a specific layout for this "
@@ -702,11 +702,11 @@ msgstr ""
 "toutes les pages\"</i>. Vous devez décocher cette option pour choisir une "
 "structure spécifique pour ce billet."
 
-#: ../inc/admin/class-admin-meta_boxes.php:172
+#: ../inc/admin/class-admin-meta_boxes.php:175
 msgid "Change layout options"
 msgstr "Modifier les options de structure"
 
-#: ../inc/admin/class-admin-meta_boxes.php:176
+#: ../inc/admin/class-admin-meta_boxes.php:179
 #, php-format
 msgid ""
 "You can define a specific layout for %1$s by using the pre-defined left and "
@@ -717,45 +717,45 @@ msgstr ""
 "barres latérales. La structure par défaut peut être modifiée dans les "
 "options du thème %2$s.<br />"
 
-#: ../inc/admin/class-admin-meta_boxes.php:177
-#: ../inc/admin/class-admin-meta_boxes.php:182
+#: ../inc/admin/class-admin-meta_boxes.php:180
+#: ../inc/admin/class-admin-meta_boxes.php:185
 msgid "this page"
 msgstr "cette page"
 
-#: ../inc/admin/class-admin-meta_boxes.php:177
-#: ../inc/admin/class-admin-meta_boxes.php:182
+#: ../inc/admin/class-admin-meta_boxes.php:180
+#: ../inc/admin/class-admin-meta_boxes.php:185
 msgid "this post"
 msgstr "ce billet"
 
-#: ../inc/admin/class-admin-meta_boxes.php:178
+#: ../inc/admin/class-admin-meta_boxes.php:181
 msgid "here"
 msgstr "ici"
 
-#: ../inc/admin/class-admin-meta_boxes.php:181
+#: ../inc/admin/class-admin-meta_boxes.php:184
 #, php-format
 msgid "Select a specific layout for %1$s"
 msgstr "Choisir une structure spécifique pour %1$s"
 
-#: ../inc/admin/class-admin-meta_boxes.php:185
+#: ../inc/admin/class-admin-meta_boxes.php:188
 #, php-format
 msgid "Default layout %1s"
 msgstr "Structure par défaut %1s"
 
-#: ../inc/admin/class-admin-meta_boxes.php:227
+#: ../inc/admin/class-admin-meta_boxes.php:230
 msgid "Add a slider to this post/page"
 msgstr "Ajouter un diaporama à ce billet/cette page"
 
-#: ../inc/admin/class-admin-meta_boxes.php:291
-#: ../inc/admin/class-admin-meta_boxes.php:677
+#: ../inc/admin/class-admin-meta_boxes.php:294
+#: ../inc/admin/class-admin-meta_boxes.php:678
 msgid "Choose a slider"
 msgstr "Choisir un diaporama"
 
-#: ../inc/admin/class-admin-meta_boxes.php:298
-#: ../inc/admin/class-admin-meta_boxes.php:692
+#: ../inc/admin/class-admin-meta_boxes.php:301
+#: ../inc/admin/class-admin-meta_boxes.php:693
 msgid "&mdash; Select a slider &mdash; "
 msgstr "&mdash; Sélectionner un diaporama &mdash;"
 
-#: ../inc/admin/class-admin-meta_boxes.php:303
+#: ../inc/admin/class-admin-meta_boxes.php:306
 msgid ""
 "To create a new slider : open the media library, edit your images and add "
 "them to your new slider."
@@ -763,35 +763,35 @@ msgstr ""
 "Pour créer un nouveau diaporama : éditez les images de votre librairie média "
 "et ajoutez les à un nouveau diaporama."
 
-#: ../inc/admin/class-admin-meta_boxes.php:307
+#: ../inc/admin/class-admin-meta_boxes.php:310
 msgid "Delay between each slides in milliseconds (default : 5000 ms)"
 msgstr ""
 "Délai entre chaque diapositive en millisecondes : par défaut 5000ms (= "
 "5secondes)."
 
-#: ../inc/admin/class-admin-meta_boxes.php:314
+#: ../inc/admin/class-admin-meta_boxes.php:317
 msgid "Slider Layout : set the slider in full width"
 msgstr "Mettre le diaporama en pleine largeur"
 
-#: ../inc/admin/class-admin-meta_boxes.php:331
-#: ../inc/admin/class-admin-meta_boxes.php:701
+#: ../inc/admin/class-admin-meta_boxes.php:334
+#: ../inc/admin/class-admin-meta_boxes.php:702
 msgid "Delete this slider"
 msgstr "Supprimer ce diaporama"
 
-#: ../inc/admin/class-admin-meta_boxes.php:336
-#: ../inc/admin/class-admin-meta_boxes.php:705
+#: ../inc/admin/class-admin-meta_boxes.php:339
+#: ../inc/admin/class-admin-meta_boxes.php:706
 msgid ""
 "The slider will be deleted permanently (images, call to actions and link "
 "will be kept)."
 msgstr ""
 "Le diaporama sera effacé définitivement (les images seront conservées!)."
 
-#: ../inc/admin/class-admin-meta_boxes.php:339
-#: ../inc/admin/class-admin-meta_boxes.php:708
+#: ../inc/admin/class-admin-meta_boxes.php:342
+#: ../inc/admin/class-admin-meta_boxes.php:709
 msgid "Delete slider"
 msgstr "Supprimer ce diaporama"
 
-#: ../inc/admin/class-admin-meta_boxes.php:347
+#: ../inc/admin/class-admin-meta_boxes.php:350
 #: ../inc/admin/class-controls.php:137
 msgid ""
 "You haven't create any slider yet. Go to the media library, edit your images "
@@ -800,44 +800,44 @@ msgstr ""
 "Il n'y a pas encore de diaporamas disponibles. Editez les images de votre "
 "librairie média pour les ajouter aux diaporamas."
 
-#: ../inc/admin/class-admin-meta_boxes.php:499
+#: ../inc/admin/class-admin-meta_boxes.php:500
 msgid "Add to a slider"
 msgstr "Ajouter à un diaporama"
 
-#: ../inc/admin/class-admin-meta_boxes.php:501
+#: ../inc/admin/class-admin-meta_boxes.php:502
 msgid "Add to a slider (create one if needed)"
 msgstr "Ajouter à un diaporama (créer un nouveau si besoin)"
 
-#: ../inc/admin/class-admin-meta_boxes.php:634
+#: ../inc/admin/class-admin-meta_boxes.php:635
 msgid "Title text (80 car. max length)"
 msgstr "Texte du titre (80 car. max)"
 
-#: ../inc/admin/class-admin-meta_boxes.php:641
+#: ../inc/admin/class-admin-meta_boxes.php:642
 msgid "Description text (below the title, 250 car. max length)"
 msgstr "Texte complémentaire (sous le titre, 250 car. maximum)"
 
-#: ../inc/admin/class-admin-meta_boxes.php:648
+#: ../inc/admin/class-admin-meta_boxes.php:649
 msgid "Title and text color"
 msgstr "Couleur du titre et du texte"
 
-#: ../inc/admin/class-admin-meta_boxes.php:656
+#: ../inc/admin/class-admin-meta_boxes.php:657
 msgid "Button text (80 car. max length)"
 msgstr "Texte du bouton (80 car. max)"
 
-#: ../inc/admin/class-admin-meta_boxes.php:663
+#: ../inc/admin/class-admin-meta_boxes.php:664
 msgid "Choose a linked page or post (among the last 100)."
 msgstr "Choisir une page/un billet lié (parmi les 100 derniers)"
 
-#: ../inc/admin/class-admin-meta_boxes.php:668
+#: ../inc/admin/class-admin-meta_boxes.php:669
 msgid "No link"
 msgstr "Aucun lien"
 
-#: ../inc/admin/class-admin-meta_boxes.php:698
-#: ../inc/admin/class-admin-meta_boxes.php:729
+#: ../inc/admin/class-admin-meta_boxes.php:699
+#: ../inc/admin/class-admin-meta_boxes.php:730
 msgid "Add a slider"
 msgstr "Ajouter un diaporama"
 
-#: ../inc/admin/class-admin-meta_boxes.php:727
+#: ../inc/admin/class-admin-meta_boxes.php:728
 msgid ""
 "You haven't create any slider yet. Write a slider name and click on the "
 "button to add you first slider."
@@ -845,7 +845,7 @@ msgstr ""
 "Il n'y a pas encore de diaporamas disponibles. Choisissez un nom et cliquez "
 "sur le bouton pour créer votre premier diaporama."
 
-#: ../inc/admin/class-admin-meta_boxes.php:844
+#: ../inc/admin/class-admin-meta_boxes.php:845
 msgid ""
 "This slider has not slides to show. Go to the media library and start adding "
 "images to it."
@@ -853,46 +853,46 @@ msgstr ""
 "Ce diaporama n'a pas de diapositives. Editez les images de votre librairie "
 "média pour les ajouter aux diaporamas."
 
-#: ../inc/admin/class-admin-meta_boxes.php:854
+#: ../inc/admin/class-admin-meta_boxes.php:855
 msgid "Slide Image"
 msgstr "Image de diapositive"
 
-#: ../inc/admin/class-admin-meta_boxes.php:855
+#: ../inc/admin/class-admin-meta_boxes.php:856
 msgid "Title"
 msgstr "Titre"
 
-#: ../inc/admin/class-admin-meta_boxes.php:856
+#: ../inc/admin/class-admin-meta_boxes.php:857
 msgid "Slide Text"
 msgstr "Texte de la diapositive"
 
-#: ../inc/admin/class-admin-meta_boxes.php:857
+#: ../inc/admin/class-admin-meta_boxes.php:858
 msgid "Button Text"
 msgstr "Texte du bouton"
 
-#: ../inc/admin/class-admin-meta_boxes.php:858
+#: ../inc/admin/class-admin-meta_boxes.php:859
 msgid "Button Link"
 msgstr "Lien du bouton"
 
-#: ../inc/admin/class-admin-meta_boxes.php:859
+#: ../inc/admin/class-admin-meta_boxes.php:860
 #: ../parts/class-content-breadcrumb.php:595
 #: ../parts/class-content-breadcrumb.php:628
 #: ../parts/class-content-breadcrumb.php:643
 #: ../parts/class-content-breadcrumb.php:671
-#: ../parts/class-content-comments.php:159
-#: ../parts/class-content-headings.php:243
-#: ../parts/class-content-slider.php:238
+#: ../parts/class-content-comments.php:157
+#: ../parts/class-content-headings.php:247
+#: ../parts/class-content-slider.php:243
 msgid "Edit"
 msgstr "Modifier"
 
-#: ../inc/admin/class-admin-meta_boxes.php:900
+#: ../inc/admin/class-admin-meta_boxes.php:901
 msgid "No Image Selected"
 msgstr "Aucune image sélectionnée"
 
-#: ../inc/admin/class-admin-meta_boxes.php:926
+#: ../inc/admin/class-admin-meta_boxes.php:927
 msgid "Edit this slide"
 msgstr "Modifier"
 
-#: ../inc/admin/class-admin-meta_boxes.php:928
+#: ../inc/admin/class-admin-meta_boxes.php:929
 msgid "Current slide"
 msgstr "Diapositive actuelle"
 
@@ -1200,51 +1200,51 @@ msgstr "Dissocier"
 msgid "Merge"
 msgstr "Fusionner"
 
-#: ../parts/class-content-comments.php:65
+#: ../parts/class-content-comments.php:63
 #, php-format
 msgid "One thought on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] "Un commentaire sur &ldquo;%2$s&rdquo;"
 msgstr[1] "%1$s commentaires sur &ldquo;%2$s&rdquo;"
 
-#: ../parts/class-content-comments.php:123
+#: ../parts/class-content-comments.php:121
 msgid "Pingback:"
 msgstr "Pingback:"
 
-#: ../parts/class-content-comments.php:123
+#: ../parts/class-content-comments.php:121
 msgid "(Edit)"
 msgstr "(Modifier)"
 
-#: ../parts/class-content-comments.php:151
+#: ../parts/class-content-comments.php:149
 msgid "Reply"
 msgstr "Répondre"
 
-#: ../parts/class-content-comments.php:158
+#: ../parts/class-content-comments.php:156
 msgid "Post author"
 msgstr "Auteur du billet"
 
-#: ../parts/class-content-comments.php:165
+#: ../parts/class-content-comments.php:163
 #, php-format
 msgid "%1$s at %2$s"
 msgstr "%1$s à %2$s"
 
-#: ../parts/class-content-comments.php:170
+#: ../parts/class-content-comments.php:168
 msgid "Your comment is awaiting moderation."
 msgstr "Votre commentaire est en attente de modération."
 
-#: ../parts/class-content-comments.php:204
+#: ../parts/class-content-comments.php:202
 msgid "Comment navigation"
 msgstr "Comment navigation"
 
-#: ../parts/class-content-comments.php:210
+#: ../parts/class-content-comments.php:208
 msgid "<span class=\"meta-nav\">&larr;</span> Older Comments"
 msgstr "<span class=\"meta-nav\">&larr;</span> Billets plus anciens"
 
-#: ../parts/class-content-comments.php:218
+#: ../parts/class-content-comments.php:216
 msgid "Newer Comments <span class=\"meta-nav\">&rarr;</span>"
 msgstr "Billets plus récents <span class=\"meta-nav\">&rarr;</span>"
 
-#: ../parts/class-content-comments.php:250
+#: ../parts/class-content-comments.php:248
 msgid "Comments are closed."
 msgstr "Les commentaires sont fermés."
 
@@ -1321,17 +1321,17 @@ msgstr "Billets du mois: %s"
 msgid "Yearly Archives: %s"
 msgstr "Billets de l'année: %s"
 
-#: ../parts/class-content-headings.php:213
-#: ../parts/class-content-headings.php:219
+#: ../parts/class-content-headings.php:217
+#: ../parts/class-content-headings.php:223
 msgid "{no title} Read the post &raquo;"
 msgstr "{Pas de titre} Voir le billet &raquo;"
 
-#: ../parts/class-content-headings.php:218
+#: ../parts/class-content-headings.php:222
 #, php-format
 msgid "Permalink to %s"
 msgstr "Permalien vers %s"
 
-#: ../parts/class-content-headings.php:236
+#: ../parts/class-content-headings.php:240
 msgid "Comment(s) on"
 msgstr "Commentaire(s) sur"
 
@@ -1418,7 +1418,7 @@ msgstr "<span class=\"meta-nav\">&larr;</span> Billets plus anciens"
 msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
 msgstr "Billets plus récents <span class=\"meta-nav\">&rarr;</span>"
 
-#: ../parts/class-footer-footer_main.php:177
+#: ../parts/class-footer-footer_main.php:179
 msgid "Back to top"
 msgstr "Retour haut de page"
 

@@ -1,0 +1,29 @@
+.frederick-full-width
+{
+    width: 100%;
+}
+
+.frederick-left
+{
+    float: left !important;
+}
+
+.frederick-move-left-5
+{
+    margin-right: 5px !important;
+}
+
+.frederick-move-left-10
+{
+    margin-right: 10px !important;
+}
+
+.frederick-move-left-20
+{
+    margin-right: 20px !important;
+}
+
+.frederick-move-left-30
+{
+    margin-right: 30px !important;
+}

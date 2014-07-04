@@ -340,6 +340,12 @@ class TC_customize {
 																			'title'			=>	__( 'Custom CSS' , 'customizr' ),
 																			'priority'		=>	200,
 																			'description'	=>	__( 'Add your own CSS' , 'customizr' ),
+										),
+
+										'tc_responsive'						=> array(
+																			'title'			=>	__( 'Responsive settings' , 'customizr' ),
+																			'priority'		=>	210,
+																			'description'	=>	__( 'Various settings for responsive display' , 'customizr' ),
 										)
 						)
 
@@ -783,7 +789,7 @@ class TC_customize {
 
 
 		/*-----------------------------------------------------------------------------------------------------
-								                   IMAGE SETTINGS
+								                   LINKS SETTINGS
 		------------------------------------------------------------------------------------------------------*/
 		$links_option_map = array(
 						'tc_theme_options[tc_link_scroll]'	=>	array(
@@ -796,6 +802,23 @@ class TC_customize {
 						)
 		);//end of links options
 		$links_option_map = apply_filters( 'tc_links_option_map', $links_option_map , $get_default );
+
+
+		/*-----------------------------------------------------------------------------------------------------
+								                  RESPONSIVE SETTINGS
+		------------------------------------------------------------------------------------------------------*/
+		$responsive_option_map = array(
+						'tc_theme_options[tc_block_reorder]'	=>	array(
+															'default'       => 1,
+															'control'		=> 'TC_controls' ,
+															'label'    		=> __( 'Enable/disable blocks reordering on small devices' , 'customizr' ),
+															'section'  		=> 'tc_responsive' ,
+															'type'     		=> 'checkbox' ,
+															'notice'		=> __( 'On responsive mode, for smartphone viewport, the sidebars are moved after the main content block.' , 'customizr' ),
+						)
+		);//end of links options
+		$responsive_option_map = apply_filters( 'tc_responsive_option_map', $responsive_option_map , $get_default );
+
 
 		/*-----------------------------------------------------------------------------------------------------
 								                   CUSTOM CSS
@@ -824,6 +847,7 @@ class TC_customize {
 							$social_option_map, 
 							$images_option_map,
 							$links_option_map,
+							$responsive_option_map,
 							$custom_css_option_map,
 							apply_filters( 'tc_custom_setting_control', array() )
 						)

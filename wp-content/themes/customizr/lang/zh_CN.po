@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: * Customizr v3.1.6\n"
-"POT-Creation-Date: 2013-12-27 11:28+0100\n"
-"PO-Revision-Date: 2013-12-27 11:28+0100\n"
-"Last-Translator: Nico <contact@themesandco.com>\n"
+"Project-Id-Version: * Customizr v3.1.10\n"
+"POT-Creation-Date: 2014-03-14 16:22+0100\n"
+"PO-Revision-Date: 2014-03-14 16:22+0100\n"
+"Last-Translator: Nicolas <contact@themesandco.com>\n"
 "Language-Team: Nicolas G. <contact@themesandco.com>\n"
 "Language: Français\n"
 "MIME-Version: 1.0\n"
@@ -69,7 +69,7 @@ msgid "Black"
 msgstr "黑色"
 
 #: ../inc/class-fire-init.php:91
-msgid "Suscribe to my rss feed"
+msgid "Subscribe to my rss feed"
 msgstr "订阅我的 RSS"
 
 #: ../inc/class-fire-init.php:92
@@ -678,31 +678,31 @@ msgstr ""
 "时，添加的个性化 CSS 代码不会被删除；以及您还可以把个性化 CSS 代码粘贴到一个"
 "子主题的样式文件中。"
 
-#: ../inc/admin/class-admin-meta_boxes.php:89
+#: ../inc/admin/class-admin-meta_boxes.php:92
 #, fuzzy
 msgid "Layout Options"
 msgstr "样式选项"
 
-#: ../inc/admin/class-admin-meta_boxes.php:97
-#: ../inc/admin/class-admin-meta_boxes.php:470
+#: ../inc/admin/class-admin-meta_boxes.php:100
+#: ../inc/admin/class-admin-meta_boxes.php:471
 #, fuzzy
 msgid "Slider Options"
 msgstr "Options du thème"
 
-#: ../inc/admin/class-admin-meta_boxes.php:166
+#: ../inc/admin/class-admin-meta_boxes.php:169
 #, php-format
 msgid "Default %1$s layout is set to : %2$s"
 msgstr "默认 %1$s 样式设定为：%2$s"
 
-#: ../inc/admin/class-admin-meta_boxes.php:166
+#: ../inc/admin/class-admin-meta_boxes.php:169
 msgid "pages"
 msgstr "页面"
 
-#: ../inc/admin/class-admin-meta_boxes.php:166
+#: ../inc/admin/class-admin-meta_boxes.php:169
 msgid "posts"
 msgstr "文章"
 
-#: ../inc/admin/class-admin-meta_boxes.php:171
+#: ../inc/admin/class-admin-meta_boxes.php:174
 msgid ""
 "You have checked the <i>\"Force global default layout for all posts and pages"
 "\"</i>, you must unchecked this option to enable a specific layout for this "
@@ -711,11 +711,11 @@ msgstr ""
 "您已经勾选了<i>\"强迫全网站所有文章和页面使用默认样式\"</i>，您必须不选中此项"
 "才能在此文章上启用单独样式。"
 
-#: ../inc/admin/class-admin-meta_boxes.php:172
+#: ../inc/admin/class-admin-meta_boxes.php:175
 msgid "Change layout options"
 msgstr "更改样式选项"
 
-#: ../inc/admin/class-admin-meta_boxes.php:176
+#: ../inc/admin/class-admin-meta_boxes.php:179
 #, fuzzy, php-format
 msgid ""
 "You can define a specific layout for %1$s by using the pre-defined left and "
@@ -725,83 +725,83 @@ msgstr ""
 "您可以通过使用预设的左边栏和右边栏给定制一个单独的样式，默认的样式也可以在"
 "WordPress 个性化定制屏上定制"
 
-#: ../inc/admin/class-admin-meta_boxes.php:177
-#: ../inc/admin/class-admin-meta_boxes.php:182
+#: ../inc/admin/class-admin-meta_boxes.php:180
+#: ../inc/admin/class-admin-meta_boxes.php:185
 #, fuzzy
 msgid "this page"
 msgstr "文章页面"
 
-#: ../inc/admin/class-admin-meta_boxes.php:177
-#: ../inc/admin/class-admin-meta_boxes.php:182
+#: ../inc/admin/class-admin-meta_boxes.php:180
+#: ../inc/admin/class-admin-meta_boxes.php:185
 #, fuzzy
 msgid "this post"
 msgstr "此文章"
 
-#: ../inc/admin/class-admin-meta_boxes.php:178
+#: ../inc/admin/class-admin-meta_boxes.php:181
 msgid "here"
 msgstr "这里"
 
-#: ../inc/admin/class-admin-meta_boxes.php:181
+#: ../inc/admin/class-admin-meta_boxes.php:184
 #, php-format
 msgid "Select a specific layout for %1$s"
 msgstr "选择一个单独样式给 %1$s"
 
-#: ../inc/admin/class-admin-meta_boxes.php:185
+#: ../inc/admin/class-admin-meta_boxes.php:188
 #, fuzzy, php-format
 msgid "Default layout %1s"
 msgstr "默认样式 %1s"
 
-#: ../inc/admin/class-admin-meta_boxes.php:227
+#: ../inc/admin/class-admin-meta_boxes.php:230
 #, fuzzy
 msgid "Add a slider to this post/page"
 msgstr "添加一个滑块到此文章/页面"
 
-#: ../inc/admin/class-admin-meta_boxes.php:291
-#: ../inc/admin/class-admin-meta_boxes.php:677
+#: ../inc/admin/class-admin-meta_boxes.php:294
+#: ../inc/admin/class-admin-meta_boxes.php:678
 #, fuzzy
 msgid "Choose a slider"
 msgstr "选择一个滑块"
 
-#: ../inc/admin/class-admin-meta_boxes.php:298
-#: ../inc/admin/class-admin-meta_boxes.php:692
+#: ../inc/admin/class-admin-meta_boxes.php:301
+#: ../inc/admin/class-admin-meta_boxes.php:693
 #, fuzzy
 msgid "&mdash; Select a slider &mdash; "
 msgstr "&mdash; 选择一个滑块r &mdash; "
 
-#: ../inc/admin/class-admin-meta_boxes.php:303
+#: ../inc/admin/class-admin-meta_boxes.php:306
 msgid ""
 "To create a new slider : open the media library, edit your images and add "
 "them to your new slider."
 msgstr "创建新的滑块：打开媒体库，编辑您的图片并添加特们到新的滑块中。"
 
-#: ../inc/admin/class-admin-meta_boxes.php:307
+#: ../inc/admin/class-admin-meta_boxes.php:310
 msgid "Delay between each slides in milliseconds (default : 5000 ms)"
 msgstr "每张幻灯片间隔时间以毫秒计算（默认：5000毫秒）"
 
-#: ../inc/admin/class-admin-meta_boxes.php:314
+#: ../inc/admin/class-admin-meta_boxes.php:317
 msgid "Slider Layout : set the slider in full width"
 msgstr "滑块样式：设定滑块宽度为满页宽度"
 
-#: ../inc/admin/class-admin-meta_boxes.php:331
-#: ../inc/admin/class-admin-meta_boxes.php:701
+#: ../inc/admin/class-admin-meta_boxes.php:334
+#: ../inc/admin/class-admin-meta_boxes.php:702
 #, fuzzy
 msgid "Delete this slider"
 msgstr "删除滑块"
 
-#: ../inc/admin/class-admin-meta_boxes.php:336
-#: ../inc/admin/class-admin-meta_boxes.php:705
+#: ../inc/admin/class-admin-meta_boxes.php:339
+#: ../inc/admin/class-admin-meta_boxes.php:706
 msgid ""
 "The slider will be deleted permanently (images, call to actions and link "
 "will be kept)."
 msgstr "此滑块将被永久删除（包含在其中的图片，宣传语以及链接将会保留）"
 
-#: ../inc/admin/class-admin-meta_boxes.php:339
-#: ../inc/admin/class-admin-meta_boxes.php:708
+#: ../inc/admin/class-admin-meta_boxes.php:342
+#: ../inc/admin/class-admin-meta_boxes.php:709
 #, fuzzy
 msgid "Delete slider"
 msgstr "删除滑块"
 
-#: ../inc/admin/class-admin-meta_boxes.php:347
+#: ../inc/admin/class-admin-meta_boxes.php:350
 #: ../inc/admin/class-controls.php:137
 msgid ""
 "You haven't create any slider yet. Go to the media library, edit your images "
@@ -809,105 +809,105 @@ msgid ""
 msgstr ""
 "您还没有创建任何滑块。进入媒体库，编辑您的图片并将它们添加到您的滑块中。"
 
-#: ../inc/admin/class-admin-meta_boxes.php:499
+#: ../inc/admin/class-admin-meta_boxes.php:500
 #, fuzzy
 msgid "Add to a slider"
 msgstr "添加一个滑块"
 
-#: ../inc/admin/class-admin-meta_boxes.php:501
+#: ../inc/admin/class-admin-meta_boxes.php:502
 msgid "Add to a slider (create one if needed)"
 msgstr "添加到一个滑块中（根据需要可创建一个滑块）"
 
-#: ../inc/admin/class-admin-meta_boxes.php:634
+#: ../inc/admin/class-admin-meta_boxes.php:635
 msgid "Title text (80 car. max length)"
 msgstr "标题文字（最多40字）"
 
-#: ../inc/admin/class-admin-meta_boxes.php:641
+#: ../inc/admin/class-admin-meta_boxes.php:642
 msgid "Description text (below the title, 250 car. max length)"
 msgstr "描述文字（处标题下方，最多125字）"
 
-#: ../inc/admin/class-admin-meta_boxes.php:648
+#: ../inc/admin/class-admin-meta_boxes.php:649
 #, fuzzy
 msgid "Title and text color"
 msgstr "标题和文字颜色"
 
-#: ../inc/admin/class-admin-meta_boxes.php:656
+#: ../inc/admin/class-admin-meta_boxes.php:657
 msgid "Button text (80 car. max length)"
 msgstr "按钮文字（最多40字）"
 
-#: ../inc/admin/class-admin-meta_boxes.php:663
+#: ../inc/admin/class-admin-meta_boxes.php:664
 msgid "Choose a linked page or post (among the last 100)."
 msgstr "添加一个链接页面或链接文章（在过去发表的100篇内容中选取）。"
 
-#: ../inc/admin/class-admin-meta_boxes.php:668
+#: ../inc/admin/class-admin-meta_boxes.php:669
 #, fuzzy
 msgid "No link"
 msgstr "无链接"
 
-#: ../inc/admin/class-admin-meta_boxes.php:698
-#: ../inc/admin/class-admin-meta_boxes.php:729
+#: ../inc/admin/class-admin-meta_boxes.php:699
+#: ../inc/admin/class-admin-meta_boxes.php:730
 #, fuzzy
 msgid "Add a slider"
 msgstr "添加一个滑块"
 
-#: ../inc/admin/class-admin-meta_boxes.php:727
+#: ../inc/admin/class-admin-meta_boxes.php:728
 msgid ""
 "You haven't create any slider yet. Write a slider name and click on the "
 "button to add you first slider."
 msgstr ""
 "您还没有添加任何滑块。键入一个滑块名称然后在按钮上点击以添加您的第一个滑块。"
 
-#: ../inc/admin/class-admin-meta_boxes.php:844
+#: ../inc/admin/class-admin-meta_boxes.php:845
 msgid ""
 "This slider has not slides to show. Go to the media library and start adding "
 "images to it."
 msgstr "此滑块还没有添加幻灯片。进入媒体库并添加图片到此滑块中。"
 
-#: ../inc/admin/class-admin-meta_boxes.php:854
+#: ../inc/admin/class-admin-meta_boxes.php:855
 #, fuzzy
 msgid "Slide Image"
 msgstr "滑块图片"
 
-#: ../inc/admin/class-admin-meta_boxes.php:855
+#: ../inc/admin/class-admin-meta_boxes.php:856
 msgid "Title"
 msgstr "标题"
 
-#: ../inc/admin/class-admin-meta_boxes.php:856
+#: ../inc/admin/class-admin-meta_boxes.php:857
 #, fuzzy
 msgid "Slide Text"
 msgstr "Diapositive"
 
-#: ../inc/admin/class-admin-meta_boxes.php:857
+#: ../inc/admin/class-admin-meta_boxes.php:858
 #, fuzzy
 msgid "Button Text"
 msgstr "按钮文字"
 
-#: ../inc/admin/class-admin-meta_boxes.php:858
+#: ../inc/admin/class-admin-meta_boxes.php:859
 msgid "Button Link"
 msgstr "按钮链接"
 
-#: ../inc/admin/class-admin-meta_boxes.php:859
+#: ../inc/admin/class-admin-meta_boxes.php:860
 #: ../parts/class-content-breadcrumb.php:595
 #: ../parts/class-content-breadcrumb.php:628
 #: ../parts/class-content-breadcrumb.php:643
 #: ../parts/class-content-breadcrumb.php:671
-#: ../parts/class-content-comments.php:159
-#: ../parts/class-content-headings.php:243
-#: ../parts/class-content-slider.php:238
+#: ../parts/class-content-comments.php:157
+#: ../parts/class-content-headings.php:247
+#: ../parts/class-content-slider.php:243
 msgid "Edit"
 msgstr "编辑"
 
-#: ../inc/admin/class-admin-meta_boxes.php:900
+#: ../inc/admin/class-admin-meta_boxes.php:901
 #, fuzzy
 msgid "No Image Selected"
 msgstr "未选中图片"
 
-#: ../inc/admin/class-admin-meta_boxes.php:926
+#: ../inc/admin/class-admin-meta_boxes.php:927
 #, fuzzy
 msgid "Edit this slide"
 msgstr "编辑此幻灯片"
 
-#: ../inc/admin/class-admin-meta_boxes.php:928
+#: ../inc/admin/class-admin-meta_boxes.php:929
 #, fuzzy
 msgid "Current slide"
 msgstr "当前幻灯片"
@@ -1211,49 +1211,49 @@ msgstr "分开"
 msgid "Merge"
 msgstr "合并"
 
-#: ../parts/class-content-comments.php:65
+#: ../parts/class-content-comments.php:63
 #, php-format
 msgid "One thought on &ldquo;%2$s&rdquo;"
 msgstr "One thought on &ldquo;%2$s&rdquo;"
 
-#: ../parts/class-content-comments.php:123
+#: ../parts/class-content-comments.php:121
 msgid "Pingback:"
 msgstr "广播:"
 
-#: ../parts/class-content-comments.php:123
+#: ../parts/class-content-comments.php:121
 msgid "(Edit)"
 msgstr "（编辑）"
 
-#: ../parts/class-content-comments.php:151
+#: ../parts/class-content-comments.php:149
 msgid "Reply"
 msgstr "回复"
 
-#: ../parts/class-content-comments.php:158
+#: ../parts/class-content-comments.php:156
 msgid "Post author"
 msgstr "文章作者"
 
-#: ../parts/class-content-comments.php:165
+#: ../parts/class-content-comments.php:163
 #, php-format
 msgid "%1$s at %2$s"
 msgstr "%1$s 于 %2$s"
 
-#: ../parts/class-content-comments.php:170
+#: ../parts/class-content-comments.php:168
 msgid "Your comment is awaiting moderation."
 msgstr "您的评论正在等待审核"
 
-#: ../parts/class-content-comments.php:204
+#: ../parts/class-content-comments.php:202
 msgid "Comment navigation"
 msgstr "评论导航"
 
-#: ../parts/class-content-comments.php:210
+#: ../parts/class-content-comments.php:208
 msgid "<span class=\"meta-nav\">&larr;</span> Older Comments"
 msgstr "<span class=\"meta-nav\">&larr;</span> 旧评论"
 
-#: ../parts/class-content-comments.php:218
+#: ../parts/class-content-comments.php:216
 msgid "Newer Comments <span class=\"meta-nav\">&rarr;</span>"
 msgstr "新评论 <span class=\"meta-nav\">&rarr;</span>"
 
-#: ../parts/class-content-comments.php:250
+#: ../parts/class-content-comments.php:248
 msgid "Comments are closed."
 msgstr "评论已经关闭"
 
@@ -1336,17 +1336,17 @@ msgstr "每月归档: %ss"
 msgid "Yearly Archives: %s"
 msgstr "每年归档: %s"
 
-#: ../parts/class-content-headings.php:213
-#: ../parts/class-content-headings.php:219
+#: ../parts/class-content-headings.php:217
+#: ../parts/class-content-headings.php:223
 msgid "{no title} Read the post &raquo;"
 msgstr "{no title} 阅读此文章 &raquo;"
 
-#: ../parts/class-content-headings.php:218
+#: ../parts/class-content-headings.php:222
 #, php-format
 msgid "Permalink to %s"
 msgstr "Permalink to %s"
 
-#: ../parts/class-content-headings.php:236
+#: ../parts/class-content-headings.php:240
 #, fuzzy
 msgid "Comment(s) on"
 msgstr "评论开启"
@@ -1432,7 +1432,7 @@ msgstr "<span class=\"meta-nav\">&larr;</span> 旧文章"
 msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
 msgstr "新文章 <span class=\"meta-nav\">&rarr;</span>"
 
-#: ../parts/class-footer-footer_main.php:177
+#: ../parts/class-footer-footer_main.php:179
 msgid "Back to top"
 msgstr "回到顶端"
 

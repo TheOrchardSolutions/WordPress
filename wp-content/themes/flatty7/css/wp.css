@@ -1,0 +1,44 @@
+.wp-caption
+{
+	font-size: 12px;
+	color: gray;
+	max-width: 960px !important;
+}
+.wp-caption-text 
+{
+	font-size: 100%;
+}
+.sticky
+{
+	font-size: 100%;
+}
+.gallery-caption
+{
+	font-size: 100%;
+}
+.bypostauthor
+{
+	font-size: 100%;
+}
+.alignright
+{
+	float: right;
+	padding-left: 20px;
+}
+.alignleft
+{
+	float: left;
+	padding-right: 20px;
+}
+.aligncenter
+{
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	padding-bottom: 20px;
+}
+.alignnone 
+{
+	display: inline-block;
+	padding: 0;
+}

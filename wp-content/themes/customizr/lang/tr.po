@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: * Customizr v3.1.6\n"
-"POT-Creation-Date: 2013-12-27 11:28+0100\n"
-"PO-Revision-Date: 2013-12-27 11:28+0100\n"
-"Last-Translator: Nico <contact@themesandco.com>\n"
+"Project-Id-Version: * Customizr v3.1.10\n"
+"POT-Creation-Date: 2014-03-14 16:22+0100\n"
+"PO-Revision-Date: 2014-03-14 16:22+0100\n"
+"Last-Translator: Nicolas <contact@themesandco.com>\n"
 "Language-Team: Nicolas G. <contact@themesandco.com>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
@@ -69,7 +69,7 @@ msgid "Black"
 msgstr "Siyah"
 
 #: ../inc/class-fire-init.php:91
-msgid "Suscribe to my rss feed"
+msgid "Subscribe to my rss feed"
 msgstr "RSS beslememe abone olun"
 
 #: ../inc/class-fire-init.php:92
@@ -675,29 +675,29 @@ msgstr ""
 "güncellemelerinde silinmeyecektir. Ayrıca özelleştirilmiş CSSlerinizi bir "
 "alt temanın style.css dosyası içerisine yapıştırabilirsiniz."
 
-#: ../inc/admin/class-admin-meta_boxes.php:89
+#: ../inc/admin/class-admin-meta_boxes.php:92
 msgid "Layout Options"
 msgstr "Yerleşim Ayarları"
 
-#: ../inc/admin/class-admin-meta_boxes.php:97
-#: ../inc/admin/class-admin-meta_boxes.php:470
+#: ../inc/admin/class-admin-meta_boxes.php:100
+#: ../inc/admin/class-admin-meta_boxes.php:471
 msgid "Slider Options"
 msgstr "Slayt Oynatıcı Ayarları"
 
-#: ../inc/admin/class-admin-meta_boxes.php:166
+#: ../inc/admin/class-admin-meta_boxes.php:169
 #, php-format
 msgid "Default %1$s layout is set to : %2$s"
 msgstr "Varsayılan %1$s yerleşimi %2$s olarak ayarlanmıştır"
 
-#: ../inc/admin/class-admin-meta_boxes.php:166
+#: ../inc/admin/class-admin-meta_boxes.php:169
 msgid "pages"
 msgstr "sayfalar"
 
-#: ../inc/admin/class-admin-meta_boxes.php:166
+#: ../inc/admin/class-admin-meta_boxes.php:169
 msgid "posts"
 msgstr "gönderiler"
 
-#: ../inc/admin/class-admin-meta_boxes.php:171
+#: ../inc/admin/class-admin-meta_boxes.php:174
 msgid ""
 "You have checked the <i>\"Force global default layout for all posts and pages"
 "\"</i>, you must unchecked this option to enable a specific layout for this "
@@ -707,11 +707,11 @@ msgstr ""
 "uygula\"</i> seçeneğini seçmişsiniz, bu gönderi için özelleştirilmiş "
 "yerleşimleri etkinleştirmek için bu seçeneği kaldırmalısınız"
 
-#: ../inc/admin/class-admin-meta_boxes.php:172
+#: ../inc/admin/class-admin-meta_boxes.php:175
 msgid "Change layout options"
 msgstr "Yerleşim ayarlarını değiştir"
 
-#: ../inc/admin/class-admin-meta_boxes.php:176
+#: ../inc/admin/class-admin-meta_boxes.php:179
 #, php-format
 msgid ""
 "You can define a specific layout for %1$s by using the pre-defined left and "
@@ -722,45 +722,45 @@ msgstr ""
 "yerleşim tanımlamalısınız. Varsayılan yerleşimler WordPress düzenleme ekranı "
 "%2$s'da tanımlanmıştır."
 
-#: ../inc/admin/class-admin-meta_boxes.php:177
-#: ../inc/admin/class-admin-meta_boxes.php:182
+#: ../inc/admin/class-admin-meta_boxes.php:180
+#: ../inc/admin/class-admin-meta_boxes.php:185
 msgid "this page"
 msgstr "bu sayfa"
 
-#: ../inc/admin/class-admin-meta_boxes.php:177
-#: ../inc/admin/class-admin-meta_boxes.php:182
+#: ../inc/admin/class-admin-meta_boxes.php:180
+#: ../inc/admin/class-admin-meta_boxes.php:185
 msgid "this post"
 msgstr "bu gönderi"
 
-#: ../inc/admin/class-admin-meta_boxes.php:178
+#: ../inc/admin/class-admin-meta_boxes.php:181
 msgid "here"
 msgstr "burada"
 
-#: ../inc/admin/class-admin-meta_boxes.php:181
+#: ../inc/admin/class-admin-meta_boxes.php:184
 #, php-format
 msgid "Select a specific layout for %1$s"
 msgstr "%1$s için özelleştirilmiş bir yerleşim seçin."
 
-#: ../inc/admin/class-admin-meta_boxes.php:185
+#: ../inc/admin/class-admin-meta_boxes.php:188
 #, php-format
 msgid "Default layout %1s"
 msgstr "Varsayılan yerleşim %1s"
 
-#: ../inc/admin/class-admin-meta_boxes.php:227
+#: ../inc/admin/class-admin-meta_boxes.php:230
 msgid "Add a slider to this post/page"
 msgstr "Bu gönderiye/sayfaya bir slayt oynatıcı ekleyin"
 
-#: ../inc/admin/class-admin-meta_boxes.php:291
-#: ../inc/admin/class-admin-meta_boxes.php:677
+#: ../inc/admin/class-admin-meta_boxes.php:294
+#: ../inc/admin/class-admin-meta_boxes.php:678
 msgid "Choose a slider"
 msgstr "Bir slayt oynatıcı seçin"
 
-#: ../inc/admin/class-admin-meta_boxes.php:298
-#: ../inc/admin/class-admin-meta_boxes.php:692
+#: ../inc/admin/class-admin-meta_boxes.php:301
+#: ../inc/admin/class-admin-meta_boxes.php:693
 msgid "&mdash; Select a slider &mdash; "
 msgstr "&mdash; Bir slayt oynatıcı seç &mdash; "
 
-#: ../inc/admin/class-admin-meta_boxes.php:303
+#: ../inc/admin/class-admin-meta_boxes.php:306
 msgid ""
 "To create a new slider : open the media library, edit your images and add "
 "them to your new slider."
@@ -768,23 +768,23 @@ msgstr ""
 "Yeni bir slayt oynatıcı oluşturmak için: ortam kütüphanesini açın, "
 "görsellerinizi düzenleyin ve yeni slayt oynatıcınıza ekleyin."
 
-#: ../inc/admin/class-admin-meta_boxes.php:307
+#: ../inc/admin/class-admin-meta_boxes.php:310
 msgid "Delay between each slides in milliseconds (default : 5000 ms)"
 msgstr ""
 "Her bir slayt arasındaki gecikme zamanı, milisaniye cinsinden (varsayılan : "
 "5000 ms)"
 
-#: ../inc/admin/class-admin-meta_boxes.php:314
+#: ../inc/admin/class-admin-meta_boxes.php:317
 msgid "Slider Layout : set the slider in full width"
 msgstr "Slayt Oynatıcı Yerleşimi: slayt oynatıcıyı tam genişliğe ayarla"
 
-#: ../inc/admin/class-admin-meta_boxes.php:331
-#: ../inc/admin/class-admin-meta_boxes.php:701
+#: ../inc/admin/class-admin-meta_boxes.php:334
+#: ../inc/admin/class-admin-meta_boxes.php:702
 msgid "Delete this slider"
 msgstr "Bu slayt oynatıcıyı sil"
 
-#: ../inc/admin/class-admin-meta_boxes.php:336
-#: ../inc/admin/class-admin-meta_boxes.php:705
+#: ../inc/admin/class-admin-meta_boxes.php:339
+#: ../inc/admin/class-admin-meta_boxes.php:706
 msgid ""
 "The slider will be deleted permanently (images, call to actions and link "
 "will be kept)."
@@ -792,12 +792,12 @@ msgstr ""
 "Slayt oynatıcı kalıcı olarak silinecektir (görseller, duyurular ve "
 "bağlantılar saklanacaktır)."
 
-#: ../inc/admin/class-admin-meta_boxes.php:339
-#: ../inc/admin/class-admin-meta_boxes.php:708
+#: ../inc/admin/class-admin-meta_boxes.php:342
+#: ../inc/admin/class-admin-meta_boxes.php:709
 msgid "Delete slider"
 msgstr "Slayt oynatıcıyı sil"
 
-#: ../inc/admin/class-admin-meta_boxes.php:347
+#: ../inc/admin/class-admin-meta_boxes.php:350
 #: ../inc/admin/class-controls.php:137
 msgid ""
 "You haven't create any slider yet. Go to the media library, edit your images "
@@ -806,44 +806,44 @@ msgstr ""
 "Henüz hiç bir slayt oynatıcı oluşturmamışsınız. Ortam kütüphanesine gidin, "
 "görsellerinizi düzenleyin ve slayt oynatıcınıza ekleyin."
 
-#: ../inc/admin/class-admin-meta_boxes.php:499
+#: ../inc/admin/class-admin-meta_boxes.php:500
 msgid "Add to a slider"
 msgstr "Slayt oynatıcıya ekle"
 
-#: ../inc/admin/class-admin-meta_boxes.php:501
+#: ../inc/admin/class-admin-meta_boxes.php:502
 msgid "Add to a slider (create one if needed)"
 msgstr "Slayt oynatıcıya ekle (gerek varsa yeni bir tane oluştur.)"
 
-#: ../inc/admin/class-admin-meta_boxes.php:634
+#: ../inc/admin/class-admin-meta_boxes.php:635
 msgid "Title text (80 car. max length)"
 msgstr "Başlık yazısı (En fazla 80 kar.)"
 
-#: ../inc/admin/class-admin-meta_boxes.php:641
+#: ../inc/admin/class-admin-meta_boxes.php:642
 msgid "Description text (below the title, 250 car. max length)"
 msgstr "Açıklama yazısı (başlığın altında, En fazla 250 kar.)"
 
-#: ../inc/admin/class-admin-meta_boxes.php:648
+#: ../inc/admin/class-admin-meta_boxes.php:649
 msgid "Title and text color"
 msgstr "Başlık ve yazı rengi"
 
-#: ../inc/admin/class-admin-meta_boxes.php:656
+#: ../inc/admin/class-admin-meta_boxes.php:657
 msgid "Button text (80 car. max length)"
 msgstr "Düğme yazısı (En fazla 80 kar.)"
 
-#: ../inc/admin/class-admin-meta_boxes.php:663
+#: ../inc/admin/class-admin-meta_boxes.php:664
 msgid "Choose a linked page or post (among the last 100)."
 msgstr "Bağlantılı bir sayfa veya gönderi seçin (son 100'ü arasından)"
 
-#: ../inc/admin/class-admin-meta_boxes.php:668
+#: ../inc/admin/class-admin-meta_boxes.php:669
 msgid "No link"
 msgstr "Bağlantı yok"
 
-#: ../inc/admin/class-admin-meta_boxes.php:698
-#: ../inc/admin/class-admin-meta_boxes.php:729
+#: ../inc/admin/class-admin-meta_boxes.php:699
+#: ../inc/admin/class-admin-meta_boxes.php:730
 msgid "Add a slider"
 msgstr "Slayt oynatıcı ekleyin"
 
-#: ../inc/admin/class-admin-meta_boxes.php:727
+#: ../inc/admin/class-admin-meta_boxes.php:728
 msgid ""
 "You haven't create any slider yet. Write a slider name and click on the "
 "button to add you first slider."
@@ -851,7 +851,7 @@ msgstr ""
 "Henüz hiç bir slayt oynatıcı oluşturmamışsınız. Bir slayt oynatıcı adı yazın "
 "ve ilk slayt oynatıcınızı eklemek için düğmeye tıklayın."
 
-#: ../inc/admin/class-admin-meta_boxes.php:844
+#: ../inc/admin/class-admin-meta_boxes.php:845
 msgid ""
 "This slider has not slides to show. Go to the media library and start adding "
 "images to it."
@@ -859,46 +859,46 @@ msgstr ""
 "Bu slayt oynatıcının gösterilecek hiç bir slaytı yok. Ortam kütüphanesine "
 "gidin ve görsellerinizi eklemeye başlayın."
 
-#: ../inc/admin/class-admin-meta_boxes.php:854
+#: ../inc/admin/class-admin-meta_boxes.php:855
 msgid "Slide Image"
 msgstr "Slayt Görseli"
 
-#: ../inc/admin/class-admin-meta_boxes.php:855
+#: ../inc/admin/class-admin-meta_boxes.php:856
 msgid "Title"
 msgstr "Başlık"
 
-#: ../inc/admin/class-admin-meta_boxes.php:856
+#: ../inc/admin/class-admin-meta_boxes.php:857
 msgid "Slide Text"
 msgstr "Slayt Yazısı"
 
-#: ../inc/admin/class-admin-meta_boxes.php:857
+#: ../inc/admin/class-admin-meta_boxes.php:858
 msgid "Button Text"
 msgstr "Düğme Yazısı"
 
-#: ../inc/admin/class-admin-meta_boxes.php:858
+#: ../inc/admin/class-admin-meta_boxes.php:859
 msgid "Button Link"
 msgstr "Düğme Bağlantısı"
 
-#: ../inc/admin/class-admin-meta_boxes.php:859
+#: ../inc/admin/class-admin-meta_boxes.php:860
 #: ../parts/class-content-breadcrumb.php:595
 #: ../parts/class-content-breadcrumb.php:628
 #: ../parts/class-content-breadcrumb.php:643
 #: ../parts/class-content-breadcrumb.php:671
-#: ../parts/class-content-comments.php:159
-#: ../parts/class-content-headings.php:243
-#: ../parts/class-content-slider.php:238
+#: ../parts/class-content-comments.php:157
+#: ../parts/class-content-headings.php:247
+#: ../parts/class-content-slider.php:243
 msgid "Edit"
 msgstr "Düzenleyin"
 
-#: ../inc/admin/class-admin-meta_boxes.php:900
+#: ../inc/admin/class-admin-meta_boxes.php:901
 msgid "No Image Selected"
 msgstr "Hiç Bir Görsel Seçilmedi"
 
-#: ../inc/admin/class-admin-meta_boxes.php:926
+#: ../inc/admin/class-admin-meta_boxes.php:927
 msgid "Edit this slide"
 msgstr "Bu slaytı düzenleyin"
 
-#: ../inc/admin/class-admin-meta_boxes.php:928
+#: ../inc/admin/class-admin-meta_boxes.php:929
 msgid "Current slide"
 msgstr "Mevcut slayt"
 
@@ -1195,49 +1195,49 @@ msgstr "Ayır"
 msgid "Merge"
 msgstr "Birleştir"
 
-#: ../parts/class-content-comments.php:65
+#: ../parts/class-content-comments.php:63
 #, php-format
 msgid "One thought on &ldquo;%2$s&rdquo;"
 msgstr "&ldquo;%2$s&rdquo; üzerine bir düşünce"
 
-#: ../parts/class-content-comments.php:123
+#: ../parts/class-content-comments.php:121
 msgid "Pingback:"
 msgstr ""
 
-#: ../parts/class-content-comments.php:123
+#: ../parts/class-content-comments.php:121
 msgid "(Edit)"
 msgstr "(Düzenle)"
 
-#: ../parts/class-content-comments.php:151
+#: ../parts/class-content-comments.php:149
 msgid "Reply"
 msgstr "Yanıtlayın"
 
-#: ../parts/class-content-comments.php:158
+#: ../parts/class-content-comments.php:156
 msgid "Post author"
 msgstr "Gönderi yazarı"
 
-#: ../parts/class-content-comments.php:165
+#: ../parts/class-content-comments.php:163
 #, php-format
 msgid "%1$s at %2$s"
 msgstr ""
 
-#: ../parts/class-content-comments.php:170
+#: ../parts/class-content-comments.php:168
 msgid "Your comment is awaiting moderation."
 msgstr "Yorumunuz onay bekliyor."
 
-#: ../parts/class-content-comments.php:204
+#: ../parts/class-content-comments.php:202
 msgid "Comment navigation"
 msgstr "Yorum gezintisi"
 
-#: ../parts/class-content-comments.php:210
+#: ../parts/class-content-comments.php:208
 msgid "<span class=\"meta-nav\">&larr;</span> Older Comments"
 msgstr "<span class=\"meta-nav\">&larr;</span> Eski Yorumlar"
 
-#: ../parts/class-content-comments.php:218
+#: ../parts/class-content-comments.php:216
 msgid "Newer Comments <span class=\"meta-nav\">&rarr;</span>"
 msgstr "Yeni Yorumlar <span class=\"meta-nav\">&rarr;</span>"
 
-#: ../parts/class-content-comments.php:250
+#: ../parts/class-content-comments.php:248
 msgid "Comments are closed."
 msgstr "Yorumlar kapalı"
 
@@ -1314,17 +1314,17 @@ msgstr "Aylık Arşiv: %s"
 msgid "Yearly Archives: %s"
 msgstr "Yıllık Arşiv: %s"
 
-#: ../parts/class-content-headings.php:213
-#: ../parts/class-content-headings.php:219
+#: ../parts/class-content-headings.php:217
+#: ../parts/class-content-headings.php:223
 msgid "{no title} Read the post &raquo;"
 msgstr "{başlık yok} Gönderiyi oku &raquo;"
 
-#: ../parts/class-content-headings.php:218
+#: ../parts/class-content-headings.php:222
 #, php-format
 msgid "Permalink to %s"
 msgstr "%s için kalıcı link"
 
-#: ../parts/class-content-headings.php:236
+#: ../parts/class-content-headings.php:240
 msgid "Comment(s) on"
 msgstr "Yorumlar"
 
@@ -1414,7 +1414,7 @@ msgstr "<span class=\"meta-nav\">&larr;</span> Eski gönderiler"
 msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
 msgstr "<span class=\"meta-nav\">&larr;</span> Yeni gönderiler"
 
-#: ../parts/class-footer-footer_main.php:177
+#: ../parts/class-footer-footer_main.php:179
 msgid "Back to top"
 msgstr "Başa dön"
 
