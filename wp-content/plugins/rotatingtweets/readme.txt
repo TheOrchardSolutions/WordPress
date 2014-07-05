@@ -3,8 +3,8 @@ Contributors: mpntod
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=9XCNM4QSVHYT8
 Tags: shortcode,widget,twitter,rotating,rotate,rotator,tweet,tweets,animation,jquery,jquery cycle,cycle,multilingual,responsive
 Requires at least: 2.6
-Tested up to: 3.9
-Stable tag: 1.6.11
+Tested up to: 3.9.1
+Stable tag: 1.7.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -64,37 +64,47 @@ Possible variables for the shortcode include:
 	* `url` = Twitter user URL. If `screen_name` is empty and this link is valid, `screen_name` will be set to the user name included in `url`
 	* `search` = a term to search for. There's a useful guide to using Twitter's search function at https://support.twitter.com/articles/71577-using-advanced-search
 * **Twitter options**
-	* `include_rts` = `'0'` or `'1'` - include retweets - optional - default is `'0'`
-	* `exclude_replies` = `'0'` or `'1'` - exclude replies - optional - default is `'0'`
-	* `tweet_count` = number of tweets to show - optional - default is `5`
+	* `include_rts` = `'0'` or `'1'` - include retweets - default is `'0'`
+	* `exclude_replies` = `'0'` or `'1'` - exclude replies - default is `'0'`
+	* `tweet_count` = number of tweets to show - default is `5`
 	* `get_favorites` = `'0'` or `'1'` - show someone's favorites rather than their timeline - default is `'0'`
 	* `list` = `'list-slug'` - the 'slug' used by someone's list (something like `my-list`)
+	* `offset` = ''number'' - default is `'0'` - enables you to start on a later tweet - `'1'` starts on the 2nd tweet, `'2'` starts on the 3rd tweet, etc.
 * **Display options**
-	* `official_format` = `'1'` or `'2'` - show official format - optional - default is `'0'`
-	* `timeout` = time that each tweet is shown in milliseconds - optional - default is `'4000'` (i.e. 4 seconds)
+	* `official_format` = `'1'`, `'2'` or `'custom'` - show one of the two official formats or a custom format if you have written your own `rotatingtweets_display_override()` function - default is `'0'`
+	* `timeout` = time that each tweet is shown in milliseconds - default is `'4000'` (i.e. 4 seconds)
+	* `speed` = time it takes to change from one tweet to the next in milliseconds - default is `'1000'` (i.e. 1 second)
 	* `links_in_new_window` = `'0'` or `'1'` - show links in a new tab or window - default is `'0'`
 	* `rotation_type` = If you are using version 1 of the JavaScript, you can use any of the options listed on the [jQuery.cycle website](http://jquery.malsup.com/cycle/browser.html) - default is `'scrollUp'.`  If you are using version 2 of the JavaScript, then the options are `'scrollUp'`,`'scrollDown'`,`'scrollHorz'`,`'scrollLeft'`,`'scrollRight'`,`'toss'`,`'scrollVert'`,`'fade'` and `'carousel'`
-	* `url_length` = sets the length that the URL should be trimmed to...
-	* `show_meta_timestamp` = `'0'` or `'1'` - show the time and date of each tweet - optional - default is `'1'`
-	* `show_meta_screen_name` = `'0'` or `'1'` - show who posted each tweet - optional - default is `'1'`
-	* `show_meta_via` = `'0'` or `'1'` - show how each tweet was posted - optional - default is `'1'`
-	* `show_meta_reply_retweet_favorite` = `'0'` or `'1'` - show 'reply', 'retweet' and 'favorite' buttons - optional - default is `'0'`
+		*	`carousel_horizontal` = `0` or `1` - if you've chosen 'carousel' as a rotation type, allow horizontal scrolling - default is `0`
+		*	'carousel_count' => ''number'' - if you've chosen 'carousel' as a rotation type, set the number of slides to appear in the carousel - default is 3 for vertical carousel and enough to fill the width of the page for horizontal carousel
+		*	'carousel_responsive' => `0` or `1` - if you've chosen a 'horizontal carousel' as a rotation type, makes the carousel responsive to the size of the page - default is `0`
+	* `url_length` = sets the length that the URL should be trimmed to... - optional
+	* `show_meta_timestamp` = `'0'` or `'1'` - show the time and date of each tweet - default is `'1'`
+	* `show_meta_screen_name` = `'0'` or `'1'` - show who posted each tweet - default is `'1'`
+	* `show_meta_via` = `'0'` or `'1'` - show how each tweet was posted - default is `'1'`
+	* `show_meta_reply_retweet_favorite` = `'0'` or `'1'` - show 'reply', 'retweet' and 'favorite' buttons - default is `'0'`
 	* `no_rotate` = `'0'` or `'1'` - switch off rotation - default is `'0'`
-	* `show_meta_prev_next` = `'0'` or `'1'` - show 'next', 'prev' links - optional - default is `'0'`
+	* `show_meta_prev_next` = `'0'` or `'1'` - show 'next', 'prev' links - default is `'0'`
 		* `prev` = content for the prev button (default `'prev'`)
 		* `next` = content for the next button (default `'next'`)
-		* `middot` = content for the space between the buttons (default `' &amp;middot; '`)
-		* `np_pos` = position for 'next' and 'prev' buttons - `'top'`, `'bottom'` or `'tweets'` (default `'top'`)
+		* `middot` = content for the space between the buttons (default `' &middot; '`)
+		* `np_pos` = position for 'next' and 'prev' buttons - `'top'`, `'bottom'`, `'insidebottom'` or `'tweets'` (default `'top'`)
+	* `show_media` = `'0'` or `'1'` - experimental option that shows images with the tweet - default is `'0'`
+	* `screen_name_plural` = `'0'` or `'1'` - experimental option that allows you to have a plural possessive in the default display format (e.g. *British Lions' Twitter*) - default is `'0'`
+	* `tweet_length` = maximum number of characters to show in tweet - default is `'0'` which allows whole tweet to be shown
+	* `no_emoji` = `'0'` or `'1'` - experimental option that removes emoji from the feed - default is `'0'`
+	
 * **Twitter follow button**
-	* `show_follow` = `'0'` or `'1'` - show follow button - optional - default is `'0'`
-	* `no_show_count` = `'0'` or `'1'` - remove the follower count from the Twitter follow button - optional - default is `'0'`
-	* `no_show_screen_name` = `'0'` or `'1'` - remove the screen name from the Twitter follow button - optional - default is `'0'`
+	* `show_follow` = `'0'` or `'1'` - show follow button - default is `'0'`
+	* `no_show_count` = `'0'` or `'1'` - remove the follower count from the Twitter follow button - default is `'0'`
+	* `no_show_screen_name` = `'0'` or `'1'` - remove the screen name from the Twitter follow button - default is `'0'`
 
 == Credits ==
 Most of this is my own work, but special thanks are owed to:
 
 * The [jQuery](http://jquery.com/) team
-* [Mike Alsup](http://jquery.malsup.com/cycle/) for [jQuery.Cycle](http://jquery.malsup.com/cycle/)
+* [Mike Alsup](http://jquery.malsup.com/cycle/) for [jQuery.Cycle](http://jquery.malsup.com/cycle/) and [jQuery.Cycle2](http://jquery.malsup.com/cycle2/)
 * [Syd Lawrence](http://sydlawrence.com/) for introducing me to jQuery and jQuery.Cycle
 * [Abraham Williams](http://abrah.am) for [TwitterOAuth](https://github.com/abraham/twitteroauth)
 * [Liam Gaddy](http://profiles.wordpress.org/lgladdy/) at [Storm Consultancy](http://www.stormconsultancy.co.uk/) for [his work](http://www.stormconsultancy.co.uk/blog/development/tools-plugins/oauth-twitter-feed-for-developers-library-and-wordpress-plugin/) on [oAuth Twitter Feed for Developers](http://wordpress.org/extend/plugins/oauth-twitter-feed-for-developers/) (although I ended up using it for inspiration rather than plugging it in directly).
@@ -163,10 +173,24 @@ into your CSS - changing `123px;` to the width you're aiming at - either via put
 You can do this by going to the `rotatingtweets/css` directory and renaming `rotatingtweets-sample.css` to `rotatingtweets.css` and putting it in the `wp-content/uploads/` directory.  This displays a Twitter bird to the left of your tweets.  Any CSS you put into `rotatingtweets.css` won't be overwritten when the plug-in is upgraded to the latest version.
 
 == Upgrade notice ==
-= 1.6.11 =
-* New code to shrink size of cache by about 70%
+= 1.7.2 =
+* Removes 'expand' for carousel rotation.  Adds new 'insidebottom' option for 'next / prev' buttons.
 
 == Changelog ==
+= 1.7.2 =
+* Removes 'expand' for carousel rotation. 
+* Adds new `insidebottom` option for position of 'next / prev' buttons
+
+= 1.7.1 =
+* Improved CSS support for horizontal carousel scrolling
+
+= 1.7.0 =
+* Adding `offset`, `speed`, `tweet_length`, `no_emoji` and `show_media` options to the shortcode
+* Solves clash with [Cyclone Slider 2](http://wordpress.org/plugins/cyclone-slider-2/)
+* Adds script version details to the JavaScript
+* Removal of excess spaces from `middot` shortcode option
+* Adds option for 'custom' display layoot  with user-defined display function `rotatingtweets_display_override()`
+
 = 1.6.11 =
 * Fixing cache bug with 'user_mentions'
 

@@ -5,7 +5,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: lightbox, css3 lightbox, gallery lightbox, lightbox, gallery, css3 gallery, images, pictures, plugin, shortcode, admin, posts, widget
 Requires at least: 3.1+
 Tested up to: 3.9.1
-Stable tag: 1.0.6
+Stable tag: 1.0.7
 
 CSS3 Lightbox is a beautiful high-performance lightbox without any jQuery or Javascript code. It uses the latest css3 lightbox technology.
 
@@ -18,8 +18,8 @@ than with other lightbox plugins which depend on Javascript libraries.
 
 <h3> CSS3 Lightbox demo </h3>
 
-[CSS3 Lightbox](http://www.mashshare.net/mash-networks-addon/# "CSS3 Lightbox")
-(Click on the image "Share on Facebook" for testing purposes of this lightbox plugin.)
+[CSS3 Lightbox](http://www.wpmarketplace.net/css3-lightbox-demo/ "CSS3 Lightbox")
+(Click on the images for testing purposes of this lightbox plugin.)
 
 This lightbox plugin is in active development and will be updated on a regular basis - Please do not rate negative before i tried my best to solve your issue. Thanks buddy!
 
@@ -47,7 +47,8 @@ Install it via the admin dashboard and to 'Plugins', click 'Add New' and search 
 
 <h4>Is this lightbox working with gallery images</h4>
 
-Not yet, but we are already working on this function.
+There is an additional Add-On you can use to extend your galleries with this CSS3 Lightbox.
+You get it at: http://www.wpmarketplace.net/css3-lightbox-gallery-add/
 
 == Official Site ==
 * http://www.wpmarketplace.net
@@ -62,6 +63,11 @@ Not yet, but we are already working on this function.
 1. screenshot-1.png
 
 == Changelog ==
+
+= 1.0.7 =
+* New: Add filter for easy manipulating data
+* Fix: change css for gallery compatibility
+* Remove some old styles
 
 = 1.0.6 =
 * Fix: Allow use of htmls tags: rel | target 

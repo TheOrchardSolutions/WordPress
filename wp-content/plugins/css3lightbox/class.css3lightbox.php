@@ -8,7 +8,7 @@ function css3 ( $content ) {
 if (is_single() or is_page() or is_singular()){
 		        //$master_pattern = '%<a[^>]+><img([^>])+></a>%'; // for regular images and for urls which only link to images and no websites
                 //$master_pattern = '%<a * href= *([^>]+\.(png|jpg|gif)"><img([^>])+></a>)%'; // for regular images and for urls which only link to images
-				  $master_pattern = '%<a.+href= *([^>]+\.(png|jpg|gif)"(|.+)><img([^>])+><\/a>)%';
+                  $master_pattern = '%<a.+href= *([^>]+\.(png|jpg|gif)"(|.+)><img([^>])+><\/a>)%';
 		if ( preg_match_all ( $master_pattern , $content , $links ) ) {
 			$counter = 0;
 			foreach ( $links[0] as $link ) {
@@ -30,8 +30,8 @@ if (is_single() or is_page() or is_singular()){
 		  }
 		}
 
-		return $content;
-
+		//return $content;
+		return apply_filters( 'css3lightbox_content', $content);
 	}
 	
 

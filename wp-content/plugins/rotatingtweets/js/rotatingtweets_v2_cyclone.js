@@ -4,7 +4,7 @@
 (function($) {
 "use strict";
 
-$.fn.cycle2.transitions.scrollDown = {
+$.fn.cycle.transitions.scrollDown = {
     before: function( opts, curr, next, fwd ) {
         opts.API.stackSlides( opts, curr, next, fwd );
         var width = opts.container.css('overflow','visible').width();
@@ -14,7 +14,7 @@ $.fn.cycle2.transitions.scrollDown = {
         opts.animOut = { top: fwd ? height : -height };
     }
 };
-$.fn.cycle2.transitions.scrollUp = {
+$.fn.cycle.transitions.scrollUp = {
     before: function( opts, curr, next, fwd ) {
         opts.API.stackSlides( opts, curr, next, fwd );
         var width = opts.container.css('overflow','visible').width();
@@ -24,7 +24,7 @@ $.fn.cycle2.transitions.scrollUp = {
         opts.animOut = { top: fwd ? -height : height };
     }
 };
-$.fn.cycle2.transitions.scrollLeft = {
+$.fn.cycle.transitions.scrollLeft = {
     before: function( opts, curr, next, fwd ) {
         opts.API.stackSlides( opts, curr, next, fwd );
         var width = opts.container.css('overflow','hidden').width();
@@ -34,7 +34,7 @@ $.fn.cycle2.transitions.scrollLeft = {
     }
 };
 
-$.fn.cycle2.transitions.scrollRight = {
+$.fn.cycle.transitions.scrollRight = {
     before: function( opts, curr, next, fwd ) {
         opts.API.stackSlides( opts, curr, next, fwd );
         var width = opts.container.css('overflow','hidden').width();
@@ -44,7 +44,7 @@ $.fn.cycle2.transitions.scrollRight = {
     }
 };
 
-$.fn.cycle2.transitions.toss = {
+$.fn.cycle.transitions.toss = {
     before: function( opts, curr, next, fwd ) {
         opts.API.stackSlides( opts, curr, next, fwd );
         var width = opts.container.css('overflow','visible').width();
@@ -61,7 +61,7 @@ $.fn.cycle2.transitions.toss = {
 */
 jQuery(document).ready(function() {
 	// Not at all sure we need this
-	jQuery('.rotatingtweets').cycle2();
+	jQuery('.rotatingtweets').cycle();
 	// Script to show mouseover effects when going over the Twitter intents
 	jQuery('.rtw_intents a').hover(function() {
 		var rtw_src = jQuery(this).find('img').attr('src');
