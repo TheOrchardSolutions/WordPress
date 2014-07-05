@@ -92,6 +92,9 @@ class TC___ {
 
     public $tc_core;
 
+
+
+
     function __construct () {
 
         self::$instance =& $this;
@@ -242,6 +245,22 @@ class TC___ {
     }
 
 }//end of class
+
+
+
+function sidr_footer() {
+
+// output the static html for the side menus
+
+echo ' <div id="sidr-right"> ';
+wp_nav_menu( array( 'theme_location' => 'primary' ) );
+echo ' </div> ';
+
+}
+
+add_action( 'wp_footer' , 'sidr_footer' );
+
+
 
 //Creates a new instance
 new TC___;

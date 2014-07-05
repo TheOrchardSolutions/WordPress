@@ -234,8 +234,41 @@ class TC_header_main {
 		ob_start();
 		do_action( 'before_navbar' ); 
 		?>
+<div class="menulink">
+<a href="#sidr-right" id="sidr-right-link">Menu</a></div>
+<!-- hook up the Sidr functionality -->
 
-      	<div class="<?php echo apply_filters( 'tc_navbar_wrapper_class', 'navbar-wrapper clearfix span9' ) ?>">
+<script language="javascript">
+
+(function($) {
+
+$(document).ready(function(){
+
+// hook up the left side menu
+
+$("#sidr-left-link").sidr({
+name: "sidr-left",
+side: "left"
+});
+
+// hook up the right side menu
+
+$("#sidr-right-link").sidr({
+name: "sidr-right",
+side: "right"
+});
+
+});
+
+})(jQuery);
+
+</script>
+
+
+
+
+<!--Remove comments to add native menu -->
+      <!--	<div class="<?php echo apply_filters( 'tc_navbar_wrapper_class', 'navbar-wrapper clearfix span9' ) ?>">
 
       		<div class="navbar notresp row-fluid pull-left">
       			<div class="navbar-inner" role="navigation">
@@ -243,19 +276,19 @@ class TC_header_main {
             			<?php 
             				do_action( '__navbar' ); //hook of social, tagline, menu, ordered by priorities 10, 20, 30 
             			?>
-            		</div><!-- .row-fluid -->
-            	</div><!-- /.navbar-inner -->
-            </div><!-- /.navbar notresp -->
+            		</div><!-- .row-fluid --> 
+            	<!--</div><!-- /.navbar-inner -->
+         <!--   </div><!-- /.navbar notresp -->
 
-            <div class="navbar resp">
+         <!--   <div class="navbar resp">
             	<div class="navbar-inner" role="navigation">
             		<?php 
             			do_action( '__navbar' , 'resp' ); //hook of social, menu, ordered by priorities 10, 20
             		?>
             	</div><!-- /.navbar-inner -->
-      		</div><!-- /.navbar resp -->
+      	<!--	</div><!-- /.navbar resp -->
 
-    	</div><!-- /.navbar-wrapper -->
+    	<!--</div><!-- /.navbar-wrapper -->
 
         <?php
         do_action( '__after_navbar' );
