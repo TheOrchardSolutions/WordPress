@@ -34,7 +34,7 @@ function blc_get_db_schema(){
 		`link_id` int(10) unsigned NOT NULL,
 		`container_id` int(10) unsigned NOT NULL,
 		`container_type` varchar(40) NOT NULL DEFAULT 'post',
-		`link_text` varchar(250) NOT NULL DEFAULT '',
+		`link_text` text NOT NULL DEFAULT '',
 		`parser_type` varchar(40) NOT NULL DEFAULT 'link',
 		`container_field` varchar(250) NOT NULL DEFAULT '',
 		`link_context` varchar(250) NOT NULL DEFAULT '',
@@ -62,7 +62,8 @@ function blc_get_db_schema(){
 		`status_text` varchar(250) DEFAULT '',
 		`request_duration` float NOT NULL DEFAULT '0',
 		`timeout` tinyint(1) unsigned NOT NULL DEFAULT '0',
-		`broken` tinyint(1) NOT NULL DEFAULT '0',
+		`broken` tinyint(1) unsigned NOT NULL DEFAULT '0',
+		`warning` tinyint(1) unsigned NOT NULL DEFAULT '0',
 		`may_recheck` tinyint(1) NOT NULL DEFAULT '1',
 		`being_checked` tinyint(1) NOT NULL DEFAULT '0',
 

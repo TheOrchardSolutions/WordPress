@@ -19,7 +19,7 @@
                     function openWizard() {
                         window.jotformFormPicker.openWizard(function(formID){
                             if (formID !== undefined && formID.length > 0 && formID !== "Please enter your form id") {
-                                ed.execCommand('mceInsertContent', false, '[jotform id="'+formID+'"]');
+                                tinyMCE.activeEditor.execCommand('mceInsertContent', 0, '[jotform id="' + formID + '"]');
                             }
                         });
                     }
@@ -27,7 +27,7 @@
                         openWizard();
                     }
                     else {
-                        jQuery.getScript("http://js.jotform.com/JotFormFormPicker.js", function(data, textStatus, jqxhr) {
+                        jQuery.getScript("//js.jotform.com/JotFormFormPicker.js", function(data, textStatus, jqxhr) {
                             event.preventDefault();
                             window.jotformFormPicker = new JotFormFormPicker();
                             openWizard();

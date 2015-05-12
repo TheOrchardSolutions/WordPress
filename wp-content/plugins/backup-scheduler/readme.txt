@@ -6,8 +6,9 @@ Author URI: http://www.sedlex.fr/
 Plugin URI: http://wordpress.org/plugins/backup-scheduler/
 Tags: backup, schedule, plugin, save, database, zip
 Requires at least: 3.0
-Tested up to: 3.9.1
+Tested up to: 4.2
 Stable tag: trunk
+License: GPLv3
 
 With this plugin, you may plan the backup of your entire website (folders, files and/or database).
 
@@ -37,10 +38,10 @@ The super-admin may save either its data or the whole website. By saving the who
 * German (Switzerland) translation provided by PeterDbbert, BernhardKnab, scream
 * German (Germany) translation provided by agent-test, agent, bartdev2000, Ditoran, GLassnig
 * English (United States), default language
-* Spanish (Spain) translation provided by Javier, AVfoto, charliechin, IgnacioCalvo, JordiVives, FelipeJAG
+* Spanish (Spain) translation provided by Javier, AVfoto, charliechin, IgnacioCalvo, JordiVives, FelipeJAG, Sebas
 * Farsi (Iran) translation provided by sehrama.ir
 * Finnish (Finland) translation provided by AnttiSilvola
-* French (France) translation provided by SedLex, wkpixearts, Matthieu, mutmut, anonymous, noaneo
+* French (France) translation provided by SedLex, wkpixearts, Matthieu, mutmut, anonymous, noaneo, TonyLand
 * Indonesian (Indonesia) translation provided by ceceparif
 * Indonesian (Indonesia) translation provided by Faleddo
 * Italian (Italy) translation provided by PuntoCon
@@ -76,6 +77,15 @@ Have fun !
 2. The configuration page of the plugin
 
 == Changelog ==
+
+= 1.5.11 =
+* BUG: some installation have some difficulties to identify the type of the column of the SQL table, thus now the quote are set by default one all column
+
+= 1.5.10 =
+* NEW: deletion of temp files upon desinstall
+
+= 1.5.9 =
+* NEW: Add icons
 
 = 1.5.8 =
 * NEW: Exclusion folder is now possible with regexp
@@ -217,4 +227,4 @@ If you have still this issue, please try with Winzip software.
 Visit http://www.sedlex.fr/cote_geek/
  
  
-InfoVersion:5c822fe6b0fa37c911467f8eb9def928e3d862b6
+InfoVersion:b8edec58cdf5da5ffb89be8876af11d47601241d

@@ -3,7 +3,7 @@
     Plugin Name: JotForm Embed Forms
     Plugin URI: http://www.jotform.com/labs/wordpress
     Description:
-    Version: 1.0
+    Version: 1.2
     Author: Ertugrul Emre Ertekin
     Author URI: http://ee.ertek.in
     License: GNU General Public License v3
@@ -14,9 +14,21 @@ class JotFormWPEmbed {
     public function __construct() {
         /* Hook action to init */
         add_action('init', array($this ,'addTinyMCEButton') );
-
-        /* Content hook */
-        add_filter('the_content', array($this ,'handleContentTags'));
+        
+        /* Use shortcode api if available */
+        if($this->isLegacy()) {
+        	add_filter('the_content', array($this, 'handleContentTags'));
+        } else {
+        	add_shortcode('jotform', array($this, 'apiEmbedHandler'));
+        }
+    }
+    
+    /*
+     * Checks if WP version is less than 2.5 (When shortcode Api was introduced)
+     * @return bool
+     */
+    public function isLegacy() {
+    	return get_bloginfo('version') < 2.5;
     }
 
     public function addTinyMCEButton() {
@@ -45,12 +57,19 @@ class JotFormWPEmbed {
         return $content;
     }
 
-    public function replaceTags($matches) {
-        $htmlVersion = '<script type="text/javascript" src="http://www.jotform.com/jsform/'.$matches["formID"].'?redirect=1"></script>';
-        return $htmlVersion;
+    public function replaceTags($matches)
+    {
+        return '<script type="text/javascript" src="//www.jotform.com/jsform/'.$matches["formID"].'?redirect=1"></script>';
+    }
+    
+    /*
+     * Reads form id returned from shortcode api and inserts form
+     */
+    public function apiEmbedHandler($args) {
+    	return isset($args['id'])
+    		? $this->replaceTags(array('formID' => $args['id']))
+    		: '';
     }
 }
 
 $jotformwp = new JotFormWPEmbed();
-
-?>

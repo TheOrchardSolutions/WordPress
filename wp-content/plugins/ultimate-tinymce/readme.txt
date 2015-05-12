@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: editor, buttons, button, add, font, font style, font select, table, tables, visual editor, search, replace, colors, color, anchor, advance, advanced, links, link, popup, javascript, upgrade, update, admin, image, images, citations, preview, html, custom, custom css, css, borders, pages, posts, pretty, colorful, php, php widget, shortcode, shortcodes, style, styles, plugin, login, excerpt, id, post, page, youtube, syntax, highlight, highlighter, image maps, tinymce, Tinymce, ultimate, Ultimate Tinymce
 Requires at least: 3.5.1
 Tested up to: 3.8.3
-Stable tag: 5.3
+Stable tag: 5.7
 License: GPLv2
 
 Description: Beef up the WordPress TinyMCE content editor with a plethora of advanced options.
@@ -52,6 +52,26 @@ Rather than "bloat" the plugin with screenshots. Please check out tons of screen
 * Simply too many features to list!!  Please visit the <a href="http://utmce.joshlobe.com">Ultimate Tinymce</a> website for a complete list.
 
 == Changelog ==
+
+= 5.7 =
+*12-10-2014
+
+* Removed dismissable banner from settings page.
+
+= 5.6 =
+*12-06-2014
+
+* Updated a couple options for easier conversion to WP Edit.
+
+= 5.5 =
+* 11-30-2014
+
+* Fixed admin notice to be dismissable.
+
+= 5.4 =
+* 11-24-2014
+
+* Added admin notice informing switch to WP Edit.
 
 = 5.3 =
 * 04-17-2014

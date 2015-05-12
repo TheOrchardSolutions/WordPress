@@ -1,14 +1,14 @@
 <?php
 /**
  * @package Ultimate TinyMCE
- * @version 5.3
+ * @version 5.7
  */
 /*
 Plugin Name: Ultimate TinyMCE
 Plugin URI: http://www.plugins.joshlobe.com/
 Description: Beef up your visual tinymce editor with a plethora of advanced options.
 Author: Josh Lobe
-Version: 5.3
+Version: 5.7
 Author URI: http://joshlobe.com
 
 */
@@ -28,6 +28,52 @@ Author URI: http://joshlobe.com
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
+
+
+//********************************************************************************************
+//
+// Check WP version... and alert user to switch to WP Edit
+//
+//********************************************************************************************
+
+		
+function alert_user_switch_wpedit_admin_notice() {
+	
+	global $current_user;
+	$user_id = $current_user->ID;
+	if(!get_user_meta($user_id, 'switch_utmce_to_wpep')) {
+	
+		echo '<div class="error"><p>';
+		echo 'The Ultimate Tinymce plugin is becoming outdated.  Please consider switching to <a title="WP Edit" target="_blank" href="https://wordpress.org/plugins/wp-edit/">WP Edit</a>.';
+		echo '<br />';
+		echo 'WP Edit is the successor to Ultimate Tinymce.';
+		echo '<br /><br />';
+		echo 'Please deactivate and delete Ultimate Tinymce; then download and activate WP Edit.';
+		echo '<br />';
+		echo 'If any issues are experienced during the transition, support is offered on the <a title="WP Edit Support" target="_blank" href="https://wordpress.org/support/plugin/wp-edit">WP Edit Support Page</a>.';
+		echo '</p><p>';
+		echo 'Alternatively, please visit the <a title="WP Edit Pro" target="_blank" href="https://wpeditpro.com">WP Edit PRO</a> website.';
+		echo '<br />';
+		echo 'WP Edit PRO offers additional, powerful enhancements over the free version.';
+		echo '<br /><br />';
+		printf(__('<a href="%1$s">Hide Notice</a>'), '?switch_wpep_hide_notice=0');
+		echo '</p></div>';
+	}
+}
+add_action('admin_notices', 'alert_user_switch_wpedit_admin_notice');
+
+function switch_wpep_hide_notice() {
+	
+	global $current_user;
+	$user_id = $current_user->ID;
+	if(isset($_GET['switch_wpep_hide_notice']) && $_GET['switch_wpep_hide_notice'] == '0') {
+		
+		add_user_meta($user_id, 'switch_utmce_to_wpep', 'true', true);
+	}
+}
+add_action('admin_init', 'switch_wpep_hide_notice');
+
+
 
 include WP_CONTENT_DIR . '/plugins/ultimate-tinymce/admin_functions.php';
 include WP_CONTENT_DIR . '/plugins/ultimate-tinymce/options_functions.php';

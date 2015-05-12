@@ -4,8 +4,8 @@ License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: lightbox, css3 lightbox, gallery lightbox, lightbox, gallery, css3 gallery, images, pictures, plugin, shortcode, admin, posts, widget
 Requires at least: 3.1+
-Tested up to: 3.9.1
-Stable tag: 1.0.7
+Tested up to: 4.1
+Stable tag: 1.1.2
 
 CSS3 Lightbox is a beautiful high-performance lightbox without any jQuery or Javascript code. It uses the latest css3 lightbox technology.
 
@@ -27,7 +27,7 @@ This lightbox plugin is in active development and will be updated on a regular b
 
 * High Performance Lightbox, especially on mobile devices
 * No jQuery/JavaScript is used
-* Lightbox works with any embedded image (no gallery images to that timepoint -  coming next)
+* Lightbox works with any embedded image | Gallery support with [Gallery Add-On] (http://www.wpmarketplace.net/downloads/css3-lightbox-gallery-add/)
 * Lightbox with very low memory footprint
 * Lightbox uses browser native CSS3 functions
 * Faster than any other JS Lightbox plugin which depends on JavaScript
@@ -63,6 +63,22 @@ You get it at: http://www.wpmarketplace.net/css3-lightbox-gallery-add/
 1. screenshot-1.png
 
 == Changelog ==
+
+= 1.1.2 =
+New: Tested up to WP 4.1
+
+= 1.1.1 =
+* New: Use the lightbox on category pages and blogposts
+
+= 1.1.0 =
+Fix: check for Undefined offset
+
+= 1.0.9 =
+* New: Tested WP 4.0
+* Fix: Change class 'close'
+
+= 1.0.8 =
+* Tested up to WP 3.9.2
 
 = 1.0.7 =
 * New: Add filter for easy manipulating data

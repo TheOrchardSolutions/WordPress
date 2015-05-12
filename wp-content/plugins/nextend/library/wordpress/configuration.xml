@@ -2,7 +2,7 @@
     <params name="cache" label="Cache">
         <param type="clearcache" name="clearcache" label="Clear_cache" />
         <param type="onoff" name="gzip" label="Gzip_compression" default="0" description="Only_enable_it_when_the_mod_deflate_not_enabled_in_apache" />
-        <param type="text" name="cachetime" label="Cache_time" default="31536000" description="1_or_higher" style="width: 60px;">
+        <param type="text" name="cachetime" label="Cache_time" default="static" description="1_or_higher" style="width: 60px;">
             <unit>sec</unit>
         </param>
         <param type="text" name="cachepath" label="Cache path" default="cache/" description="" />

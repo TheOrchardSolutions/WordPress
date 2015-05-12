@@ -180,7 +180,7 @@ x:-o-prefocus, .lb-overlay img {
 display:inline;
 }
 
-.lb-album > a.close{
+.lb-album > a.css3lightbox-close{
 width:0px;
 height:0px;
 padding:0px;

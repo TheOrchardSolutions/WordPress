@@ -109,11 +109,11 @@ abstract class FreshBooks_BaseInvoice extends FreshBooks_ElementAction implement
 									. $this->_getTagXML("description",$line['description'])
 									. $this->_getTagXML("unit_cost",$line['unitCost'])
 									. $this->_getTagXML("quantity",$line['quantity'])
-									. $this->_getTagXML("amount",$line['amount'])
-									. $this->_getTagXML("tax1_name",$line['tax1Name'])
+									. $this->_getTagXML("amount",$line['amount']);
+									/*. $this->_getTagXML("tax1_name",$line['tax1Name'])
 									. $this->_getTagXML("tax2_name",$line['tax2Name'])
 									. $this->_getTagXML("tax1_percent",$line['tax1Percent'])
-									. $this->_getTagXML("tax2_percent",$line['tax2Percent']);
+									. $this->_getTagXML("tax2_percent",$line['tax2Percent']);*/
 				$content .= $this->_getTagXML("line",$linesXML);
 			}	
 		}
@@ -164,10 +164,10 @@ abstract class FreshBooks_BaseInvoice extends FreshBooks_ElementAction implement
 															"unitCost"				=> (string)$currXML->unit_cost,
 															"quantity"				=> (string)$currXML->quantity,
 															"amount"					=> (string)$currXML->amount,
-															"tax1Name"				=> (string)$currXML->tax1_name,
+															/*"tax1Name"				=> (string)$currXML->tax1_name,
 															"tax2Name"				=> (string)$currXML->tax2_name,
 															"tax1Percent"			=> (string)$currXML->tax1_percent,
-															"tax2Percent"			=> (string)$currXML->tax2_percent
+															"tax2Percent"			=> (string)$currXML->tax2_percent*/
 			);
 		}
 	}

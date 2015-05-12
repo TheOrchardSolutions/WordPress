@@ -3,8 +3,8 @@ Contributors: jotform
 Donate link: N/A
 Tags: jotform, form, embed, contact form, survey form, online form, web form, online forms, web forms
 Requires at least: 3.3
-Tested up to: 3.9
-Stable tag: 1.1
+Tested up to: 4.1
+Stable tag: 1.2
 License: GNU General Public License v3
 License URI: http://www.gnu.org/licenses/gpl.html
 

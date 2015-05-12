@@ -1,7 +1,7 @@
 <?php
 /*
 * Plugin Name: CSS3 Lightbox
-* Version: 1.0.7
+* Version: 1.1.2
 * Plugin URI: http://www.digitalsday.com
 * Description: CSS3 Lightbox is a high-performance pure CSS3 lightbox without jQuery or Javascript and works with all modern browser. Mobile optimized, faster and smarter than any other jQuery lightbox
 * Author: Rene Hermenau, Steffen Arnold
@@ -30,7 +30,7 @@ if (!defined('CSS3LIGHTBOX_VERSION_KEY'))
     define('CSS3LIGHTBOX_VERSION_KEY', 'css3lightbox_version');
 
 if (!defined('CSS3LIGHTBOX_VERSION_NUM'))
-    define('CSS3LIGHTBOX_VERSION_NUM', '1.0.7');
+    define('CSS3LIGHTBOX_VERSION_NUM', '1.1.2');
 
 global $wpdb;
 global $installed_ver;

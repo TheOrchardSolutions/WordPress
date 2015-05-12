@@ -31,7 +31,7 @@ div.rtw_icon img {
 	max-width: 2.2em;
 	max-height: 2.2em;
 }
-div.rtw_intents img {
+div.rtw_intents a img,span.rtw_intents a img {
 	max-width: 1.2em;
 	max-height: 1.2em;
 	padding: 0;
@@ -72,7 +72,7 @@ div.rtw_intents {
 	float:right;
 	margin-left: 0.5em;
 }
-div.rtw_intents a {
+div.rtw_intents a,span.rtw_intents a {
 	display: inline;
 }
 div.rtw_timestamp {
@@ -97,7 +97,18 @@ div.rtw_timestamp {
 	height: 150px;
 	max-height: 150px;
 }
-
+/* Pager CSS */
+.rtw_pager {
+	text-align: center;
+	font-size: 2em;
+} 
+.rtw_pager a {
+	text-decoration: none !important;
+}
+.rtw_pager .cycle-pager-active,
+.rtw_pager .activeSlide {
+	color: #DDD;
+}
 /* This sets the style for tweets in articles or posts */
 #content .rotatingtweets,
 #content .norotatingtweets  {

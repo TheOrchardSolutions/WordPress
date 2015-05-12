@@ -4,7 +4,7 @@
  * Plugin Name: Google Apps Login
  * Plugin URI: http://wp-glogin.com/
  * Description: Simple secure login for Wordpress through users' Google Apps accounts (uses secure OAuth2, and MFA if enabled)
- * Version: 2.4.4
+ * Version: 2.8.3
  * Author: Dan Lester
  * Author URI: http://wp-glogin.com/
  * License: GPL3
@@ -17,7 +17,7 @@ require_once( plugin_dir_path(__FILE__).'/core/core_google_apps_login.php' );
 
 class basic_google_apps_login extends core_google_apps_login {
 	
-	protected $PLUGIN_VERSION = '2.4.4';
+	protected $PLUGIN_VERSION = '2.8.3';
 	
 	// Singleton
 	private static $instance = null;
@@ -38,7 +38,7 @@ class basic_google_apps_login extends core_google_apps_login {
 		if (!$old_options) {
 			$new_options = $this->get_option_galogin();
 			$new_option['ga_poweredby'] = true;
-			update_site_option($this->get_options_name(), $new_option);
+			$this->save_option_galogin($new_option);
 		}
 	}
 		
@@ -54,6 +54,7 @@ class basic_google_apps_login extends core_google_apps_login {
 		$drivelink = "http://wp-glogin.com/drive/?utm_source=Admin%20Sidebar&utm_medium=freemium&utm_campaign=Drive";
 		$upgradelink = "http://wp-glogin.com/google-apps-login-premium/?utm_source=Admin%20Sidebar&utm_medium=freemium&utm_campaign=Freemium";
 		$avatarslink = "http://wp-glogin.com/avatars/?utm_source=Admin%20Sidebar&utm_medium=freemium&utm_campaign=Avatars";
+		$aioilink = "http://wp-glogin.com/all-in-one-intranet/?utm_source=Admin%20Sidebar&utm_medium=freemium&utm_campaign=AIOI";
 		
 		$adverts = Array();
 		
@@ -77,13 +78,20 @@ class basic_google_apps_login extends core_google_apps_login {
 		.'</a>'
 		.'<span>Bring your site to life with <a href="'.$avatarslink.'" target="_blank">Google Profile Avatars</a></span>'
 		.'</div>';
+
+		$adverts[] = '<div>'
+		.'<a href="'.$aioilink.'" target="_blank">'
+		.'<img src="'.$this->my_plugin_url().'img/basic_aioi.png" />'
+		.'</a>'
+		.'<span>Instantly turn WordPress into a corporate intranet with <a href="'.$aioilink.'" target="_blank">All-In-One Intranet</a></span>'
+		.'</div>';
 		
 		$startnum = (int)date('j');
 		
 		echo '<div id="gal-tableright" class="gal-tablecell">';
 		
 		for ($i=0 ; $i<2 ; $i++) {
-			echo $adverts[($startnum+$i) % 3];
+			echo $adverts[($startnum+$i) % 4];
 		}
 		
 		echo '</div>';
@@ -93,7 +101,7 @@ class basic_google_apps_login extends core_google_apps_login {
 	protected function ga_domainsection_text() {
 		echo '<div id="domain-section" class="galtab">';
 		
-		echo '<p>'.__('The Domain Control section is only applicable to the premium version of this plugin.', 'google-apps-login').'</p>';
+		echo '<p>'.__('The Domain Control section is only applicable to the premium and enterprise versions of this plugin.', 'google-apps-login').'</p>';
 		echo '<p>';
 		_e( 'In this basic version of the plugin, any <i>existing</i> WordPress account corresponding to a Google email address can authenticate via Google.', 'google-apps-login');
 		echo '</p>';
@@ -101,13 +109,13 @@ class basic_google_apps_login extends core_google_apps_login {
 		
 		<h3>Premium Upgrade</h3>
 		
-		<p>In our premium plugin, you can specify your Google Apps domain name to obtain more powerful features.</p>
+		<p>In our professional plugins, you can specify your Google Apps domain name to obtain more powerful features.</p>
 
 		<ul class="ul-disc">
 			<li>Save time and increase security</li>
 			<li>Completely forget about WordPress user management &ndash; it syncs users from Google Apps automatically</li>
 			<li>Ensures that employees who leave or change roles no longer have unauthorized access to sensitive sites</li>
-			<li>Increase engagement on corporate websites &ndash; WordPress user profiles are automatically set up with real names rather than quirky usernames</li>
+			<li>Specify Google Groups whose members should be mapped to different roles in WordPress (Enterprise only)</li>
 		</ul>
 		
 		<p>Find out more about purchase options on our website:
