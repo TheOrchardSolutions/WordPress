@@ -25,7 +25,7 @@ wooShortcodeMeta={
 			id:"profile_type",
 			help:"Specify what type of social profile this is (if not specified, the shortcode will attempt to identify it).",
 			controlType:"select-control", 
-			selectValues:['rss', 'facebook', 'twitter', 'youtube', 'delicious', 'flickr', 'linkedin'],
+			selectValues:['rss', 'facebook', 'twitter', 'youtube', 'delicious', 'flickr', 'linkedin', 'googleplus'],
 			defaultValue: 'rss', 
 			defaultText: 'rss (Default)'
 		},
