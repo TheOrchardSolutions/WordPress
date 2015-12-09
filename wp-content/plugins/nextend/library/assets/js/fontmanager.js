@@ -211,7 +211,7 @@
                     href: 'http://fonts.googleapis.com/css?family=' + match[1]
                 }, dojo.body());
                 
-                var f = match[1].replace('+', ' ').match(/[a-zA-Z ]*/);
+                var f = match[1].replace(/\+/g, ' ').match(/[a-zA-Z ]*/);
                 family = family.replace(match[0], f[0]);
             }//google(Skranji:700&subset=latin,latin-ext)
             this.setCurrentProperty('afont', this.family.value);

@@ -1,5 +1,5 @@
 <title>Office Quick Dialer</title>
-<script type="text/javascript">
+<script TYPE="text/javascript">
 function select_text()
 {
 var content=eval("document.myform.n");
@@ -34,6 +34,14 @@ var content=eval("document.myform4.n");
 content.focus();
 content.setSelectionRange(0, 9999);
 }
+
+function select_text5()
+{
+var content=eval("document.myform5.n");
+content.focus();
+content.setSelectionRange(0, 9999);
+}
+
 </script>
 <style>
 body, input {
@@ -46,34 +54,37 @@ input {
 </style>
 <FORM NAME="myform1" METHOD="LINK" ACTION="https://www.webfones.com/phpscripts/webfones_dial.php?p=passcode&n=number">
 <INPUT TYPE="hidden" Name="p" Value="BHXU5m2Z23250"/>
-<INPUT onClick="select_text1();" TYPE="text" NAME="n" SIZE="10"/>
+<INPUT onClick="select_text1();" TYPE="tel" NAME="n" SIZE="10"/>
 <INPUT TYPE="submit" VALUE="Allen">
 </FORM>
 
-</style>
-<FORM NAME="myform1" METHOD="LINK" ACTION="https://www.webfones.com/phpscripts/webfones_dial.php?p=passcode&n=number">
-<INPUT TYPE="hidden" Name="p" Value="9B08Ilhr30280"/>
-<INPUT onClick="select_text1();" TYPE="text" NAME="n" SIZE="10"/>
-<INPUT TYPE="submit" VALUE="Stephen">
-</FORM>
-
-<FORM NAME="myform2" METHOD="LINK" ACTION="https://www.webfones.com/phpscripts/webfones_dial.php?p=passcode&n=number">
-<INPUT TYPE="hidden" Name="p" Value="lusJ8R7c23280"/>
-<INPUT onClick="select_text2();" TYPE="text" NAME="n" SIZE="10"/>
-<INPUT TYPE="submit" VALUE="Chip">
-</FORM>
-
 <FORM NAME="myform3" METHOD="LINK" ACTION="https://www.webfones.com/phpscripts/webfones_dial.php?p=passcode&n=number">
+<INPUT TYPE="hidden" Name="p" Value="H0DTEk3n32930"/>
+<INPUT onClick="select_text3();" TYPE="tel" NAME="n" SIZE="10"/>
+<INPUT TYPE="submit" VALUE="Ashley">
+</FORM>
+
+</style>
+<FORM NAME="myform5" METHOD="LINK" ACTION="https://www.webfones.com/phpscripts/webfones_dial.php?p=passcode&n=number">
 <INPUT TYPE="hidden" Name="p" Value="Jp7xLb9j28490"/>
-<INPUT onClick="select_text3();" TYPE="text" NAME="n" SIZE="10"/>
-<INPUT TYPE="submit" VALUE="Jeramy">
+<INPUT onClick="select_text1();" TYPE="tel" NAME="n" SIZE="10"/>
+<INPUT TYPE="submit" VALUE="Kason">
+</FORM>
+
+
+</style>
+<FORM NAME="myform2" METHOD="LINK" ACTION="https://www.webfones.com/phpscripts/webfones_dial.php?p=passcode&n=number">
+<INPUT TYPE="hidden" Name="p" Value="9B08Ilhr30280"/>
+<INPUT onClick="select_text1();" TYPE="tel" NAME="n" SIZE="10"/>
+<INPUT TYPE="submit" VALUE="Stephen">
 </FORM>
 
 <FORM NAME="myform4" METHOD="LINK" ACTION="https://www.webfones.com/phpscripts/webfones_dial.php?p=passcode&n=number">
 <INPUT TYPE="hidden" Name="p" Value="dJ1St6Pj25420"/>
-<INPUT onClick="select_text4();" TYPE="text" NAME="n" SIZE="10"/>
+<INPUT onClick="select_text4();" TYPE="tel" NAME="n" SIZE="10"/>
 <INPUT TYPE="submit" VALUE="Tara">	
 </FORM>
+
 
 To have our phone system connect a staff member via our office line:<p>
 Enter the number our staff member wishes to reach, and click send.<p>

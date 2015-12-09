@@ -3,7 +3,7 @@
 Plugin Name: Nextend
 Plugin URI: http://www.nextendweb.com
 Description: Nextend Library for Accordion Menu and future plugins.
-Version: 1.3.6
+Version: 1.3.7
 Author: Nextend
 Author URI: http://www.nextendweb.com
 License: GPL2

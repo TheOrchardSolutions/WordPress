@@ -153,7 +153,7 @@ my $output = qq|<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
 	<body id="index" class="index" onload="document.forms.pay.company.focus()">
 		<div class="container">
 			<!-- inactive class - showgrid -->
-			<h4 class="printme">Mac Consulting Group Inc<br />662 Jefferson Highway<br />Baton Rouge, LA 70806<br />225-933-5311</h4>
+			<h4 class="printme">The Orchard Solutions<br />662 Jefferson Highway<br />Baton Rouge, LA 70806<br />225-933-5311</h4>
 			<h2 id="mcglogo">
 				<img src="logo.png" alt="Mac Consulting Group" class="imageo" />
 				<br>
@@ -175,7 +175,7 @@ my $output = qq|<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
 					<li>Automated monitoring and reporting on the overall health of your computer</li>
 					<li>A chance to identify small problems before they get develop to large ones, or to data loss.</li>
 					<li>Active notification of issues Watchman finds as it checks your backup status, hard drive, and more.</li>
-					<li>You get peace of mind knowing that the Mac Consulting Group, Inc. will contact you if your computer is showing signs of failure.</li>
+					<li>You get peace of mind knowing that the The Orchard Solutions. will contact you if your computer is showing signs of failure.</li>
 				</ul>
 				<p>
 				We will enter your agreement into our system, send your invoice, and coordinate payment information with you directly.
@@ -183,7 +183,7 @@ my $output = qq|<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
 				Thank you for your business and continued support.
 				</p>
 				
-				<p style="text-align: right;"><em>Sincerely,</em><br> <strong>Allen Hancock</strong> and the <strong>Mac Consulting Group, Inc</strong></p>
+				<p style="text-align: right;"><em>Sincerely,</em><br> <strong>Allen Hancock</strong> and the <strong>The Orchard Solutions</strong></p>
 								
 			</div>
 			<hr>

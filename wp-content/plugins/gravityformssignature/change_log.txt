@@ -1,4 +1,21 @@
 -------------------------------------------------------------------------------------------------------------------
+Version 2.3
+	- Added function gf_signature to easily get a Signature instance.
+	- Added text domain/path to header.
+	- Added support for save and continue in Gravity Forms 1.9.
+    - Added new filter: gform_signature_show_in_all_fields
+        add_filter( 'gform_signature_show_in_all_fields', '__return_false' );
+	- Updated protected functions to be public.
+	- Updated to have the file class-gf-signature.php and organized code into this file and signature.php.
+	- Updated version to use a variable.
+    - Updated to display signature image in {all_fields} tag.
+
+-------------------------------------------------------------------------------------------------------------------
+Version 2.2
+    - Updated Super Signature script to latest to resolve issues with Kindle Fire HD.
+    - Fixed issue with IE11 when using the latest version of the Super Signature script
+
+-------------------------------------------------------------------------------------------------------------------
 Version 2.1
     - Downgraded super signature script to previous version due to an issue with IE11
 

@@ -5,6 +5,12 @@ Single Sign On for Enterprises + Social Login + User/Passwords. For all your Wor
 
 Demo: <http://auth0wp.azurewebsites.net>
 
+Documentation: <https://auth0.com/docs/cms>
+
+## Contributions
+
+All PR should be done towards the `dev` branch.
+
 ## Installation
 
 Before you start, **make sure the admin user has a valid email that you own**, read the Technical Notes for more information.
@@ -15,6 +21,52 @@ Before you start, **make sure the admin user has a valid email that you own**, r
 4. Copy the Client ID, Client Secret and Domain from the Settings of the Application.
 5. On the Settings of the Auth0 application change the Callback URL to be: http://your-domain/index.php?auth0=1. Using TLS/SSL is recommended for production.
 6. Go back to  **WordPress** Settings - Auth0 Settings edit the Domain, Client ID and Client Secret with the ones you copied from Auth0 Dashboard.
+
+## Implicit Flow
+
+There are cases where the server is behind a firewall and does not have access to internet (or at least, can't reach the Auth0 servers). In those cases, you can enable the Auth0 Implicit Flow in the advanced settings of the Auth0 Settings page.
+
+When it is enabled, the token is returned in the login callback and then sent back to the WordPress sever so it doesn't need to call the Auth0 webervices.
+
+## Integrating with the plugin
+
+The plugin provides an action to get notified each time a user logs in or is created in WordPress. This action is called `auth0_user_login` and receives 5 params:
+1. $user_id (int): the id of the user logged in
+2. $user_profile (stdClass): the Auth0 profile of the user
+3. $is_new (boolean): `true` if the user was created on WordPress, `false` if doesn't. Don't get confused with Auth0 registrations, this flag will tell you if a new user was created on the WordPress database.
+4. $id_token (string): the user's JWT.
+5. $access_token (string): the user's access token. It is not provided when using the **Implicit flow**.
+
+To hook to this action, you will need to do the following:
+```
+    add_action( 'auth0_user_login', 'auth0UserLoginAction', 0,5 ); 
+
+    function auth0UserLoginAction($user_id, $user_profile, $is_new, $id_token, $access_token) {
+        ...
+    }
+```
+
+## API authentication
+
+The last version of the plugin provides the ability integrate with **wp-jwt-auth** plugin to authenticate api calls via a HTTP Authorization Header.
+
+This plugin will detect if you have wp-jwt-auth installed and active and will offer to configure it. Accepting this, will set up the client id, secret and the custom user repository.
+
+After the user logs in via Auth0 in your Api client (ie: using Lock in a mobile app) you will get a JWT (Json Web Token). Then you need to send this token in a HTTP header in the following way:
+
+```
+Authorization: Bearer ##jwt##
+```
+
+For example:
+
+```
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb250ZW50IjoiVGhpcyBpcyB5b3VyIHVzZXIgSldUIHByb3ZpZGVkIGJ5IHRoZSBBdXRoMCBzZXJ2ZXIifQ.b47GoWoY_5n4jIyG0hPTLFEQtSegnVydcvl6gpWNeUE
+```
+
+This JWT should match with a registered user in your WP instalation.
+
+You can use this feature with API's provided by plugins like **WP REST API (WP API)**.
 
 ## Technical Notes
 
@@ -50,7 +102,9 @@ Also, you can use the Auth0 widget as a shortcode in your posts.
 
 The way to use it is just adding the following:
 
+```
     [auth0]
+```
 
 And can be customized by adding the following parameters:
 
@@ -67,12 +121,17 @@ And can be customized by adding the following parameters:
 
 Example:
 
+```
     [auth0 show_as_modal="true" social_big_buttons="true" modal_trigger_name="Login button: This text is configurable!"]
-
+```
 
 All the details about the parameters on the lock wiki (https://github.com/auth0/lock/wiki/Auth0Lock-customization)
 
 ## FAQs
+
+### Is this plugin compatible with WooCommerce?
+
+Yes, this plugin will override the default WooCommerce login forms with the Lock widget.
 
 ### What should I do if I end up with two accounts for the same user?
 
@@ -82,7 +141,9 @@ Under some situations, you may end up with a user with two accounts.  **WordPres
 
 You can style the login form by adding your css on the "Customize the Login Widget CSS" Auth0 setting and the widget settings
 
+```
     form a.a0-btn-small { background-color: red !important; }
+```
 
 The Login Widget is Open Source. For more information about it: https://github.com/auth0/lock
 
@@ -108,11 +169,13 @@ Internally, the plugin uses the dict setting to change the Auth0 widget title. W
 
 To change the form_title in this case, you need to add the following attribute to the dict json:
 
+```
       {
         signin:{
             title: "The desired form title"
         }
       }
+```
 
 ### How can I set up the settings that are not provided in the settings page?
 

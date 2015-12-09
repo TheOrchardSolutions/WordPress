@@ -8,7 +8,7 @@
  */
 
 (function ($) {
-    $.transit = {
+    $.ntransit = {
         version: "0.9.9",
 
         // Map of $.css() keys to values for 'transitionProperty'.
@@ -136,7 +136,7 @@
     //     $("#hello").css('transform');
     //     //=> { rotate: '90deg' }
     //
-    $.cssHooks['transit:transform'] = {
+    $.cssHooks['ntransit:transform'] = {
         // The getter returns a `Transform` object.
         get: function (elem) {
             return $(elem).data('transform') || new Transform();
@@ -169,7 +169,7 @@
     // In jQuery 1.8+, this will intentionally override the default `transform`
     // CSS hook so it'll play well with Transit. (see issue #62)
     $.cssHooks.transform = {
-        set: $.cssHooks['transit:transform'].set
+        set: $.cssHooks['ntransit:transform'].set
     };
 
     // jQuery 1.8+ supports prefix-free transitions, so these polyfills will not
@@ -484,7 +484,7 @@
 
         $.each(props, function (key) {
             key = $.camelCase(key); // Convert "text-align" => "textAlign"
-            key = $.transit.propertyMap[key] || $.cssProps[key] || key;
+            key = $.ntransit.propertyMap[key] || $.cssProps[key] || key;
             key = uncamel(key); // Convert back to dasherized
 
             if ($.inArray(key, re) === -1) {
@@ -554,7 +554,7 @@
     //       complete: function() { /* ... */ }
     //      });
     //
-    $.fn.transition = $.fn.transit = function (properties, duration, easing, callback) {
+    $.fn.ntransition = $.fn.ntransit = function (properties, duration, easing, callback) {
         var self = this;
         var delay = 0;
         var queue = true;
@@ -624,7 +624,7 @@
         // Compute delay until callback.
         // If this becomes 0, don't bother setting the transition property.
         //var work = $.transit.enabled && support.transition;
-        var i = $.transit.enabled ? (parseInt(duration, 10) + parseInt(delay, 10)) : 0;
+        var i = $.ntransit.enabled ? (parseInt(duration, 10) + parseInt(delay, 10)) : 0;
 
 
         if(!support.transition && i > 0){
@@ -708,7 +708,7 @@
                 }
             };
 
-            if ((i > 0) && ($.transit.useTransitionEnd)) {
+            if ((i > 0) && ($.ntransit.useTransitionEnd)) {
                 // Use the 'transitionend' event if it's available.
                 bound = eventNames;
                 for (var j = 0; j < eventNames.length; ++j) {
@@ -748,7 +748,7 @@
     // ## $.fn.transitionStop
     // Works like $.fn.stop( [clearQueue ] [, jumpToEnd ] )
     //     
-    $.fn.transitionStop = $.fn.transitStop = function (clearQueue, jumpToEnd) {
+    $.fn.ntransitionStop = $.fn.ntransitStop = function (clearQueue, jumpToEnd) {
         this.each(function () {
             var self = $(this);
 
@@ -803,19 +803,19 @@
             $.cssNumber[prop] = true;
         }
 
-        $.transit.propertyMap[prop] = support.transform;
+        $.ntransit.propertyMap[prop] = support.transform;
 
         $.cssHooks[prop] = {
             get: function (elem) {
-                var t = $(elem).css('transit:transform');
+                var t = $(elem).css('ntransit:transform');
                 return t.get(prop);
             },
 
             set: function (elem, value) {
-                var t = $(elem).css('transit:transform');
+                var t = $(elem).css('ntransit:transform');
                 t.setFromString(prop, value);
 
-                $(elem).css({ 'transit:transform': t });
+                $(elem).css({ 'ntransit:transform': t });
             }
         };
 
@@ -865,5 +865,5 @@
     }
 
     // Export some functions for testable-ness.
-    $.transit.getTransitionValue = getTransition;
+    $.ntransit.getTransitionValue = getTransition;
 })(njQuery);

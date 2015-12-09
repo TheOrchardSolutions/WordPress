@@ -1,7 +1,7 @@
 <?php
 
 return array(
-	'version' => '0.9.4',
+	'version' => '0.9.4.1',
 	'cluster.messagebus.debug' => false,
 	'cluster.messagebus.enabled' => false,
 	'cluster.messagebus.sns.region' => '',
@@ -195,7 +195,7 @@ return array(
 		0 => 'google_ad_',
 		1 => 'RSPEAK_',
 	),
-	'minify.css.enable' => true,
+	'minify.css.enable' => false,
 	'minify.css.engine' => 'css',
 	'minify.css.combine' => false,
 	'minify.css.strip.comments' => false,
@@ -203,7 +203,7 @@ return array(
 	'minify.css.imports' => '',
 	'minify.css.groups' => array(
 	),
-	'minify.js.enable' => true,
+	'minify.js.enable' => false,
 	'minify.js.engine' => 'js',
 	'minify.js.combine.header' => false,
 	'minify.js.header.embed_type' => 'blocking',
@@ -248,12 +248,16 @@ return array(
 	'minify.htmltidy.options.wrap' => 0,
 	'minify.reject.logged' => false,
 	'minify.reject.ua' => array(
+		0 => '',
 	),
 	'minify.reject.uri' => array(
+		0 => '',
 	),
 	'minify.reject.files.js' => array(
+		0 => '',
 	),
 	'minify.reject.files.css' => array(
+		0 => '',
 	),
 	'minify.cache.files' => array(
 		0 => 'https://ajax.googleapis.com',
@@ -425,7 +429,7 @@ return array(
 	'browsercache.other.etag' => false,
 	'browsercache.other.w3tc' => false,
 	'browsercache.other.replace' => false,
-	'browsercache.timestamp' => '',
+	'browsercache.timestamp' => '1436070067',
 	'browsercache.replace.exceptions' => array(
 	),
 	'mobile.enabled' => false,
@@ -655,7 +659,7 @@ return array(
 	'timelimit.domain_rename' => 120,
 	'timelimit.minify_recommendations' => 600,
 	'minify.auto.filename_length' => 150,
-	'minify.auto.disable_filename_length_test' => false,
+	'minify.auto.disable_filename_length_test' => true,
 	'common.instance_id' => 1637605044,
 	'common.force_master' => true,
 	'newrelic.enabled' => false,

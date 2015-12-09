@@ -1,10 +1,10 @@
 === Rotating Tweets (Twitter widget and shortcode) ===
 Contributors: mpntod
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=9XCNM4QSVHYT8
-Tags: shortcode,widget,twitter,rotating,rotate,rotator,tweet,tweets,animation,jquery,jquery cycle,cycle,multilingual,responsive
+Tags: shortcode,widget,twitter,rotating,rotate,rotator,tweet,tweets,animation,jquery,jquery cycle,cycle,multilingual,responsive,page builder
 Requires at least: 3.2
-Tested up to: 4.1.1
-Stable tag: 1.7.12
+Tested up to: 4.3
+Stable tag: 1.7.18
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -22,21 +22,7 @@ Twitter widget and shortcode to show your latest tweets one at a time an animate
 * Caches the most recent data from Twitter to avoid problems with rate limiting
 * Uses [jQuery](http://jquery.com/), [jQuery.Cycle](http://jquery.malsup.com/cycle/) and [jQuery.Cycle2](http://jquery.malsup.com/cycle2/) to produce a nice smooth result.
 * Compatible with [W3 Total Cache](https://wordpress.org/plugins/w3-total-cache/).
-* **Multi-lingual** - now set up to be multi-lingual. The Twitter 'follow' button is automatically translated to match your site's language setting [if Twitter has made the appropriate language available](https://dev.twitter.com/docs/api/1.1/get/help/languages). Also uses [Wordpress's multi-lingual capability](http://codex.wordpress.org/I18n_for_WordPress_Developers) to enable translation of all the other text used by the plug-in via language packs.
-
-Currently the following languages are available:
-
-* US English *(complete)*
-* British English *(complete - mainly changing 'favorite' to 'favourite'!)*
-* Brazilian Portuguese *(complete - many thanks to Wilmerson Felipe for his help on this)*
-* German *(almost complete - many thanks to Nils Kroneberg for his help on this)*
-* Spanish *(complete - many thanks to Alberto Lario for his help on this)*
-* Italian *(complete - many thanks to [Mattia Migliorini](https://profiles.wordpress.org/deshack/) at [deshack](http://deshack.net/) for his help on this)*
-* Dutch *(public facing translation complete - many thanks to Natasja Weijer for her help on this)*
-* French *(almost complete - many thanks to [Alexandre Trudel](http://wordpress.org/support/profile/alexandretrudel) for his help on this)*
-* Serbian *(complete - many thanks to Borisa Djuraskovic at [Web Hosting Hub](http://www.webhostinghub.com/) for his help on this)*
-
-If you have made the plug-in work in your language, please send the translations you'd like to see or, even better, the relevant [gettext PO and MO files](http://codex.wordpress.org/I18n_for_WordPress_Developers) to [me](http://www.martintod.org.uk/contact-martin/) and I will then share them with everyone else. You can download [the latest POT file](http://plugins.svn.wordpress.org/rotatingtweets/trunk/languages/rotatingtweets.pot), and [PO files in each language](http://plugins.svn.wordpress.org/rotatingtweets/trunk/languages/) from this site. You may find [Poedit](http://www.poedit.net/) rather useful for translation and creation of PO and MO files - although the PO files themselves are quite simple text files and can be edited in Notepad or [Notepad++](http://notepad-plus-plus.org/).
+* **Multi-lingual** - now set up to be multi-lingual. The Twitter 'follow' button is automatically translated to match your site's language setting [if Twitter has made the appropriate language available](https://dev.twitter.com/docs/api/1.1/get/help/languages). Also uses [Wordpress's multi-lingual capability](http://codex.wordpress.org/I18n_for_WordPress_Developers) to enable translation of all the other text used by the plug-in via [language packs](https://translate.wordpress.org/projects/wp-plugins/rotatingtweets).
 
 If you'd like to see what the plug-in looks like in action, you can [see the plug-in working here](http://www.martintod.org.uk/2012/05/29/new-twitter-plugin-to-show-tweets-in-rotation/).
 
@@ -66,6 +52,7 @@ Possible variables for the shortcode include:
 	* `search` = a term to search for. There's a useful guide to using Twitter's search function at https://support.twitter.com/articles/71577-using-advanced-search
 * **Twitter options**
 	* `include_rts` = `'0'` or `'1'` - include retweets - default is `'0'`
+	* `only_rts` = `'0'` or `'1'` - only include retweets - default is `'0'`
 	* `exclude_replies` = `'0'` or `'1'` - exclude replies - default is `'0'`
 	* `tweet_count` = number of tweets to show - default is `5`
 	* `get_favorites` = `'0'` or `'1'` - show someone's favorites rather than their timeline - default is `'0'`
@@ -73,6 +60,7 @@ Possible variables for the shortcode include:
 	* `offset` = ''number'' - default is `'0'` - enables you to start on a later tweet - `'1'` starts on the 2nd tweet, `'2'` starts on the 3rd tweet, etc.
 * **Display options**
 	* `official_format` = `'1'`, `'2'` or `'custom'` - show one of the two official formats or a custom format if you have written your own `rotatingtweets_display_override()` function - default is `'0'`
+	* `rtw_display_order`=`'info,main,media,meta'` - change the order that the main elements of the tweet are shown - `info`, `main`, `media` and `meta` - via a string using the four keywords separated by commas - default is `'info,main,media,meta'`
 	* `timeout` = time that each tweet is shown in milliseconds - default is `'4000'` (i.e. 4 seconds). `timeout=0` allows for continuous scrolling.
 	* `speed` = time it takes to change from one tweet to the next in milliseconds - default is `'1000'` (i.e. 1 second)
 	* `links_in_new_window` = `'0'` or `'1'` - show links in a new tab or window - default is `'0'`
@@ -99,6 +87,9 @@ Possible variables for the shortcode include:
 	* `tweet_length` = maximum number of characters to show in tweet - default is `'0'` which allows whole tweet to be shown
 	* `no_emoji` = `'0'` or `'1'` - experimental option that removes emoji from the feed - default is `'0'`
 	* `official_format_override` = `'0'` or `'1'` - enables you to change the settings for `show_meta_reply_retweet_favorite` and `show_meta_timestamp` on the 'official formats'.
+	* `profile_image_size` = `'normal'`, `'bigger'`, `'mini'` or `'original'` - lets you change the size of profile images - default is `'normal'`
+	* `shuffle` = `'0'` or `'1'` - shuffle the order that Tweets display - default is `'0'`
+	* `merge_cache` = `'0'` or `'1'` - switches cacheing of searches on or off - default is `'1'` (i.e. on)
 
 * **Caching**
 	* `w3tc_render_to` = 'your_choice_of_random_string' - used to support 'fragment caching' by [W3 Total Cache](https://wordpress.org/plugins/w3-total-cache/).  For this to work, you also need to ensure that `W3TC_DYNAMIC_SECURITY` is defined in your `wp-config.php` file and that you not using 'HTTP Compression' on the W3 Total Cache 'Browser Cache' settings page or 'Enhanced Disk caching' on the W3 Total Cache 'Page Cache' settings page.
@@ -117,6 +108,16 @@ Most of this is my own work, but special thanks are owed to:
 * [Abraham Williams](http://abrah.am) for [TwitterOAuth](https://github.com/abraham/twitteroauth)
 * [Liam Gaddy](http://profiles.wordpress.org/lgladdy/) at [Storm Consultancy](http://www.stormconsultancy.co.uk/) for [his work](http://www.stormconsultancy.co.uk/blog/development/tools-plugins/oauth-twitter-feed-for-developers-library-and-wordpress-plugin/) on [oAuth Twitter Feed for Developers](http://wordpress.org/extend/plugins/oauth-twitter-feed-for-developers/) (although I ended up using it for inspiration rather than plugging it in directly).
 * All the people who have given advice and suggested improvements
+
+Thank you to the people who did the original translation work for the following packs:
+
+* Wilmerson Felipe for his work on Brazilian Portuguese
+* Nils Kroneberg for his work on German
+* Alberto Lario for his work on Spanish
+* [Mattia Migliorini](https://profiles.wordpress.org/deshack/) at [deshack](http://deshack.net/) for his work on Italian
+* Natasja Weijer for her work on Dutch
+* [Alexandre Trudel](http://wordpress.org/support/profile/alexandretrudel) for his help on French
+* Borisa Djuraskovic at [Web Hosting Hub](http://www.webhostinghub.com/) for his help on Serbian
 
 == Frequently Asked Questions ==
 = What options can I use for the shortcode? =
@@ -182,10 +183,35 @@ into your CSS - changing `123px;` to the width you're aiming at - either via put
 You can do this by going to the `rotatingtweets/css` directory and renaming `rotatingtweets-sample.css` to `rotatingtweets.css` and putting it in the `wp-content/uploads/` directory.  This displays a Twitter bird to the left of your tweets.  Any CSS you put into `rotatingtweets.css` won't be overwritten when the plug-in is upgraded to the latest version.
 
 == Upgrade notice ==
-= 1.7.12 =
-* Updated version 2 of JavaScript incl. bug fix
+= 1.7.18 =
+* Reinstalling translation packs.
 
 == Changelog ==
+= 1.7.18 =
+* Reinstalling translation packs.  Turns out that incomplete packs aren't loaded - which breaks some of the available translations.
+
+= 1.7.17 =
+* Move to [Wordpress-hosted translation packs](https://translate.wordpress.org/projects/wp-plugins/rotatingtweets).
+
+= 1.7.16 =
+* Fixed undefined variable error for `show_media` in `WP_DEBUG` mode
+* Fix for caching bug
+
+= 1.7.15 =
+* Fixing bug on displaying meta content
+* Enabling sorting of display elements via `rtw_display_order` shortcode
+
+= 1.7.14 =
+* Works with [Page Builder by SiteOrigin](https://wordpress.org/plugins/siteorigin-panels/).
+* Adds new shortcode variable `only_rts`
+
+= 1.7.13 =
+* Adds `profile_image_size`, `shuffle` and `merge_cache` shortcode variables
+* Lowers chance of clashes with other installations of cycle2 - by defaulting `autoSelector` to `.rotatingtweets` instead of `.cycle-slideshow`
+* Handles old versions of jQuery that don't fully support `.data()` better
+* Fixes bug with merge functionality
+* Fixes bug with admin page JavaScript (thanks to this [very helpful article on StackExchange.com](http://wordpress.stackexchange.com/questions/130084/executing-javascript-when-a-widget-is-added-in-the-backend))
+
 = 1.7.12 =
 * Updated version 2 of JavaScript - updated jQuery.cycle2 and removal of bug
 * Fixing height bug

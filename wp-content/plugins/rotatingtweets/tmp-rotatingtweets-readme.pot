@@ -1,0 +1,1206 @@
+msgid ""
+msgstr "MIME-Version: 1.0\n"
+
+#. Name.
+msgid "Rotating Tweets (Twitter widget and shortcode)"
+msgstr ""
+
+#. Short description.
+msgid "Twitter widget and shortcode to show your latest tweets one at a time an animated rotation"
+msgstr ""
+
+#. Screenshot description.
+msgid "This animation shows rotating tweets inserted into a blog-post via a short code. It is slightly faster than the default setting, but gives a sense of what you get."
+msgstr ""
+
+#. Screenshot description.
+msgid "You can add rotating tweets via a Widget:"
+msgstr ""
+
+#. Screenshot description.
+msgid "Or by using a shortcode:"
+msgstr ""
+
+#. Found in description list item.
+msgid "<strong>Replaces a <a href=\"http://codex.wordpress.org/Shortcode\">shortcode</a> such as <code>[rotatingtweets screen_name='your_twitter']</code>, or a <a href=\"http://codex.wordpress.org/WordPress_Widgets\">widget</a>, with a rotating display of your most recent tweets</strong>"
+msgstr ""
+
+#. Found in description list item.
+msgid "<strong>Supports v 1.1 of the Twitter API</strong> (<a href=\"https://blog.twitter.com/2013/api-v1-is-retired\">i.e. it still works</a>)"
+msgstr ""
+
+#. Found in description list item.
+msgid "<strong>Space efficient</strong> - instead of showing all your tweets at once, shows one at a time and then smoothly replaces it with the next one. After showing all your tweets, loops back to the beginning again."
+msgstr ""
+
+#. Found in description list item.
+msgid "<strong>Reliable</strong> - keeps showing your latest Tweets even if the Twitter website is down."
+msgstr ""
+
+#. Found in description list item.
+msgid "<strong>Customisable</strong> - you decide whose tweets to show, how many to show, whether to include retweets and replies, and whether to show a follow button. You can also decide how quickly the tweets rotate and what type of animation to use."
+msgstr ""
+
+#. Found in description list item.
+msgid "<strong>Responsive</strong> - resizes as your page resizes"
+msgstr ""
+
+#. Found in description list item.
+msgid "Gives you the option to show a fully customisable Twitter 'follow' button"
+msgstr ""
+
+#. Found in description list item.
+msgid "Replaces <a href=\"http://t.co\">t.co</a> links with the original link"
+msgstr ""
+
+#. Found in description list item.
+msgid "Caches the most recent data from Twitter to avoid problems with rate limiting"
+msgstr ""
+
+#. Found in description list item.
+msgid "Uses <a href=\"http://jquery.com/\">jQuery</a>, <a href=\"http://jquery.malsup.com/cycle/\">jQuery.Cycle</a> and <a href=\"http://jquery.malsup.com/cycle2/\">jQuery.Cycle2</a> to produce a nice smooth result."
+msgstr ""
+
+#. Found in description list item.
+msgid "Compatible with <a href=\"https://wordpress.org/plugins/w3-total-cache/\">W3 Total Cache</a>."
+msgstr ""
+
+#. Found in description list item.
+msgid "<strong>Multi-lingual</strong> - now set up to be multi-lingual. The Twitter 'follow' button is automatically translated to match your site's language setting <a href=\"https://dev.twitter.com/docs/api/1.1/get/help/languages\">if Twitter has made the appropriate language available</a>. Also uses <a href=\"http://codex.wordpress.org/I18n_for_WordPress_Developers\">Wordpress's multi-lingual capability</a> to enable translation of all the other text used by the plug-in via <a href=\"https://translate.wordpress.org/projects/wp-plugins/rotatingtweets\">language packs</a>."
+msgstr ""
+
+#. Found in description paragraph.
+msgid "If you'd like to see what the plug-in looks like in action, you can <a href=\"http://www.martintod.org.uk/2012/05/29/new-twitter-plugin-to-show-tweets-in-rotation/\">see the plug-in working here</a>."
+msgstr ""
+
+#. Found in installation header.
+msgid "Installation"
+msgstr ""
+
+#. Found in installation header.
+msgid "Set-up"
+msgstr ""
+
+#. Found in installation header.
+msgid "Shortcode variables"
+msgstr ""
+
+#. Found in installation list item.
+msgid "Upload the contents of <code>rotatingtweets.zip</code> to the <code>/wp-content/plugins/</code> directory or use the Wordpress installer"
+msgstr ""
+
+#. Found in installation list item.
+msgid "Activate the plugin through the 'Plugins' menu in WordPress"
+msgstr ""
+
+#. Found in installation list item.
+msgid "Go to the <a href=\"https://dev.twitter.com/apps\">My applications page</a> on the Twitter website to set up your website as a new Twitter 'application'. You may need to log-in using your Twitter user name and password."
+msgstr ""
+
+#. Found in installation list item.
+msgid "If you don't already have a suitable 'application' to use for your website, set one up on the <a href=\"https://dev.twitter.com/apps/new\">Create an Application page</a>. It's normally best to use the name, description and website URL of the website where you plan to use Rotating Tweets. You don't need a Callback URL."
+msgstr ""
+
+#. Found in installation list item.
+msgid "After clicking <strong>Create your Twitter application</strong>, on the following page, click on <strong>Create my access token</strong>."
+msgstr ""
+
+#. Found in installation list item.
+msgid "Copy the <strong>Consumer key</strong>, <strong>Consumer secret</strong>, <strong>Access token</strong> and <strong>Access token secret</strong> from your Twitter application page into the Rotating Tweets settings page. Hit save. If there is a problem, you will see an error message."
+msgstr ""
+
+#. Found in installation list item.
+msgid "Place a shortcode such <code>[rotatingtweets screen_name='mpntod']</code> in your post or page, or use a widget"
+msgstr ""
+
+#. Found in installation list item.
+msgid "Going to the Widgets menu on the admin page and adding the Rotating Tweets widget. Options include the name of the Twitter account to show, whether to show retweets and the speed of rotation."
+msgstr ""
+
+#. Found in installation list item.
+msgid "Using the basic Rotating Tweets shortcode, for example <code>[rotatingtweets screen_name='mpntod']</code>"
+msgstr ""
+
+#. Found in installation list item.
+msgid "Using a more complicated Rotating Tweets shortcode, for example <code>[rotatingtweets screen_name='mpntod' include_rts='1' tweet_count='7' timeout='3000']</code>"
+msgstr ""
+
+#. Found in installation list item.
+msgid "<code>screen_name</code> = one or more Twitter user names e.g. <code>[rotatingtweets screen_name=\"mpntod\"]</code> or <code>[rotatingtweets screen_name=\"mpntod twitter\"]</code>"
+msgstr ""
+
+#. Found in installation list item.
+msgid "<code>url</code> = Twitter user URL. If <code>screen_name</code> is empty and this link is valid, <code>screen_name</code> will be set to the user name included in <code>url</code>"
+msgstr ""
+
+#. Found in installation list item.
+msgid "<code>search</code> = a term to search for. There's a useful guide to using Twitter's search function at https://support.twitter.com/articles/71577-using-advanced-search"
+msgstr ""
+
+#. Found in installation list item.
+msgid "<code>include_rts</code> = <code>'0'</code> or <code>'1'</code> - include retweets - default is <code>'0'</code>"
+msgstr ""
+
+#. Found in installation list item.
+msgid "<code>only_rts</code> = <code>'0'</code> or <code>'1'</code> - only include retweets - default is <code>'0'</code>"
+msgstr ""
+
+#. Found in installation list item.
+msgid "<code>exclude_replies</code> = <code>'0'</code> or <code>'1'</code> - exclude replies - default is <code>'0'</code>"
+msgstr ""
+
+#. Found in installation list item.
+msgid "<code>tweet_count</code> = number of tweets to show - default is <code>5</code>"
+msgstr ""
+
+#. Found in installation list item.
+msgid "<code>get_favorites</code> = <code>'0'</code> or <code>'1'</code> - show someone's favorites rather than their timeline - default is <code>'0'</code>"
+msgstr ""
+
+#. Found in installation list item.
+msgid "<code>list</code> = <code>'list-slug'</code> - the 'slug' used by someone's list (something like <code>my-list</code>)"
+msgstr ""
+
+#. Found in installation list item.
+msgid "<code>offset</code> = ''number'' - default is <code>'0'</code> - enables you to start on a later tweet - <code>'1'</code> starts on the 2nd tweet, <code>'2'</code> starts on the 3rd tweet, etc."
+msgstr ""
+
+#. Found in installation list item.
+msgid "<code>official_format</code> = <code>'1'</code>, <code>'2'</code> or <code>'custom'</code> - show one of the two official formats or a custom format if you have written your own <code>rotatingtweets_display_override()</code> function - default is <code>'0'</code>"
+msgstr ""
+
+#. Found in installation list item.
+msgid "<code>rtw_display_order</code>=<code>'info,main,media,meta'</code> - change the order that the main elements of the tweet are shown - <code>info</code>, <code>main</code>, <code>media</code> and <code>meta</code> - via a string using the four keywords separated by commas - default is <code>'info,main,media,meta'</code>"
+msgstr ""
+
+#. Found in installation list item.
+msgid "<code>timeout</code> = time that each tweet is shown in milliseconds - default is <code>'4000'</code> (i.e. 4 seconds). <code>timeout=0</code> allows for continuous scrolling."
+msgstr ""
+
+#. Found in installation list item.
+msgid "<code>speed</code> = time it takes to change from one tweet to the next in milliseconds - default is <code>'1000'</code> (i.e. 1 second)"
+msgstr ""
+
+#. Found in installation list item.
+msgid "<code>links_in_new_window</code> = <code>'0'</code> or <code>'1'</code> - show links in a new tab or window - default is <code>'0'</code>"
+msgstr ""
+
+#. Found in installation list item.
+msgid "<code>carousel_horizontal</code> = <code>0</code> or <code>1</code> - if you've chosen 'carousel' as a rotation type, allow horizontal scrolling - default is <code>0</code>"
+msgstr ""
+
+#. Found in installation list item.
+msgid "<code>carousel_count</code> = ''number'' - if you've chosen 'carousel' as a rotation type, set the number of slides to appear in the carousel - default is 3 for vertical carousel and enough to fill the width of the page for horizontal carousel"
+msgstr ""
+
+#. Found in installation list item.
+msgid "<code>carousel_responsive</code> = <code>0</code> or <code>1</code> - if you've chosen a 'horizontal carousel' as a rotation type, makes the carousel responsive to the size of the page - default is <code>0</code>"
+msgstr ""
+
+#. Found in installation list item.
+msgid "<code>url_length</code> = sets the length that the URL of links should be trimmed to... - optional"
+msgstr ""
+
+#. Found in installation list item.
+msgid "<code>show_tco_link</code> = <code>'0'</code> or <code>'1'</code> allows you to show Twitter's t.co link instead of the original link - optional"
+msgstr ""
+
+#. Found in installation list item.
+msgid "<code>show_meta_timestamp</code> = <code>'0'</code> or <code>'1'</code> - show the time and date of each tweet - default is <code>'1'</code>"
+msgstr ""
+
+#. Found in installation list item.
+msgid "<code>show_meta_screen_name</code> = <code>'0'</code> or <code>'1'</code> - show who posted each tweet - default is <code>'1'</code>"
+msgstr ""
+
+#. Found in installation list item.
+msgid "<code>show_meta_via</code> = <code>'0'</code> or <code>'1'</code> - show how each tweet was posted - default is <code>'1'</code>"
+msgstr ""
+
+#. Found in installation list item.
+msgid "<code>show_meta_reply_retweet_favorite</code> = <code>'0'</code> or <code>'1'</code> - show 'reply', 'retweet' and 'favorite' buttons - default is <code>'0'</code>"
+msgstr ""
+
+#. Found in installation list item.
+msgid "<code>no_rotate</code> = <code>'0'</code> or <code>'1'</code> - switch off rotation - default is <code>'0'</code>"
+msgstr ""
+
+#. Found in installation list item.
+msgid "<code>prev</code> = content for the prev button (default <code>'prev'</code>)"
+msgstr ""
+
+#. Found in installation list item.
+msgid "<code>next</code> = content for the next button (default <code>'next'</code>)"
+msgstr ""
+
+#. Found in installation list item.
+msgid "<code>middot</code> = content for the space between the buttons (default <code>' &amp;middot; '</code>)"
+msgstr ""
+
+#. Found in installation list item.
+msgid "<code>np_pos</code> = position for 'next' and 'prev' buttons - <code>'top'</code>, <code>'bottom'</code>, <code>'insidebottom'</code>, <code>'beforeafter'</code> or <code>'tweets'</code> (default <code>'top'</code>)"
+msgstr ""
+
+#. Found in installation list item.
+msgid "<code>show_meta_pager</code> = <code>'0'</code> or <code>'1'</code> - show pager blobs below the tweets - default is <code>'0'</code>"
+msgstr ""
+
+#. Found in installation list item.
+msgid "<code>show_meta_pager_blob</code> = content for your pager blob - default is <code>'&lt;a href=\"#\"&gt;&amp;bull;&lt;/a&gt;'</code>"
+msgstr ""
+
+#. Found in installation list item.
+msgid "<code>show_media</code> = <code>'0'</code> or <code>'1'</code> - experimental option that shows images with the tweet - default is <code>'0'</code>"
+msgstr ""
+
+#. Found in installation list item.
+msgid "<code>screen_name_plural</code> = <code>'0'</code> or <code>'1'</code> - experimental option that allows you to have a plural possessive in the default display format (e.g. <em>British Lions' Twitter</em>) - default is <code>'0'</code>"
+msgstr ""
+
+#. Found in installation list item.
+msgid "<code>tweet_length</code> = maximum number of characters to show in tweet - default is <code>'0'</code> which allows whole tweet to be shown"
+msgstr ""
+
+#. Found in installation list item.
+msgid "<code>no_emoji</code> = <code>'0'</code> or <code>'1'</code> - experimental option that removes emoji from the feed - default is <code>'0'</code>"
+msgstr ""
+
+#. Found in installation list item.
+msgid "<code>official_format_override</code> = <code>'0'</code> or <code>'1'</code> - enables you to change the settings for <code>show_meta_reply_retweet_favorite</code> and <code>show_meta_timestamp</code> on the 'official formats'."
+msgstr ""
+
+#. Found in installation list item.
+msgid "<code>profile_image_size</code> = <code>'normal'</code>, <code>'bigger'</code>, <code>'mini'</code> or <code>'original'</code> - lets you change the size of profile images - default is <code>'normal'</code>"
+msgstr ""
+
+#. Found in installation list item.
+msgid "<code>shuffle</code> = <code>'0'</code> or <code>'1'</code> - shuffle the order that Tweets display - default is <code>'0'</code>"
+msgstr ""
+
+#. Found in installation list item.
+msgid "<code>merge_cache</code> = <code>'0'</code> or <code>'1'</code> - switches cacheing of searches on or off - default is <code>'1'</code> (i.e. on)"
+msgstr ""
+
+#. Found in installation list item.
+msgid "<code>w3tc_render_to</code> = 'your_choice_of_random_string' - used to support 'fragment caching' by <a href=\"https://wordpress.org/plugins/w3-total-cache/\">W3 Total Cache</a>.  For this to work, you also need to ensure that <code>W3TC_DYNAMIC_SECURITY</code> is defined in your <code>wp-config.php</code> file and that you not using 'HTTP Compression' on the W3 Total Cache 'Browser Cache' settings page or 'Enhanced Disk caching' on the W3 Total Cache 'Page Cache' settings page."
+msgstr ""
+
+#. Found in installation list item.
+msgid "<code>show_follow</code> = <code>'0'</code> or <code>'1'</code> - show follow button - default is <code>'0'</code>"
+msgstr ""
+
+#. Found in installation list item.
+msgid "<code>no_show_count</code> = <code>'0'</code> or <code>'1'</code> - remove the follower count from the Twitter follow button - default is <code>'0'</code>"
+msgstr ""
+
+#. Found in installation list item.
+msgid "<code>no_show_screen_name</code> = <code>'0'</code> or <code>'1'</code> - remove the screen name from the Twitter follow button - default is <code>'0'</code>"
+msgstr ""
+
+#. Found in installation paragraph.
+msgid "Options include:"
+msgstr ""
+
+#. Found in installation paragraph.
+msgid "Possible variables for the shortcode include:"
+msgstr ""
+
+#. Found in installation paragraph.
+msgid "<strong>Display options</strong>"
+msgstr ""
+
+#. Found in installation paragraph.
+msgid "<strong>Caching</strong>"
+msgstr ""
+
+#. Found in installation paragraph.
+msgid "<strong>Twitter follow button</strong>"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Reinstalling translation packs.  Turns out that incomplete packs aren't loaded - which breaks some of the available translations."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Move to <a href=\"https://translate.wordpress.org/projects/wp-plugins/rotatingtweets\">Wordpress-hosted translation packs</a>."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Fixed undefined variable error for <code>show_media</code> in <code>WP_DEBUG</code> mode"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Fix for caching bug"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Fixing bug on displaying meta content"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enabling sorting of display elements via <code>rtw_display_order</code> shortcode"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Works with <a href=\"https://wordpress.org/plugins/siteorigin-panels/\">Page Builder by SiteOrigin</a>."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Adds new shortcode variable <code>only_rts</code>"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Adds <code>profile_image_size</code>, <code>shuffle</code> and <code>merge_cache</code> shortcode variables"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Lowers chance of clashes with other installations of cycle2 - by defaulting <code>autoSelector</code> to <code>.rotatingtweets</code> instead of <code>.cycle-slideshow</code>"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Handles old versions of jQuery that don't fully support <code>.data()</code> better"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Fixes bug with merge functionality"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Fixes bug with admin page JavaScript (thanks to this <a href=\"http://wordpress.stackexchange.com/questions/130084/executing-javascript-when-a-widget-is-added-in-the-backend\">very helpful article on StackExchange.com</a>)"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Updated version 2 of JavaScript - updated jQuery.cycle2 and removal of bug"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Fixing height bug"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Fixing Carousel defaults"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Updating <code>.pot</code> file"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Completion of Spanish translation - many thanks to Alberto Lario for his help on this"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Fixing tweet height JavaScript bug"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "CSS tidying for TwentyFifteen template"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Experimental function combining historical and current tweets"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Move to using HTML5 custom data attributes and <code>data()</code> functions to transfer variable values to version 1 of JavaScript - including 'speed' variable"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Addition of 'pager' via <code>show_meta_pager</code> and <code>show_meta_pager_blob</code> variables"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Addition of <code>rtw_hashtag_link</code> class to hashtag links"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "<code>timeout=0</code> now allows continuous scrolling"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Updating object code for the widget"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Fixing Tweet timezone display problem "
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Restoring Tweet time display by default for 'Official Twitter Guidelines (wide)'"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Extra CSS added to enable people to hide links (should they want to)"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Option to switch off JavaScript (for advanced users only)"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Solves bug when Base64 tries to decode an array"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Better handling transients on transition from old version to new"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Addition of Italian language"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Fixes transient-based caching - many thanks to to <a href=\"https://wordpress.org/support/profile/jensnilsson\">jensnilsson</a> and <a href=\"https://wordpress.org/support/profile/moondrop\">Moondrop</a> for highlighting the solution <a href=\"https://wordpress.org/support/topic/no-tweets-available-mostly?replies=30\">here</a>."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Much faster and more reliable caching. "
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Compatibility with W3 Total Cache."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "New <code>scrollLeftGap</code> transition "
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Ability to put 'prev' and 'next' buttons before and after the main rotating tweets"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Ensures all images use <code>https://</code> link for compatibility with SSL-secured sites"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Adds <code>show_tco_link</code> shortcode variable to allow people to show t.co.links."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Support for Newswire template"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Restores the caching of Tweet co-ordinates"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Switches off JavaScript expansion of 'expand' to 'reply retweet favorite' for carousel rotation. "
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Adds new <code>insidebottom</code> option for <code>np_pos</code> shortcode variable"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Improved CSS support for horizontal carousel scrolling"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Adding <code>offset</code>, <code>speed</code>, <code>tweet_length</code>, <code>no_emoji</code> and <code>show_media</code> options to the shortcode"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Solves clash with <a href=\"http://wordpress.org/plugins/cyclone-slider-2/\">Cyclone Slider 2</a>"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Adds script version details to the JavaScript"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Removal of excess spaces from <code>middot</code> shortcode option"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Adds option for 'custom' display layoot  with user-defined display function <code>rotatingtweets_display_override()</code>"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Fixing cache bug with 'user_mentions'"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "New code to shrink size of cache by about 70%"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug fix."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Shrinking cache size to reduce memory problems."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Improved diagnostics."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Clarified instructions."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Fix next/prev buttons for v. 2 of Javascript."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Add next/prev <code>np_pos='tweets'</code> option to documentation.  "
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Fix bug on admin page when <code>WP_DEBUG</code> is set."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Corrected the 16x16 icon to the latest Twitter logo."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Language update including new Serbian translation. Solved an unusual styling problem."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Bug fix when user name not recognised."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Add option to shorten default link length to 20 characters"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Language update including new German translation from Nils Kroneberg"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Updated Brazilian Portuguese translation from Wilmerson Felipe"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Fixing bug for PHP installations that don't support the 'u' modifier"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Renaming v2 JavaScript to avoid clash with other plug-ins."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Extra diagnostics put in to solve regular expression problem"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Move to a more unique class name to avoid clashes with another template."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "New support for reading from multiple accounts"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Improved clean-up on uninstallation or deactivation"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Addition of settings page option for timeout of connection to Twitter"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Addition of settings page option for placement of JavaScript at the bottom of the page"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Addition of settings page option for duration of cache"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Fixed problem with hashtags and accents"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Improved error messages for connection problems"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Tidying up settings page text"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enforce rules on replies and retweets even if the Twitter API doesn't"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Fixed problem with <a href=\"http://wordpress.org/themes/magazino\">Magazino template</a>"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Fixed incorrect message on settings page"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Added <code>Carousel</code> rotation option and beta support for <a href=\"http://jquery.malsup.com/cycle2/\">version 2 of JQuery Cycle</a>"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Added <code>link_all_text</code> shortcode tag and functionality"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Added richer debug information"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Corrected API expiry date"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Added missing <code>alt</code> tag"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Kept CSS permanently in the header to maintain HTML capability"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Public facing Dutch translation complete - many thanks to Natasja Weijer for her help on this"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Attempt to fix clash with <a href=\"http://themeforest.net/item/avada-responsive-multipurpose-theme/2833226\">Avada</a> and <a href=\"http://www.elegantthemes.com/gallery/gleam/\">Gleam</a> themes"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "HTML5 compliance"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Improved rate-limiting"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Addition of Brazilian Portuguese translation"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Addition of new display format 6"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Deletes old cache entries if unused for more than 30 days"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Fixes a jQuery cycle clash with the <a href=\"http://wordpress.org/extend/themes/oxygen/\">Oxygen theme</a>."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Added <code>readme.txt</code> instructions for dealing with the WordPress error code: <code>http_request_failed - name lookup timed out</code>."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Adds an option to switch off verification of SSL connections to Twitter"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Adds a short code option (<code>no_rotate</code>) to switch off rotation"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Removes two lines of CSS causing formatting problems"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Improves responsiveness going from narrow to wider layouts"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Corrected minor error with resizing of <code>.rtw_meta</code> div"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Now works with responsive formats"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Adjusted width overflow issues"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Added <a href=\"http://wordpress.org/extend/plugins/rotatingtweets/faq/\">instructions on how to deal with width issues</a>"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Support for search, favorites and lists via Rotating Tweets widgets."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Improved and clearer error messages. "
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Removed search bug. "
+msgstr ""
+
+#. Found in changelog list item.
+msgid "'Next' and 'Prev' buttons for shortcodes. "
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Adds the opportunity to show lists. "
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Tackles a very odd box height problem that has just appeared in Chrome (but not Firefox or IE)."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Making sure hashtags have a space or the start of a line before them. "
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Tidying up errors found when running plug-in with <code>wp_debug</code> set to <code>true</code>"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Minor correction to hashtag code"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Fixes accents in hashtags (hopefully). "
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Adds beta of search to the shortcode API. "
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Adds new format of Tweet display."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Strips <code>@</code> from screen names to avoid API problems."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Removes accents from screen names (and otherwise cleans them up). "
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Add test option (currently for shortcodes only) to access favorites. "
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Solves clash between PECL OAuth library and the Rotating Tweets OAuth library."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Supports cyrillic hashtags!"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Fixed hashtag links"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Moved to <a href=\"http://semver.org/\">Semantic Versioning</a>"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Fixed bug with <code>console.log</code> javascript on IE."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Fixed up a significant problem with cacheing."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Tidying up error reporting."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Fixes major bug resulting from upgrade to handle Twitter API v 1.1"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Change to JavaScript to improve width handling for tweets."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Minor code tidying to improve debugging and increase speed!"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Adjustment to javascript and CSS to cope with long links or long words"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Very minor mistake in rendering code"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Important upgrade needed for Rotating Tweets to keep working after March 2013. Supports version 1.1 of the Twitter API."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Enabled users to make all links open in a new tab or window"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Fixed a problem where a short name fitted inside a long one - e.g. @rotary and @rotarycrocus"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Escaped title tags"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Fixed timezone problem."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Added option to show links in a new window"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Fix problem with selection of 20 second rotating speed."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Fixed instructions in plug-ins list."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Fixed error message caused by last fix causing tweets to repeat."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Finally ran with debug and removed all the error messages."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Starts to add options to allow for different length URLs"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Fixes bug with Javascript"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Fixes problem with stylesheet"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Minimised Javascript. "
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Set-up for I18n."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Javascript fix for zero height tweets problem"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Adds options for how tweet information is displayed and how the tweet rotates."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Solves <code>Cannot use string offset as an array</code> error on line 232"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Lets you customise the Twitter 'follow' button. "
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Fixes problem with media links. "
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Sorts problem of overlong links reshaping widgets."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "More detailed error messages for Wordpress installations unable to access Twitter."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Fixes problem on the zeeBizzCard template and sets up fix for other templates that use their own install of the <code>jquery-cycle</code> javascript."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Making sure that cache never gets overwritten unless new, valid twitter data has been downloaded."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Dealing with the problem that someone in a long conversation may not get enough valid tweets to show by asking for only 20 tweets from Twitter."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Properly handles rate-limiting by Twitter"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Removes follow button if Twitter has returned an empty value"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Improved error checking if Twitter has returned an empty value"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Fixed major bug causing crashes when Twitter goes down"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Added ability to alter speed of rotation"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Fixes bug - problem with <code>get_object_vars()</code> on line 193"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Better handling of retweets. No longer cuts off the end of the text on longer RTs."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Properly fixes flaw in how flags are handled."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Fixed flaw in how flags are handled."
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Stops display and cacheing of non-existent twitter feeds"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Stops display and cacheing of faulty twitter feeds"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Replaced a missing <code>&lt;/div&gt;</code> in the follow-button code (with thanks to <a href=\"http://wordpress.org/support/profile/jacobp\">jacobp</a> for spotting it and suggesting a fix)"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "Fixed a problem with cacheing"
+msgstr ""
+
+#. Found in changelog list item.
+msgid "First published version"
+msgstr ""
+
+#. Found in faq header.
+msgid "What options can I use for the shortcode?"
+msgstr ""
+
+#. Found in faq header.
+msgid "How can I include Rotating Tweets in my template?"
+msgstr ""
+
+#. Found in faq header.
+msgid "How can I pull information from two accounts into one widget"
+msgstr ""
+
+#. Found in faq header.
+msgid "How often does the plug-in call Twitter"
+msgstr ""
+
+#. Found in faq header.
+msgid "My Rotating Tweets are not updating. What can I do?"
+msgstr ""
+
+#. Found in faq header.
+msgid "The Rotating Tweets are not rotating. What can I do?"
+msgstr ""
+
+#. Found in faq header.
+msgid "What can I do if I get the WordPress error code: `http_request_failed - name lookup timed out`?"
+msgstr ""
+
+#. Found in faq header.
+msgid "My widget is too wide!"
+msgstr ""
+
+#. Found in faq header.
+msgid "How can I add a Twitter bird to the left of my tweets?"
+msgstr ""
+
+#. Found in faq list item.
+msgid "Open the page."
+msgstr ""
+
+#. Found in faq list item.
+msgid "Right click and select 'View Page Source' or 'View Source'"
+msgstr ""
+
+#. Found in faq list item.
+msgid "Hit <code>[CTRL]+F</code> and search for <code>jquery</code>"
+msgstr ""
+
+#. Found in faq list item.
+msgid "Look out for lines that contain <code>jquery.min.js</code> or <code>jquery.cycle.all.min.js</code>.  Neither script should appear more than once."
+msgstr ""
+
+#. Found in faq list item.
+msgid "Check is that you have upgraded your template or your plug-in to the latest version."
+msgstr ""
+
+#. Found in faq list item.
+msgid "If this still doesn't work, please let me know which plug-in or template is causing the problem and I'll see if I can build a fix into the next version of Rotating Tweets."
+msgstr ""
+
+#. Found in faq list item.
+msgid "Press <code>[F12]</code> (in Chrome or IE) or <code>[CTRL]+[SHIFT]+K</code> (in Firefox)"
+msgstr ""
+
+#. Found in faq list item.
+msgid "Load the page where you have a problem"
+msgstr ""
+
+#. Found in faq list item.
+msgid "In Chrome or IE, select the tab marked 'console'."
+msgstr ""
+
+#. Found in faq list item.
+msgid "Read the diagnostics and look for any problems that relate to JavaScript. This will normally tell you which JavaScript (if any) is having problems."
+msgstr ""
+
+#. Found in faq paragraph.
+msgid "All the options are listed on the <a href=\"http://wordpress.org/extend/plugins/rotatingtweets/installation/\">Rotating Tweets installation page</a>."
+msgstr ""
+
+#. Found in faq paragraph.
+msgid "Try something like:"
+msgstr ""
+
+#. Found in faq paragraph.
+msgid "A common mistake with <code>do_shortcode</code> shortcodes is to use single-quotes or double-quotes all the way through without 'escaping' them.  This will normally break your site! It's best to use double-quotes to enclose the shortcode string and single-quotes inside the shortcode string (or vice-versa!)."
+msgstr ""
+
+#. Found in faq paragraph.
+msgid "The easiest way is to list more than one account in the 'Twitter name' box in the widget or use something like <code>screen_name='account1 account2'</code> in the shortcode."
+msgstr ""
+
+#. Found in faq paragraph.
+msgid "In most cases, each use (or \"instance\") of this plug-in gets data from Twitter every 2 minutes. The exception is when two or more instances share the same settings (screen name etc.), in which case they share the same data rather than each calling it separately."
+msgstr ""
+
+#. Found in faq paragraph.
+msgid "This normally happens if there is an SSL problem. Try going to the settings page and switching off SSL validation."
+msgstr ""
+
+#. Found in faq paragraph.
+msgid "If this doesn't solve the problem, check your Twitter API key settings."
+msgstr ""
+
+#. Found in faq paragraph.
+msgid "If neither of these approaches work, Rotating Tweets will normally be reporting the error as a comment in the HTML of your page. This should give you an idea of how to solve the problem."
+msgstr ""
+
+#. Found in faq paragraph.
+msgid "This normally happens if there is more than one copy of <code>jQuery</code> installed on a page - or more than one copy of <code>jQuery.cycle</code>."
+msgstr ""
+
+#. Found in faq paragraph.
+msgid "To see if this is the case, search the HTML on your website to see if either script is called more than once.  To do this:"
+msgstr ""
+
+#. Found in faq paragraph.
+msgid "The problem is that the second (or third) copy of the script overwrites all previous versions and the scripts that go with them.  This is particularly likely to happen with old templates or plug-ins."
+msgstr ""
+
+#. Found in faq paragraph.
+msgid "If this is the case:"
+msgstr ""
+
+#. Found in faq paragraph.
+msgid "If there is only one copy of <code>jquery</code> and of <code>jquery.cycle</code> on your page, the best way to look for the problem is to open the 'console'. To do this:"
+msgstr ""
+
+#. Found in faq paragraph.
+msgid "Try installing the <a href=\"http://wordpress.org/extend/plugins/core-control/\">Core Control plug-in</a> and disabling cURL. You can read more about the problem via <a href=\"http://wordpress.org/support/topic/wp-351-wordpress-error-code-http_request_failed-name-lookup-timed-out\">this support page</a>."
+msgstr ""
+
+#. Found in faq paragraph.
+msgid "Thank you to <a href=\"http://wordpress.org/support/profile/darkiko\">darkiko</a> for sharing their solution to this problem."
+msgstr ""
+
+#. Found in faq paragraph.
+msgid "Try putting:"
+msgstr ""
+
+#. Found in faq paragraph.
+msgid "into your CSS - changing <code>123px;</code> to the width you're aiming at - either via putting <code>rotatingtweets.css</code> into <code>wp-content/uploads</code> or by editing your own template files."
+msgstr ""
+
+#. Found in faq paragraph.
+msgid "You can do this by going to the <code>rotatingtweets/css</code> directory and renaming <code>rotatingtweets-sample.css</code> to <code>rotatingtweets.css</code> and putting it in the <code>wp-content/uploads/</code> directory.  This displays a Twitter bird to the left of your tweets.  Any CSS you put into <code>rotatingtweets.css</code> won't be overwritten when the plug-in is upgraded to the latest version."
+msgstr ""
+
+#. Found in remaining content header.
+msgid "Credits"
+msgstr ""
+
+#. Found in remaining content list item.
+msgid "The <a href=\"http://jquery.com/\">jQuery</a> team"
+msgstr ""
+
+#. Found in remaining content list item.
+msgid "<a href=\"http://jquery.malsup.com/cycle/\">Mike Alsup</a> for <a href=\"http://jquery.malsup.com/cycle/\">jQuery.Cycle</a> and <a href=\"http://jquery.malsup.com/cycle2/\">jQuery.Cycle2</a>"
+msgstr ""
+
+#. Found in remaining content list item.
+msgid "<a href=\"http://sydlawrence.com/\">Syd Lawrence</a> for introducing me to jQuery and jQuery.Cycle"
+msgstr ""
+
+#. Found in remaining content list item.
+msgid "<a href=\"http://abrah.am\">Abraham Williams</a> for <a href=\"https://github.com/abraham/twitteroauth\">TwitterOAuth</a>"
+msgstr ""
+
+#. Found in remaining content list item.
+msgid "<a href=\"http://profiles.wordpress.org/lgladdy/\">Liam Gaddy</a> at <a href=\"http://www.stormconsultancy.co.uk/\">Storm Consultancy</a> for <a href=\"http://www.stormconsultancy.co.uk/blog/development/tools-plugins/oauth-twitter-feed-for-developers-library-and-wordpress-plugin/\">his work</a> on <a href=\"http://wordpress.org/extend/plugins/oauth-twitter-feed-for-developers/\">oAuth Twitter Feed for Developers</a> (although I ended up using it for inspiration rather than plugging it in directly)."
+msgstr ""
+
+#. Found in remaining content list item.
+msgid "All the people who have given advice and suggested improvements"
+msgstr ""
+
+#. Found in remaining content list item.
+msgid "Wilmerson Felipe for his work on Brazilian Portuguese"
+msgstr ""
+
+#. Found in remaining content list item.
+msgid "Nils Kroneberg for his work on German"
+msgstr ""
+
+#. Found in remaining content list item.
+msgid "Alberto Lario for his work on Spanish"
+msgstr ""
+
+#. Found in remaining content list item.
+msgid "<a href=\"https://profiles.wordpress.org/deshack/\">Mattia Migliorini</a> at <a href=\"http://deshack.net/\">deshack</a> for his work on Italian"
+msgstr ""
+
+#. Found in remaining content list item.
+msgid "Natasja Weijer for her work on Dutch"
+msgstr ""
+
+#. Found in remaining content list item.
+msgid "<a href=\"http://wordpress.org/support/profile/alexandretrudel\">Alexandre Trudel</a> for his help on French"
+msgstr ""
+
+#. Found in remaining content list item.
+msgid "Borisa Djuraskovic at <a href=\"http://www.webhostinghub.com/\">Web Hosting Hub</a> for his help on Serbian"
+msgstr ""
+
+#. Found in remaining content paragraph.
+msgid "Most of this is my own work, but special thanks are owed to:"
+msgstr ""
+
+#. Found in remaining content paragraph.
+msgid "Thank you to the people who did the original translation work for the following packs:"
+msgstr ""

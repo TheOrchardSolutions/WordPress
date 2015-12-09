@@ -116,7 +116,7 @@ class NextendCache{
     function createHash(){
         $hash = NextendUri::getBaseUri();
         for($i = 0; $i < count($this->_files); $i++){
-            $hash.=$this->_files[$i].filemtime($this->_files[$i]);
+            if ($this->_files[$i] != null) $hash.=$this->_files[$i].filemtime($this->_files[$i]);
         }
         return md5($this->parseHash($hash).$this->_text);
     }

@@ -14,11 +14,17 @@ if ( ! class_exists( 'TC_plugins_compat' ) ) :
   class TC_plugins_compat {
     //Access any method or var of the class with classname::$instance -> var or method():
     static $instance;
+    //credits @Srdjan
+    public $default_language, $current_language;
+
     function __construct () {
+
       self::$instance =& $this;
       //add various plugins compatibilty (Jetpack, Bbpress, Qtranslate, Woocommerce, The Event Calendar ...)
-      add_action ('after_setup_theme'                      , array( $this , 'tc_set_plugins_supported'), 20 );
-      add_action ('after_setup_theme'                      , array( $this , 'tc_plugins_compatibility'), 30 );
+      add_action ('after_setup_theme'          , array( $this , 'tc_set_plugins_supported'), 20 );
+      add_action ('after_setup_theme'          , array( $this , 'tc_plugins_compatibility'), 30 );
+      // remove qtranslateX theme options filter
+      remove_filter('option_tc_theme_options', 'qtranxf_translate_option', 5);
     }//end of constructor
 
 
@@ -38,11 +44,12 @@ if ( ! class_exists( 'TC_plugins_compat' ) ) :
       add_theme_support( 'buddy-press' );
       add_theme_support( 'qtranslate-x' );
       add_theme_support( 'polylang' );
+      add_theme_support( 'wpml' );
       add_theme_support( 'woocommerce' );
       add_theme_support( 'the-events-calendar' );
-      add_theme_support( 'nextgen-gallery' );
       add_theme_support( 'optimize-press' );
       add_theme_support( 'sensei' );
+      add_theme_support( 'visual-composer' );//or js-composer as they call it
     }
 
 
@@ -84,6 +91,16 @@ if ( ! class_exists( 'TC_plugins_compat' ) ) :
       if ( current_theme_supports( 'polylang' ) && $this -> tc_is_plugin_active('polylang/polylang.php') )
         $this -> tc_set_polylang_compat();
 
+      /*
+      * WPML
+      */
+      if ( current_theme_supports( 'wpml' ) && $this -> tc_is_plugin_active('sitepress-multilingual-cms/sitepress.php') )
+        $this -> tc_set_wpml_compat();
+
+      /* The Events Calendar */
+      if ( current_theme_supports( 'the-events-calendar' ) && $this -> tc_is_plugin_active('the-events-calendar/the-events-calendar.php') )
+        $this -> tc_set_the_events_calendar_compat();
+
       /* Optimize Press */
       if ( current_theme_supports( 'optimize-press' ) && $this -> tc_is_plugin_active('optimizePressPlugin/optimizepress.php') )
         $this -> tc_set_optimizepress_compat();
@@ -92,13 +109,13 @@ if ( ! class_exists( 'TC_plugins_compat' ) ) :
       if ( current_theme_supports( 'woocommerce' ) && $this -> tc_is_plugin_active('woocommerce/woocommerce.php') )
         $this -> tc_set_woocomerce_compat();
 
-      /* Nextgen gallery */
-      if ( current_theme_supports( 'nextgen-gallery') && $this -> tc_is_plugin_active('nextgen-gallery/nggallery.php') )
-        $this -> tc_set_nggallery_compat();
-
       /* Sensei woocommerce addon */
       if ( current_theme_supports( 'sensei') && $this -> tc_is_plugin_active('woothemes-sensei/woothemes-sensei.php') )
         $this -> tc_set_sensei_compat();
+
+      /* Visual Composer */
+      if ( current_theme_supports( 'visual-composer') && $this -> tc_is_plugin_active('js_composer/js_composer.php') )
+        $this -> tc_set_vc_compat();
     }//end of plugin compatibility function
 
 
@@ -110,6 +127,12 @@ if ( ! class_exists( 'TC_plugins_compat' ) ) :
     * @since Customizr 3.3+
     */
     private function tc_set_bbpress_compat() {
+      // hide tax archive title
+      add_filter( 'tc_show_tax_archive_title', 'tc_bbpress_disable_tax_archive_title');
+      function tc_bbpress_disable_tax_archive_title( $bool ){
+        return ( function_exists('is_bbpress') && is_bbpress() ) ? false : $bool;
+      }
+
       //disables thumbnails and excerpt for post lists
       add_filter( 'tc_show_post_list_thumb', 'tc_bbpress_disable_thumbnail' );
       function tc_bbpress_disable_thumbnail($bool) {
@@ -177,23 +200,23 @@ if ( ! class_exists( 'TC_plugins_compat' ) ) :
       function tc_change_transport( $value , $set ) {
         return ('transport' == $set) ? 'refresh' : $value;
       }
+
       //outputs correct urls for current language : in logo, slider
-      add_filter( 'tc_slide_link_url' , 'tc_url_lang' );
-      add_filter( 'tc_logo_link_url' , 'tc_url_lang');
+      foreach ( array( 'tc_slide_link_url', 'tc_logo_link_url') as $filter )
+        add_filter( $filter, 'tc_url_lang' );
+
       //outputs the qtranslate translation for slider
-      add_filter( 'tc_slide_title', 'tc_apply_qtranslate' );
-      add_filter( 'tc_slide_text', 'tc_apply_qtranslate' );
-      add_filter( 'tc_slide_button_text', 'tc_apply_qtranslate' );
-      add_filter( 'tc_slide_background_alt', 'tc_apply_qtranslate' );
+      foreach ( array( 'tc_slide_title', 'tc_slide_text', 'tc_slide_button_text', 'tc_slide_background_alt' ) as $filter )
+        add_filter( $filter, 'tc_apply_qtranslate' );
+      //sets no character limit for slider (title, lead text and button title) => allow users to use qtranslate tags for as many languages they wants ([:en]English text[:de]German text...and so on)
+      foreach ( array( 'tc_slide_title_length', 'tc_slide_text_length', 'tc_slide_button_length' ) as $filter )
+        add_filter( $filter  , 'tc_remove_char_limit');
 
       //outputs the qtranslate translation for archive titles;
       $tc_archive_titles = array( 'tag_archive', 'category_archive', 'author_archive', 'search_results');
       foreach ( $tc_archive_titles as $title )
         add_filter("tc_{$title}_title", 'tc_apply_qtranslate' , 20);
-      //sets no character limit for slider (title, lead text and button title) => allow users to use qtranslate tags for as many languages they wants ([:en]English text[:de]German text...and so on)
-      add_filter( 'tc_slide_title_length'  , 'tc_remove_char_limit');
-      add_filter( 'tc_slide_text_length'   , 'tc_remove_char_limit');
-      add_filter( 'tc_slide_button_length' , 'tc_remove_char_limit');
+
       // QtranslateX for FP when no FPC or FPU running
       if ( ! class_exists('TC_fpu') && ! class_exists('TC_fpc') ) {
         //outputs correct urls for current language : fp
@@ -202,20 +225,43 @@ if ( ! class_exists( 'TC_plugins_compat' ) ) :
         add_filter( 'tc_fp_text', 'tc_apply_qtranslate' );
         add_filter( 'tc_fp_button_text', 'tc_apply_qtranslate' );
 
-        //sets no character limit for featured pages (text) => allow users to use qtranslate tags for as many languages they wants ([:en]English text[:de]German text...and so on)
-        add_filter( 'tc_fp_text_length' , 'tc_remove_char_limit');
-        //modify the page excerpt=> uses the wp page excerpt instead of the generated excerpt with the_content
-        add_filter( 'tc_fp_text', 'tc_use_page_excerpt', 20, 3 );
-        function tc_use_page_excerpt( $featured_text , $fp_id , $page_id ) {
-          $page = get_post($page_id);
-          return ( empty($featured_text) && !post_password_required($page_id) ) ? strip_tags(apply_filters( 'the_content' , $page->post_excerpt )) : $featured_text ;
-        }
         /* The following is pretty useless at the momment since we should inhibit preview js code */
         //modify the customizer transport from post message to null for some options
         add_filter( 'tc_featured_page_button_text_customizer_set' , 'tc_change_transport', 20, 2);
         add_filter( 'tc_featured_text_one_customizer_set' , 'tc_change_transport', 20, 2);
         add_filter( 'tc_featured_text_two_customizer_set' , 'tc_change_transport', 20, 2);
-        add_filter( 'tc_featured_text_three_customizer_set' , 'tc_change_transport', 20, 2);
+        add_filter( 'tc_featured_text_three_customizer_set', 'tc_change_transport', 20, 2);
+      }
+
+      //posts slider (this filter is not fired in admin )
+      add_filter('tc_posts_slider_pre_model', 'tc_posts_slider_qtranslate');
+      function tc_posts_slider_qtranslate( $pre_slides ){
+        if ( empty($pre_slides) )
+          return $pre_slides;
+
+        // remove useles q-translation of the slider view
+        foreach ( array( 'tc_slide_title', 'tc_slide_text', 'tc_slide_button_text', 'tc_slide_background_alt' ) as $filter )
+          remove_filter( $filter, 'tc_apply_qtranslate' );
+
+        // allow q-translation pre trim/sanitize
+        foreach ( array( 'tc_posts_slider_button_text_pre_trim', 'tc_post_title_pre_trim', 'tc_post_excerpt_pre_sanitize', 'tc_posts_slide_background' ) as $filter )
+          add_filter( $filter, 'tc_apply_qtranslate' );
+
+        //translate button text
+        $pre_slides['common']['button_text'] = $pre_slides['common']['button_text'] ? TC_slider::$instance -> tc_get_post_slide_button_text( $pre_slides['common']['button_text'] ) : '';
+
+        //translate title and excerpt if needed
+        $_posts = &$pre_slides['posts'];
+
+        foreach ($_posts as &$_post) {
+          $ID = $_post['ID'];
+          $_p = get_post( $ID );
+          if ( ! $_p ) continue;
+
+          $_post['title'] = $_post['title'] ? TC_slider::$instance -> tc_get_post_slide_title($_p, $ID) : '';
+          $_post['text']  = $_post['text'] ? TC_slider::$instance -> tc_get_post_slide_excerpt($_p, $ID) : '';
+        }
+        return $pre_slides;
       }
     }
 
@@ -227,89 +273,460 @@ if ( ! class_exists( 'TC_plugins_compat' ) ) :
     * @since Customizr 3.3+
     */
     private function tc_set_polylang_compat() {
+      // Disable posts slider transient caching
+      add_filter('tc_posts_slider_use_transient', '__return_false');
+
       // If Polylang is active, hook function on the admin pages
       if ( function_exists( 'pll_register_string' ) )
         add_action( 'admin_init', 'tc_pll_strings_setup' );
-      function tc_pll_strings_setup() {
 
+      function tc_pll_strings_setup() {
         // grab theme options
-        $pll_tc_options = tc__f('__options');
+        $tc_options = tc__f('__options');
         // grab settings map, useful for some options labels
-        $tc_settings_map = TC_utils_settings_map::$instance -> tc_customizer_map( $get_default = true );
+        $tc_settings_map = TC_utils_settings_map::$instance -> tc_get_customizer_map( $get_default = true );
         $tc_controls_map = $tc_settings_map['add_setting_control'];
         // set $polylang_group;
         $polylang_group = 'customizr-pro' == TC___::$theme_name ? 'Customizr-Pro' : 'Customizr';
 
-        // Add front page slider name to Polylang's string translation panel
-        if ( isset( $pll_tc_options['tc_front_slider'] ) )
-          pll_register_string( 'Front page slider name', esc_attr($pll_tc_options['tc_front_slider']), $polylang_group );
-        // Add archive title strings to Polylang's string translation panel
-        $archive_titles_settings =  array( 'tc_tag_title', 'tc_cat_title', 'tc_author_title', 'tc_search_title');
-        foreach ( $archive_titles_settings as $archive_title_setting_name )
-          if ( isset( $pll_tc_options[$archive_title_setting_name] ) )
-            pll_register_string( $tc_controls_map["tc_theme_options[$archive_title_setting_name]"]["label"], esc_attr($pll_tc_options[$archive_title_setting_name]), $polylang_group );
-        // Featured Pages
-        if ( ! class_exists('TC_fpu') && ! class_exists('TC_fpc') ) {
-          $pll_tc_fp_areas = TC_init::$instance -> fp_ids;
-          // Add featured pages button text to Polylang's string translation panel
-          if ( isset( $pll_tc_options[ 'tc_featured_page_button_text'] ) )
-            pll_register_string( $tc_controls_map["tc_theme_options[tc_featured_page_button_text]"]["label"], esc_attr($pll_tc_options[ 'tc_featured_page_button_text']), $polylang_group );
+        //get options to translate
+        $tc_translatable_raw_options = TC_plugins_compat::$instance -> tc_get_string_options_to_translate();
+        $tc_pll_options              = array();
 
-          // Add featured pages excerpt text to Polylang's string translation panel
-          foreach ( $pll_tc_fp_areas as $area )
-            if ( isset( $pll_tc_options["tc_featured_text_$area"] ) )
-              pll_register_string( $tc_controls_map["tc_theme_options[tc_featured_text_$area]"]["label"], esc_attr($pll_tc_options['tc_featured_text_'.$area]), $polylang_group );
+        //build array if option => array( label (gettext-ed), option )
+        foreach ( $tc_translatable_raw_options as $tc_translatable_option )
+          if ( isset( $tc_options[$tc_translatable_option] ) ) {
+            switch ( $tc_translatable_option ) {
+              case 'tc_front_slider'             : $label = __( 'Front page slider name', 'customizr' );
+                                                   break;
+              case 'tc_posts_slider_button_text' : $label = __( 'Posts slider button text', 'customizr' );
+                                                   break;
+              default:                             $label = $tc_controls_map[$tc_translatable_option]['label'];
+                                                   break;
+            }//endswitch
+            $tc_pll_options[$tc_translatable_option]= array(
+                'label'  => $label,
+                'value'  => $tc_options[$tc_translatable_option]
+            );
+          }
 
-        } //end Featured Pages
+        //register the strings to translate
+        foreach ( $tc_pll_options as $tc_pll_option )
+          pll_register_string( $tc_pll_option['label'], $tc_pll_option['value'], $polylang_group);
       }// end tc_pll_strings_setup function
 
       // Front
       // If Polylang is active, translate/swap featured page buttons/text/link and slider
       if ( function_exists( 'pll_get_post' ) && function_exists( 'pll__' ) && ! is_admin() ) {
-        // Substitute any registered slider name
-        add_filter( 'tc_slider_name_id', 'pll__' );
-        // Substitue archive titles
-        $pll_tc_archive_titles = array( 'tag_archive', 'category_archive', 'author_archive', 'search_results');
+        //strings translation
+        //get the options to translate
+        $tc_translatable_options = TC_plugins_compat::$instance -> tc_get_string_options_to_translate();
+        //translate
+        foreach ( $tc_translatable_options as $tc_translatable_option )
+          add_filter("tc_opt_$tc_translatable_option", 'pll__');
 
-        foreach ( $pll_tc_archive_titles as $title )
-          add_filter("tc_{$title}_title", 'pll__' , 20);
-        // Featured Pages
-        if ( ! class_exists('TC_fpu') && ! class_exists('TC_fpc') ) {
-          // Substitute any page id with the equivalent page in current language (if found)
-          add_filter( 'tc_fp_id', 'pll_tc_page_id' );
-          function pll_tc_page_id( $fp_page_id ) {
-            return is_int( pll_get_post( $fp_page_id ) ) ? pll_get_post( $fp_page_id ) : $fp_page_id;
+        /**
+        * Tax filtering (home/blog posts filtered by cat)
+        * @param array of term ids
+        */
+        function tc_pll_translate_tax( $term_ids ){
+          if ( ! ( is_array( $term_ids ) && ! empty( $term_ids ) ) )
+            return $term_ids;
+
+          $translated_terms = array();
+          foreach ( $term_ids as $id ){
+              $translated_term = pll_get_term( $id );
+              $translated_terms[] = $translated_term ? $translated_term : $id;
+          }
+          return array_unique( $translated_terms );
+        }
+
+        //Translate category ids for the filtered posts in home/blog
+        add_filter('tc_opt_tc_blog_restrict_by_cat', 'tc_pll_translate_tax');
+        /*end tax filtering*/
+
+        /* Slider of posts */
+        if ( function_exists( 'pll_current_language') ) {
+        // Filter the posts query for the current language
+          add_filter( 'tc_query_posts_slider_join'      , 'pll_posts_slider_join' );
+          add_filter( 'tc_query_posts_slider_join_where', 'pll_posts_slider_join' );
+        }
+        function pll_posts_slider_join( $join ) {
+          global $wpdb;
+          switch ( current_filter() ){
+            case 'tc_query_posts_slider_join'        : $join .= " INNER JOIN $wpdb->term_relationships AS pll_tr";
+                                                       break;
+            case 'tc_query_posts_slider_join_where'  : $_join = $wpdb->prepare("pll_tr.object_id = posts.ID AND pll_tr.term_taxonomy_id=%d ",
+                                                                                pll_current_language( 'term_taxonomy_id' )
+                                                       );
+                                                       $join .= $join ? 'AND ' . $_join : 'WHERE '. $_join;
+                                                       break;
           }
 
-          // Substitute the featured page button text with the current language button text
-          add_filter( 'tc_fp_button_text', 'pll__' );
+          return $join;
+        }
+        /*end Slider of posts */
 
-          // Substitute the featured page text with the translated featured page text
-          add_filter( 'tc_fp_text', 'pll__' );
-
+        //Featured pages ids "translation"
+        // Substitute any page id with the equivalent page in current language (if found)
+        add_filter( 'tc_fp_id', 'tc_pll_page_id', 20 );
+        function tc_pll_page_id( $fp_page_id ) {
+          return is_int( pll_get_post( $fp_page_id ) ) ? pll_get_post( $fp_page_id ) : $fp_page_id;
         }
       }//end Front
     }//end polylang compat
 
 
     /**
-    * NextGen Gallery compat hooks
+    * WPML compat hooks
+    *
     * @package Customizr
-    * @since Customizr 3.3+
+    * @since Customizr 3.4+
     */
-    private function tc_set_nggallery_compat() {
-      /* Make Customizr smart load work with nextgen galleries and fix small bug which resulted in displaying plain image attributes */
-     add_action('wp_head', 'tc_content_parse_imgs_rehook');
-     function tc_content_parse_imgs_rehook(){
-       // smartload doesn't work at all for nggalleries in pages, looks like they add "data-src" to their images in pages .. mah
-       if ( is_page() || is_admin() || 0 == esc_attr( TC_utils::$inst->tc_opt( 'tc_img_smart_load' ) ) )
-        return;
+    private function tc_set_wpml_compat() {
+      //credits : @Srdjan
+      $this->default_language = apply_filters( 'wpml_default_language', null );
+      $this->current_language = apply_filters( 'wpml_current_language', null );
 
-       remove_filter('the_content', array(TC_utils::$instance, 'tc_parse_imgs') );
-       // they add the actual images filtering the content with priority PHP_INT_MAX -1
-       add_filter('the_content'   , array(TC_utils::$instance, 'tc_parse_imgs'), PHP_INT_MAX );
-     }
-    }
+      // Disable posts slider transient caching
+      add_filter('tc_posts_slider_use_transient', '__return_false');
+      //define the CONSTANT wpml context. This means that user have to set the translations again when switching from Customizr, to Customizr-Pro.
+      //If we don't want to do this, let's go with 'Customizr-option' in any case.
+      //Also I choose to use "-option" suffix to avoid confusions as with WPML you can also translate theme's strings ( gettexted -> __() ) and WPML by default assigns to theme the context 'customizr' (textdomain)
+      define( 'TC_WPML_CONTEXT' ,  'customizr-option' );
+
+      // We cannot use wpml-config.xml to translate theme options because we use to update the option even in front page after retrieved, so we have to act on
+      // a different filter.
+      // When registering and translate strings WPML requires a 'context' and a 'name' (in a readable format for translators) plus the string to translate
+      // context will be concatenated to the name and md5 will run on the result. The new result will represent the KEY for the WPML translations cache array.
+      // This means that
+      // 1) We cannot use translated string for the "name" param (which actually they say should be in a readable format ..)
+      // 2) We need a way to use the same "name" both when registering the string to translate and retrieving its translations
+      function tc_wpml_get_options_names_config() {
+        $_wp_cache_key     = 'tc_wpml_get_options_names_config';
+        $option_name_assoc = wp_cache_get( $_wp_cache_key );
+
+        if ( false === $option_name_assoc ) {
+          $options_to_translate = TC_plugins_compat::$instance -> tc_get_string_options_to_translate();
+
+          $option_name_assoc = apply_filters( 'tc_wpml_options_names_config', array(
+ //           'tc_front_slider'              => 'Front page slider name', //Handled in a different way by Srdjan
+            'tc_posts_slider_button_text'  => 'Posts slider button text',
+            'tc_tag_title'                 => 'Tag pages title',
+            'tc_cat_title'                 => 'Category pages title',
+            'tc_author_title'              => 'Author pages title',
+            'tc_search_title'              => 'Search pages title',
+            'tc_social_in_sidebar_title'   => 'Social link title in sidebars',
+            'tc_featured_page_button_text' => 'Featured button text',
+            'tc_featured_text_one'         => 'Featured text one',
+            'tc_featured_text_two'         => 'Featured text two',
+            'tc_featured_text_three'       => 'Featured text three'
+          ) );
+
+          foreach ( $option_name_assoc as $key => $value ) {
+            //use array_key_exists when and if options_to_translate will be an associative array
+            if ( ! in_array( $key, $options_to_translate ) )
+              unset( $option_name_assoc[$key] );
+            else
+              //md5 and html are stripped in wpml string table rendering, we add it for a better key
+              $option_name_assoc[$key]    = $value . ' - ' . md5($key); //name
+          }
+
+          $option_name_assoc = apply_filters( 'tc_wpml_options_names_config_pre_cache', $option_name_assoc );
+          //cache this 'cause is used several times in filter callbacks
+          wp_cache_set( $_wp_cache_key, $option_name_assoc );
+        }
+        return apply_filters( 'tc_wpml_get_options_names_config', $option_name_assoc );
+      }
+
+      //Wras wpml_object_id in a more convenient function which recursevely translates array of values
+      //$object can be an array or a single value
+      function tc_wpml_object_id( $object_id, $type ) {
+        if ( empty( $object_id ) )
+          return $object_id;
+        if ( is_array( $object_id ) )
+          return array_map( 'tc_wpml_object_id', $object_id, array_fill( 0, sizeof( $object_id ), $type ) );
+        return apply_filters( 'wpml_object_id', $object_id, $type, true );
+      }
+
+      //credits: @Srdjan -> filter the slides in the current language
+      function sliders_filter( $sliders ) {
+        if ( is_array( $sliders ) )
+          foreach ( $sliders as $name => $slides ) {
+            foreach ( $slides as $key => $attachment_id ) {
+              // Get current slide language
+              $slide_language = apply_filters( 'wpml_element_language_code',
+                            null, array('element_id' => $attachment_id,
+                                'element_type' => 'attachment') );
+              if ( TC_plugins_compat::$instance->current_language != $slide_language ) {
+                // Replace with translated slide
+                $translated_slide_id = apply_filters( 'wpml_object_id',
+                                $attachment_id, 'attachment', false );
+                if ( $translated_slide_id )
+                  $sliders[$name][$key] = $translated_slide_id;
+              }
+            }
+            $sliders[$name] = array_unique( $sliders[$name] );
+          }
+
+        return $sliders;
+      }
+      //credits: @Srdja,
+      function add_theme_options_filter() {
+        add_filter( 'option_tc_theme_options', 'theme_options_filter', 99 );
+      }
+      //credits: @Srdjan
+      function theme_options_filter( $options ) {
+        if ( isset( $options['tc_sliders'] ) ) {
+            $options['tc_sliders'] = sliders_filter( $options['tc_sliders'] );
+        }
+        return $options;
+      }
+      //credits: @Srdjan
+      function edit_attachment_action( $attachment_id ) {
+        $languages = apply_filters( 'wpml_active_languages', array() );
+        // TODO check which meta keys are a must
+        $meta_data = get_post_custom( $attachment_id );
+        foreach ( $languages as $language) {
+            $translated_attachment_id = apply_filters( 'wpml_object_id',
+                    $attachment_id, 'attachment', false, $language['code'] );
+            // Update post meta
+            foreach ( array('post_slider_key', 'slider_check_key') as $meta_key ) {
+                if ( isset( $meta_data[$meta_key][0] ) ) {
+                    update_post_meta( $translated_attachment_id, $meta_key, $meta_data[$meta_key][0] );
+                }
+            }
+        }
+      }
+
+      function pre_update_option_filter( $options ) {
+        if ( isset( $options['tc_sliders'] ) ) {
+            // Force default language
+            $current_language = TC_plugins_compat::$instance->current_language;
+            TC_plugins_compat::$instance->current_language = TC_plugins_compat::$instance->default_language;
+            $options['tc_sliders'] = sliders_filter( $options['tc_sliders'] );
+            TC_plugins_compat::$instance->current_language = $current_language;
+        }
+        return $options;
+      }
+
+      add_action( 'admin_init', 'tc_wpml_admin_setup' );
+
+      function tc_wpml_admin_setup() {
+        // If wpml-string-translation is active perform admin pages translation
+        if ( function_exists( 'icl_register_string' ) ) {
+          $tc_wpml_option_name = tc_wpml_get_options_names_config();
+          $tc_wpml_options     = array_keys($tc_wpml_option_name);
+
+          // grab theme options
+          $tc_options = tc__f('__options');
+
+          // build array of options to translate
+          foreach ( $tc_wpml_options as $tc_wpml_option )
+            if ( isset( $tc_options[$tc_wpml_option] ) )
+              icl_register_string( TC_WPML_CONTEXT,
+                $tc_wpml_option_name[$tc_wpml_option],
+                esc_attr($tc_options[$tc_wpml_option]) //value
+            );
+        }//end of string based admin translation
+        //Taxonomies/Pages "transposing" in the Customizer
+        //We actually could just do this instead of A) and B) in front, but we retrieve the options in front before the compat method is called (after_setup_theme with lower priority) and I prefer to keep front and back separated in this case. Different opinions are welcome, but not too much :P.
+        //we have to filter the interesting options so they appear "translated" in the customizer too, 'cause wpml filters the pages/cats to choose (fp, cat pickers), and we kinda like this :), right (less memory)?
+        //Side effect example for categories: TODO
+        //In English we have set to filter blog posts for cat A,B and C.
+        //In Italian we do not have cat C so there will be displayed transposed cats A and B
+        //if we change this option in the Customizer with lang IT removing B, e.g., when we switch to EN we'll have that the array of cats contains just A, as it as been overwritten with the new setting
+        if ( TC___::$instance -> tc_is_customize_left_panel() )
+          add_filter( 'option_tc_theme_options', 'tc_wpml_customizer_options_transpose' );
+        function tc_wpml_customizer_options_transpose( $options ) {
+          $options_to_transpose = apply_filters ( 'tc_wpml_customizer_translate_options', array(
+            'page'     => ( ! class_exists('TC_fpu') && ! class_exists('TC_fpc') ) ? array( 'tc_featured_page_one', 'tc_featured_page_two', 'tc_featured_page_three' ) : array(),
+            'category' => array( 'tc_blog_restrict_by_cat' )
+            )
+          );
+          foreach ( $options_to_transpose as $type => $option_to_transpose )
+            foreach ( $option_to_transpose as $option )
+              if ( isset( $options[$option] ) )
+                $options[$option] = tc_wpml_object_id( $options[$option], $type);
+          return $options;
+        }
+
+        //credits @Srdjan
+        // Filter slides in admin screens
+        add_action( '__attachment_slider_infos', 'add_theme_options_filter', 9 );
+        // Update translated slide post meta
+        add_action( 'edit_attachment', 'edit_attachment_action', 99 );
+        // Pre-save hook
+        add_filter( 'pre_update_option_tc_theme_options', 'pre_update_option_filter', 99 );
+
+      }// end tc_wpml_admin_setup function
+
+      // Front
+      // If WPML string translator is active, translate/swap featured page buttons/text/link and slider
+      if ( ! is_admin() ) {
+        // String transaltion binders : requires wpml icl_t function
+        if ( function_exists( 'icl_t') ) {
+          /*** TC - WPML bind, wrap WPML string translator function into convenient tc functions ***/
+          //define our icl_t wrapper for options filtered with tc_opt_{$option}
+          if ( ! function_exists( 'tc_wpml_t_opt' ) ) {
+            function tc_wpml_t_opt( $string ) {
+              return tc_wpml_t( $string, str_replace('tc_opt_', '', current_filter() ) );
+            }
+          }
+          //special function for the post slider button text pre trim filter
+          if ( ! function_exists( 'tc_wpml_t_ps_button_text' ) ) {
+            function tc_wpml_t_ps_button_text( $string ) {
+              return tc_wpml_t( $string, 'tc_posts_slider_button_text' );
+            }
+          }
+          //define our icl_t wrapper
+          if ( ! function_exists( 'tc_wpml_t' ) ) {
+            function tc_wpml_t( $string, $opt ) {
+              $tc_wpml_options_names = tc_wpml_get_options_names_config();
+              return icl_t( TC_WPML_CONTEXT, $tc_wpml_options_names[$opt], $string );
+            }
+          }
+          /*** End TC - WPML bind ***/
+
+          //get the options to translate
+          $tc_wpml_options = array_keys( tc_wpml_get_options_names_config() );
+
+          //strings translation
+          foreach ( $tc_wpml_options as $tc_wpml_option )
+            add_filter("tc_opt_$tc_wpml_option", 'tc_wpml_t_opt', 20 );
+
+          //translates sliders? credits @Srdjan
+          add_filter( 'tc_opt_tc_sliders', 'sliders_filter', 99 );
+
+        }
+        /*A) FP*/
+        // Featured pages ids "translation"
+        add_filter( 'tc_fp_id', 'tc_wpml_page_id', 20 );
+        function tc_wpml_page_id( $fp_page_id ) {
+          return tc_wpml_object_id( $fp_page_id, 'page');
+        }
+
+        /*B) Tax */
+        /**
+        * Cat filtering (home/blog posts filtered by cat)
+        *
+        * AFAIK wpml needs to exactly know which kind of tax we're looking for, category, tag ecc..
+        * @param array of term ids
+        */
+        function tc_wpml_translate_cat( $cat_ids ){
+          if ( ! ( is_array( $cat_ids ) && ! empty( $cat_ids ) ) )
+            return $cat_ids;
+          return array_unique( tc_wpml_object_id( $cat_ids, 'category' ) );
+        }
+        //Translate category ids for the filtered posts in home/blog
+        add_filter('tc_opt_tc_blog_restrict_by_cat', 'tc_wpml_translate_cat');
+        /*end tax filtering*/
+
+        /* Slider of posts */
+        if ( defined( 'ICL_LANGUAGE_CODE') ) {
+        // Filter the posts query for the current language
+          add_filter( 'tc_query_posts_slider_join'      , 'wpml_posts_slider_join' );
+          add_filter( 'tc_query_posts_slider_join_where', 'wpml_posts_slider_join' );
+        }
+        function wpml_posts_slider_join( $join ) {
+          global $wpdb;
+          switch ( current_filter() ){
+            case 'tc_query_posts_slider_join'        : $join .= " INNER JOIN {$wpdb->prefix}icl_translations AS wpml_tr";
+                                                       break;
+            case 'tc_query_posts_slider_join_where'  : $_join = $wpdb->prepare("wpml_tr.element_id = posts.ID AND wpml_tr.language_code=%s AND wpml_tr.element_type=%s",
+                                                                    ICL_LANGUAGE_CODE,
+                                                                    'post_post'
+                                                       );
+                                                       $join .= $join ? 'AND ' . $_join : 'WHERE '. $_join;
+                                                       break;
+          }
+
+          return $join;
+        }
+        /*end Slider of posts */
+        /*end Slider*/
+      }//end Front
+    }//end wpml compat
+
+
+
+
+    /**
+    * The Events Calendar compat hooks
+    *
+    * @package Customizr
+    * @since Customizr 3.4+
+    */
+    private function tc_set_the_events_calendar_compat() {
+      /*
+      * Are we in the Events list context?
+      */
+      if ( ! ( function_exists( 'tc_is_tec_events_list' ) ) ) {
+        function tc_is_tec_events_list() {
+          return function_exists( 'tribe_is_event_query' ) && tribe_is_event_query() && is_post_type_archive();
+        }
+      }
+      /*
+      * Are we in single Event context?
+      */
+      if ( ! ( function_exists( 'tc_is_tec_single_event' ) ) ) {
+        function tc_is_tec_single_event() {
+          return function_exists( 'tribe_is_event_query' ) && tribe_is_event_query() && is_single();
+        }
+      }
+      // hide tax archive title
+      add_filter( 'tc_show_tax_archive_title', 'tc_tec_disable_tax_archive_title');
+      function tc_tec_disable_tax_archive_title( $bool ) {
+        return tc_is_tec_events_list() ? false : $bool;
+      }
+
+      // Events archive is displayed, wrongly, we our post lists classes, we have to prevent this
+      add_filter( 'tc_post_list_controller', 'tc_tec_disable_post_list');
+      add_filter( 'tc_is_grid_enabled', 'tc_tec_disable_post_list');
+      function tc_tec_disable_post_list( $bool ) {
+        return tc_is_tec_events_list() ? false : $bool;
+      }
+
+      // Now we have to display a post or page content
+      add_filter( 'tc_show_single_post_content', 'tc_tec_show_content' );
+      function tc_tec_show_content( $bool ) {
+        //2 cases:
+        //1 - in events lists - we force showing single post content
+        //2 - in single events we have to prevent showing both page and post content
+        if ( tc_is_tec_events_list() )
+          return true;
+        else if( tc_is_tec_single_event() )
+          return false;
+        return $bool;
+      }
+
+      // Force the tax name in the breadcrumb when list of events shown as 'Month'
+      // The Events Calendar adds a filter on post_type_archive_title with __return_false callback
+      // for their own reasons. This impacts on our breadcrumb 'cause we use the function post_type_archive_title() to build up the trail arg in posty_type_archives contexts.
+      // What we do here is unhooking their callback before the breadcrumb is built and re-hook it after it has been displayed
+      add_action( 'wp_head', 'tc_tec_allow_display_breadcrumb_in_month_view');
+      function tc_tec_allow_display_breadcrumb_in_month_view() {
+        if ( ! ( tc_is_tec_events_list() && function_exists( 'tribe_is_month' ) && tribe_is_month() ) )
+          return;
+
+        add_filter( 'tc_breadcrumb_trail_args', 'tc_tec_unhook_empty_post_type_archive_title');
+        function tc_tec_unhook_empty_post_type_archive_title( $args = null ) {
+          remove_filter( 'post_type_archive_title', '__return_false', 10 );
+          return $args;
+        }
+        add_filter( 'tc_breadcrumb_trail_display', 'tc_tec_rehook_empty_post_type_archive_title', PHP_INT_MAX );
+        function tc_tec_rehook_empty_post_type_archive_title( $breadcrumb = null ) {
+          add_filter( 'post_type_archive_title', '__return_false', 10 );
+          return $breadcrumb;
+        }
+      }
+      //disables post navigation in single tec pages
+      add_filter( 'tc_show_post_navigation', 'tc_tec_disable_post_navigation' );
+      function tc_tec_disable_post_navigation($bool) {
+        return ( tc_is_tec_single_event() ) ? false : $bool;
+      }
+    }//end the-events-calendar compat
+
 
 
     /**
@@ -376,6 +793,12 @@ if ( ! class_exists( 'TC_plugins_compat' ) ) :
         }//end of switch on hook
       }//end of nested function
 
+      // hide tax archive title
+      add_filter( 'tc_show_tax_archive_title', 'tc_sensei_disable_tax_archive_title');
+      function tc_sensei_disable_tax_archive_title( $bool ){
+        return ( function_exists('is_sensei') && is_sensei() ) ? false : $bool;
+      }
+
       //disables post navigation
       add_filter( 'tc_show_post_navigation', 'tc_sensei_disable_post_navigation' );
       function tc_sensei_disable_post_navigation($bool) {
@@ -427,6 +850,12 @@ if ( ! class_exists( 'TC_plugins_compat' ) ) :
         return $_title;
       }
 
+      // hide tax archive title
+      add_filter( 'tc_show_tax_archive_title', 'tc_woocommerce_disable_tax_archive_title');
+      function tc_woocommerce_disable_tax_archive_title( $bool ){
+        return ( function_exists('is_woocommerce') && is_woocommerce() ) ? false : $bool;
+      }
+
       //allow slider in the woocommerce shop page
       add_filter('tc_show_slider', 'tc_woocommerce_enable_shop_slider');
       function tc_woocommerce_enable_shop_slider( $bool ){
@@ -457,12 +886,62 @@ if ( ! class_exists( 'TC_plugins_compat' ) ) :
          return ( function_exists('is_woocommerce') && is_woocommerce() ) ? false : $bool;
       }
 
+      //link smooth scroll: exclude woocommerce tabs
+      add_filter( 'tc_anchor_smoothscroll_excl', 'tc_woocommerce_disable_link_scroll' );
+      function tc_woocommerce_disable_link_scroll( $excl ){
+        if ( false == esc_attr( TC_utils::$inst->tc_opt('tc_link_scroll') ) ) return $excl;
+
+        if ( function_exists('is_woocommerce') && is_woocommerce() ) {
+          if ( ! is_array( $excl ) )
+            $excl = array();
+
+          if ( ! is_array( $excl['deep'] ) )
+            $excl['deep'] = array() ;
+
+          if ( ! is_array( $excl['deep']['classes'] ) )
+              $excl['deep']['classes'] = array();
+
+          $excl['deep']['classes'][] = 'wc-tabs';
+        }
+        return $excl;
+      }
+
+
       //changes customizr meta boxes priority (slider and layout not on top) if displaying woocommerce products in admin
       add_filter( 'tc_post_meta_boxes_priority', 'tc_woocommerce_change_meta_boxes_priority' , 2 , 10 );
       function tc_woocommerce_change_meta_boxes_priority($priority , $screen) {
          return ( 'product' == $screen ) ? 'default' : $priority ;
       }
-    }
+    }//end woocommerce compat
+
+
+    /**
+    * Visual Composer compat hooks
+    *
+    * @package Customizr
+    * @since Customizr 3.4+
+    */
+    private function tc_set_vc_compat() {
+      //link smooth scroll: exclude all anchor links inside vc wrappers (.vc_row)
+      add_filter( 'tc_anchor_smoothscroll_excl', 'tc_vc_disable_link_scroll' );
+      function tc_vc_disable_link_scroll( $excl ){
+        if ( false == esc_attr( TC_utils::$inst->tc_opt('tc_link_scroll') ) ) return $excl;
+
+        if ( ! is_array( $excl ) )
+          $excl = array();
+
+        if ( ! is_array( $excl['deep'] ) )
+          $excl['deep'] = array() ;
+
+        if ( ! is_array( $excl['deep']['classes'] ) )
+            $excl['deep']['classes'] = array();
+
+        $excl['deep']['classes'][] = 'vc_row';
+
+        return $excl;
+      }
+    }//end woocommerce compat
+
 
     /**
     * CUSTOMIZR WRAPPERS
@@ -544,5 +1023,24 @@ if ( ! class_exists( 'TC_plugins_compat' ) ) :
       return false;
     }
 
+    public function tc_get_string_options_to_translate() {
+      $string_options = array(
+        'tc_front_slider',
+        'tc_posts_slider_button_text',
+        'tc_tag_title',
+        'tc_cat_title',
+        'tc_author_title',
+        'tc_search_title',
+        'tc_social_in_sidebar_title',
+      );
+      if ( ! class_exists('TC_fpu') && ! class_exists('TC_fpc') ) {
+        $fp_areas = TC_init::$instance -> fp_ids;
+        foreach ( $fp_areas as $fp_area )
+          $string_options[] = 'tc_featured_text_' . $fp_area;
+
+        $string_options[] = 'tc_featured_page_button_text';
+      }
+      return apply_filters( 'tc_get_string_options_to_translate', $string_options );
+    }
   }//end of class
 endif;

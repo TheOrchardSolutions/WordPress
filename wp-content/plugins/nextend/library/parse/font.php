@@ -24,7 +24,7 @@ class NextendParseFont{
     
     function mixinTab($target, $source = ''){
         if($source == '') $source = $this->_font['firsttab'];
-        $this->_font[$target] = array_merge($this->_font[$source], $this->_font[$target]);
+        if(is_array($this->_font[$source])&&is_array($this->_font[$target])) $this->_font[$target] = array_merge($this->_font[$source], $this->_font[$target]);
     }
     
     function parse($property, $value){

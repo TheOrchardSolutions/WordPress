@@ -6,7 +6,6 @@ jQuery(function ($) {
   /* CONTRIBUTION TO CUSTOMIZR */
   var donate_displayed  = false,
       is_pro            = 'customizr-pro' == TCControlParams.themeName;
-
   if (  ! TCControlParams.HideDonate && ! is_pro ) {
     _render_donate_block();
     donate_displayed = true;
@@ -22,6 +21,8 @@ jQuery(function ($) {
     _render_wfc_cta();
     _render_fpu_cta();
     _render_footer_cta();
+    _render_gc_cta();
+    _render_mc_cta();
   }
   _render_rate_czr();
 
@@ -42,6 +43,7 @@ jQuery(function ($) {
 
      //BIND EVENTS
     $('.tc-close-request').click( function(e) {
+      e.preventDefault();
       $('.donate-alert').slideToggle("fast");
       $(this).hide();
     });
@@ -86,6 +88,22 @@ jQuery(function ($) {
     $('li[id*="tc_featured_text_three"]').append( _cta() );
   }
 
+  function _render_gc_cta() {
+    // Grab the HTML out of our template tag and pre-compile it.
+    var _cta = _.template(
+        $( "script#gc_cta" ).html()
+    );
+    $('li[id*="tc_post_list_show_thumb"] > .tc-customizr-title').before( _cta() );
+  }
+
+  function _render_mc_cta() {
+    // Grab the HTML out of our template tag and pre-compile it.
+    var _cta = _.template(
+        $( "script#mc_cta" ).html()
+    );
+    $('li[id*="tc_theme_options-tc_display_menu_label"]').append( _cta() );
+  }
+
   function _render_footer_cta() {
     // Grab the HTML out of our template tag and pre-compile it.
     var _cta = _.template(
@@ -98,7 +116,8 @@ jQuery(function ($) {
       var AjaxUrl         = TCControlParams.AjaxUrl,
       query = {
           action  : 'hide_donate',
-          TCnonce :  TCControlParams.TCNonce
+          TCnonce :  TCControlParams.TCNonce,
+          wp_customize : 'on'
       },
       request = $.post( AjaxUrl, query );
       request.done( function( response ) {

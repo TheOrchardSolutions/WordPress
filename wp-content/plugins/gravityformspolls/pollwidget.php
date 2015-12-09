@@ -10,12 +10,14 @@ if(!function_exists("gpoll_register_poll_widget")){
 if(!class_exists("GFPollsPollWidget")){
     class GFPollsPollWidget extends WP_Widget {
 
-        function GFPollsPollWidget() {
-            $this->WP_Widget( 'gpoll_poll_widget', 'Poll',
-                array( 'classname' => 'gpoll_poll_widget', 'description' => __('Gravity Forms Poll Widget', "gravityformspolls") ),
-                array( 'width' => 200, 'height' => 250, 'id_base' => 'gpoll_poll_widget' )
-            );
-        }
+	    function __construct() {
+		    parent::__construct(
+			    'gpoll_poll_widget',
+			    __( 'Poll', 'gravityformspolls' ),
+			    array( 'classname' => 'gpoll_poll_widget', 'description' => esc_html__( 'Gravity Forms Poll Widget', 'gravityformspolls' ) ),
+			    array( 'width' => 200, 'height' => 250, 'id_base' => 'gpoll_poll_widget' )
+		    );
+	    }
 
         function widget( $args, $instance ) {
 
@@ -100,7 +102,7 @@ if(!class_exists("GFPollsPollWidget")){
 
 
             $instance["override_form_settings"] = $new_instance["override_form_settings"];
-            $instance["showtitle"] = empty( $new_instance["showtitle"] ) ? "Poll" : $new_instance["showtitle"];
+            $instance["showtitle"] = empty( $new_instance["showtitle"] ) ? __("Poll", "gravityformspolls") : $new_instance["showtitle"];
             $instance["mode"] = $new_instance["mode"];
             $instance["ajax"] = empty( $new_instance["ajax"] ) ? "0" : $new_instance["ajax"];
             $instance["disable_scripts"] = empty( $new_instance["disable_scripts"] ) ? "0" : $new_instance["disable_scripts"];
@@ -128,7 +130,7 @@ if(!class_exists("GFPollsPollWidget")){
             $override_form_settings = rgar($instance, 'override_form_settings');
             $widget_has_legacy_override_settings = "" === $override_form_settings && isset($instance["style"]);
             $instance = wp_parse_args( (array) $instance, array(
-                'title' => __("Poll", "gravityforms"),
+                'title' => __("Poll", "gravityformspolls"),
                 'tabindex' => '1',
                 'showtitle' => '0',
                 'showdescription' => '0',
@@ -168,13 +170,13 @@ if(!class_exists("GFPollsPollWidget")){
             ?>
 
             <p>
-                <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e("Title", "gravityforms"); ?>:</label>
+                <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e("Title", "gravityformspolls"); ?>:</label>
                 <input id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" value="<?php echo $instance['title']; ?>" style="width:90%;" />
             </p>
 
             <p>
 
-                <label for="<?php echo $this->get_field_id( 'form_id' ); ?>"><?php _e("Select a Form", "gravityforms"); ?>:</label>
+                <label for="<?php echo $this->get_field_id( 'form_id' ); ?>"><?php _e("Select a Form", "gravityformspolls"); ?>:</label>
                 <select class="gpoll_forms_dropdown" id="<?php echo $this->get_field_id( 'form_id' ); ?>" name="<?php echo $this->get_field_name( 'form_id' ); ?>" style="width:90%;" <?php if ( false === $widget_has_legacy_override_settings ) : ?>onchange="radioButtonsSelector = '#<?php echo $this->id ?>_gpoll_override_radio'; radioOffSelector = '#widget-<?php echo $this->id ?>-override_form_settings_0'; settingsSelector = '#<?php echo $this->id ?>_gpoll_overrides, #<?php echo $this->id . "_gpoll_override_radio"?>'; if (jQuery.inArray(parseInt(this.value), <?php echo json_encode($override_form_ids) ?>) >= 0 ) {jQuery(radioButtonsSelector).show(); } else { jQuery(settingsSelector).hide();}jQuery(radioOffSelector).trigger('click');"<?php endif ?>>
                     <?php
                     $forms = RGFormsModel::get_forms(1, "title");
@@ -230,7 +232,7 @@ if(!class_exists("GFPollsPollWidget")){
                     <p>
 
 
-                        <input type="checkbox" name="<?php echo $this->get_field_name( 'displayconfirmation' ); ?>" id="<?php echo $this->get_field_id( 'displayconfirmation' ); ?>" <?php checked($instance['displayconfirmation']); ?> value="1"/> <label for="<?php echo $this->get_field_id( 'displayconfirmation' ); ?>"><?php _e("Display form confirmation", "gravityforms"); ?></label><br/>
+                        <input type="checkbox" name="<?php echo $this->get_field_name( 'displayconfirmation' ); ?>" id="<?php echo $this->get_field_id( 'displayconfirmation' ); ?>" <?php checked($instance['displayconfirmation']); ?> value="1"/> <label for="<?php echo $this->get_field_id( 'displayconfirmation' ); ?>"><?php _e("Display form confirmation", "gravityformspolls"); ?></label><br/>
 
                         <input type="checkbox" name="<?php echo $this->get_field_name( 'display_results' ); ?>" id="<?php echo $this->get_field_id( 'display_results' ); ?>" <?php checked($instance['display_results']); ?> value="1" /> <label for="<?php echo $this->get_field_id( 'display_results' ); ?>"><?php _e("Display results of submitted poll fields", "gravityformspolls"); ?></label><br/>
 
@@ -274,19 +276,19 @@ if(!class_exists("GFPollsPollWidget")){
             </div>
             <div id="<?php echo $this->id ?>_gpoll_form_settings" style="<?php  echo  $instance['mode'] == "results" ? "display:none" : ""; ?>">
                 <p>
-                    <input type="checkbox" name="<?php echo $this->get_field_name( 'showtitle' ); ?>" id="<?php echo $this->get_field_id( 'showtitle' ); ?>" <?php checked($instance['showtitle']); ?> value="1" /> <label for="<?php echo $this->get_field_id( 'showtitle' ); ?>"><?php _e("Display form title", "gravityforms"); ?></label><br/>
-                    <input type="checkbox" name="<?php echo $this->get_field_name( 'showdescription' ); ?>" id="<?php echo $this->get_field_id( 'showdescription' ); ?>" <?php checked($instance['showdescription']); ?> value="1"/> <label for="<?php echo $this->get_field_id( 'showdescription' ); ?>"><?php _e("Display form description", "gravityforms"); ?></label><br/>
+                    <input type="checkbox" name="<?php echo $this->get_field_name( 'showtitle' ); ?>" id="<?php echo $this->get_field_id( 'showtitle' ); ?>" <?php checked($instance['showtitle']); ?> value="1" /> <label for="<?php echo $this->get_field_id( 'showtitle' ); ?>"><?php _e("Display form title", "gravityformspolls"); ?></label><br/>
+                    <input type="checkbox" name="<?php echo $this->get_field_name( 'showdescription' ); ?>" id="<?php echo $this->get_field_id( 'showdescription' ); ?>" <?php checked($instance['showdescription']); ?> value="1"/> <label for="<?php echo $this->get_field_id( 'showdescription' ); ?>"><?php _e("Display form description", "gravityformspolls"); ?></label><br/>
                 </p>
                 <p>
-                    <a href="javascript: var obj = jQuery('.gf_widget_advanced'); if(!obj.is(':visible')) {var a = obj.show('slow');} else {var a = obj.hide('slow');}"><?php _e("advanced options", "gravityforms"); ?></a>
+                    <a href="javascript: var obj = jQuery('.gf_widget_advanced'); if(!obj.is(':visible')) {var a = obj.show('slow');} else {var a = obj.hide('slow');}"><?php _e("advanced options", "gravityformspolls"); ?></a>
                 </p>
 
                 <p class="gf_widget_advanced" style="display:none;">
-                    <input type="checkbox" name="<?php echo $this->get_field_name( 'ajax' ); ?>" id="<?php echo $this->get_field_id( 'ajax' ); ?>" <?php checked($instance['ajax']); ?> value="1"/> <label for="<?php echo $this->get_field_id( 'ajax' ); ?>"><?php _e("Enable AJAX", "gravityforms"); ?></label><br/>
-                    <input type="checkbox" name="<?php echo $this->get_field_name( 'disable_scripts' ); ?>" id="<?php echo $this->get_field_id( 'disable_scripts' ); ?>" <?php checked($instance['disable_scripts']); ?> value="1"/> <label for="<?php echo $this->get_field_id( 'disable_scripts' ); ?>"><?php _e("Disable script output", "gravityforms"); ?></label><br/>
-                    <label for="<?php echo $this->get_field_id( 'tabindex' ); ?>"><?php _e("Tab Index Start", "gravityforms"); ?>: </label>
+                    <input type="checkbox" name="<?php echo $this->get_field_name( 'ajax' ); ?>" id="<?php echo $this->get_field_id( 'ajax' ); ?>" <?php checked($instance['ajax']); ?> value="1"/> <label for="<?php echo $this->get_field_id( 'ajax' ); ?>"><?php _e("Enable AJAX", "gravityformspolls"); ?></label><br/>
+                    <input type="checkbox" name="<?php echo $this->get_field_name( 'disable_scripts' ); ?>" id="<?php echo $this->get_field_id( 'disable_scripts' ); ?>" <?php checked($instance['disable_scripts']); ?> value="1"/> <label for="<?php echo $this->get_field_id( 'disable_scripts' ); ?>"><?php _e("Disable script output", "gravityformspolls"); ?></label><br/>
+                    <label for="<?php echo $this->get_field_id( 'tabindex' ); ?>"><?php _e("Tab Index Start", "gravityformspolls"); ?>: </label>
                     <input id="<?php echo $this->get_field_id( 'tabindex' ); ?>" name="<?php echo $this->get_field_name( 'tabindex' ); ?>" value="<?php echo $instance['tabindex']; ?>" style="width:15%;" /><br/>
-                    <small><?php _e("If you have other forms on the page (i.e. Comments Form), specify a higher tabindex start value so that your Gravity Form does not end up with the same tabindices as your other forms. To disable the tabindex, enter 0 (zero).", "gravityforms"); ?></small>
+                    <small><?php _e("If you have other forms on the page (i.e. Comments Form), specify a higher tabindex start value so that your Gravity Form does not end up with the same tabindices as your other forms. To disable the tabindex, enter 0 (zero).", "gravityformspolls"); ?></small>
                 </p>
             </div>
 

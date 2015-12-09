@@ -63,7 +63,9 @@ class TC_post_thumbnails {
 
       $_img_attr['class']     = sprintf( 'attachment-%1$s tc-thumb-type-%2$s wp-post-image' , $tc_thumb_size , $_thumb_type );
       //Add the style value
-      $_img_attr['style']     = apply_filters( 'tc_post_thumb_inline_style' , '', $image, $_filtered_thumb_size );
+      $_style                 = apply_filters( 'tc_post_thumb_inline_style' , '', $image, $_filtered_thumb_size );
+      if ( $_style )
+        $_img_attr['style']   = $_style;
       $_img_attr              = apply_filters( 'tc_post_thumbnail_img_attributes' , $_img_attr );
 
       //get the thumb html
@@ -118,11 +120,14 @@ class TC_post_thumbnails {
     /**************************
     * EXPOSED HELPERS / SETTERS
     **************************/
+    /*
+    * @return bool
+    */
     public function tc_has_thumb( $_post_id = null , $_thumb_id = null ) {
       $_post_id  = is_null($_post_id) ? get_the_ID() : $_post_id;
       //try to extract (OVERWRITE) $_thumb_id and $_thumb_type
       extract( $this -> tc_get_thumb_info( $_post_id, $_thumb_id ) );
-      return isset($_thumb_id) && false != $_thumb_id && ! empty($_thumb_id);
+      return wp_attachment_is_image($_thumb_id) && isset($_thumb_id) && false != $_thumb_id && ! empty($_thumb_id);
     }
 
 
@@ -225,8 +230,8 @@ class TC_post_thumbnails {
 
       //handles the case when the image dimensions are too small
       $thumb_size       = apply_filters( 'tc_thumb_size' , TC_init::$instance -> tc_thumb_size, TC_utils::tc_id()  );
-      $no_effect_class  = ( isset($tc_thumb) && isset($tc_thumb_height) && ( $tc_thumb_height < $thumb_size['width']) ) ? 'no-effect' : '';
-      $no_effect_class  = ( ! isset($tc_thumb) || empty($tc_thumb_height) || empty($tc_thumb_width) ) ? '' : $no_effect_class;
+      $no_effect_class  = ( isset($tc_thumb) && isset($tc_thumb_height) && ( $tc_thumb_height < $thumb_size['height']) ) ? 'no-effect' : '';
+      $no_effect_class  = ( esc_attr( TC_utils::$inst->tc_opt( 'tc_center_img') ) || ! isset($tc_thumb) || empty($tc_thumb_height) || empty($tc_thumb_width) ) ? '' : $no_effect_class;
 
       //default hover effect
       $thumb_wrapper    = sprintf('<div class="%5$s %1$s"><div class="round-div"></div><a class="round-div %1$s" href="%2$s" title="%3$s"></a>%4$s</div>',

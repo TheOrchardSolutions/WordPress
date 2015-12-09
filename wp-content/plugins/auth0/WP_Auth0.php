@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Wordpress Auth0 Integration
  * Description: Implements the Auth0 Single Sign On solution into Wordpress
- * Version: 1.1.8
+ * Version: 1.3.6
  * Author: Auth0
  * Author URI: https://auth0.com
  */
@@ -12,6 +12,7 @@ define('WPA0_PLUGIN_DIR', trailingslashit(plugin_dir_path(__FILE__)));
 define('WPA0_PLUGIN_URL', trailingslashit(plugin_dir_url(__FILE__) ));
 define('WPA0_LANG', 'wp-auth0');
 define('AUTH0_DB_VERSION', 2);
+define('WPA0_VERSION', '1.3.4');
 
 class WP_Auth0 {
     public static function init(){
@@ -54,7 +55,6 @@ class WP_Auth0 {
 
         add_filter('query_vars', array(__CLASS__, 'a0_register_query_vars'));
 
-
         $plugin = plugin_basename(__FILE__);
         add_filter("plugin_action_links_$plugin", array(__CLASS__, 'wp_add_plugin_settings_link'));
 
@@ -63,10 +63,67 @@ class WP_Auth0 {
             add_action( 'wp_footer', array( __CLASS__, 'a0_render_message' ) );
         }
 
+        WP_Auth0_UsersRepo::init();
         WP_Auth0_Settings_Section::init();
         WP_Auth0_Admin::init();
         WP_Auth0_ErrorLog::init();
+        WP_Auth0_Configure_JWTAUTH::init();
+
+        add_action('plugins_loaded', array( __CLASS__, 'checkJWTAuth' ));
+        add_filter( 'woocommerce_checkout_login_message', array(__CLASS__, 'override_woocommerce_checkout_login_form') );
+        add_filter( 'woocommerce_before_customer_login_form', array(__CLASS__, 'override_woocommerce_login_form') );
     }
+
+    public static function override_woocommerce_checkout_login_form( $html ){
+        self::override_woocommerce_login_form($html);
+
+        if (isset($_GET['wle'])) {
+            echo "<style>.woocommerce-checkout .woocommerce-info{display:block;}</style>";
+        }
+    }
+
+    public static function override_woocommerce_login_form( $html ){
+        self::render_auth0_login_css();
+        echo self::render_form('');
+    }
+
+    public static function isJWTAuthEnabled() {
+        if (!function_exists('is_plugin_active')) {
+            require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+        }
+        return is_plugin_active('wp-jwt-auth/JWT_AUTH.php');
+    }
+
+    public static function isJWTConfigured() {
+
+        return (
+            JWT_AUTH_Options::get('aud') == WP_Auth0_Options::get('client_id') &&
+            JWT_AUTH_Options::get('secret') == WP_Auth0_Options::get('client_secret') &&
+            JWT_AUTH_Options::get('secret_base64_encoded') &&
+            WP_Auth0_Options::get('jwt_auth_integration') &&
+            JWT_AUTH_Options::get('jwt_attribute') == 'sub'
+        );
+
+    }
+
+    public static function checkJWTAuth() {
+        if ( isset($_REQUEST['page']) && $_REQUEST['page'] == 'wpa0-jwt-auth' ) return;
+
+        if( self::isJWTAuthEnabled() && !self::isJWTConfigured() ) {
+            add_action( 'admin_notices', array(__CLASS__,'notify_jwt' ));
+        }
+
+    }
+
+    public static function notify_jwt() {
+        ?>
+        <div class="update-nag">
+            JWT Auth installed. To configure it to work the Auth0 plugin, click <a href="admin.php?page=wpa0-jwt-auth">HERE</a>
+        </div>
+        <?php
+
+    }
+
 
     public static function getPluginDirUrl()
     {
@@ -123,14 +180,14 @@ class WP_Auth0 {
             wp_enqueue_script('jquery');
         }
 
-        wp_enqueue_style( 'auth0-widget', WPA0_PLUGIN_URL . 'assets/css/main.css' );
+        wp_enqueue_style( 'auth0-widget', trailingslashit(plugin_dir_url(__FILE__) ) . 'assets/css/main.css' );
     }
 
     public static function shortcode( $atts ){
         ob_start();
 
         require_once WPA0_PLUGIN_DIR . 'templates/login-form.php';
-        renderAuth0Form(false);
+        renderAuth0Form(false, self::buildSettings($atts));
 
         $html = ob_get_clean();
         return $html;
@@ -139,7 +196,11 @@ class WP_Auth0 {
     public static function login_auto() {
         $auto_login = absint(WP_Auth0_Options::get( 'auto_login' ));
 
-        if ($auto_login && $_GET["action"] != "logout") {
+        if ($auto_login && $_GET["action"] != "logout" && !isset($_GET['wle'])) {
+
+        	if (strtolower($_SERVER['REQUEST_METHOD']) !== 'get') {
+						return;
+					}
 
             $stateObj = array("interim" => false, "uuid" =>uniqid());
             if (isset($_GET['redirect_to'])) {
@@ -163,7 +224,21 @@ class WP_Auth0 {
     public static function logout() {
         self::end_session();
 
+        $sso = WP_Auth0_Options::get( 'sso' );
         $auto_login = absint(WP_Auth0_Options::get( 'auto_login' ));
+
+        if (isset($_REQUEST['redirect_to'])) {
+            $redirect_to = $_REQUEST['redirect_to'];
+        }
+        else {
+            $redirect_to = home_url();
+        }
+
+        if ($sso) {
+            wp_redirect("https://". WP_Auth0_Options::get('domain') . "/v2/logout?returnTo=" . urlencode($redirect_to));
+            die();
+        }
+
         if ($auto_login) {
             wp_redirect(home_url());
             die();
@@ -208,6 +283,9 @@ class WP_Auth0 {
         if (self::IsValid($settings,'custom_css')) {
             $options_obj['custom_css'] = $settings['custom_css'];
         }
+        if (self::IsValid($settings,'custom_js')) {
+            $options_obj['custom_js'] = $settings['custom_js'];
+        }
         if (self::IsValid($settings,'social_big_buttons')) {
             $options_obj['socialBigButtons'] = self::GetBoolean($settings['social_big_buttons']);
         }
@@ -219,6 +297,12 @@ class WP_Auth0 {
         }
         if (self::IsValid($settings,'remember_last_login')) {
             $options_obj['rememberLastLogin'] = self::GetBoolean($settings['remember_last_login']);
+        }
+        if (self::IsValid($settings,'sso')) {
+            $options_obj['sso'] = self::GetBoolean($settings['sso']);
+        }
+        if (self::IsValid($settings,'auth0_implicit_workflow')) {
+            $options_obj['auth0_implicit_workflow'] = self::GetBoolean($settings['auth0_implicit_workflow']);
         }
         if (self::IsValid($settings,'icon_url')) {
             $options_obj['icon'] = $settings['icon_url'];
@@ -255,7 +339,15 @@ class WP_Auth0 {
     public static function init_auth0(){
         global $wp_query;
 
-        if(!isset($wp_query->query_vars['auth0']) || $wp_query->query_vars['auth0'] != '1') {
+        if(!isset($wp_query->query_vars['auth0'])) {
+            return;
+        }
+
+        if ($wp_query->query_vars['auth0'] == 'implicit') {
+            self::implicitLogin();
+        }
+
+        if ($wp_query->query_vars['auth0'] != '1') {
             return;
         }
 
@@ -281,7 +373,7 @@ class WP_Auth0 {
         $stateFromGet = json_decode(stripcslashes($state));
 
         $domain = WP_Auth0_Options::get( 'domain' );
-        $endpoint = "https://" . $domain . "/";
+
         $client_id = WP_Auth0_Options::get( 'client_id' );
         $client_secret = WP_Auth0_Options::get( 'client_secret' );
 
@@ -289,23 +381,10 @@ class WP_Auth0 {
         if(empty($client_secret)) wp_die(__('Error: Your Auth0 Client Secret has not been entered in the Auth0 SSO plugin settings.', WPA0_LANG));
         if(empty($domain)) wp_die(__('Error: No Domain defined in Wordpress Administration!', WPA0_LANG));
 
-        $body = array(
-            'client_id' => $client_id,
-            'redirect_uri' => home_url(),
-            'client_secret' =>$client_secret,
-            'code' => $code,
-            'grant_type' => 'authorization_code'
-        );
-
-        $headers = array(
-            'content-type' => 'application/x-www-form-urlencoded'
-        );
-
-
-        $response = wp_remote_post( $endpoint . 'oauth/token', array(
-            'headers' => $headers,
-            'body' => $body
-        ));
+        $response = WP_Auth0_Api_Client::get_token($domain, $client_id, $client_secret, 'authorization_code', array(
+                'redirect_uri' => home_url(),
+                'code' => $code,
+            ));
 
         if ($response instanceof WP_Error) {
 
@@ -322,7 +401,8 @@ class WP_Auth0 {
 
         if(isset($data->access_token)){
             // Get the user information
-            $response = wp_remote_get( $endpoint . 'userinfo/?access_token=' . $data->access_token );
+            $response = WP_Auth0_Api_Client::get_user_info($domain, $data->access_token);
+
             if ($response instanceof WP_Error) {
 
                 self::insertAuth0Error('init_auth0_userinfo',$response);
@@ -335,14 +415,14 @@ class WP_Auth0 {
             }
 
             $userinfo = json_decode( $response['body'] );
-            if (self::login_user($userinfo, $data)) {
-                if ($stateFromGet->interim) {
+            if (self::login_user($userinfo, $data->id_token, $data->access_token)) {
+                if ($stateFromGet !== null && isset($stateFromGet->interim) && $stateFromGet->interim) {
                     include WPA0_PLUGIN_DIR . 'templates/login-interim.php';
                     exit();
 
                 } else {
 
-                    if (isset($stateFromGet->redirect_to)) {
+                    if ($stateFromGet !== null && isset($stateFromGet->redirect_to)) {
                         $redirectURL = $stateFromGet->redirect_to;
                     } else {
                         $redirectURL = WP_Auth0_Options::get( 'default_login_redirection' );
@@ -403,32 +483,25 @@ class WP_Auth0 {
         return $user;
     }
 
-    private static function insertAuth0User($userinfo, $user_id) {
-        global $wpdb;
-        $wpdb->insert(
-            $wpdb->auth0_user,
-            array(
-                'auth0_id' => $userinfo->user_id,
-                'wp_id' => $user_id,
-                'auth0_obj' => serialize($userinfo)
-            ),
-            array(
-                '%s',
-                '%d',
-                '%s'
-            )
-        );
-    }
+    public static function insertAuth0Error($section, $wp_error) {
 
-    public static function insertAuth0Error($section, WP_Error $wp_error) {
+        if ($wp_error instanceof WP_Error) {
+            $code = $wp_error->get_error_code();
+            $message = $wp_error->get_error_message();
+        }
+        elseif($wp_error instanceof Exception) {
+            $code = $wp_error->getCode();
+            $message = $wp_error->getMessage();
+        }
+
         global $wpdb;
         $wpdb->insert(
             $wpdb->auth0_error_logs,
             array(
                 'section' => $section,
                 'date' => date('c'),
-                'code' => $wp_error->get_error_code(),
-                'message' => $wp_error->get_error_message()
+                'code' => $code,
+                'message' => $message
             ),
             array(
                 '%s',
@@ -457,11 +530,11 @@ class WP_Auth0 {
         $wpdb->delete( $wpdb->auth0_user, array( 'wp_id' => $user_id), array( '%d' ) );
     }
 
-    private static function dieWithVerifyEmail($userinfo, $data) {
+    private static function dieWithVerifyEmail($userinfo, $id_token) {
 
         ob_start();
         $domain = WP_Auth0_Options::get( 'domain' );
-        $token =  $data->id_token;
+        $token =  $id_token;
         $email = $userinfo->email;
         $connection = $userinfo->identities[0]->connection;
         $userId = $userinfo->user_id;
@@ -472,10 +545,12 @@ class WP_Auth0 {
         wp_die($html);
 
     }
-    private static function login_user( $userinfo, $data ){
+    public static function login_user( $userinfo, $id_token, $access_token ){
         // If the userinfo has no email or an unverified email, and in the options we require a verified email
         // notify the user he cant login until he does so.
-        if (WP_Auth0_Options::get( 'requires_verified_email' )){
+        $requires_verified_email = WP_Auth0_Options::get( 'requires_verified_email' );
+
+        if ($requires_verified_email == 1){
             if (empty($userinfo->email)) {
                 $msg = __('This account does not have an email associated. Please login with a different provider.', WPA0_LANG);
                 $msg .= '<br/><br/>';
@@ -483,8 +558,9 @@ class WP_Auth0 {
 
                 wp_die($msg);
             }
+
             if (!$userinfo->email_verified) {
-                self::dieWithVerifyEmail($userinfo, $data);
+                self::dieWithVerifyEmail($userinfo, $id_token);
             }
 
         }
@@ -495,70 +571,91 @@ class WP_Auth0 {
             // User exists! Log in
             self::updateAuth0Object($userinfo);
             wp_set_auth_cookie( $user->ID );
+
+            do_action( 'auth0_user_login' , $user->ID, $userinfo, false, $id_token, $access_token );
+
             return true;
         } else {
-            // If the user doesn't exist we need to either create a new one, or asign him to an existing one
-            $isDatabaseUser = false;
-            foreach ($userinfo->identities as $identity) {
-                if ($identity->provider == "auth0") {
-                    $isDatabaseUser = true;
-                }
+
+            try {
+                $creator = new WP_Auth0_UserCreator();
+                $user_id = $creator->create($userinfo, $id_token);
+
+                wp_set_auth_cookie( $user_id );
+
+                do_action( 'auth0_user_login' , $user_id, $userinfo, true, $id_token, $access_token );
             }
-            $joinUser = null;
-            // If the user has a verified email or is a database user try to see if there is
-            // a user to join with. The isDatabase is because we don't want to allow database
-            // user creation if there is an existing one with no verified email
-
-            if (isset($userinfo->email) && ((isset($userinfo->email_verified) && $userinfo->email_verified) || $isDatabaseUser)) {
-                $joinUser = get_user_by( 'email', $userinfo->email );
+            catch (WP_Auth0_CouldNotCreateUserException $e) {
+                $msg = __('Error: Could not create user.', WPA0_LANG);
+                $msg =  ' ' . $e->getMessage();
+                $msg .= '<br/><br/>';
+                $msg .= '<a href="' . site_url() . '">' . __('← Go back', WPA0_LANG) . '</a>';
+                wp_die($msg);
             }
-
-            $allow_signup = WP_Auth0_Options::is_wp_registration_enabled();
-
-            if (!is_null($joinUser) && $joinUser instanceof WP_User) {
-                // If we are here, we have a potential join user
-                // Don't allow creation or assignation of user if the email is not verified, that would
-                // be hijacking
-                if (!$userinfo->email_verified) {
-                    self::dieWithVerifyEmail($userinfo, $data);
-                }
-                $user_id = $joinUser->ID;
-            } elseif ($allow_signup) {
-                // If we are here, we need to create the user
-                $user_id = WP_Auth0_Users::create_user($userinfo);
-
-                // Check if user was created
-
-                if( is_wp_error($user_id) ) {
-                    $msg = __('Error: Could not create user.', WPA0_LANG);
-                    $msg =  ' ' . $user_id->get_error_message();
-                    $msg .= '<br/><br/>';
-                    $msg .= '<a href="' . site_url() . '">' . __('← Go back', WPA0_LANG) . '</a>';
-                    wp_die($msg);
-
-                }elseif($user_id == -2){
-                    $msg = __('Error: Could not create user. The registration process were rejected. Please verify that your account is whitelisted for this system.', WPA0_LANG);
-                    $msg .= '<br/><br/>';
-                    $msg .= '<a href="' . site_url() . '">' . __('← Go back', WPA0_LANG) . '</a>';
-
-                    wp_die($msg);
-                }elseif ($user_id <0){
-                    $msg = __('Error: Could not create user.', WPA0_LANG);
-                    $msg .= '<br/><br/>';
-                    $msg .= '<a href="' . site_url() . '">' . __('← Go back', WPA0_LANG) . '</a>';
-                    wp_die($msg);
-                }
-            } else {
+            catch (WP_Auth0_RegistrationNotEnabledException $e) {
                 $msg = __('Error: Could not create user. The registration process is not available.', WPA0_LANG);
                 $msg .= '<br/><br/>';
                 $msg .= '<a href="' . site_url() . '">' . __('← Go back', WPA0_LANG) . '</a>';
                 wp_die($msg);
             }
-            // If we are here we should have a valid $user_id with a new user or an existing one
-            // log him in, and update the auth0_user table
-            self::insertAuth0User($userinfo, $user_id);
-            wp_set_auth_cookie( $user_id );
+            catch (WP_Auth0_EmailNotVerifiedException $e) {
+                self::dieWithVerifyEmail($e->userinfo, $e->id_token);
+            }
+
+
             return true;
+        }
+    }
+
+    public static function implicitLogin() {
+
+        require_once WPA0_PLUGIN_DIR . 'lib/php-jwt/Exceptions/BeforeValidException.php';
+        require_once WPA0_PLUGIN_DIR . 'lib/php-jwt/Exceptions/ExpiredException.php';
+        require_once WPA0_PLUGIN_DIR . 'lib/php-jwt/Exceptions/SignatureInvalidException.php';
+        require_once WPA0_PLUGIN_DIR . 'lib/php-jwt/Authentication/JWT.php';
+
+        $token = $_POST["token"];
+        $stateFromGet = json_decode(stripcslashes($_POST["state"]));
+
+        $secret = WP_Auth0_Options::get('client_secret');
+        $secret = base64_decode(strtr($secret, '-_', '+/'));
+
+        try {
+            // Decode the user
+            $decodedToken = \JWT::decode($token, $secret, array('HS256'));
+
+            // validate that this JWT was made for us
+            if ($decodedToken->aud != WP_Auth0_Options::get('client_id')) {
+                throw new Exception("This token is not intended for us.");
+            }
+
+            $decodedToken->user_id = $decodedToken->sub;
+
+            if (self::login_user($decodedToken, $token, null)) {
+                if ($stateFromGet !== null && isset($stateFromGet->interim) && $stateFromGet->interim) {
+                    include WPA0_PLUGIN_DIR . 'templates/login-interim.php';
+                    exit();
+
+                } else {
+
+                    if ($stateFromGet !== null && isset($stateFromGet->redirect_to)) {
+                        $redirectURL = $stateFromGet->redirect_to;
+                    } else {
+                        $redirectURL = WP_Auth0_Options::get( 'default_login_redirection' );
+                    }
+
+                    wp_safe_redirect($redirectURL);
+                }
+            }
+
+        } catch(\UnexpectedValueException $e) {
+            self::insertAuth0Error('implicitLogin',$e);
+
+            error_log($e->getMessage());
+            $msg = __('Sorry. There was a problem logging you in.', WPA0_LANG);
+            $msg .= '<br/><br/>';
+            $msg .= '<a href="' . wp_login_url() . '">' . __('← Login', WPA0_LANG) . '</a>';
+            wp_die($msg);
         }
 
     }
@@ -574,12 +671,14 @@ class WP_Auth0 {
         }
 
         // Initialize session
-        if(!session_id()) {
-            session_start();
-        }
+        // if(!session_id()) {
+            // session_start();
+        // }
     }
     public static function end_session() {
-        session_destroy ();
+        if(session_id()) {
+            session_destroy();
+        }
     }
 
     private static function setup_rewrites(){
@@ -664,6 +763,7 @@ class WP_Auth0 {
 
         $paths[] = $path;
         $paths[] = $path.'lib/';
+        $paths[] = $path.'lib/exceptions/';
 
         foreach($paths as $p)
             foreach($exts as $ext){
@@ -701,4 +801,5 @@ function get_currentauth0userinfo() {
     }
 }
 endif;
+
 WP_Auth0::init();

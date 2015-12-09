@@ -34,6 +34,14 @@ class GFUserData{
         global $wpdb;
         
         $table_name = self::get_user_registration_table_name();
+
+        $has_table = $wpdb->get_var( $wpdb->prepare( 'SHOW TABLES LIKE %s', $table_name ) );
+        if ( ! $has_table ) {
+            self::update_table();
+
+            return array();
+        }
+
         $form_table_name = RGFormsModel::get_form_table_name();
         $where = 'WHERE 1 = 1';
         
@@ -210,6 +218,7 @@ class GFUserData{
         
         foreach($bp_rows as $bp_row) {
             $success = xprofile_set_field_data($bp_row['field_id'], $bp_row['user_id'], $bp_row['value']);
+	        xprofile_set_field_visibility_level( $bp_row['field_id'], $bp_row['user_id'], $bp_row['field']->default_visibility );
         }
         
     }

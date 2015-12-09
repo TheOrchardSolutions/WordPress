@@ -1,4 +1,42 @@
 ------------------------------------------------------------
+Version 2.4
+    - Updated minimum Gravity Forms version to 1.9.
+    - Fixed some PHP warnings which could appear when using the polls shortcode action with a form that doesn't have any poll fields.
+    - Fixed an issue with the calculation of results which can lead to inconsistent results being displayed in certain situations on sites with high volume. Props: Antonis Zachopoulos.
+    - Fixed a notice in WP4.3 with Widget constructor deprecation.
+    - Fixed an issue with the placeholder for the select type poll field.
+    - Fixed an issue which caused poll merge tags to be replaced during form render.
+
+------------------------------------------------------------
+Version 2.3
+    - Added spanish (es_ES) translation.
+    - Added support for rendering polls in admin pages. Requires Gravity Forms 1.9.
+    - Added support for the shortcode builder.
+	- Fixed issue where "Other" choice displayed twice in front-end poll results
+	- Fixed a low severity security vulnerability.
+	- Fixed defaults for the shortcode builder
+	- Fixed issue where confirmation text wasn't getting displayed on AJAX forms.
+
+------------------------------------------------------------
+Version 2.2
+	- Added support for Gravity Forms 1.9 form editor drag and drop.
+	- Added function gf_polls to easily get a Poll instance.
+	- Added text domain/path to header.
+	- Updated protected functions to be public.
+	- Updated to have the file class-gf-polls.php and organized code into this file and polls.php.
+	- Updated version to use a variable.
+	- Fixed notices.
+
+------------------------------------------------------------
+Version 2.1
+    - Fixed the field title in the Form Editor
+    - Fixed a PHP warning when overriding a page redirect with the Poll results.
+    - Fixed an issue with the resending of notifications from the entry detail page where the choice values were being displayed instead of the choice text
+	- Updated a few text strings so they may be translated
+	- Updated POT file
+	- Fixed translation text domain in several instances to be gravityformspolls
+
+------------------------------------------------------------
 Version 2.0
 
     - Added integration with the Campaign Monitor Add-On, MailChimp Add-On, AWeber Add-On and Zapier Add-On.

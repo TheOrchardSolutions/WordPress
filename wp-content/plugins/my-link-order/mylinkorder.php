@@ -3,7 +3,7 @@
 Plugin Name: My Link Order
 Plugin URI: http://www.geekyweekly.com/mylinkorder
 Description: My Link Order allows you to set the order in which links and link categories will appear in the sidebar. Uses a drag and drop interface for ordering. Adds a widget with additional options for easy installation on widgetized themes.
-Version: 3.5
+Version: 4.3
 Author: Andrew Charlton
 Author URI: http://www.geekyweekly.com
 Author Email: froman118@gmail.com
@@ -242,9 +242,9 @@ function mylinkorder_loadtranslation() {
 
 class mylinkorder_Widget extends WP_Widget {
 
-	function mylinkorder_Widget() {
+	function __construct() {
 		$widget_ops = array('classname' => 'widget_mylinkorder', 'description' => __( 'Enhanced Link widget provided by My Link Order') );
-		$this->WP_Widget('mylinkorder', __('My Link Order'), $widget_ops);	}
+		parent::__construct('mylinkorder', __('My Link Order'), $widget_ops);	}
 
 	function widget( $args, $instance ) {
 		extract( $args );
@@ -330,7 +330,7 @@ class mylinkorder_Widget extends WP_Widget {
 	
 	function form( $instance ) {
 		//Defaults
-		$instance = wp_parse_args( (array) $instance, array( 'categorize' => '','category' => '', 'category_orderby' => 'order', 'category_order' => 'asc', '_orderby' => 'order', 'order' => 'asc', 'exclude' => '', 'exclude_category' => '', 'include' => '', 'limit' => '', 'title_li' => '', 'link_before' => '', 'link_after' => '', 'between' => '', 'show_images' => '', 'show_description' => '', 'show_name' => '', 'show_rating' => '', 'show_updated' => '', 'hide_invisible' => '' ) );
+		$instance = wp_parse_args( (array) $instance, array( 'categorize' => '','category' => '', 'category_orderby' => 'order', 'category_order' => 'asc', 'orderby' => 'order', 'order' => 'asc', 'exclude' => '', 'exclude_category' => '', 'include' => '', 'limit' => '', 'title_li' => '', 'link_before' => '', 'link_after' => '', 'between' => '', 'show_images' => '', 'show_description' => '', 'show_name' => '', 'show_rating' => '', 'show_updated' => '', 'hide_invisible' => '' ) );
 		
 		$categorize = esc_attr( $instance['categorize'] );
 		$category = esc_attr( $instance['category'] );

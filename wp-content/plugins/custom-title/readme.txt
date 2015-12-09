@@ -1,10 +1,10 @@
 === Custom Title ===
 Contributors: (dyuthichand)
-Donate link: http://dyuthichand.in/
+Donate link: http://dyuthichandran.com/
 Tags: custom title,styling title,custom page title,custom post title ,wp page title
 Requires at least: 2.0.1
 Tested up to: 4
-Stable tag: 2.0
+Stable tag: 2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -39,7 +39,7 @@ Yes .
 
 = Does the plugin supports for post types ? =
 
-No.Right now suctom editor is only available for pages and posts.Post type support will be available in the next verison of this plugin 
+No.Right now custom editor is only available for pages and posts.Post type support will be available in the next verison of this plugin 
 
 
 == Screenshots ==
@@ -50,6 +50,9 @@ No.Right now suctom editor is only available for pages and posts.Post type suppo
 
 
 == Changelog ==
+
+= 2.1 =
+* Added font family to the wordpress editor (version 4) 
 
 = 2.0 =
 * Revised the plugin to make it compatible with the latest version of wordpress (version 4) 

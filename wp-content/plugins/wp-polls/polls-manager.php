@@ -42,7 +42,7 @@ if(!empty($_POST['do'])) {
 			// Poll Total Voters
 			$pollq_totalvoters = intval($_POST['pollq_totalvoters']);
 			// Poll Question
-			$pollq_question = addslashes(trim($_POST['pollq_question']));
+			$pollq_question = addslashes( wp_kses_post( trim( $_POST['pollq_question'] ) ) );
 			// Poll Active
 			$pollq_active = intval($_POST['pollq_active']);
 			// Poll Start Date
@@ -103,7 +103,7 @@ if(!empty($_POST['do'])) {
 						$polla_aids[] = intval($get_polla_aid->polla_aid);
 				}
 				foreach($polla_aids as $polla_aid) {
-					$polla_answers = addslashes(trim($_POST['polla_aid-'.$polla_aid]));
+					$polla_answers = addslashes( wp_kses_post( trim( $_POST['polla_aid-'.$polla_aid] ) ) );
 					$polla_votes = intval($_POST['polla_votes-'.$polla_aid]);
 					$edit_poll_answer = $wpdb->query("UPDATE $wpdb->pollsa SET polla_answers = '$polla_answers', polla_votes = $polla_votes WHERE polla_qid = $pollq_id AND polla_aid = $polla_aid");
 					if(!$edit_poll_answer) {
@@ -121,7 +121,7 @@ if(!empty($_POST['do'])) {
 				$i = 0;
 				$polla_answers_new_votes = $_POST['polla_answers_new_votes'];
 				foreach($polla_answers_new as $polla_answer_new) {
-					$polla_answer_new = addslashes(trim($polla_answer_new));
+					$polla_answer_new = addslashes( wp_kses_post( trim( $polla_answer_new ) ) );
 					if(!empty($polla_answer_new)) {
 						$polla_answer_new_vote = intval($polla_answers_new_votes[$i]);
 						$add_poll_answers = $wpdb->query("INSERT INTO $wpdb->pollsa VALUES (0, $pollq_id, '$polla_answer_new', $polla_answer_new_vote)");
@@ -140,6 +140,7 @@ if(!empty($_POST['do'])) {
 			// Update Lastest Poll ID To Poll Options
 			$latest_pollid = polls_latest_id();
 			$update_latestpoll = update_option('poll_latestpoll', $latest_pollid);
+			do_action( 'wp_polls_update_poll', $latest_pollid );
 			cron_polls_place();
 			break;
 	}
@@ -179,7 +180,7 @@ switch($mode) {
 			<table class="form-table">
 				<tr>
 					<th width="20%" scope="row" valign="top"><?php _e('Question', 'wp-polls') ?></th>
-					<td width="80%"><input type="text" size="70" name="pollq_question" value="<?php echo htmlspecialchars($poll_question_text); ?>" /></td>
+					<td width="80%"><input type="text" size="70" name="pollq_question" value="<?php echo esc_attr( $poll_question_text ); ?>" /></td>
 				</tr>
 			</table>
 			<!-- Poll Answers -->
@@ -206,8 +207,8 @@ switch($mode) {
 								$pollip_answers[$polla_aid] = $polla_answers;
 								echo "<tr id=\"poll-answer-$polla_aid\">\n";
 								echo '<th width="20%" scope="row" valign="top">'.sprintf(__('Answer %s', 'wp-polls'), number_format_i18n($i)).'</th>'."\n";
-								echo "<td width=\"60%\"><input type=\"text\" size=\"50\" maxlength=\"200\" name=\"polla_aid-$polla_aid\" value=\"".htmlspecialchars($polla_answers)."\" />&nbsp;&nbsp;&nbsp;";
-								echo "<input type=\"button\" value=\"".__('Delete', 'wp-polls')."\" onclick=\"delete_poll_ans($poll_id, $polla_aid, $polla_votes, '".sprintf(esc_js(__('You are about to delete this poll\'s answer \'%s\'.', 'wp-polls')), esc_js(htmlspecialchars($polla_answers)))."', '".wp_create_nonce('wp-polls_delete-poll-answer')."');\" class=\"button\" /></td>\n";
+								echo "<td width=\"60%\"><input type=\"text\" size=\"50\" maxlength=\"200\" name=\"polla_aid-$polla_aid\" value=\"". esc_attr( $polla_answers ) . "\" />&nbsp;&nbsp;&nbsp;";
+								echo "<input type=\"button\" value=\"".__('Delete', 'wp-polls')."\" onclick=\"delete_poll_ans($poll_id, $polla_aid, $polla_votes, '".sprintf(esc_js(__('You are about to delete this poll\'s answer \'%s\'.', 'wp-polls')), esc_js( esc_attr( $polla_answers ) ) ) . "', '".wp_create_nonce('wp-polls_delete-poll-answer')."');\" class=\"button\" /></td>\n";
 								echo '<td width="20%" align="'.$last_col_align.'">'.number_format_i18n($polla_votes)." <input type=\"text\" size=\"4\" id=\"polla_votes-$polla_aid\" name=\"polla_votes-$polla_aid\" value=\"$polla_votes\" onblur=\"check_totalvotes();\" /></td>\n</tr>\n";
 								$poll_actual_totalvotes += $polla_votes;
 								$i++;
@@ -302,8 +303,8 @@ switch($mode) {
 					$poll_close_display = 'none';
 				}
 			?>
-				<input type="button" class="button" name="do" id="close_poll" value="<?php _e('Close Poll', 'wp-polls'); ?>" onclick="closing_poll(<?php echo $poll_id; ?>, '<?php printf(esc_js(__('You are about to CLOSE this poll \'%s\'.', 'wp-polls')), htmlspecialchars(esc_js($poll_question_text))); ?>', '<?php echo wp_create_nonce('wp-polls_close-poll'); ?>');" style="display: <?php echo $poll_close_display; ?>;" />
-				<input type="button" class="button" name="do" id="open_poll" value="<?php _e('Open Poll', 'wp-polls'); ?>" onclick="opening_poll(<?php echo $poll_id; ?>, '<?php printf(esc_js(__('You are about to OPEN this poll \'%s\'.', 'wp-polls')), htmlspecialchars(esc_js($poll_question_text))); ?>', '<?php echo wp_create_nonce('wp-polls_open-poll'); ?>');" style="display: <?php echo $poll_open_display; ?>;" />
+				<input type="button" class="button" name="do" id="close_poll" value="<?php _e('Close Poll', 'wp-polls'); ?>" onclick="closing_poll(<?php echo $poll_id; ?>, '<?php printf(esc_js(__('You are about to CLOSE this poll \'%s\'.', 'wp-polls')), esc_attr( esc_js( $poll_question_text ) ) ); ?>', '<?php echo wp_create_nonce('wp-polls_close-poll'); ?>');" style="display: <?php echo $poll_close_display; ?>;" />
+				<input type="button" class="button" name="do" id="open_poll" value="<?php _e('Open Poll', 'wp-polls'); ?>" onclick="opening_poll(<?php echo $poll_id; ?>, '<?php printf(esc_js(__('You are about to OPEN this poll \'%s\'.', 'wp-polls')), esc_attr( esc_js( $poll_question_text ) ) ); ?>', '<?php echo wp_create_nonce('wp-polls_open-poll'); ?>');" style="display: <?php echo $poll_open_display; ?>;" />
 				&nbsp;&nbsp;<input type="button" name="cancel" value="<?php _e('Cancel', 'wp-polls'); ?>" class="button" onclick="javascript:history.go(-1)" />
 			</p>
 		</div>
@@ -392,7 +393,7 @@ switch($mode) {
 								} else if(in_array($poll_id, $multiple_polls)) {
 										echo '<strong>'.__('Displayed:', 'wp-polls').'</strong> ';
 								}
-								echo "$poll_question</td>\n";
+								echo wp_kses_post( $poll_question )."</td>\n";
 								echo '<td>'.number_format_i18n($poll_totalvoters)."</td>\n";
 								echo "<td>$poll_date</td>\n";
 								echo "<td>$poll_expiry_text</td>\n";

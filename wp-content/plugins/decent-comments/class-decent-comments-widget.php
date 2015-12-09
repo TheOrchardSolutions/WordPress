@@ -58,7 +58,7 @@ class Decent_Comments_Widget extends WP_Widget {
 	 * Creates a Decent Comments widget.
 	 */
 	function Decent_Comments_Widget() {
-		parent::WP_Widget( false, $name = 'Decent Comments' );
+		parent::__construct( false, $name = 'Decent Comments' );
 	}
 
 	/**

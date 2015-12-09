@@ -59,16 +59,16 @@ $output = qq|
 	<body id="index" class="index">
 		<div class="container">
 			<!-- inactive class - showgrid -->
-			<h4 class="printme">Mac Consulting Group Inc<br />662 Jefferson Highway<br />Baton Rouge, LA 70806<br />225-933-5311</h4>
+			<h4 class="printme">The Orchard Solutions<br />662 Jefferson Highway<br />Baton Rouge, LA 70806<br />225-933-5311</h4>
 			<h2 id="mcglogo">
 				<br>
 				<small>Monthly Support Agreement</small>
 			</h2>
 			<hr>
 			<div>
-				<h3 id=""><strong>Thank you for choosing the Mac Consulting Group, Inc.</strong></h3>
+				<h3 id=""><strong>Thank you for choosing the The Orchard Solutions</strong></h3>
 				<p>
-				This Monthly Support Agreement sign-up form creates an agreement between Mac Consulting Group, Inc. and you, the Client.
+				This Monthly Support Agreement sign-up form creates an agreement between The Orchard Solutions and you, the Client.
 				</p>
 				
 				<h3 id=""><strong>Members of our Personal Support agreement receive:</strong></h3>
@@ -78,12 +78,12 @@ $output = qq|
 					<li>Hardware and software sales will enjoy a 5.5% discount</li>
 				</ul>
 				
-				<h3 id=">"<strong>Monitored Computers have:</strong></h3>
+				<h3 id=""><strong>Monitored Computers have:</strong></h3>
 				<ul>
 					<li>Automated monitoring and reporting on the overall health of your computer, via Watchman Monitoring</li>
 					<li>A chance to identify small problems before they get develop to large ones, or to data loss.</li>
 					<li>Active notification of issues discovered by Watchman Monitoring, as it checks your backup status, hard drive, and more.</li>
-					<li>You get peace of mind knowing that the Mac Consulting Group, Inc. will contact you if your computer is showing signs of failure.</li>
+					<li>You get peace of mind knowing that the The Orchard Solutions will contact you if your computer is showing signs of failure.</li>
 				</ul>
 				
 			<h3 id=""><strong>To create your support agreement</strong></h3>
@@ -99,7 +99,7 @@ $output = qq|
 		        	We are happy to speak with you to create your agreement. Call 225-933-5311.
 				</p>
 
-				<p style="text-align: right;"><em>Sincerely,</em><br> <strong>Allen Hancock</strong> and the <strong>Mac Consulting Group, Inc</strong></p>
+				<p style="text-align: right;"><em>Sincerely,</em><br> <strong>Allen Hancock</strong> and the <strong>The Orchard Solutions</strong></p>
 
 			</div>
 			<hr>
@@ -255,7 +255,7 @@ $output = qq|
 							<tr>
 								<td valign="top">
 									<a style="color:black; text-decoration: none;" target=_blank href="https://macconsultinggroup.com/services/support-packages/personal-support"><strong> Personal Support Users</strong></a><br>
-									The total number of people who will be contacting Mac Consulting Group, Inc. for technical support.<br>
+									The total number of people who will be contacting The Orchard Solutions for technical support.<br>
 								</td>
 								<td valign="top" align="right" style="padding-right: 10px; text-align: right;">
 									<span id="price_item_2">&#36;25</span>

@@ -1,10 +1,40 @@
 -----------------------------------------------------------------------------
+Version 2.1
+    - Updated logging statements.
+    - Fixed PHP notice when form returns with a validation error.
+    - Fixed an issue with the upgrade routine which could prevent the add-on settings being migrated.
+
+-----------------------------------------------------------------------------
+Version 2.0
+	- Migration to Add-On Framework.
+	- Updated subscription so that extra "voided" transaction is not created.
+
+-----------------------------------------------------------------------------
+Version 1.6.1
+	- Updated POT file
+
+-----------------------------------------------------------------------------
+Version 1.6
+    - Added custom validation for the credit card field on cardholder's name.
+    - Added support for Pound Sterling and Euro.
+    - Added hook to allow authorization amount to be changed.
+    - Added ability to cancel product payment capture. This will allow customers that want only the CC authorization process to take place and not the actual payment capture.
+    - Added form title as subscription's order description to be consistent with initial authorize only transaction.
+    - Updated cron to hourly and removed process_renewals() function from init.
+    - Updated credit card number so that spaces are removed prior to sending it to Authorize.net.
+    - Fixed issue where product names with tab, newlines, and/or return characters would break transaction in Authorize.net.
+    - Fixed issue where field labels with newlines may break the edit feed UI.
+    - Fixed PHP warnings for some unsaved feed settings.
+    - Fixed issue where setup fee could not have decimal values (i.e. 49.99).
+	- Fixed issue with Manage WP integration.
+
+-----------------------------------------------------------------------------
 Version 1.5
     - Added POT file
     - Fixed issue with setup() running too late in the process and creating an error when first installed
 	- Fixed notice
     - Fixed issue with subscriptions failing to be cancelled. Subscription id was being recorded in DB with incorrect value (transaction id).
-    
+
 -----------------------------------------------------------------------------
 Version 1.4
     - Added hook to allow the entry id to be saved as part of the Authorize.net transaction, in the Invoice Number field.

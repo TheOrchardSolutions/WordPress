@@ -4,7 +4,7 @@
  * Plugin Name: Google Apps Login
  * Plugin URI: http://wp-glogin.com/
  * Description: Simple secure login for Wordpress through users' Google Apps accounts (uses secure OAuth2, and MFA if enabled)
- * Version: 2.8.3
+ * Version: 2.8.15
  * Author: Dan Lester
  * Author URI: http://wp-glogin.com/
  * License: GPL3
@@ -17,7 +17,7 @@ require_once( plugin_dir_path(__FILE__).'/core/core_google_apps_login.php' );
 
 class basic_google_apps_login extends core_google_apps_login {
 	
-	protected $PLUGIN_VERSION = '2.8.3';
+	protected $PLUGIN_VERSION = '2.8.15';
 	
 	// Singleton
 	private static $instance = null;
@@ -41,20 +41,25 @@ class basic_google_apps_login extends core_google_apps_login {
 			$this->save_option_galogin($new_option);
 		}
 	}
+
+    protected function add_actions() {
+        parent::add_actions();
+        add_action('wp_ajax_gal_drip_submitted', array($this, 'gal_drip_submitted'));
+    }
 		
 	protected function ga_section_text_end() {
 	?>
 		<p><b><?php _e( 'For full support, and premium features that greatly simplify WordPress user management for admins, please visit:' , 'google-apps-login'); ?>
-		<a href="http://wp-glogin.com/google-apps-login-premium/?utm_source=Admin%20Promo&utm_medium=freemium&utm_campaign=Freemium" target="_blank">http://wp-glogin.com/</a></b>
+		<a href="http://wp-glogin.com/glogin/?utm_source=Admin%20Promo&utm_medium=freemium&utm_campaign=Freemium" target="_blank">http://wp-glogin.com/</a></b>
 		</p>
 	<?php
 	}
 	
 	protected function ga_options_do_sidebar() {
 		$drivelink = "http://wp-glogin.com/drive/?utm_source=Admin%20Sidebar&utm_medium=freemium&utm_campaign=Drive";
-		$upgradelink = "http://wp-glogin.com/google-apps-login-premium/?utm_source=Admin%20Sidebar&utm_medium=freemium&utm_campaign=Freemium";
+		$upgradelink = "http://wp-glogin.com/glogin/?utm_source=Admin%20Sidebar&utm_medium=freemium&utm_campaign=Freemium";
 		$avatarslink = "http://wp-glogin.com/avatars/?utm_source=Admin%20Sidebar&utm_medium=freemium&utm_campaign=Avatars";
-		$aioilink = "http://wp-glogin.com/all-in-one-intranet/?utm_source=Admin%20Sidebar&utm_medium=freemium&utm_campaign=AIOI";
+		$aioilink = "http://wp-glogin.com/intranet/?utm_source=Admin%20Sidebar&utm_medium=freemium&utm_campaign=AIOI";
 		
 		$adverts = Array();
 		
@@ -89,6 +94,8 @@ class basic_google_apps_login extends core_google_apps_login {
 		$startnum = (int)date('j');
 		
 		echo '<div id="gal-tableright" class="gal-tablecell">';
+
+		$this->output_drip_form();
 		
 		for ($i=0 ; $i<2 ; $i++) {
 			echo $adverts[($startnum+$i) % 4];
@@ -97,6 +104,49 @@ class basic_google_apps_login extends core_google_apps_login {
 		echo '</div>';
 		
 	}
+
+	protected function output_drip_form() {
+        $userdata = wp_get_current_user();
+        if (!$userdata) {
+            return;
+        }
+		$signedup = get_user_meta($userdata->ID, 'gal_user_signedup_to_drip', true);
+
+		if (!$signedup) {
+
+            $useremail = $userdata->user_email;
+
+			?>
+			<div>
+				<form action="https://www.getdrip.com/forms/9468024/submissions" method="post" target="_blank" data-drip-embedded-form="9468024" id="gal-drip-signup-form">
+					<h3 data-drip-attribute="headline">Get the most out of Google Apps and WordPress</h3>
+					<p data-drip-attribute="description">
+                        Register your email address to receive information on building a WordPress site
+                        that truly integrates Google Apps and WordPress.
+                    </p>
+					<div>
+						<label for="fields[email]">Email Address</label>
+                        <br />
+						<input type="email" name="fields[email]" value="<?php echo esc_js($useremail); ?>" />
+                        <br />
+						<input type="submit" name="submit" value="Sign Up" data-drip-attribute="sign-up-button" class="gal-drip-signup-button" />
+					</div>
+                    <p class="gal-drip-unsubscribe">
+                        You can unsubscribe at any time, and we will never share your email address.
+                    </p>
+				</form>
+			</div>
+			<?php
+		}
+	}
+
+    public function gal_drip_submitted() {
+        $userdata = wp_get_current_user();
+        if (!$userdata) {
+            return;
+        }
+        update_user_meta($userdata->ID, 'gal_user_signedup_to_drip', true);
+    }
 	
 	protected function ga_domainsection_text() {
 		echo '<div id="domain-section" class="galtab">';
@@ -129,7 +179,7 @@ class basic_google_apps_login extends core_google_apps_login {
 	protected function set_other_admin_notices() {
 		global $pagenow;
 		if (in_array($pagenow, array('users.php', 'user-new.php')) ) {
-			$no_thanks = get_site_option($this->get_options_name().'_no_thanks', false);
+			$no_thanks = get_user_meta(get_current_user_id(), $this->get_options_name().'_no_thanks', true);
 			if (!$no_thanks) {
 				if (isset($_REQUEST['google_apps_login_action']) && $_REQUEST['google_apps_login_action']=='no_thanks') {
 					$this->ga_said_no_thanks(null);
@@ -144,16 +194,16 @@ class basic_google_apps_login extends core_google_apps_login {
 	}
 	
 	public function ga_said_no_thanks( $data ) {
-	   	update_site_option($this->get_options_name().'_no_thanks', true);
+		update_user_meta(get_current_user_id(), $this->get_options_name().'_no_thanks', true);
 		wp_redirect( remove_query_arg( 'google_apps_login_action' ) );
 		exit;
 	}
 	
 	public function ga_user_screen_upgrade_message() {
-		$purchase_url = 'http://wp-glogin.com/google-apps-login-premium/?utm_source=User%20Pages&utm_medium=freemium&utm_campaign=Freemium';
+		$purchase_url = 'http://wp-glogin.com/glogin/?utm_source=User%20Pages&utm_medium=freemium&utm_campaign=Freemium';
 		$nothanks_url = add_query_arg( 'google_apps_login_action', 'no_thanks' );
 		echo '<div class="updated"><p>';
-		echo sprintf( __('Completely forget about WordPress user management - upgrade to <a href="%s">Google Apps Login premium</a> to automatically sync users from your Google Apps domain', 'google-apps-login'),
+		echo sprintf( __('Completely forget about WordPress user management - upgrade to <a href="%s">Google Apps Login Premium or Enterprise</a> to automatically sync users from your Google Apps domain', 'google-apps-login'),
 				$purchase_url );
 		echo ' &nbsp; <a href="'.$purchase_url.'" class="button-secondary">' . __( 'Find out more', 'google-apps-login' ) . '</a>';
 		echo '&nbsp;<a href="' . esc_url( $nothanks_url ) . '" class="button-secondary">' . __( 'No Thanks', 'google-apps-login' ) . '</a>';

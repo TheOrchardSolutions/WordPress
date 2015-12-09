@@ -3,8 +3,8 @@ Contributors: itthinx
 Donate link: http://www.itthinx.com/plugins/decent-comments
 Tags: avatar, comment, comment API, comment excerpt, comment excerpts, comment widget, comment shortcode, comments, excerpt, excerpts, latest comments, recent comments, shortcode, shortcodes
 Requires at least: 4.0
-Tested up to: 4.2
-Stable tag: 1.3.7
+Tested up to: 4.3.1
+Stable tag: 1.3.8
 License: GPLv3
 
 Decent Comments shows what people say. Provides widgets, shortcodes and API to display comments including author avatars, links, comment excerpts.
@@ -109,6 +109,10 @@ Translations are also welcome!
 
 == Changelog ==
 
+= 1.3.8 =
+* WordPress 4.3.x compatibility checked
+* Fixed PHP notice related to widget constructor.
+
 = 1.3.7 =
 * Fixed some PHP notices thrown due to missing isset and empty checks on the back end.
 
@@ -178,5 +182,5 @@ Translations are also welcome!
 
 == Upgrade Notice ==
 
-= 1.3.7 =
-* This release has been tested for WordPress 4.2, has the new option to show date and time of comments and fixes some PHP notices due to missing value checks.
+= 1.3.8 =
+* This release has been tested for WordPress 4.3.x and fixes an issue related to widgets.

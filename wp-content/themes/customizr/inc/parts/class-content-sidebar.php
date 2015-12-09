@@ -35,14 +35,14 @@ if ( ! class_exists( 'TC_sidebar' ) ) :
       */
       function tc_set_sidebar_hooks() {
         //displays left sidebar
-        add_action ( '__before_article_container'  , array( $this , 'tc_sidebar_display' ) );
-        add_action ( '__before_left_sidebar'       , array( $this , 'tc_social_in_sidebar' ) );
+    		add_action ( '__before_article_container'  , array( $this , 'tc_sidebar_display' ) );
+    		add_action ( '__before_left_sidebar'       , array( $this , 'tc_social_in_sidebar' ) );
 
         //displays right sidebar
-        add_action ( '__after_article_container'   , array( $this , 'tc_sidebar_display' ) );
-        add_action ( '__before_right_sidebar'      , array( $this , 'tc_social_in_sidebar' ) );
+    		add_action ( '__after_article_container'   , array( $this , 'tc_sidebar_display' ) );
+    		add_action ( '__before_right_sidebar'      , array( $this , 'tc_social_in_sidebar' ) );
 
-        //since 3.2.0 show/hode the WP built-in widget icons
+        //since 3.2.0 show/hide the WP built-in widget icons
         add_filter ( 'tc_left_sidebar_class'       , array( $this , 'tc_set_sidebar_wrapper_widget_class' ) );
         add_filter ( 'tc_right_sidebar_class'      , array( $this , 'tc_set_sidebar_wrapper_widget_class' ) );
       }
@@ -66,12 +66,15 @@ if ( ! class_exists( 'TC_sidebar' ) ) :
           return;
         //gets current screen layout
         $screen_layout        = TC_utils::tc_get_layout( TC_utils::tc_id() , 'sidebar'  );
-
+		    // GY: add relative right and left for LTR/RTL sites
+        $rel_left             = is_rtl() ? 'right' : 'left';
+        $rel_right            = is_rtl() ? 'left' : 'right';
         //gets position from current hook and checks the context
         $position             = apply_filters(
                                 'tc_sidebar_position',
-                                strpos(current_filter(), 'before') ? 'left' : 'right'
+                                strpos(current_filter(), 'before') ? $rel_left : $rel_right
         );
+
         if ( 'left' == $position && $screen_layout != 'l' && $screen_layout != 'b' )
           return;
         if ( 'right' == $position && $screen_layout != 'r' && $screen_layout != 'b' )
@@ -112,38 +115,38 @@ if ( ! class_exists( 'TC_sidebar' ) ) :
 
       /**
       * When do we display this placeholder ?
-      * -User logged in
-      * -Admin
-      * -User did not dismiss the notice
+      * User logged in
+      * + Admin
+      * + User did not dismissed the notice
       * @param : string position left or right
       * @since Customizr 3.3
       */
       private function tc_display_sidebar_placeholder( $position ) {
-        if ( ! is_user_logged_in() || ! current_user_can('edit_theme_options') || 'disabled' == get_transient( 'tc_widget_placehold_sidebar' ) || ! apply_filters('tc_display_widget_placeholders' , true ) )
+        if ( ! TC_placeholders::tc_is_widget_placeholder_enabled( 'sidebar' ) )
           return;
         ?>
-        <aside class="tc-widget-placeholder">
+        <aside class="tc-placeholder-wrap tc-widget-placeholder">
           <?php
             printf('<span class="tc-admin-notice">%1$s</span>',
               __( 'This block is visible for admin users only.', 'customizr')
             );
 
-            printf('<h4>%1$s %2$s, %3$s</h4>',
-              __( 'The sidebar : ', 'customizr'),
-              $position,
-              __( 'has no widgets' ,'customizr')
+            printf('<h4>%1$s</h4>',
+              sprintf( __( 'The %s sidebar has no widgets.', 'customizr'), $position )
             );
 
-            printf('<p>%1s <a href="%2$s" title="%3$s" target="blank">%4$s</a></p>',
-              __( 'You can add widgets to this sidebar in :', 'customizr' ),
-              admin_url( 'widgets.php' ),
-              __( 'Add widgets' , 'customizr'),
-              __( 'appearance > widgets' , 'customizr' )
+            printf('<p><strong>%1$s</strong></p>',
+              sprintf( __("Add widgets to this sidebar %s or %s.", "customizr"),
+                sprintf( '<a href="%1$s" title="%2$s">%3$s</a>', TC_utils::tc_get_customizer_url( array( 'panel' => 'widgets') ), __( "Add widgets", "customizr"), __("now", "customizr") ),
+                sprintf('<a class="tc-inline-dismiss-notice" data-position="sidebar" href="#" title="%1$s">%1$s</a>',
+                  __( 'dismiss this notice', 'customizr')
+                )
+              )
             );
 
             printf('<p><i>%1s <a href="http:%2$s" title="%3$s" target="blank">%4$s</a></i></p>',
               __( 'You can also remove this sidebar by changing the current page layout.', 'customizr' ),
-              '//doc.presscustomizr.com/customizr/content-options/#pages-and-posts-layout',
+              '//docs.presscustomizr.com/customizr/content-options/#pages-and-posts-layout',
               __( 'Changing the layout in the Customizr theme' , 'customizr'),
               __( 'See the theme documentation.' , 'customizr' )
             );
